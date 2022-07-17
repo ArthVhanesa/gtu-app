@@ -1,26 +1,40 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:gtu_app/components/KeepItUp.dart';
+import 'package:gtu_app/ScreenRouter.dart';
 import 'package:gtu_app/data/CardData.dart';
-import 'package:gtu_app/screens/logIn.dart';
 import 'package:gtu_app/style.dart';
 
-class SqureTile extends StatelessWidget {
-  final AppColors _color = AppColors();
-  final FontStyle _fontStyle = FontStyle();
-
+class SquareCard extends StatelessWidget {
   final CardData card;
 
-  SqureTile({
+  SquareCard({
     Key? key,
     required this.card,
   }) : super(key: key);
 
+  final AppColors _color = AppColors();
+  final FontStyle _fontStyle = FontStyle();
+  bool islinkAvailable = false;
+
   @override
   Widget build(BuildContext context) {
+    if (card.onTapLink != '') {
+      islinkAvailable = true;
+    }
+
     return InkWell(
-      onTap: () => Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const LogInScreen())),
+      onTap: () {
+        if (islinkAvailable) {
+          print(card.onTapLink);
+        } else {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ScreenRoute(
+                        card: card,
+                      )));
+        }
+      },
       child: Container(
         width: MediaQuery.of(context).size.width * 0.4,
         height: 170,

@@ -1,29 +1,44 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
+import 'package:gtu_app/ScreenRouter.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/style.dart';
 
-class RectangleTile extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
+class RectangleCard extends StatelessWidget {
   final CardData card;
-  bool tagLineFlag;
 
-  RectangleTile({
+  RectangleCard({
     Key? key,
     required this.card,
-    required this.tagLineFlag,
   }) : super(key: key);
+
+  final FontStyle _fontStyle = FontStyle();
+
+  bool istagLine = false;
+  bool islinkAvailable = false;
 
   @override
   Widget build(BuildContext context) {
     if (card.tagline != '') {
-      tagLineFlag = true;
+      istagLine = true;
+    }
+    if (card.onTapLink != '') {
+      islinkAvailable = true;
     }
 
     return InkWell(
-      onTap: () => {print('Rectangle button pressed')},
+      onTap: () {
+        if (islinkAvailable) {
+          print(card.onTapLink);
+        } else {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ScreenRoute(
+                        card: card,
+                      )));
+        }
+      },
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: 160,
@@ -43,19 +58,22 @@ class RectangleTile extends StatelessWidget {
                   Text(
                     card.title,
                     style: _fontStyle.montserrat(
-                        tagLineFlag ? 40 : 32, FontWeight.w700),
+                        istagLine ? 38 : 32, FontWeight.w700),
                   ),
-                  tagLineFlag
+                  SizedBox(
+                    height: istagLine ? 5 : 0,
+                  ),
+                  istagLine
                       ? Text(
                           card.tagline,
-                          style: _fontStyle.montserrat(15, FontWeight.w500),
+                          style: _fontStyle.montserrat(13, FontWeight.w500),
                         )
                       : Text(
-                          card.subTitle,
+                          card.subtitle,
                           style: _fontStyle.montserrat(30, FontWeight.w700),
                         ),
                   SizedBox(
-                    height: tagLineFlag ? 10 : 0,
+                    height: istagLine ? 10 : 0,
                   )
                 ],
               ),

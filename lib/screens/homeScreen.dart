@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gtu_app/components/BoxComponent.dart';
+import 'package:gtu_app/components/HomeScreenTile.dart';
 import 'package:gtu_app/components/KeepItUp.dart';
 import 'package:gtu_app/components/SearchBar.dart';
 import 'package:gtu_app/data/TitleData.dart';
@@ -17,14 +17,28 @@ class _HomeScreenState extends State<HomeScreen> {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
+  // late ScrollController controller;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   controller = ScrollController();
+  // }
+
+  // @override
+  // void dispose() {
+  //   controller.dispose();
+  //   super.dispose();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: _colors.bgColor,
       body: SafeArea(
-          child: Container(
-        padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+          child: Padding(
+        padding: padding,
         child: Column(
           children: [
             const SizedBox(
@@ -52,17 +66,26 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 10,
             ),
             Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.only(top: 30),
-                itemCount: tile.length + 1,
+              child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
-                itemBuilder: (BuildContext context, int index) {
-                  return tile.length != index
-                      ? BoxComponent(
-                          tileData: tile[index],
-                        )
-                      : KeepItUp();
-                },
+                child: Column(
+                  children: [
+                    ListView.separated(
+                      padding: const EdgeInsets.only(top: 30),
+                      itemCount: tile.length,
+                      shrinkWrap: true,
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 60),
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (BuildContext context, int index) {
+                        return HomeScreenTile(
+                          tile: tile[index],
+                        );
+                      },
+                    ),
+                    KeepItUp()
+                  ],
+                ),
               ),
             )
           ],

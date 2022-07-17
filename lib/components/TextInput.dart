@@ -12,7 +12,6 @@ class TextInput extends StatelessWidget {
   final String titleName;
   final TextInputType keyboardType;
   final RegExp textInputFormatter;
-  // final MaxLengthEnforcement maxLengthEnforcement;
   final TextEditingController controller;
 
   TextInput({
@@ -23,7 +22,6 @@ class TextInput extends StatelessWidget {
     required this.titleName,
     required this.keyboardType,
     required this.textInputFormatter,
-    // required this.maxLengthEnforcement,
     required this.controller,
   }) : super(key: key);
 
