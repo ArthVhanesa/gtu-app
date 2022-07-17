@@ -12,7 +12,6 @@ class CardData {
   String id;
   String title;
   String tagline;
-  String subtitle;
   Color color;
   String image;
   String onTapLink;
@@ -25,7 +24,6 @@ class CardData {
     required this.id,
     required this.title,
     required this.tagline,
-    required this.subtitle,
     required this.color,
     required this.image,
     required this.onTapLink,
@@ -39,7 +37,6 @@ CardData searchResultScreen = CardData(
     id: 'Search Result Screen',
     title: '',
     tagline: '',
-    subtitle: '',
     color: _colors.lavenderColor,
     image: searchImg,
     onTapLink: '',
@@ -51,7 +48,6 @@ CardData syllabus = CardData(
     id: 'Syllabus Screen',
     title: 'Syllabus',
     tagline: '',
-    subtitle: '',
     color: _colors.lightMossGreenColor,
     image: syllabusImg,
     onTapLink: '',
@@ -63,7 +59,6 @@ CardData questionPaper = CardData(
     id: 'Question Paper Screen',
     title: 'Question Paper',
     tagline: '',
-    subtitle: '',
     color: _colors.lavenderColor,
     image: questionPaperImg,
     onTapLink: '',
@@ -75,7 +70,6 @@ CardData result = CardData(
     id: 'Result Screen',
     title: 'Result',
     tagline: 'All you need is here',
-    subtitle: '',
     color: _colors.waterBlueColor,
     image: resultImg,
     onTapLink: '',
@@ -87,7 +81,6 @@ CardData circular = CardData(
     id: 'Circular Screen',
     title: 'Circular',
     tagline: '',
-    subtitle: '',
     color: _colors.lightYellowColor,
     image: circularImg,
     onTapLink: '',
@@ -100,7 +93,6 @@ CardData academicCalendar = CardData(
     id: 'Academic Calendar Screen',
     title: 'Academic Calendar',
     tagline: '',
-    subtitle: '',
     color: _colors.lightOrangeColor,
     image: academicCalendarImg,
     onTapLink: '',
@@ -111,9 +103,8 @@ CardData academicCalendar = CardData(
 
 CardData studentCorner = CardData(
     id: 'Student Corner Screen',
-    title: 'Student',
+    title: 'Student Corner',
     tagline: '',
-    subtitle: 'Corner',
     color: _colors.lightPinkColor,
     image: studentCornerImg,
     onTapLink: '',
@@ -126,7 +117,6 @@ CardData examTimetable = CardData(
     id: 'Exam Timetable Screen',
     title: 'Exam Timetable',
     tagline: '',
-    subtitle: '',
     color: _colors.lightRedColor,
     image: examTimetableImg,
     onTapLink: '',
@@ -139,7 +129,6 @@ CardData pointActivity = CardData(
     id: '100 Point Activity',
     title: 'Point Activity',
     tagline: '',
-    subtitle: '',
     color: _colors.lightPistaColor,
     image: pointActivityImg,
     onTapLink: 'link', //pass link here
@@ -150,9 +139,8 @@ CardData pointActivity = CardData(
 
 CardData studentPortal = CardData(
     id: 'Student Portal',
-    title: 'Student',
+    title: 'Student Portal',
     tagline: '',
-    subtitle: 'Portal',
     color: _colors.lightGreenColor,
     image: studentPortalImg,
     onTapLink: 'link', //pass link here
@@ -167,7 +155,6 @@ CardData resultTile = CardData(
     id: 'Result',
     title: 'Result',
     tagline: '',
-    subtitle: '',
     color: _colors.lightMossGreenColor,
     image: resultImageImg,
     onTapLink: 'link', //pass link here
@@ -180,7 +167,6 @@ CardData midMarks = CardData(
     id: 'Mid marks',
     title: 'Internal/Mid Marks',
     tagline: '',
-    subtitle: '',
     color: _colors.lavenderColor,
     image: midMarksImg,
     onTapLink: 'link', //pass link here
@@ -193,7 +179,6 @@ CardData gradeHistory = CardData(
     id: 'Grade History',
     title: 'Grade History',
     tagline: '',
-    subtitle: '',
     color: _colors.lightlavenderColor,
     image: gradeHistoryImg,
     onTapLink: 'link', //pass link here
@@ -206,7 +191,6 @@ CardData percentageCalculator = CardData(
     id: 'Percentage Calculator Screen',
     title: 'Percentage Calculator',
     tagline: '',
-    subtitle: '',
     color: _colors.lightOrangeColor,
     image: percentageCalculatorImg,
     onTapLink: '',
@@ -220,7 +204,6 @@ CardData profileScreen = CardData(
     id: 'Profile Screen',
     title: '',
     tagline: '',
-    subtitle: '',
     color: _colors.whiteColor,
     image: profileImageImg,
     onTapLink: '',
@@ -232,7 +215,6 @@ CardData settingScreen = CardData(
     id: 'Setting Screen',
     title: '',
     tagline: '',
-    subtitle: '',
     color: _colors.whiteColor,
     image: settingImg,
     onTapLink: '',

@@ -1,4 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:ffi';
+
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gtu_app/ScreenRouter.dart';
 import 'package:gtu_app/data/CardData.dart';
@@ -13,6 +16,7 @@ class RectangleCard extends StatelessWidget {
   }) : super(key: key);
 
   final FontStyle _fontStyle = FontStyle();
+  final AppColors _colors = AppColors();
 
   bool istagLine = false;
   bool islinkAvailable = false;
@@ -51,35 +55,45 @@ class RectangleCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    card.title,
-                    style: _fontStyle.montserrat(
-                        istagLine ? 38 : 32, FontWeight.w700),
-                  ),
-                  SizedBox(
-                    height: istagLine ? 5 : 0,
-                  ),
-                  istagLine
-                      ? Text(
-                          card.tagline,
-                          style: _fontStyle.montserrat(13, FontWeight.w500),
-                        )
-                      : Text(
-                          card.subtitle,
-                          style: _fontStyle.montserrat(30, FontWeight.w700),
-                        ),
-                  SizedBox(
-                    height: istagLine ? 10 : 0,
-                  )
-                ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AutoSizeText(
+                      card.title,
+                      style: _fontStyle
+                          .montserrat(32, FontWeight.w700)
+                          .copyWith(color: _colors.titleColor),
+                      maxLines: 2,
+                    ),
+                    SizedBox(
+                      height: istagLine ? 5 : 0,
+                    ),
+                    istagLine
+                        ? AutoSizeText(
+                            card.tagline,
+                            style: _fontStyle
+                                .montserrat(15, FontWeight.w600)
+                                .copyWith(color: _colors.titleColor),
+                            maxLines: 1,
+                          )
+                        : const SizedBox(height: 0),
+                    // SizedBox(
+                    //   height: istagLine ? 10 : 0,
+                    // )
+                  ],
+                ),
               ),
-              Image.asset(
-                card.image,
-                height: 150,
+              Container(
+                width: MediaQuery.of(context).size.width * 0.33,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Image.asset(
+                    card.image,
+                    height: 150,
+                  ),
+                ),
               ),
             ],
           ),

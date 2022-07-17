@@ -37,8 +37,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
+  auto_size_text: ^3.0.0
+  carousel_slider: ^4.1.1
   tab_indicator_styler: ^2.0.0
   percent_indicator: ^4.2.2
+  smooth_page_indicator: ^1.0.0+2
 
 dev_dependencies:
   flutter_test:
