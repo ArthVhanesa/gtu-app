@@ -8,7 +8,6 @@ void main() {
     statusBarIconBrightness: Brightness.dark, //status barIcon Brightness
     // statusBarBrightness: Brightness.dark, //status bar brigtness
     systemNavigationBarColor: Colors.transparent, // navigation bar color
-    // systemNavigationBarDividerColor: Colors.greenAccent, //Navigation bar divider color
     systemNavigationBarIconBrightness: Brightness.dark, //navigation bar icon
   ));
   runApp(const MyApp());
