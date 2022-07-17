@@ -6,19 +6,15 @@ import 'package:gtu_app/components/PoweredbyAstronApps.dart';
 import 'package:gtu_app/components/SquareCard.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/DummyCommonCardData.dart';
-import 'package:gtu_app/data/DummyDataQuestionPaper.dart';
 import 'package:gtu_app/style.dart';
 
 class ResultScreen extends StatefulWidget {
-  ResultScreen({super.key});
+  const ResultScreen({super.key});
   @override
   State<ResultScreen> createState() => _ResultScreenState();
 }
 
 class _ResultScreenState extends State<ResultScreen> {
-  final AppColors _colors = AppColors();
-  final FontStyle _fontStyle = FontStyle();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +35,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     SquareCard(card: gradeHistory),
                     SquareCard(card: percentageCalculator),
                   ]),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   Heading(heading: 'Result announcement'),
                   ListView.separated(
                     padding: const EdgeInsets.only(top: 10),

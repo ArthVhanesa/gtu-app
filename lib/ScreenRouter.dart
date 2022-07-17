@@ -9,16 +9,21 @@ import 'package:gtu_app/screens/resultScreen.dart';
 import 'package:gtu_app/screens/studentCornerScreen.dart';
 import 'package:gtu_app/screens/syllabusScreen.dart';
 
-class ScreenRoute extends StatelessWidget {
-  CardData card;
-  ScreenRoute({
+class ScreenRoute extends StatefulWidget {
+  final CardData card;
+  const ScreenRoute({
     Key? key,
     required this.card,
   }) : super(key: key);
 
   @override
+  State<ScreenRoute> createState() => _ScreenRouteState();
+}
+
+class _ScreenRouteState extends State<ScreenRoute> {
+  @override
   Widget build(BuildContext context) {
-    switch (card.id) {
+    switch (widget.card.id) {
       case 'Syllabus Screen':
         return SyllabusScreen();
 

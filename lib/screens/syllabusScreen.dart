@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/components/Heading.dart';
 import 'package:gtu_app/components/PoweredbyAstronApps.dart';
-import 'package:gtu_app/components/QuestionPaperTile.dart';
 import 'package:gtu_app/components/SearchBar.dart';
 import 'package:gtu_app/components/SyllabusTile.dart';
 import 'package:gtu_app/data/CardData.dart';

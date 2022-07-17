@@ -6,9 +6,14 @@ import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/DummyCommonCardData.dart';
 import 'package:gtu_app/style.dart';
 
-class StudentCornerScreen extends StatelessWidget {
+class StudentCornerScreen extends StatefulWidget {
   const StudentCornerScreen({super.key});
 
+  @override
+  State<StudentCornerScreen> createState() => _StudentCornerScreenState();
+}
+
+class _StudentCornerScreenState extends State<StudentCornerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

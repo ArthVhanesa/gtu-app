@@ -2,26 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/style.dart';
 
-class Header extends StatelessWidget {
+class Header extends StatefulWidget {
   final CardData card;
 
-  Header({
+  const Header({
     Key? key,
     required this.card,
   }) : super(key: key);
 
+  @override
+  State<Header> createState() => _HeaderState();
+}
+
+class _HeaderState extends State<Header> {
   bool ispageSubtitle = false;
+
   bool ispageLink = false;
 
   final AppColors _colors = AppColors();
+
   final FontStyle _fontStyle = FontStyle();
 
   @override
   Widget build(BuildContext context) {
-    if (card.pageSubtitle != '') {
+    if (widget.card.pageSubtitle != '') {
       ispageSubtitle = true;
     }
-    if (card.pageLink != '') {
+    if (widget.card.pageLink != '') {
       ispageLink = true;
     }
     return Container(
@@ -48,7 +55,7 @@ class Header extends StatelessWidget {
                     Container(
                       width: MediaQuery.of(context).size.width * 0.5,
                       child: Text(
-                        card.pageTitle,
+                        widget.card.pageTitle,
                         style: _fontStyle.montserrat(25, FontWeight.w700),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
@@ -61,7 +68,7 @@ class Header extends StatelessWidget {
                         width: MediaQuery.of(context).size.width * 0.5,
                         margin: const EdgeInsets.only(left: 48),
                         child: Text(
-                          card.pageSubtitle,
+                          widget.card.pageSubtitle,
                           style: _fontStyle.montserrat(15, FontWeight.w700),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
@@ -92,7 +99,7 @@ class Header extends StatelessWidget {
             ),
           ),
           Image.asset(
-            card.image,
+            widget.card.image,
             // height: MediaQuery.of(context).size.width * 0.35,
             height: 120,
           )

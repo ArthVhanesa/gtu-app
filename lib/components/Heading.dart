@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:gtu_app/style.dart';
 
@@ -38,7 +37,7 @@ class Heading extends StatelessWidget {
 class Dot extends StatelessWidget {
   final AppColors _colors = AppColors();
 
-  double size;
+  final double size;
 
   Dot({
     Key? key,

@@ -4,18 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/style.dart';
 
 class ModalBottomColumnFour extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
-  Color color;
-  String title;
-  String boxTitle1;
-  String boxTitle2;
-  String boxTitle3;
-  String boxTitle4;
-  int boxInt1;
-  int boxInt2;
-  int boxInt3;
-  int boxInt4;
+  final Color color;
+  final String title;
+  final String boxTitle1;
+  final String boxTitle2;
+  final String boxTitle3;
+  final String boxTitle4;
+  final int boxInt1;
+  final int boxInt2;
+  final int boxInt3;
+  final int boxInt4;
 
   ModalBottomColumnFour({
     Key? key,
@@ -30,6 +28,8 @@ class ModalBottomColumnFour extends StatelessWidget {
     required this.boxInt3,
     required this.boxInt4,
   }) : super(key: key);
+
+  final FontStyle _fontStyle = FontStyle();
 
   @override
   Widget build(BuildContext context) {
@@ -76,11 +76,9 @@ class ModalBottomColumnFour extends StatelessWidget {
 }
 
 class _Box extends StatelessWidget {
-  final AppColors _colors = AppColors();
-  final FontStyle _fontStyle = FontStyle();
-  Color color;
-  String title;
-  int number;
+  final Color color;
+  final String title;
+  final int number;
   _Box({
     Key? key,
     required this.color,
@@ -88,13 +86,18 @@ class _Box extends StatelessWidget {
     required this.number,
   }) : super(key: key);
 
+  final AppColors _colors = AppColors();
+
+  final FontStyle _fontStyle = FontStyle();
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.20,
       height: MediaQuery.of(context).size.width * 0.20,
       decoration: BoxDecoration(
-          color: color, borderRadius: BorderRadius.all(Radius.circular(25))),
+          color: color,
+          borderRadius: const BorderRadius.all(Radius.circular(25))),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

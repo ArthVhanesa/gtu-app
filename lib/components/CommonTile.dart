@@ -1,28 +1,35 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import 'package:gtu_app/data/DummyCommonCardData.dart';
 import 'package:gtu_app/style.dart';
 
-class CommonTile extends StatelessWidget {
-  final AppColors _colors = AppColors();
-  final FontStyle _fontStyle = FontStyle();
-  DummyCommonCardData dummyCommonCardData;
+class CommonTile extends StatefulWidget {
+  final DummyCommonCardData dummyCommonCardData;
 
-  CommonTile({
+  const CommonTile({
     Key? key,
     required this.dummyCommonCardData,
   }) : super(key: key);
 
+  @override
+  State<CommonTile> createState() => _CommonTileState();
+}
+
+class _CommonTileState extends State<CommonTile> {
+  final AppColors _colors = AppColors();
+
+  final FontStyle _fontStyle = FontStyle();
+
   bool isSubtitle = false;
+
   bool isDate = false;
 
   @override
   Widget build(BuildContext context) {
-    if (dummyCommonCardData.subtitle != '') {
+    if (widget.dummyCommonCardData.subtitle != '') {
       isSubtitle = true;
     }
-    if (dummyCommonCardData.date != '') {
+    if (widget.dummyCommonCardData.date != '') {
       isDate = true;
     }
 
@@ -42,14 +49,15 @@ class CommonTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    dummyCommonCardData.title, //pass subject code
+                    widget.dummyCommonCardData.title, //pass subject code
                     style: _fontStyle.montserrat(15, FontWeight.w600),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 5,
                   ),
                   isSubtitle
                       ? Text(
-                          dummyCommonCardData.subtitle, //pass subject name
+                          widget
+                              .dummyCommonCardData.subtitle, //pass subject name
                           style: _fontStyle.manrope(13, FontWeight.w600),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
@@ -60,7 +68,7 @@ class CommonTile extends StatelessWidget {
             ),
             isDate
                 ? Text(
-                    dummyCommonCardData.date, //pass subject name
+                    widget.dummyCommonCardData.date, //pass subject name
                     style: _fontStyle
                         .manrope(13, FontWeight.w600)
                         .copyWith(color: _colors.titleColor),

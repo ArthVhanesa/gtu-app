@@ -4,14 +4,14 @@ import 'package:gtu_app/style.dart';
 class ModalBottomColumnThree extends StatelessWidget {
   final FontStyle _fontStyle = FontStyle();
 
-  Color color;
-  String title;
-  String boxTitle1;
-  String boxTitle2;
-  String boxTitle3;
-  int boxInt1;
-  int boxInt2;
-  int boxInt3;
+  final Color color;
+  final String title;
+  final String boxTitle1;
+  final String boxTitle2;
+  final String boxTitle3;
+  final int boxInt1;
+  final int boxInt2;
+  final int boxInt3;
 
   ModalBottomColumnThree({
     Key? key,
@@ -64,13 +64,11 @@ class ModalBottomColumnThree extends StatelessWidget {
   }
 }
 
-class _Box extends StatelessWidget {
-  final AppColors _colors = AppColors();
-  final FontStyle _fontStyle = FontStyle();
-  Color color;
-  String title;
-  int number;
-  _Box({
+class _Box extends StatefulWidget {
+  final Color color;
+  final String title;
+  final int number;
+  const _Box({
     Key? key,
     required this.color,
     required this.title,
@@ -78,22 +76,32 @@ class _Box extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<_Box> createState() => _BoxState();
+}
+
+class _BoxState extends State<_Box> {
+  final AppColors _colors = AppColors();
+
+  final FontStyle _fontStyle = FontStyle();
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.25,
       height: MediaQuery.of(context).size.width * 0.25,
       decoration: BoxDecoration(
-          color: color, borderRadius: BorderRadius.all(Radius.circular(25))),
+          color: widget.color,
+          borderRadius: const BorderRadius.all(Radius.circular(25))),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            '$number',
+            '${widget.number}',
             style: _fontStyle
                 .montserrat(40, FontWeight.w600)
                 .copyWith(color: _colors.titleColor, height: 1),
           ),
-          Text(title,
+          Text(widget.title,
               style: _fontStyle
                   .manrope(15, FontWeight.normal)
                   .copyWith(color: _colors.titleColor))

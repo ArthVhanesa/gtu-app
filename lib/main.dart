@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gtu_app/screens/circularScreen.dart';
 import 'package:gtu_app/screens/homeScreen.dart';
-import 'package:gtu_app/screens/questionPaperScreen.dart';
-import 'package:gtu_app/screens/syllabusScreen.dart';
-import 'package:gtu_app/style.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
