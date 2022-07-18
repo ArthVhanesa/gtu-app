@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/components/Heading.dart';
 import 'package:gtu_app/components/PoweredbyAstronApps.dart';
-import 'package:gtu_app/components/SearchBar.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/style.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -24,26 +23,50 @@ class _PercentageCalculatorScreenState
 
   final TextEditingController _controller = TextEditingController();
 
-  var spi;
+  double spi = 0;
+  double percentage = 0;
+  bool isValidSPI = true;
+  String description =
+      'SPI: Semester Performance Index\nCPI: Cumulative Performance Index\nCGPA: Cumulative Grade Point Average\n\nIf duration of course is of 2 years, the degree shall be given to students based upon CPI (Cumulative Performance Index) considering all the four semesters performance.\n\nIf duration of course is of 4 years, the degree shall be given to students based upon CGPA (Cumulative Grade Point Average) considering last four semesters performance.';
+  String errorMessage = 'SPI / CPI / CGPA must be between 4 to 10';
 
   @override
   void initState() {
     super.initState();
+
     _controller.addListener(_updateText);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   void _updateText() {
     setState(() {
-      spi = _controller.text;
+      if (_controller.text == '') {
+        spi = 0;
+      } else {
+        spi = double.parse(_controller.text);
+      }
     });
   }
 
-  String description =
-      'SPI: Semester Performance Index\nCPI: Cumulative Performance Index\nCGPA: Cumulative Grade Point Average\n\nIf duration of course is of 2 years, the degree shall be given to students based upon CPI (Cumulative Performance Index) considering all the four semesters performance.\n\nIf duration of course is of 4 years, the degree shall be given to students based upon CGPA (Cumulative Grade Point Average) considering last four semesters performance.';
-
   @override
   Widget build(BuildContext context) {
+    if (spi > 10 || spi < 4) {
+      isValidSPI = false;
+      percentage = 0;
+    } else {
+      isValidSPI = true;
+      percentage = double.parse((spi).toStringAsPrecision(2));
+      percentage = (spi - 0.5) * 10;
+    }
+
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: _colors.bgColor,
       body: SafeArea(
           child: Column(
         children: [
@@ -57,6 +80,19 @@ class _PercentageCalculatorScreenState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     spiTextField(),
+                    isValidSPI
+                        ? const SizedBox(
+                            height: 0,
+                          )
+                        : Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            child: Text(
+                              errorMessage,
+                              style: _fontStyle
+                                  .montserrat(16, FontWeight.w600)
+                                  .copyWith(color: _colors.primaryColor),
+                            ),
+                          ),
                     const SizedBox(
                       height: 40,
                     ),
@@ -80,30 +116,6 @@ class _PercentageCalculatorScreenState
     );
   }
 
-  progressIndicator() {
-    // double test = double.tryParse(_controller.text);
-
-    double percentage = 100 / 100;
-
-    return Center(
-      child: CircularPercentIndicator(
-        radius: 120,
-        lineWidth: 30,
-        animation: true,
-        percent: percentage,
-        animationDuration: 1000,
-        backgroundColor: _colors.percentageCalcBgColor,
-        progressColor: _colors.percentageCalcFillColor,
-        circularStrokeCap: CircularStrokeCap.round,
-        center: Text(
-          spi,
-          style: GoogleFonts.mPlusRounded1c(
-              fontSize: 40, fontWeight: FontWeight.w500),
-        ),
-      ),
-    );
-  }
-
   spiTextField() {
     return Container(
         height: 48,
@@ -115,10 +127,10 @@ class _PercentageCalculatorScreenState
           padding: const EdgeInsets.only(left: 15, right: 15),
           child: TextField(
             controller: _controller,
-            maxLength: 2,
+            maxLength: 4,
             style: _fontStyle.montserrat(16, FontWeight.normal),
             inputFormatters: <TextInputFormatter>[
-              FilteringTextInputFormatter.allow(RegExp("[0-9]"))
+              FilteringTextInputFormatter.allow(RegExp("[0-9.]"))
             ],
             decoration: const InputDecoration(
                 hintText: "SPI / CPI / CGPI",
@@ -127,5 +139,25 @@ class _PercentageCalculatorScreenState
             keyboardType: TextInputType.number,
           ),
         ));
+  }
+
+  progressIndicator() {
+    return Center(
+      child: CircularPercentIndicator(
+        radius: 120,
+        lineWidth: 30,
+        animation: true,
+        percent: percentage / 100,
+        animationDuration: 1000,
+        backgroundColor: _colors.percentageCalcBgColor,
+        progressColor: _colors.percentageCalcFillColor,
+        circularStrokeCap: CircularStrokeCap.round,
+        center: Text(
+          '${percentage}%',
+          style: GoogleFonts.mPlusRounded1c(
+              fontSize: 40, fontWeight: FontWeight.w500),
+        ),
+      ),
+    );
   }
 }
