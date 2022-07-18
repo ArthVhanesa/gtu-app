@@ -28,6 +28,9 @@ class AppColors {
   final Color syllabusTileColor = const Color(0xFFA0C3F9);
   final Color questionPaperTileColor = const Color(0xFF92D8FF);
 
+  final Color percentageCalcFillColor = const Color(0xFFFF9356);
+  final Color percentageCalcBgColor = const Color(0xFFFFEFE6);
+
   final Color linkBlueColor = const Color(0xFF3666D9);
 
   final Color blackColor = const Color(0XFF000000);
@@ -63,6 +66,10 @@ class FontStyle {
   }
 
   TextStyle ebGaramond(double fontSize, FontWeight fontWeight) {
+    return GoogleFonts.ebGaramond(fontSize: fontSize, fontWeight: fontWeight);
+  }
+
+  TextStyle mPlusRounded1c(double fontSize, FontWeight fontWeight) {
     return GoogleFonts.ebGaramond(fontSize: fontSize, fontWeight: fontWeight);
   }
 }

@@ -42,7 +42,7 @@ class SearchBar extends StatelessWidget {
           width: 10,
         ),
         InkWell(
-          onTap: () => print('search button clicked'),
+          onTap: () => print(_subjectCode.text),
           child: Container(
             height: 48,
             width: 48,

@@ -15,37 +15,34 @@ class HomeScreenTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 470,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            tile.title,
-            style: _fontStyle.montserrat(24, FontWeight.w800),
-          ),
-          const SizedBox(
-            height: 18,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SquareCard(
-                card: tile.card1,
-              ),
-              SquareCard(
-                card: tile.card2,
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          RectangleCard(
-            card: tile.card3,
-          )
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          tile.title,
+          style: _fontStyle.montserrat(24, FontWeight.w800),
+        ),
+        const SizedBox(
+          height: 18,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SquareCard(
+              card: tile.card1,
+            ),
+            SquareCard(
+              card: tile.card2,
+            )
+          ],
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        RectangleCard(
+          card: tile.card3,
+        )
+      ],
     );
   }
 }
