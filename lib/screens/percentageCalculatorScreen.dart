@@ -60,8 +60,8 @@ class _PercentageCalculatorScreenState
       percentage = 0;
     } else {
       isValidSPI = true;
-      percentage = double.parse((spi).toStringAsPrecision(2));
       percentage = (spi - 0.5) * 10;
+      percentage = double.parse((percentage).toStringAsPrecision(3));
     }
 
     return Scaffold(
