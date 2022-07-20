@@ -44,55 +44,79 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
           child: Column(
         children: [
-          const SizedBox(
-            height: 60,
-          ),
           Padding(
             padding: padding,
-            child: Row(
+            child: Column(
               children: [
-                InkWell(
-                  onTap: (() {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ProfileScreen()));
-                  }),
-                  child: CircleAvatar(
-                    radius: 23,
-                    backgroundImage: const AssetImage(profileIconImg),
-                    backgroundColor: _colors.blackColor,
-                  ),
+                const SizedBox(
+                  height: 60,
+                ),
+                // row for Avatar and hello name
+                Row(
+                  children: [
+                    InkWell(
+                      onTap: (() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProfileScreen()));
+                      }),
+                      child: CircleAvatar(
+                        radius: 23,
+                        backgroundImage: const AssetImage(profileIconImg),
+                        backgroundColor: _colors.blackColor,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Expanded(
+                      child: AutoSizeText(
+                        "Hello Arth👋",
+                        style: _fontStyle.montserrat(25, FontWeight.w600),
+                        maxLines: 1,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(
-                  width: 15,
+                  height: 35,
                 ),
-                Expanded(
-                  child: AutoSizeText(
-                    "Hello Arth 👋",
-                    style: _fontStyle.montserrat(25, FontWeight.w600),
-                    maxLines: 1,
-                  ),
+                SearchBar(),
+                const SizedBox(
+                  height: 10,
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 35,
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: padding,
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    ListView.separated(
+                      itemCount: tile.length,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      separatorBuilder: (BuildContext context, int index) {
+                        return const SizedBox(
+                          height: 60,
+                        );
+                      },
+                      itemBuilder: (BuildContext context, int index) {
+                        return HomeScreenTile(tile: tile[index]);
+                      },
+                    ),
+                    KeepItUp()
+                  ],
+                ),
+              ),
+            ),
           ),
-          Padding(
-            padding: padding,
-            child: SearchBar(),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          // RectangleCard(card: syllabus),
-          // HomeScreenTile(tile: tile[0]),
-          // HomeScreenTile(tile: tile[2]),
-          SquareCard(card: examTimetable),
-          SquareCard(card: studentCorner),
-          SquareCard(card: result),
         ],
       )),
     );

@@ -4,19 +4,14 @@ import 'package:gtu_app/ScreenRouter.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/style.dart';
 
-class RectangleCard extends StatefulWidget {
+class RectangleCard extends StatelessWidget {
   final CardData card;
 
-  const RectangleCard({
+  RectangleCard({
     Key? key,
     required this.card,
   }) : super(key: key);
 
-  @override
-  State<RectangleCard> createState() => _RectangleCardState();
-}
-
-class _RectangleCardState extends State<RectangleCard> {
   final FontStyle _fontStyle = FontStyle();
 
   final AppColors _colors = AppColors();
@@ -27,44 +22,47 @@ class _RectangleCardState extends State<RectangleCard> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.card.tagline != '') {
+    if (card.tagline != '') {
       istagLine = true;
     }
-    if (widget.card.onTapLink != '') {
+    if (card.onTapLink != '') {
       islinkAvailable = true;
     }
 
     return InkWell(
       onTap: () {
         if (islinkAvailable) {
-          print(widget.card.onTapLink);
+          print(card.onTapLink);
         } else {
           Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => ScreenRoute(
-                        card: widget.card,
+                        card: card,
                       )));
         }
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
+        // width: 290,
         padding: const EdgeInsets.only(left: 20, right: 5),
         height: 160,
         decoration: BoxDecoration(
-            color: widget.card.color,
+            color: card.color,
             borderRadius: const BorderRadius.all(Radius.circular(25))),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(
+            Container(
+              width: MediaQuery.of(context).size.width * 0.4,
+              // width: 100,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   AutoSizeText(
-                    widget.card.title,
+                    card.title,
                     style: _fontStyle
                         .montserrat(32, FontWeight.w700)
                         .copyWith(color: _colors.titleColor),
@@ -75,7 +73,7 @@ class _RectangleCardState extends State<RectangleCard> {
                   ),
                   istagLine
                       ? AutoSizeText(
-                          widget.card.tagline,
+                          card.tagline,
                           style: _fontStyle
                               .montserrat(15, FontWeight.w600)
                               .copyWith(color: _colors.titleColor),
@@ -89,13 +87,10 @@ class _RectangleCardState extends State<RectangleCard> {
               ),
             ),
             Container(
-              width: MediaQuery.of(context).size.width * 0.33,
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Image.asset(
-                  widget.card.image,
-                  height: 150,
-                ),
+              width: MediaQuery.of(context).size.width * 0.35,
+              child: Image.asset(
+                card.image,
+                height: 150,
               ),
             ),
           ],
