@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // RectangleCard(card: syllabus),
           // HomeScreenTile(tile: tile[0]),
           // HomeScreenTile(tile: tile[2]),
-          SquareCard(card: syllabus),
+          SquareCard(card: examTimetable),
           SquareCard(card: studentCorner),
           SquareCard(card: result),
         ],
