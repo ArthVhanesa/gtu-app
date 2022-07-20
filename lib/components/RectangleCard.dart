@@ -54,40 +54,41 @@ class RectangleCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width * 0.4,
-              // width: 100,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  AutoSizeText(
-                    card.title,
-                    style: _fontStyle
-                        .montserrat(32, FontWeight.w700)
-                        .copyWith(color: _colors.titleColor),
-                    maxLines: 2,
-                  ),
-                  SizedBox(
-                    height: istagLine ? 5 : 0,
-                  ),
-                  istagLine
-                      ? AutoSizeText(
-                          card.tagline,
-                          style: _fontStyle
-                              .montserrat(15, FontWeight.w600)
-                              .copyWith(color: _colors.titleColor),
-                          maxLines: 1,
-                        )
-                      : const SizedBox(height: 0),
-                  // SizedBox(
-                  //   height: istagLine ? 10 : 0,
-                  // )
-                ],
+            Expanded(
+              child: Container(
+                // width: 100,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AutoSizeText(
+                      card.title,
+                      style: _fontStyle
+                          .montserrat(32, FontWeight.w700)
+                          .copyWith(color: _colors.titleColor),
+                      maxLines: 2,
+                    ),
+                    SizedBox(
+                      height: istagLine ? 5 : 0,
+                    ),
+                    istagLine
+                        ? AutoSizeText(
+                            card.tagline,
+                            style: _fontStyle
+                                .montserrat(15, FontWeight.w600)
+                                .copyWith(color: _colors.titleColor),
+                            maxLines: 1,
+                          )
+                        : const SizedBox(height: 0),
+                    // SizedBox(
+                    //   height: istagLine ? 10 : 0,
+                    // )
+                  ],
+                ),
               ),
             ),
             Container(
-              width: MediaQuery.of(context).size.width * 0.35,
+              width: MediaQuery.of(context).size.width * 0.32,
               child: Image.asset(
                 card.image,
                 height: 150,
