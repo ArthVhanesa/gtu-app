@@ -15,9 +15,12 @@ class ResultScreen extends StatefulWidget {
 }
 
 class _ResultScreenState extends State<ResultScreen> {
+  final AppColors _colors = AppColors();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: _colors.bgColor,
       body: SafeArea(
           child: Column(
         children: [

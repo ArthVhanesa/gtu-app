@@ -14,9 +14,12 @@ class StudentCornerScreen extends StatefulWidget {
 }
 
 class _StudentCornerScreenState extends State<StudentCornerScreen> {
+  final AppColors _colors = AppColors();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: _colors.bgColor,
       body: SafeArea(
           child: Column(
         children: [

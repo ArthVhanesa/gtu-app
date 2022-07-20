@@ -18,10 +18,12 @@ class _CircularScreenState extends State<CircularScreen>
     with TickerProviderStateMixin {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
+
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
     return Scaffold(
+      backgroundColor: _colors.bgColor,
       body: SafeArea(
           child: Column(
         children: [

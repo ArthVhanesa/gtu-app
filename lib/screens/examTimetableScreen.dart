@@ -33,6 +33,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
     TextStyle style = _fontStyle.montserrat(16, FontWeight.w600);
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: _colors.bgColor,
       body: SafeArea(
           child: Column(

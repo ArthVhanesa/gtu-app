@@ -7,11 +7,14 @@ import 'package:gtu_app/data/DummyCommonCardData.dart';
 import 'package:gtu_app/style.dart';
 
 class AcademicCalendarScreen extends StatelessWidget {
-  const AcademicCalendarScreen({super.key});
+  final AppColors _colors = AppColors();
+
+  AcademicCalendarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: _colors.bgColor,
       body: SafeArea(
           child: Column(
         children: [

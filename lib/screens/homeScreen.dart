@@ -25,20 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
-  // late ScrollController controller;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   controller = ScrollController();
-  // }
-
-  // @override
-  // void dispose() {
-  //   controller.dispose();
-  //   super.dispose();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
