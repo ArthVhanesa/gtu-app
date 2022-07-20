@@ -8,6 +8,7 @@ import 'package:gtu_app/components/SquareCard.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/TitleData.dart';
 import 'package:gtu_app/image.dart';
+import 'package:gtu_app/screens/profileScreen.dart';
 import 'package:gtu_app/style.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -50,10 +51,18 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: padding,
             child: Row(
               children: [
-                CircleAvatar(
-                  radius: 23,
-                  backgroundImage: const AssetImage(profileIconImg),
-                  backgroundColor: _colors.blackColor,
+                InkWell(
+                  onTap: (() {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProfileScreen()));
+                  }),
+                  child: CircleAvatar(
+                    radius: 23,
+                    backgroundImage: const AssetImage(profileIconImg),
+                    backgroundColor: _colors.blackColor,
+                  ),
                 ),
                 const SizedBox(
                   width: 15,
