@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/screens/settingScreen.dart';
 import 'package:gtu_app/style.dart';
+import 'package:get/get.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -64,10 +64,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SettingScreen()));
+                    Get.to(() => SettingScreen());
                   },
                   child: Container(
                     width: MediaQuery.of(context).size.width,

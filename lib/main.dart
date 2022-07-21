@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gtu_app/screens/homeScreen.dart';
+import 'package:gtu_app/style.dart';
+import 'package:get/get.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -18,9 +20,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    final AppColors _color = AppColors();
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'gtu_app',
+      theme: ThemeData(
+        scaffoldBackgroundColor: _color.bgColor,
+      ),
       home: HomeScreen(),
     );
   }

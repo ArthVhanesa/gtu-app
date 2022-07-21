@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/ScreenRouter.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/style.dart';
+import 'package:get/get.dart';
 
 class RectangleCard extends StatelessWidget {
   final CardData card;
@@ -34,12 +35,7 @@ class RectangleCard extends StatelessWidget {
         if (islinkAvailable) {
           print(card.onTapLink);
         } else {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => ScreenRoute(
-                        card: card,
-                      )));
+          Get.to(() => ScreenRoute(card: card));
         }
       },
       child: Container(

@@ -5,14 +5,13 @@ import 'package:gtu_app/components/HomeScreenTile.dart';
 import 'package:gtu_app/components/KeepItUp.dart';
 import 'package:gtu_app/components/RectangleCard.dart';
 import 'package:gtu_app/components/SearchBar.dart';
-import 'package:gtu_app/components/SquareCard.dart';
-import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/CarouselSliderData.dart';
 import 'package:gtu_app/data/TitleData.dart';
 import 'package:gtu_app/image.dart';
 import 'package:gtu_app/screens/profileScreen.dart';
 import 'package:gtu_app/style.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -29,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: _colors.bgColor,
+      // backgroundColor: _colors.bgColor,
       body: SafeArea(
           child: Column(
         children: [
@@ -44,12 +43,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   children: [
                     InkWell(
-                      onTap: (() {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ProfileScreen()));
-                      }),
+                      onTap: () {
+                        Get.to(() => ProfileScreen());
+                      },
                       child: CircleAvatar(
                         radius: 23,
                         backgroundImage: const AssetImage(profileIconImg),

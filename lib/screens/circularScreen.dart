@@ -78,8 +78,7 @@ class AllCircular extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: SingleChildScrollView(
+    return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Padding(
         padding: padding,
@@ -101,7 +100,7 @@ class AllCircular extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    );
   }
 }
 
@@ -112,8 +111,7 @@ class ImportantCircular extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: SingleChildScrollView(
+    return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Padding(
         padding: padding,
@@ -135,6 +133,6 @@ class ImportantCircular extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    );
   }
 }

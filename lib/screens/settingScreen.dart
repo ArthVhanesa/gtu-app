@@ -4,6 +4,7 @@ import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/screens/logInScreen.dart';
 import 'package:gtu_app/style.dart';
+import 'package:get/get.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -115,10 +116,7 @@ class _SettingScreenState extends State<SettingScreen> {
             // logout button
             InkWell(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LogInScreen()));
+                Get.to(() => LogInScreen());
               },
               child: Container(
                 width: MediaQuery.of(context).size.width,

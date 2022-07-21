@@ -3,20 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/ScreenRouter.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/style.dart';
+import 'package:get/get.dart';
 
-class SquareCard extends StatefulWidget {
+class SquareCard extends StatelessWidget {
   final CardData card;
 
-  const SquareCard({
+  SquareCard({
     Key? key,
     required this.card,
   }) : super(key: key);
 
-  @override
-  State<SquareCard> createState() => _SquareCardState();
-}
-
-class _SquareCardState extends State<SquareCard> {
   final AppColors _color = AppColors();
 
   final FontStyle _fontStyle = FontStyle();
@@ -25,38 +21,33 @@ class _SquareCardState extends State<SquareCard> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.card.onTapLink != '') {
+    if (card.onTapLink != '') {
       islinkAvailable = true;
     }
 
     return InkWell(
       onTap: () {
         if (islinkAvailable) {
-          print(widget.card.onTapLink);
+          print(card.onTapLink);
         } else {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => ScreenRoute(
-                        card: widget.card,
-                      )));
+          Get.to(() => ScreenRoute(card: card));
         }
       },
       child: Container(
         width: MediaQuery.of(context).size.width * 0.4,
         height: 170,
         decoration: BoxDecoration(
-            color: widget.card.color,
+            color: card.color,
             borderRadius: const BorderRadius.all(Radius.circular(25))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              widget.card.image,
+              card.image,
               height: 120,
             ),
             Text(
-              widget.card.title,
+              card.title,
               style: _fontStyle
                   .montserrat(16, FontWeight.w600)
                   .copyWith(color: _color.titleColor),

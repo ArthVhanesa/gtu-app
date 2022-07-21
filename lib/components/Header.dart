@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/style.dart';
+import 'package:get/get.dart';
 
 class Header extends StatefulWidget {
   final CardData card;
@@ -49,7 +50,7 @@ class _HeaderState extends State<Header> {
                     IconButton(
                       icon: const Icon(Icons.arrow_back_ios_new),
                       onPressed: () {
-                        Navigator.pop(context);
+                        Get.back();
                       },
                     ),
                     Container(
