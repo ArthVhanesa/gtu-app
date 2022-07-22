@@ -6,6 +6,7 @@ import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/screens/logInScreen.dart';
 import 'package:gtu_app/style.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:in_app_review/in_app_review.dart';
@@ -169,7 +170,11 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
             // logout button
             InkWell(
-              onTap: () {
+              onTap: () async {
+                // for showing again a introduction screen, showHome = false
+                final prefs = await SharedPreferences.getInstance();
+                prefs.setBool('showHome', false);
+
                 Get.to(() => LogInScreen());
               },
               child: Container(
