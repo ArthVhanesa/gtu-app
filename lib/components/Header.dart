@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gtu_app/custome_tab.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/style.dart';
 import 'package:get/get.dart';
@@ -80,7 +81,9 @@ class _HeaderState extends State<Header> {
                     ? Padding(
                         padding: const EdgeInsets.only(top: 25, left: 24),
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            launchCustomTab(widget.card.pageLink);
+                          },
                           style: TextButton.styleFrom(
                               minimumSize: Size.zero,
                               padding: const EdgeInsets.fromLTRB(5, 3, 5, 3),

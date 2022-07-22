@@ -75,7 +75,7 @@ CardData result = CardData(
     onTapLink: '',
     pageTitle: 'Result 📊',
     pageSubtitle: '',
-    pageLink: 'link');
+    pageLink: 'https://www.gtu.ac.in/result.aspx');
 
 CardData circular = CardData(
     id: 'Circular Screen',
@@ -86,7 +86,7 @@ CardData circular = CardData(
     onTapLink: '',
     pageTitle: 'Circular 📃',
     pageSubtitle: '',
-    pageLink: 'link' //pass link here
+    pageLink: 'https://www.gtu.ac.in/Circular.aspx' //pass link here
     );
 
 CardData academicCalendar = CardData(
@@ -98,7 +98,7 @@ CardData academicCalendar = CardData(
     onTapLink: '',
     pageTitle: 'Academic Calendar 📆',
     pageSubtitle: '',
-    pageLink: 'link' //pass link here
+    pageLink: 'https://www.gtu.ac.in/AcademicCal.aspx' //pass link here
     );
 
 CardData studentCorner = CardData(
@@ -110,7 +110,7 @@ CardData studentCorner = CardData(
     onTapLink: '',
     pageTitle: 'Student Corner 📪',
     pageSubtitle: '',
-    pageLink: 'link' //pass link here
+    pageLink: 'https://www.gtu.ac.in/StudentCorner.aspx' //pass link here
     );
 
 CardData examTimetable = CardData(
@@ -122,7 +122,7 @@ CardData examTimetable = CardData(
     onTapLink: '',
     pageTitle: 'Exam Timetable ⏰',
     pageSubtitle: '',
-    pageLink: 'link' // pass link here
+    pageLink: 'https://gtu.ac.in/Timetable/' // pass link here
     );
 
 CardData pointActivity = CardData(
@@ -131,7 +131,7 @@ CardData pointActivity = CardData(
     tagline: '',
     color: _colors.lightPistaColor,
     image: pointActivityImg,
-    onTapLink: 'link', //pass link here
+    onTapLink: 'https://www.100points.gtu.ac.in', //pass link here
 
     pageTitle: '',
     pageSubtitle: '',
@@ -143,7 +143,7 @@ CardData studentPortal = CardData(
     tagline: '',
     color: _colors.lightGreenColor,
     image: studentPortalImg,
-    onTapLink: 'link', //pass link here
+    onTapLink: 'https://student.gtu.ac.in/Login.aspx', //pass link here
 
     pageTitle: '',
     pageSubtitle: '',
@@ -157,7 +157,7 @@ CardData resultTile = CardData(
     tagline: '',
     color: _colors.lightMossGreenColor,
     image: resultImageImg,
-    onTapLink: 'link', //pass link here
+    onTapLink: 'https://www.gturesults.in', //pass link here
 
     pageTitle: '',
     pageSubtitle: '',
@@ -169,7 +169,8 @@ CardData midMarks = CardData(
     tagline: '',
     color: _colors.lavenderColor,
     image: midMarksImg,
-    onTapLink: 'link', //pass link here
+    onTapLink:
+        'https://www.me.gtu.ac.in/student/Studentmarkdisplay.aspx', //pass link here
 
     pageTitle: '',
     pageSubtitle: '',
@@ -181,7 +182,7 @@ CardData gradeHistory = CardData(
     tagline: '',
     color: _colors.lightlavenderColor,
     image: gradeHistoryImg,
-    onTapLink: 'link', //pass link here
+    onTapLink: 'https://www.students.gtu.ac.in', //pass link here
 
     pageTitle: '',
     pageSubtitle: '',

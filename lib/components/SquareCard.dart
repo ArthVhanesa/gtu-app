@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:gtu_app/ScreenRouter.dart';
+import 'package:gtu_app/custome_tab.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/style.dart';
 import 'package:get/get.dart';
@@ -28,9 +29,15 @@ class SquareCard extends StatelessWidget {
     return InkWell(
       onTap: () {
         if (islinkAvailable) {
-          print(card.onTapLink);
+          launchCustomTab(card.onTapLink);
         } else {
-          Get.to(() => ScreenRoute(card: card));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ScreenRoute(
+                      card: card,
+                    )),
+          );
         }
       },
       child: Container(

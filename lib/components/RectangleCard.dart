@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gtu_app/ScreenRouter.dart';
+import 'package:gtu_app/custome_tab.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/style.dart';
 import 'package:get/get.dart';
@@ -33,7 +34,7 @@ class RectangleCard extends StatelessWidget {
     return InkWell(
       onTap: () {
         if (islinkAvailable) {
-          print(card.onTapLink);
+          launchCustomTab(card.onTapLink);
         } else {
           Get.to(() => ScreenRoute(card: card));
         }

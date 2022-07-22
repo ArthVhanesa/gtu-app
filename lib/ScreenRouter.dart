@@ -25,28 +25,28 @@ class _ScreenRouteState extends State<ScreenRoute> {
   Widget build(BuildContext context) {
     switch (widget.card.id) {
       case 'Syllabus Screen':
-        return SyllabusScreen();
+        return const SyllabusScreen();
 
       case 'Question Paper Screen':
-        return QuestionPaperScreen();
+        return const QuestionPaperScreen();
 
       case 'Result Screen':
-        return ResultScreen();
+        return const ResultScreen();
 
       case 'Circular Screen':
-        return CircularScreen();
+        return const CircularScreen();
 
       case 'Academic Calendar Screen':
         return AcademicCalendarScreen();
 
       case 'Student Corner Screen':
-        return StudentCornerScreen();
+        return const StudentCornerScreen();
 
       case 'Exam Timetable Screen':
-        return ExamTimetableScreen();
+        return const ExamTimetableScreen();
 
       case 'Percentage Calculator Screen':
-        return PercentageCalculatorScreen();
+        return const PercentageCalculatorScreen();
 
       default:
         return const Center(child: Text('Oops... Something went wrong'));

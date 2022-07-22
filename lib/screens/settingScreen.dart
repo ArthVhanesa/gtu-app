@@ -1,10 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/screens/logInScreen.dart';
 import 'package:gtu_app/style.dart';
-import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:in_app_review/in_app_review.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -17,7 +21,22 @@ class _SettingScreenState extends State<SettingScreen> {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
+  final InAppReview inAppReview = InAppReview.instance;
+
   String version = '0.0.0';
+
+  String shareAppMessage =
+      'The best app for GTU students'; // Message shared on click of share app
+  String toEmail =
+      'bookocean@gmail.com'; // Mail for receive bug report and feedback
+  String feedbackSubject = 'Feedback/Suggestion'; // Subject of feedback mail
+  String feedbackBody =
+      'Your suggestions and feedbacks are welcomed by Astron Apps.\n\nThank you.'; // Body of feedback mail
+  String bugSubject = 'Bug Report'; // Subject of Bug report mail
+  String bugBody =
+      'We are ready to improve App with help of your bug report.\n\nThank you.'; // Body of Bud report mail
+  String otherApps =
+      'https://play.google.com/store/apps/dev?id=9082115799273054085'; // Link will open on click of other apps
 
   @override
   Widget build(BuildContext context) {
@@ -35,24 +54,59 @@ class _SettingScreenState extends State<SettingScreen> {
                   title: 'Share',
                   firstMenuTitle: 'Share App',
                   firstIcon: Icons.ios_share,
+                  firstMenuOnTap: () {
+                    Share.share(shareAppMessage);
+                  },
                   secondMenuTitle: 'Rate App',
                   secondIcon: Icons.star,
+                  // secondMenuOnTap: () {
+                  //   inAppReview.requestReview();
+                  // },
+                  secondMenuOnTap: () async {
+                    final url =
+                        'https://play.google.com/store/apps/dev?id=9082115799273054085';
+
+                    if (await canLaunchUrl(Uri.parse(url))) {
+                      await launchUrl(Uri.parse(url),
+                          mode: LaunchMode.externalApplication,
+                          webViewConfiguration: const WebViewConfiguration(
+                            enableJavaScript: true,
+                            enableDomStorage: true,
+                          ));
+                    }
+                  },
                   color: _colors.skyBlueColor,
                 ),
                 SettingMenu(
                   title: 'Help & Feedback',
                   firstMenuTitle: 'Feedback',
                   firstIcon: Icons.send,
+                  firstMenuOnTap:
+                      sendMail(subject: feedbackSubject, body: feedbackBody),
                   secondMenuTitle: 'Bug report',
                   secondIcon: Icons.pest_control_outlined,
+                  secondMenuOnTap: sendMail(subject: bugSubject, body: bugBody),
                   color: _colors.orangeColor,
                 ),
                 SettingMenu(
                   title: 'About',
                   firstMenuTitle: 'Other Apps',
                   firstIcon: Icons.apps,
+                  firstMenuOnTap: () async {
+                    final url = otherApps;
+
+                    if (await canLaunchUrl(Uri.parse(url))) {
+                      await launchUrl(Uri.parse(url),
+                          mode: LaunchMode.externalApplication,
+                          webViewConfiguration: const WebViewConfiguration(
+                            enableJavaScript: true,
+                            enableDomStorage: true,
+                          ));
+                    }
+                  },
                   secondMenuTitle: 'About App',
                   secondIcon: Icons.info_outline,
+                  secondMenuOnTap: () {},
                   color: _colors.pistaColor,
                 )
               ],
@@ -141,6 +195,15 @@ class _SettingScreenState extends State<SettingScreen> {
       ),
     );
   }
+
+  void Function() sendMail({required String subject, required String body}) {
+    return () async {
+      final url = 'mailto:$toEmail?subject=$subject&body=$body';
+      if (await canLaunchUrl(Uri.parse(url))) {
+        await launchUrl(Uri.parse(url));
+      }
+    };
+  }
 }
 
 class SettingMenu extends StatelessWidget {
@@ -152,6 +215,8 @@ class SettingMenu extends StatelessWidget {
   String secondMenuTitle;
   IconData firstIcon;
   IconData secondIcon;
+  void Function() firstMenuOnTap;
+  void Function() secondMenuOnTap;
   Color color;
 
   SettingMenu({
@@ -161,6 +226,8 @@ class SettingMenu extends StatelessWidget {
     required this.secondMenuTitle,
     required this.firstIcon,
     required this.secondIcon,
+    required this.firstMenuOnTap,
+    required this.secondMenuOnTap,
     required this.color,
   }) : super(key: key);
 
@@ -179,8 +246,10 @@ class SettingMenu extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            menuButton(context, color, firstMenuTitle, firstIcon),
-            menuButton(context, color, secondMenuTitle, secondIcon),
+            menuButton(
+                context, color, firstMenuTitle, firstIcon, firstMenuOnTap),
+            menuButton(
+                context, color, secondMenuTitle, secondIcon, secondMenuOnTap),
           ],
         ),
         const SizedBox(
@@ -195,9 +264,10 @@ class SettingMenu extends StatelessWidget {
     Color color,
     String menuTitle,
     IconData menuIcon,
+    void Function() onTap,
   ) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.40,
         height: 100,
