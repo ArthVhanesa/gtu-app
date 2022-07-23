@@ -22,6 +22,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      backgroundColor: _colors.whiteColor,
       body: SafeArea(
         child: Container(
           color: _colors.whiteColor,
