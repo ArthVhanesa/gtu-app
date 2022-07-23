@@ -1,4 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:gtu_app/controllers/signInController.dart';
+import 'package:gtu_app/provider/provider.dart';
 import 'package:gtu_app/style.dart';
 import 'package:gtu_app/image.dart';
 
@@ -12,6 +17,8 @@ class LogInScreen extends StatefulWidget {
 class _LogInScreenState extends State<LogInScreen> {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
+
+  final signinController = Get.put(SignInController());
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +46,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     height: 25,
                   ),
                   InkWell(
-                    onTap: () => print('button clicked'),
+                    onTap: () => {signinController.loginWithGoogle()},
                     child: Container(
                       height: 80,
                       decoration: BoxDecoration(

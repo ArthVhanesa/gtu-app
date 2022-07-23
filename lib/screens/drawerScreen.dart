@@ -1,6 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:get/get.dart';
+import 'package:gtu_app/controllers/signInController.dart';
 import 'package:gtu_app/data/MenuItem.dart';
 import 'package:gtu_app/image.dart';
 import 'package:gtu_app/screens/circularScreen.dart';
@@ -96,6 +99,8 @@ class DrawerScreen extends StatelessWidget {
     required this.onSelectedItem,
   }) : super(key: key);
 
+  final signinController = Get.put(SignInController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,10 +122,10 @@ class DrawerScreen extends StatelessWidget {
                     backgroundImage: AssetImage(profileIconImg),
                   ),
                   const SizedBox(height: 10),
-                  Text(
-                    'Arth Vhanesa',
-                    style: _fontStyle.manrope(20, FontWeight.w800),
-                  ),
+                  signinController.obx((data) => Text(
+                        data.displayName,
+                        style: _fontStyle.manrope(20, FontWeight.w800),
+                      )),
                 ],
               ),
             ),

@@ -6,6 +6,7 @@ import 'package:gtu_app/components/HomeScreenTile.dart';
 import 'package:gtu_app/components/KeepItUp.dart';
 import 'package:gtu_app/components/RectangleCard.dart';
 import 'package:gtu_app/components/SearchBar.dart';
+import 'package:gtu_app/controllers/signInController.dart';
 import 'package:gtu_app/data/CarouselSliderData.dart';
 import 'package:gtu_app/data/TitleData.dart';
 import 'package:gtu_app/image.dart';
@@ -24,6 +25,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
+
+  final signinController = Get.put(SignInController());
 
   @override
   Widget build(BuildContext context) {
@@ -57,10 +60,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 15,
                     ),
                     Expanded(
-                      child: AutoSizeText(
-                        "Hello Arth👋",
-                        style: _fontStyle.montserrat(25, FontWeight.w600),
-                        maxLines: 1,
+                      child: signinController.obx(
+                        (data) => AutoSizeText(
+                          "Hello ${data!.displayName.split(" ")[0]}👋",
+                          style: _fontStyle.montserrat(25, FontWeight.w600),
+                          maxLines: 1,
+                        ),
                       ),
                     ),
                   ],

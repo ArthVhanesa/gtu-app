@@ -1,8 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:gtu_app/screens/drawerScreen.dart';
+import 'package:gtu_app/screens/logInDataScreen.dart';
+import 'package:gtu_app/screens/logInScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:gtu_app/screens/homeScreen.dart';
@@ -11,6 +14,7 @@ import 'package:gtu_app/style.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
 
   final prefs = await SharedPreferences.getInstance();
   final showHome = prefs.getBool('showHome') ?? false;
@@ -45,7 +49,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.black.withOpacity(0),
         ),
       ),
-      home: showHome ? ZoomDrawerScreen() : IntroductionScreens(),
+      home: showHome ? LogInScreen() : IntroductionScreens(),
     );
   }
 }

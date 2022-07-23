@@ -1,4 +1,4 @@
-package com.example.gtu_app
+package com.astronapps.gtuApp
 
 import io.flutter.embedding.android.FlutterActivity
 
