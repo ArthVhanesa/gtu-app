@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:gtu_app/screens/drawerScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:gtu_app/screens/homeScreen.dart';
@@ -39,10 +40,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'gtu_app',
       theme: ThemeData(
-          scaffoldBackgroundColor: _color.bgColor,
-          bottomSheetTheme: BottomSheetThemeData(
-              backgroundColor: Colors.black.withOpacity(0))),
-      home: showHome ? HomeScreen() : IntroductionScreens(),
+        scaffoldBackgroundColor: _color.bgColor,
+        bottomSheetTheme: BottomSheetThemeData(
+          backgroundColor: Colors.black.withOpacity(0),
+        ),
+      ),
+      home: showHome ? ZoomDrawerScreen() : IntroductionScreens(),
     );
   }
 }

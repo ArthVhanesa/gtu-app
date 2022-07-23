@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:gtu_app/components/HomeScreenTile.dart';
 import 'package:gtu_app/components/KeepItUp.dart';
 import 'package:gtu_app/components/RectangleCard.dart';
@@ -28,7 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      // backgroundColor: _colors.bgColor,
       body: SafeArea(
           child: Column(
         children: [
@@ -44,7 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Get.to(() => ProfileScreen());
+                        ZoomDrawer.of(context)!.toggle();
+                        // Get.to(ProfileScreen());
                       },
                       child: CircleAvatar(
                         radius: 23,

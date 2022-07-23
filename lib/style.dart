@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 class AppColors {
   final Color primaryColor = const Color(0xFFFF6C6C);
   final Color bgColor = const Color(0xFFF5F8FF);
+  final Color drawerBgColor = const Color(0xFFEBEFF9);
 
   final Color titleColor = const Color(0xB3000000);
 
