@@ -1,9 +1,15 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:gtu_app/components/CommonTile.dart';
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/components/PoweredbyAstronApps.dart';
+import 'package:gtu_app/controllers/circularController.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/DummyCommonCardData.dart';
+import 'package:gtu_app/models/circular_model.dart';
 import 'package:gtu_app/style.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
@@ -72,67 +78,77 @@ class _CircularScreenState extends State<CircularScreen>
 }
 
 class AllCircular extends StatelessWidget {
-  const AllCircular({
+  AllCircular({
     Key? key,
   }) : super(key: key);
+
+  final controller = Get.put(AllCircularController());
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Padding(
-        padding: padding,
-        child: Column(
-          children: [
-            ListView.separated(
-              padding: const EdgeInsets.only(top: 10),
-              itemCount: dummyCommonCardData.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              separatorBuilder: (context, index) => const SizedBox(height: 10),
-              itemBuilder: (BuildContext context, int index) {
-                return CommonTile(
-                  dummyCommonCardData: dummyCommonCardData[index],
-                );
-              },
+        physics: const BouncingScrollPhysics(),
+        child: Padding(
+          padding: padding,
+          child: controller.obx(
+            (circularData) => Column(
+              children: [
+                ListView.separated(
+                  padding: const EdgeInsets.only(top: 10),
+                  itemCount: circularData.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 10),
+                  itemBuilder: (BuildContext context, int index) {
+                    return CommonTile(
+                      dummyCommonCardData:
+                          CircularModel.fromJson(circularData[index]),
+                    );
+                  },
+                ),
+                PoweredbyAstronApps()
+              ],
             ),
-            PoweredbyAstronApps()
-          ],
-        ),
-      ),
-    );
+          ),
+        ));
   }
 }
 
 class ImportantCircular extends StatelessWidget {
-  const ImportantCircular({
+  ImportantCircular({
     Key? key,
   }) : super(key: key);
+
+  final controller = Get.put(ImpCircularController());
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Padding(
-        padding: padding,
-        child: Column(
-          children: [
-            ListView.separated(
-              padding: const EdgeInsets.only(top: 10),
-              itemCount: dummyCommonCardData.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              separatorBuilder: (context, index) => const SizedBox(height: 10),
-              itemBuilder: (BuildContext context, int index) {
-                return CommonTile(
-                  dummyCommonCardData: dummyCommonCardData[index],
-                );
-              },
+        physics: const BouncingScrollPhysics(),
+        child: Padding(
+          padding: padding,
+          child: controller.obx(
+            (circularData) => Column(
+              children: [
+                ListView.separated(
+                  padding: const EdgeInsets.only(top: 10),
+                  itemCount: circularData.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 10),
+                  itemBuilder: (BuildContext context, int index) {
+                    return CommonTile(
+                      dummyCommonCardData:
+                          CircularModel.fromJson(circularData[index]),
+                    );
+                  },
+                ),
+                PoweredbyAstronApps()
+              ],
             ),
-            PoweredbyAstronApps()
-          ],
-        ),
-      ),
-    );
+          ),
+        ));
   }
 }
