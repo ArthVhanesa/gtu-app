@@ -7,14 +7,9 @@ import 'package:gtu_app/controllers/signInController.dart';
 import 'package:gtu_app/custome_tab.dart';
 import 'package:gtu_app/data/MenuItem.dart';
 import 'package:gtu_app/image.dart';
-import 'package:gtu_app/screens/circularScreen.dart';
-import 'package:gtu_app/screens/examTimetableScreen.dart';
 import 'package:gtu_app/screens/homeScreen.dart';
-import 'package:gtu_app/screens/percentageCalculatorScreen.dart';
 import 'package:gtu_app/screens/profileScreen.dart';
-import 'package:gtu_app/screens/questionPaperScreen.dart';
-import 'package:gtu_app/screens/resultScreen.dart';
-import 'package:gtu_app/screens/syllabusScreen.dart';
+import 'package:gtu_app/screens/settingScreen.dart';
 import 'package:gtu_app/style.dart';
 
 class ZoomDrawerScreen extends StatefulWidget {
@@ -76,76 +71,130 @@ class DrawerScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: _colors.drawerBgColor, // bg color of drawer
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 50),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 25),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Get.to(const ProfileScreen());
-                      ZoomDrawer.of(context)!.close();
-                    },
-                    child: const CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage(profileIconImg),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 50),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 25),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Get.to(const ProfileScreen());
+                        ZoomDrawer.of(context)!.close();
+                      },
+                      child: const CircleAvatar(
+                        radius: 50,
+                        backgroundImage: AssetImage(profileIconImg),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  signinController.obx((data) => Text(
+                    const SizedBox(height: 10),
+                    signinController.obx(
+                      (data) => Text(
                         data.displayName,
                         style: _fontStyle.manrope(20, FontWeight.w800),
-                      )),
-                ],
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      "{Enrollment no.}",
+                      style: _fontStyle.manrope(15, FontWeight.w700).copyWith(
+                            color: _colors.titleColor,
+                          ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Column(
-              children: [
-                ...MenuItems.all.map(buildMenuItem),
-              ], // list builder of menu item
-            ),
-            Container(
-              height: 50,
-              width: 120,
-              margin: const EdgeInsets.only(left: 25),
-              decoration: BoxDecoration(
-                  color: _colors.primaryColor,
-                  borderRadius: BorderRadius.all(Radius.circular(50))),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Column(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: _colors.bgColor,
-                      borderRadius: const BorderRadius.all(Radius.circular(50)),
-                    ),
-                    child: Icon(
-                      Icons.power_settings_new_outlined,
-                      size: 25,
-                      color: _colors.primaryColor,
-                    ),
-                  ),
-                  const SizedBox(width: 6),
-                  Text(
-                    'Log Out',
-                    style: _fontStyle.manrope(16, FontWeight.w700).copyWith(
-                          color: _colors.bgColor,
-                        ),
-                  ),
-                  const SizedBox(width: 5)
-                ],
+                  ...MenuItems.all.map(buildMenuItem),
+                ], // list builder of menu item
               ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.only(left: 25),
+                child: Row(
+                  children: [
+                    logOutButton(),
+                    const SizedBox(width: 10),
+                    settingButton(),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
-      )),
+      ),
+    );
+  }
+
+  Container settingButton() {
+    return Container(
+      height: 50,
+      width: 50,
+      decoration: BoxDecoration(
+        color: _colors.blackColor,
+        borderRadius: const BorderRadius.all(Radius.circular(50)),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            Get.to(const SettingScreen());
+          },
+          borderRadius: const BorderRadius.all(Radius.circular(50)),
+          child: Icon(
+            Icons.settings_outlined,
+            size: 30,
+            color: _colors.bgColor,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Container logOutButton() {
+    return Container(
+      height: 50,
+      width: 120,
+      decoration: BoxDecoration(
+          color: _colors.primaryColor,
+          borderRadius: const BorderRadius.all(Radius.circular(50))),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {},
+          borderRadius: const BorderRadius.all(Radius.circular(50)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  color: _colors.bgColor,
+                  borderRadius: const BorderRadius.all(Radius.circular(50)),
+                ),
+                child: Icon(
+                  Icons.power_settings_new_outlined,
+                  size: 25,
+                  color: _colors.primaryColor,
+                ),
+              ),
+              const SizedBox(width: 6),
+              Text(
+                'Log Out',
+                style: _fontStyle.manrope(16, FontWeight.w700).copyWith(
+                      color: _colors.bgColor,
+                    ),
+              ),
+              const SizedBox(width: 5)
+            ],
+          ),
+        ),
+      ),
     );
   }
 

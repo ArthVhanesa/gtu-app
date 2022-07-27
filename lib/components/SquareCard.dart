@@ -26,41 +26,50 @@ class SquareCard extends StatelessWidget {
       islinkAvailable = true;
     }
 
-    return InkWell(
-      onTap: () {
-        if (islinkAvailable) {
-          launchCustomTab(card.onTapLink);
-        } else {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => ScreenRoute(
-                      card: card,
-                    )),
-          );
-        }
-      },
-      child: Container(
-        width: MediaQuery.of(context).size.width * 0.4,
-        height: 170,
-        decoration: BoxDecoration(
-            color: card.color,
-            borderRadius: const BorderRadius.all(Radius.circular(25))),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              card.image,
-              height: 120,
-            ),
-            Text(
-              card.title,
-              style: _fontStyle
-                  .montserrat(16, FontWeight.w600)
-                  .copyWith(color: _color.titleColor),
-              textAlign: TextAlign.center,
-            )
-          ],
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.4,
+      height: 170,
+      decoration: BoxDecoration(
+        color: card.color,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(25),
+        ),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            if (islinkAvailable) {
+              launchCustomTab(card.onTapLink);
+            } else {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ScreenRoute(
+                          card: card,
+                        )),
+              );
+            }
+          },
+          borderRadius: const BorderRadius.all(
+            Radius.circular(25),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                card.image,
+                height: 120,
+              ),
+              Text(
+                card.title,
+                style: _fontStyle
+                    .montserrat(16, FontWeight.w600)
+                    .copyWith(color: _color.titleColor),
+                textAlign: TextAlign.center,
+              )
+            ],
+          ),
         ),
       ),
     );

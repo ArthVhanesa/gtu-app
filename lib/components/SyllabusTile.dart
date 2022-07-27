@@ -24,6 +24,7 @@ class SyllabusTile extends StatelessWidget {
         showModalBottomSheet(
             context: context,
             isScrollControlled: true,
+            backgroundColor: _colors.bgColor,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(15))),
             builder: (context) => ModalBottomSheet())

@@ -49,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     InkWell(
                       onTap: () {
                         ZoomDrawer.of(context)!.toggle();
+                        FocusScope.of(context).unfocus();
                       },
                       child: SvgPicture.asset(
                         hamburger,
