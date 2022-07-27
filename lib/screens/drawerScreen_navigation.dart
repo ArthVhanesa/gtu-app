@@ -4,18 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:gtu_app/controllers/signInController.dart';
-import 'package:gtu_app/custome_tab.dart';
-import 'package:gtu_app/data/MenuItem.dart';
+import 'package:gtu_app/data/MenuItem_navigation.dart';
 import 'package:gtu_app/image.dart';
 import 'package:gtu_app/screens/circularScreen.dart';
 import 'package:gtu_app/screens/examTimetableScreen.dart';
 import 'package:gtu_app/screens/homeScreen.dart';
 import 'package:gtu_app/screens/percentageCalculatorScreen.dart';
-import 'package:gtu_app/screens/profileScreen.dart';
 import 'package:gtu_app/screens/questionPaperScreen.dart';
 import 'package:gtu_app/screens/resultScreen.dart';
 import 'package:gtu_app/screens/syllabusScreen.dart';
 import 'package:gtu_app/style.dart';
+
+// ============================================================================//
+// this is unused drawer screen with navigaion to other screens
+// whenever want to navigate to other screen from the drawe use this file
+// ============================================================================//
 
 class ZoomDrawerScreen extends StatefulWidget {
   const ZoomDrawerScreen({super.key});
@@ -27,19 +30,24 @@ class ZoomDrawerScreen extends StatefulWidget {
 class _ZoomDrawerScreenState extends State<ZoomDrawerScreen> {
   final AppColors _colors = AppColors();
 
+  MenuItemData currentItem = MenuItems.Home; // Defalut menu select
+
   @override
   Widget build(BuildContext context) {
     return ZoomDrawer(
       menuScreen: Builder(
         builder: (context) => DrawerScreen(
+          currentItem: currentItem,
           onSelectedItem: (item) {
             setState(() {
+              currentItem = item;
+
               ZoomDrawer.of(context)!.close();
             });
           },
         ),
       ),
-      mainScreen: const HomeScreen(),
+      mainScreen: getScreen(),
       angle: 0,
       showShadow: true,
       moveMenuScreen: false,
@@ -56,16 +64,43 @@ class _ZoomDrawerScreenState extends State<ZoomDrawerScreen> {
       clipMainScreen: true,
     );
   }
+
+  Widget getScreen() {
+    switch (currentItem) {
+      case MenuItems.syllabus:
+        return SyllabusScreen();
+
+      case MenuItems.questionPaper:
+        return QuestionPaperScreen();
+
+      case MenuItems.result:
+        return ResultScreen();
+
+      case MenuItems.percentageCalculator:
+        return PercentageCalculatorScreen();
+
+      case MenuItems.circular:
+        return CircularScreen();
+
+      case MenuItems.examTimetable:
+        return ExamTimetableScreen();
+
+      default:
+        return HomeScreen();
+    }
+  }
 }
 
 class DrawerScreen extends StatelessWidget {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
+  final MenuItemData currentItem;
   final ValueChanged<MenuItemData> onSelectedItem;
 
   DrawerScreen({
     Key? key,
+    required this.currentItem,
     required this.onSelectedItem,
   }) : super(key: key);
 
@@ -87,15 +122,9 @@ class DrawerScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Get.to(const ProfileScreen());
-                      ZoomDrawer.of(context)!.close();
-                    },
-                    child: const CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage(profileIconImg),
-                    ),
+                  const CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage(profileIconImg),
                   ),
                   const SizedBox(height: 10),
                   signinController.obx((data) => Text(
@@ -113,7 +142,7 @@ class DrawerScreen extends StatelessWidget {
             Container(
               height: 50,
               width: 120,
-              margin: const EdgeInsets.only(left: 25),
+              margin: EdgeInsets.only(left: 25),
               decoration: BoxDecoration(
                   color: _colors.primaryColor,
                   borderRadius: BorderRadius.all(Radius.circular(50))),
@@ -153,6 +182,7 @@ class DrawerScreen extends StatelessWidget {
         selectedTileColor:
             Colors.black.withOpacity(0.1), //bg color of selected menu
         selectedColor: _colors.primaryColor, // color of selected menu
+        selected: currentItem == item,
         minLeadingWidth: 20,
         contentPadding: const EdgeInsets.only(left: 25),
         leading: Icon(item.icon),
@@ -161,7 +191,7 @@ class DrawerScreen extends StatelessWidget {
           style: _fontStyle.manrope(16, FontWeight.w600),
         ),
         onTap: () {
-          launchCustomTab(item.url);
+          onSelectedItem(item);
         },
       );
 }

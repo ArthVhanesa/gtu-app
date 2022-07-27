@@ -20,3 +20,5 @@ const resultImageImg = 'assets/image/resultImage.png';
 const midMarksImg = 'assets/image/midMarks.png';
 const gradeHistoryImg = 'assets/image/gradeHistory.png';
 const percentageCalculatorImg = 'assets/image/percentageCalculator.png';
+
+const hamburger = 'assets/icons/hamburger.svg'; // svg icon for hamburger

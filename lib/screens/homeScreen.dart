@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:gtu_app/components/HomeScreenTile.dart';
 import 'package:gtu_app/components/KeepItUp.dart';
@@ -48,12 +49,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     InkWell(
                       onTap: () {
                         ZoomDrawer.of(context)!.toggle();
-                        // Get.to(ProfileScreen());
                       },
-                      child: CircleAvatar(
-                        radius: 23,
-                        backgroundImage: const AssetImage(profileIconImg),
-                        backgroundColor: _colors.blackColor,
+                      child: SvgPicture.asset(
+                        hamburger,
+                        height: 35,
+                        width: 35,
+                        color: _colors.blackColor,
                       ),
                     ),
                     const SizedBox(
@@ -62,10 +63,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     Expanded(
                       child: signinController.obx(
                         (data) => AutoSizeText(
-                          "Hello ${data!.displayName.split(" ")[0]}👋",
+                          "Hi, ${data!.displayName.split(" ")[0]}👋",
                           style: _fontStyle.montserrat(25, FontWeight.w600),
                           maxLines: 1,
                         ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Get.to(const ProfileScreen());
+                      },
+                      child: CircleAvatar(
+                        radius: 23,
+                        backgroundImage: const AssetImage(profileIconImg),
+                        backgroundColor: _colors.blackColor,
                       ),
                     ),
                   ],
@@ -73,7 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 35,
                 ),
-                SearchBar(),
+                SearchBar(
+                  onTap: () {},
+                ),
                 const SizedBox(
                   height: 10,
                 ),
