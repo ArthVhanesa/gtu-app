@@ -1,5 +1,7 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:gtu_app/style.dart';
 
 class SearchBar extends StatelessWidget {
@@ -8,7 +10,12 @@ class SearchBar extends StatelessWidget {
 
   final TextEditingController _subjectCode = TextEditingController();
 
-  SearchBar({super.key});
+  void Function() onTap;
+
+  SearchBar({
+    Key? key,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +49,7 @@ class SearchBar extends StatelessWidget {
           width: 10,
         ),
         InkWell(
-          onTap: () => print(_subjectCode.text),
+          onTap: onTap,
           child: Container(
             height: 48,
             width: 48,

@@ -32,7 +32,9 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
           ),
           Padding(
             padding: padding,
-            child: SearchBar(),
+            child: SearchBar(
+              onTap: () {},
+            ),
           ),
           const SizedBox(height: 10),
           Expanded(

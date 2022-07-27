@@ -33,7 +33,9 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
           ),
           Padding(
             padding: padding,
-            child: SearchBar(),
+            child: SearchBar(
+              onTap: () {},
+            ),
           ),
           const SizedBox(height: 10),
           Expanded(
