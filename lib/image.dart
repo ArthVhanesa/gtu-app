@@ -21,4 +21,7 @@ const midMarksImg = 'assets/image/midMarks.png';
 const gradeHistoryImg = 'assets/image/gradeHistory.png';
 const percentageCalculatorImg = 'assets/image/percentageCalculator.png';
 
+const errorImg = 'assets/image/error.png';
+const warningImg = 'assets/image/warning.png';
+
 const hamburger = 'assets/icons/hamburger.svg'; // svg icon for hamburger

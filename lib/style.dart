@@ -34,6 +34,9 @@ class AppColors {
 
   final Color linkBlueColor = const Color(0xFF3666D9);
 
+  final Color errorColor = const Color(0xFFFFCFCF);
+  final Color warningColor = const Color(0xFFFFF9BF);
+
   final Color blackColor = const Color(0XFF000000);
   final Color whiteColor = const Color(0XFFFFFFFF);
 }
