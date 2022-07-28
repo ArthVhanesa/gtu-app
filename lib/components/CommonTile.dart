@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/components/ModalBottomColumnFour.dart';
 import 'package:gtu_app/components/ModalBottomColumnThree.dart';
 import 'package:gtu_app/custome_tab.dart';
+import 'package:gtu_app/launch_url.dart';
 import 'package:gtu_app/models/circular_model.dart';
+import 'package:gtu_app/pdf_viewer.dart';
 import 'package:gtu_app/style.dart';
+import 'package:get/get.dart';
 
 class CommonTile extends StatefulWidget {
   final CircularModel commonCardData;
@@ -208,7 +211,7 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(8)),
                               onTap: () {
-                                launchCustomTab(widget.commonCardData.ptags![0]
+                                launchUrl(widget.commonCardData.ptags![0]
                                     .atags![index].link!);
                               },
                               child: Padding(
