@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:gtu_app/data/IntroductionScreenData.dart';
 import 'package:gtu_app/screens/homeScreen.dart';
+import 'package:gtu_app/screens/logInScreen.dart';
 import 'package:gtu_app/style.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -125,7 +126,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
             final prefs = await SharedPreferences.getInstance();
             prefs.setBool('showHome', true);
 
-            Get.off(() => HomeScreen());
+            Get.off(() => const LogInScreen());
           },
           child: Center(
             child: Text(

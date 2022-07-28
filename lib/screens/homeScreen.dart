@@ -3,7 +3,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:gtu_app/components/CustomSnackBar.dart';
 import 'package:gtu_app/components/HomeScreenTile.dart';
 import 'package:gtu_app/components/KeepItUp.dart';
 import 'package:gtu_app/components/RectangleCard.dart';

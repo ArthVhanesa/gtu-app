@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.astronapps.gtuApp">
-
+<uses-permission android:name="android.permission.WAKE_LOCK"/>
   <!-- Provide required visibility configuration for API level 30 and above -->
   <queries>
     <!-- Place inside the <queries> element. -->
