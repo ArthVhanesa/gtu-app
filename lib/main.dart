@@ -1,8 +1,15 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:gtu_app/controllers/signInController.dart';
+import 'package:gtu_app/models/user_model.dart';
+import 'package:gtu_app/screens/drawerScreen.dart';
+import 'package:gtu_app/screens/logInDataScreen.dart';
 import 'package:gtu_app/screens/logInScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:gtu_app/screens/introductionScreen.dart';
@@ -13,7 +20,7 @@ void main() async {
   Firebase.initializeApp();
 
   final prefs = await SharedPreferences.getInstance();
-  final showHome = prefs.getBool('showHome') ?? false;
+  final isIntroDone = prefs.getBool('showHome') ?? false;
 
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent, // status bar color
@@ -22,30 +29,36 @@ void main() async {
     systemNavigationBarColor: Colors.transparent, // navigation bar color
     systemNavigationBarIconBrightness: Brightness.dark, //navigation bar icon
   ));
-  runApp(MyApp(showHome: showHome));
+  runApp(MyApp(isIntroDone: isIntroDone, prefs: prefs));
 }
 
 class MyApp extends StatelessWidget {
-  final bool showHome;
+  final bool isIntroDone;
+  final SharedPreferences prefs;
 
-  const MyApp({
-    Key? key,
-    required this.showHome,
-  }) : super(key: key);
+  const MyApp({Key? key, required this.isIntroDone, required this.prefs})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final AppColors _color = AppColors();
+    final signinController = Get.put(SignInController());
+    final isUserLoggedin = UserProfileModel.fromJson(
+                jsonDecode(prefs.getString("userData") ?? "{}"))
+            .uid !=
+        null;
+
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'gtu_app',
-      theme: ThemeData(
-        scaffoldBackgroundColor: _color.bgColor,
-        bottomSheetTheme: BottomSheetThemeData(
-          backgroundColor: Colors.black.withOpacity(0),
+        debugShowCheckedModeBanner: false,
+        title: 'gtu_app',
+        theme: ThemeData(
+          scaffoldBackgroundColor: _color.bgColor,
+          bottomSheetTheme: BottomSheetThemeData(
+            backgroundColor: Colors.black.withOpacity(0),
+          ),
         ),
-      ),
-      home: showHome ? LogInScreen() : IntroductionScreens(),
-    );
+        home: isIntroDone
+            ? (isUserLoggedin ? ZoomDrawerScreen() : LogInScreen())
+            : IntroductionScreens());
   }
 }

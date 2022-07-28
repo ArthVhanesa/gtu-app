@@ -41,4 +41,9 @@ class Provider extends GetConnect {
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
+
+  Future<void> logOut() async {
+    log("logged out");
+    return FirebaseAuth.instance.signOut();
+  }
 }

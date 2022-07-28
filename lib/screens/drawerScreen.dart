@@ -95,7 +95,7 @@ class DrawerScreen extends StatelessWidget {
                     const SizedBox(height: 10),
                     signinController.obx(
                       (data) => Text(
-                        data.displayName,
+                        data.displayName ?? "",
                         style: _fontStyle.manrope(20, FontWeight.w800),
                       ),
                     ),
@@ -166,7 +166,9 @@ class DrawerScreen extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            signinController.logOut();
+          },
           borderRadius: const BorderRadius.all(Radius.circular(50)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gtu_app/components/TextInput.dart';
 import 'package:gtu_app/controllers/signInController.dart';
+import 'package:gtu_app/models/user_model.dart';
 import 'package:gtu_app/screens/drawerScreen.dart';
 import 'package:gtu_app/style.dart';
 
@@ -52,7 +53,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                               width: MediaQuery.of(context).size.width * 0.4,
                               maxLength: 20,
                               titleName: "First name",
-                              hintText: "${data!.displayName.split(" ")[0]}",
+                              hintText: data.firstName ?? "",
                               keyboardType: TextInputType.name,
                               textInputFormatter: RegExp("[a-zA-Z]"),
                               // maxLengthEnforcement: MaxLengthEnforcement.none,
@@ -62,7 +63,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                               width: MediaQuery.of(context).size.width * 0.4,
                               maxLength: 20,
                               titleName: "Last name",
-                              hintText: "${data!.displayName.split(" ")[1]}",
+                              hintText: data.lastName ?? "",
                               keyboardType: TextInputType.name,
                               textInputFormatter: RegExp("[a-zA-Z]"),
                               // maxLengthEnforcement: MaxLengthEnforcement.none,

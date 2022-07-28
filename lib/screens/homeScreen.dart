@@ -62,13 +62,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 15,
                     ),
                     Expanded(
-                      child: signinController.obx(
-                        (data) => AutoSizeText(
-                          "Hi, ${data!.displayName.split(" ")[0]}👋",
-                          style: _fontStyle.montserrat(25, FontWeight.w600),
-                          maxLines: 1,
-                        ),
-                      ),
+                      child: signinController.obx((data) => AutoSizeText(
+                            "Hi, ${data.firstName ?? ""}👋",
+                            style: _fontStyle.montserrat(25, FontWeight.w600),
+                            maxLines: 1,
+                          )),
                     ),
                     InkWell(
                       onTap: () {

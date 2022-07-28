@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:gtu_app/components/Header.dart';
+import 'package:gtu_app/controllers/signInController.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/screens/logInScreen.dart';
 import 'package:gtu_app/style.dart';
@@ -64,7 +65,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   //   inAppReview.requestReview();
                   // },
                   secondMenuOnTap: () async {
-                    final url =
+                    const url =
                         'https://play.google.com/store/apps/dev?id=9082115799273054085';
 
                     if (await canLaunchUrl(Uri.parse(url))) {
@@ -120,6 +121,8 @@ class _SettingScreenState extends State<SettingScreen> {
   }
 
   logoutButton(BuildContext context) {
+    final signinController = Get.put(SignInController());
+
     TextStyle style = _fontStyle
         .montserrat(12, FontWeight.w600)
         .copyWith(decoration: TextDecoration.underline);
@@ -170,12 +173,8 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
             // logout button
             InkWell(
-              onTap: () async {
-                // for showing again a introduction screen, showHome = false
-                final prefs = await SharedPreferences.getInstance();
-                prefs.setBool('showHome', false);
-
-                Get.to(() => LogInScreen());
+              onTap: () {
+                signinController.logOut();
               },
               child: Container(
                 width: MediaQuery.of(context).size.width,
