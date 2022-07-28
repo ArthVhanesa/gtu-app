@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:gtu_app/pdf_api.dart';
 import 'package:gtu_app/style.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:path/path.dart';
 
 class PdfViewer extends StatefulWidget {
@@ -28,7 +29,7 @@ class _PdfViewerState extends State<PdfViewer> {
 
   @override
   Widget build(BuildContext context) {
-    final text = '${indexPage! + 1} of $pages';
+    final text = '[${indexPage! + 1} of $pages]';
 
     return Scaffold(
         appBar: AppBar(
@@ -36,7 +37,7 @@ class _PdfViewerState extends State<PdfViewer> {
           //Pdf viewer Appbar title
           title: Text(
             name == null ? 'PDF Viewer' : name!.substring(0, name!.length - 4),
-            style: _style.manrope(18, FontWeight.normal).copyWith(
+            style: _style.manrope(18, FontWeight.w500).copyWith(
                   color: _colors.blackColor,
                 ),
           ),
@@ -45,22 +46,34 @@ class _PdfViewerState extends State<PdfViewer> {
                   Center(
                       child: Text(
                     text,
-                    style: _style.manrope(18, FontWeight.normal).copyWith(
+                    style: _style.manrope(15, FontWeight.w500).copyWith(
                           color: _colors.blackColor,
                         ),
                   )),
                   IconButton(
                     icon: const Icon(Icons.chevron_left, size: 32),
                     onPressed: () {
-                      final page = indexPage == 0 ? pages : indexPage! - 1;
-                      controller.setPage(page!);
+                      // final page = indexPage == 0 ? pages : indexPage! - 1;
+
+                      if (indexPage == 0) {
+                        //toast message 'first page'
+                      } else {
+                        final page = indexPage! - 1;
+                        controller.setPage(page);
+                      }
                     },
                   ),
                   IconButton(
                     icon: const Icon(Icons.chevron_right, size: 32),
                     onPressed: () {
-                      final page = indexPage == pages! - 1 ? 0 : indexPage! + 1;
-                      controller.setPage(page);
+                      // final page = indexPage == pages! - 1 ? 0 : indexPage! + 1;
+
+                      if (indexPage == pages! - 1) {
+                        //toast message 'last page'
+                      } else {
+                        final page = indexPage! - 1;
+                        controller.setPage(page);
+                      }
                     },
                   ),
                 ]

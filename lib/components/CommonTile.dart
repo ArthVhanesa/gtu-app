@@ -177,68 +177,65 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
         ),
         Padding(
           padding: const EdgeInsets.all(20),
-          child: Container(
-            // height: 440,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ListView.separated(
-                  itemCount: widget.commonCardData.ptags![0].atags!.length,
-                  // itemCount: 1,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(height: 8),
-                  itemBuilder: (BuildContext context, int index) {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "• ${widget.commonCardData.ptags![0].atags![index].atext}",
-                            style: _fontStyle.manrope(15, FontWeight.w600),
-                          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ListView.separated(
+                itemCount: widget.commonCardData.ptags![0].atags!.length,
+                // itemCount: 1,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                separatorBuilder: (context, index) => const SizedBox(height: 8),
+                itemBuilder: (BuildContext context, int index) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          "• ${widget.commonCardData.ptags![0].atags![index].atext}",
+                          style: _fontStyle.manrope(15, FontWeight.w600),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: _colors.linkBlueBgColor,
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 10),
+                        decoration: BoxDecoration(
+                          color: _colors.linkBlueBgColor,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(8)),
+                        ),
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(8)),
-                          ),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(8)),
-                              onTap: () {
-                                launchUrl(widget.commonCardData.ptags![0]
-                                    .atags![index].link!);
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                  vertical: 5,
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    'View',
-                                    style: _fontStyle
-                                        .montserrat(15, FontWeight.w500)
-                                        .copyWith(
-                                          color: _colors.linkBlueColor,
-                                        ),
-                                  ),
+                            onTap: () {
+                              launchUrl(widget.commonCardData.ptags![0]
+                                  .atags![index].link!);
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 5,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'View',
+                                  style: _fontStyle
+                                      .montserrat(15, FontWeight.w500)
+                                      .copyWith(
+                                        color: _colors.linkBlueColor,
+                                      ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ],
-                    );
-                  },
-                )
-              ],
-            ),
+                      ),
+                    ],
+                  );
+                },
+              )
+            ],
           ),
         ),
       ],

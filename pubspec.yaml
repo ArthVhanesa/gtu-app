@@ -49,6 +49,7 @@ dependencies:
   tab_indicator_styler: ^2.0.0
   percent_indicator: ^4.2.2
   smooth_page_indicator: ^1.0.0+2
+  loading_indicator: ^3.1.0
   flutter_zoom_drawer: ^3.0.3
   flutter_pdfview: ^1.2.2
   firebase_core: ^1.20.0
