@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 
 class Provider extends GetConnect {
   Future<dynamic> getAllCircular() async {
-    final response =
-        await get('https://bookocean-app.herokuapp.com/circular/recent');
+    final response = await httpClient
+        .get('https://bookocean-app.herokuapp.com/circular/recent');
     if (response.status.hasError) {
       return Future.error(response.statusText!);
     } else {
@@ -15,8 +15,18 @@ class Provider extends GetConnect {
   }
 
   Future<dynamic> getImpCircular() async {
+    final response = await httpClient
+        .get('https://bookocean-app.herokuapp.com/circular/important');
+    if (response.status.hasError) {
+      return Future.error(response.statusText!);
+    } else {
+      return response.body;
+    }
+  }
+
+  Future<dynamic> getAllSem() async {
     final response =
-        await get('https://bookocean-app.herokuapp.com/circular/important');
+        await httpClient.get('http://192.168.0.103:5001/timetable/BE');
     if (response.status.hasError) {
       return Future.error(response.statusText!);
     } else {

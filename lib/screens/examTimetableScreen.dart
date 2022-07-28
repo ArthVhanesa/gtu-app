@@ -2,9 +2,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:gtu_app/components/DropDownMenu.dart';
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/components/PoweredbyAstronApps.dart';
+import 'package:gtu_app/controllers/timetable_controller.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/ExamTimetable.dart';
 import 'package:gtu_app/style.dart';
@@ -70,6 +72,14 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
   }
 
   dropDownMenus(TextStyle style, BuildContext context) {
+    final timeTableController = Get.put(TimeTableController());
+
+    Widget semSelector = timeTableController.obx((state) => DropDownMenu(
+          item: state['sem'] ?? ["No data found"],
+          hintText: 'Sem',
+          width: 0.4,
+        ));
+
     return Container(
       height: 250,
       child: Column(
@@ -108,11 +118,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  DropDownMenu(
-                    item: sem,
-                    hintText: 'Sem',
-                    width: 0.4,
-                  ),
+                  semSelector
                 ],
               ),
               Column(

@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-final course = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
+final course = ["BE - Bachelor of Engineering"];
 final sem = ["Sem 1", "Sem 2", "Sem 3", "Sem 4", "Sem 5"];
 
 class ExamTimetableData {

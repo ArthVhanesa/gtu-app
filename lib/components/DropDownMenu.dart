@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/style.dart';
 
 class DropDownMenu extends StatefulWidget {
-  List<String> item;
+  List<dynamic> item;
   String hintText;
   double width;
   DropDownMenu({
@@ -54,7 +54,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
     );
   }
 
-  DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
+  DropdownMenuItem<String> buildMenuItem(dynamic item) => DropdownMenuItem(
         value: item,
         child: Text(
           item,
