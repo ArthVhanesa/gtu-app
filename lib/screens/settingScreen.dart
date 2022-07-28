@@ -172,24 +172,27 @@ class _SettingScreenState extends State<SettingScreen> {
               height: 10,
             ),
             // logout button
-            InkWell(
-              onTap: () {
-                signinController.logOut();
-              },
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: 55,
-                decoration: BoxDecoration(
-                    color: _colors.lavenderColor,
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(25),
-                    )),
-                child: Center(
-                  child: Text(
-                    'Log out',
-                    style: _fontStyle
-                        .montserrat(20, FontWeight.w600)
-                        .copyWith(color: _colors.titleColor),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 55,
+              decoration: BoxDecoration(
+                color: _colors.lavenderColor,
+                borderRadius: const BorderRadius.all(Radius.circular(25)),
+              ),
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  borderRadius: const BorderRadius.all(Radius.circular(25)),
+                  onTap: () {
+                    signinController.logOut();
+                  },
+                  child: Center(
+                    child: Text(
+                      'Log out',
+                      style: _fontStyle
+                          .montserrat(20, FontWeight.w600)
+                          .copyWith(color: _colors.titleColor),
+                    ),
                   ),
                 ),
               ),

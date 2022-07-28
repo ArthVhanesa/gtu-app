@@ -84,24 +84,30 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                         const SizedBox(
                           height: 7,
                         ),
-                        InkWell(
-                          onTap: () {
-                            var aet = _enrollmentNo.text;
-                            print("Continue button pressed" + aet);
-                            Get.to(() => ZoomDrawerScreen());
-                          },
-                          child: Container(
-                            width: 170,
-                            height: 60,
-                            decoration: BoxDecoration(
-                                color: _colors.blackColor,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30))),
-                            child: Center(
-                              child: Text("Continue",
-                                  style: _fontStyle
-                                      .manrope(22, FontWeight.w600)
-                                      .copyWith(color: _colors.whiteColor)),
+                        Container(
+                          width: 170,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            color: _colors.blackColor,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(30)),
+                          ),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(30)),
+                              onTap: () {
+                                var en = _enrollmentNo.text;
+                                print("Continue button pressed" + en);
+                                Get.to(() => ZoomDrawerScreen());
+                              },
+                              child: Center(
+                                child: Text("Continue",
+                                    style: _fontStyle
+                                        .manrope(22, FontWeight.w600)
+                                        .copyWith(color: _colors.whiteColor)),
+                              ),
                             ),
                           ),
                         )

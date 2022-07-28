@@ -33,6 +33,7 @@ class AppColors {
   final Color percentageCalcBgColor = const Color(0xFFFFEFE6);
 
   final Color linkBlueColor = const Color(0xFF3666D9);
+  final Color linkBlueBgColor = const Color(0xFFD4DEF7);
 
   final Color errorColor = const Color(0xFFFFCFCF);
   final Color warningColor = const Color(0xFFFFF9BF);

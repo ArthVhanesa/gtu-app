@@ -15,39 +15,46 @@ class QuestionPaperTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => {},
-      child: Container(
-        padding: const EdgeInsets.all(15),
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            color: _colors.questionPaperTileColor,
-            borderRadius: const BorderRadius.all(Radius.circular(25))),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "${questionPaper.subCode} (${questionPaper.previous})", //pass subject code
-                    style: _fontStyle.montserrat(16, FontWeight.w600),
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        color: _colors.questionPaperTileColor,
+        borderRadius: const BorderRadius.all(Radius.circular(25)),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: const BorderRadius.all(Radius.circular(25)),
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "${questionPaper.subCode} (${questionPaper.previous})", //pass subject code
+                        style: _fontStyle.montserrat(16, FontWeight.w600),
+                      ),
+                      Text(
+                        questionPaper.subName, //pass subject name
+                        style: _fontStyle.manrope(13, FontWeight.w600),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      )
+                    ],
                   ),
-                  Text(
-                    questionPaper.subName, //pass subject name
-                    style: _fontStyle.manrope(13, FontWeight.w600),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                  )
-                ],
-              ),
+                ),
+                const Icon(
+                  Icons.description,
+                  size: 30,
+                )
+              ],
             ),
-            const Icon(
-              Icons.description,
-              size: 30,
-            )
-          ],
+          ),
         ),
       ),
     );

@@ -48,19 +48,23 @@ class SearchBar extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        InkWell(
-          onTap: onTap,
-          child: Container(
-            height: 48,
-            width: 48,
-            decoration: BoxDecoration(
-              color: _colors.primaryColor,
+        Container(
+          height: 48,
+          width: 48,
+          decoration: BoxDecoration(
+            color: _colors.primaryColor,
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+          ),
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
-            ),
-            child: Icon(
-              Icons.search,
-              color: _colors.whiteColor,
-              size: 30,
+              onTap: onTap,
+              child: Icon(
+                Icons.search,
+                color: _colors.whiteColor,
+                size: 30,
+              ),
             ),
           ),
         )

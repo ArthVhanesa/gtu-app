@@ -60,35 +60,41 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Expanded(
             child: Align(
               alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
-                child: InkWell(
-                  onTap: () {
-                    Get.to(() => SettingScreen());
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 55,
-                    decoration: BoxDecoration(
-                        color: _colors.lavenderColor,
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(25),
-                        )),
-                    child: Center(
-                      child: Text(
-                        'Settings',
-                        style: _fontStyle
-                            .montserrat(20, FontWeight.w600)
-                            .copyWith(color: _colors.titleColor),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              child: settingButton(),
             ),
           )
         ],
       )),
+    );
+  }
+
+  settingButton() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
+      child: Container(
+        height: 55,
+        decoration: BoxDecoration(
+          color: _colors.lavenderColor,
+          borderRadius: const BorderRadius.all(Radius.circular(25)),
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            borderRadius: const BorderRadius.all(Radius.circular(25)),
+            onTap: () {
+              Get.to(() => SettingScreen());
+            },
+            child: Center(
+              child: Text(
+                'Settings',
+                style: _fontStyle
+                    .montserrat(20, FontWeight.w600)
+                    .copyWith(color: _colors.titleColor),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

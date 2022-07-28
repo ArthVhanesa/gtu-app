@@ -101,7 +101,7 @@ class AllCircular extends StatelessWidget {
                       const SizedBox(height: 10),
                   itemBuilder: (BuildContext context, int index) {
                     return CommonTile(
-                      dummyCommonCardData:
+                      commonCardData:
                           CircularModel.fromJson(circularData[index]),
                     );
                   },
@@ -139,7 +139,7 @@ class ImportantCircular extends StatelessWidget {
                       const SizedBox(height: 10),
                   itemBuilder: (BuildContext context, int index) {
                     return CommonTile(
-                      dummyCommonCardData:
+                      commonCardData:
                           CircularModel.fromJson(circularData[index]),
                     );
                   },

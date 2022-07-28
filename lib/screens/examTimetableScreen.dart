@@ -2,14 +2,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:gtu_app/components/CommonTile.dart';
 import 'package:gtu_app/components/DropDownMenu.dart';
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/components/PoweredbyAstronApps.dart';
-import 'package:gtu_app/components/TextInput.dart';
 import 'package:gtu_app/data/CardData.dart';
-import 'package:gtu_app/data/DummyCommonCardData.dart';
 import 'package:gtu_app/data/ExamTimetable.dart';
 import 'package:gtu_app/style.dart';
 
@@ -164,21 +160,26 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
   }
 
   searchButton() {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        width: double.infinity,
-        height: 45,
-        decoration: BoxDecoration(
-            color: _colors.primaryColor,
-            borderRadius: const BorderRadius.all(Radius.circular(30))),
-        child: Center(
-            child: Text(
-          'Search',
-          style: _fontStyle
-              .montserrat(20, FontWeight.w600)
-              .copyWith(color: _colors.whiteColor),
-        )),
+    return Container(
+      width: double.infinity,
+      height: 45,
+      decoration: BoxDecoration(
+        color: _colors.primaryColor,
+        borderRadius: const BorderRadius.all(Radius.circular(30)),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: const BorderRadius.all(Radius.circular(30)),
+          onTap: () {},
+          child: Center(
+              child: Text(
+            'Search',
+            style: _fontStyle
+                .montserrat(20, FontWeight.w600)
+                .copyWith(color: _colors.whiteColor),
+          )),
+        ),
       ),
     );
   }

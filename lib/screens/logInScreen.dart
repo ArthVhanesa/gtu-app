@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gtu_app/controllers/signInController.dart';
@@ -45,41 +44,49 @@ class _LogInScreenState extends State<LogInScreen> {
                   const SizedBox(
                     height: 25,
                   ),
-                  InkWell(
-                    onTap: () => {signinController.loginWithGoogle()},
-                    child: Container(
-                      height: 80,
-                      decoration: BoxDecoration(
-                          color: _colors.whiteColor,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(20)),
-                          border: Border.all(
-                            color: _colors.blackColor,
-                            width: 4,
-                          )),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            googleLogoImg,
-                            height: 30,
-                            width: 30,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text("Continue with Google",
-                              style: _fontStyle.manrope(18, FontWeight.w600))
-                        ],
-                      ),
-                    ),
-                  ),
+                  logInButton(),
                 ],
               ),
               Center(
                 child: Text("Welcome to MyGTU",
                     style: _fontStyle.manrope(20, FontWeight.w700)),
               )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  logInButton() {
+    return Container(
+      height: 80,
+      decoration: BoxDecoration(
+        color: _colors.whiteColor,
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        border: Border.all(
+          color: _colors.blackColor,
+          width: 4,
+        ),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
+          onTap: () => {signinController.loginWithGoogle()},
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                googleLogoImg,
+                height: 30,
+                width: 30,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Text("Continue with Google",
+                  style: _fontStyle.manrope(18, FontWeight.w600))
             ],
           ),
         ),
