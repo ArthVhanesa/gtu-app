@@ -37,12 +37,17 @@ class _DropDownMenuState extends State<DropDownMenu> {
           color: _colors.whiteColor),
       child: DropdownButtonHideUnderline(
         child: DropdownButton(
-          hint: Text(widget.hintText),
+          hint: Text(
+            widget.hintText,
+            maxLines: 2, // max line of hint text in dropdown
+            overflow: TextOverflow.ellipsis,
+          ),
           value: value,
           items: widget.item.map(buildMenuItem).toList(),
           onChanged: (value) => setState(() {
             this.value = value;
           }),
+          menuMaxHeight: 250,
           isExpanded: true,
           iconSize: 30,
           icon: Icon(
@@ -59,6 +64,8 @@ class _DropDownMenuState extends State<DropDownMenu> {
         child: Text(
           item,
           style: _fontStyle.montserrat(15, FontWeight.normal),
+          maxLines: 2, // max line of selected item from dropdown menu
+          overflow: TextOverflow.ellipsis,
         ),
       );
 }
