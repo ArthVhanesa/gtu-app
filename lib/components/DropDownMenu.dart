@@ -6,11 +6,14 @@ class DropDownMenu extends StatefulWidget {
   List<dynamic> item;
   String hintText;
   double width;
+  Function customOnChange;
+
   DropDownMenu({
     Key? key,
     required this.item,
     required this.hintText,
     required this.width,
+    required this.customOnChange,
   }) : super(key: key);
 
   @override
@@ -46,6 +49,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
           items: widget.item.map(buildMenuItem).toList(),
           onChanged: (value) => setState(() {
             this.value = value;
+            widget.customOnChange(value);
           }),
           menuMaxHeight: 250,
           isExpanded: true,

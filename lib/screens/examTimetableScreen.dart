@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -78,6 +80,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
           item: state['sem'] ?? ["No data found"],
           hintText: 'Sem',
           width: 0.4,
+          customOnChange: timeTableController.changeSem,
         ));
 
     return Container(
@@ -101,6 +104,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
                 item: course,
                 hintText: 'Choose a Branch',
                 width: 1.0,
+                customOnChange: (p0) => {},
               ),
             ],
           ),
