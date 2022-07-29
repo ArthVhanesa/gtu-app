@@ -87,9 +87,19 @@ class DrawerScreen extends StatelessWidget {
                         Get.to(const ProfileScreen());
                         ZoomDrawer.of(context)!.close();
                       },
-                      child: const CircleAvatar(
+                      child: CircleAvatar(
                         radius: 50,
-                        backgroundImage: AssetImage(profileIconImg),
+                        backgroundImage: const AssetImage(profileIconImg),
+                        child: Material(
+                          shape: const CircleBorder(),
+                          clipBehavior: Clip.hardEdge,
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () {
+                              Get.to(const ProfileScreen());
+                            },
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(height: 10),

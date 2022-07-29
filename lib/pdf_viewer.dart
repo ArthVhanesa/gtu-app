@@ -2,6 +2,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gtu_app/pdf_api.dart';
 import 'package:gtu_app/style.dart';
 import 'package:loading_indicator/loading_indicator.dart';
@@ -31,6 +32,15 @@ class _PdfViewerState extends State<PdfViewer> {
   Widget build(BuildContext context) {
     final text = '[${indexPage! + 1} of $pages]';
 
+    void toastMessage({required String message}) {
+      Fluttertoast.showToast(
+        msg: message,
+        fontSize: 16,
+        backgroundColor: Colors.black,
+        textColor: Colors.white,
+      );
+    }
+
     return Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(color: _colors.blackColor),
@@ -57,6 +67,7 @@ class _PdfViewerState extends State<PdfViewer> {
 
                       if (indexPage == 0) {
                         //toast message 'first page'
+                        toastMessage(message: 'First page');
                       } else {
                         final page = indexPage! - 1;
                         controller.setPage(page);
@@ -70,8 +81,9 @@ class _PdfViewerState extends State<PdfViewer> {
 
                       if (indexPage == pages! - 1) {
                         //toast message 'last page'
+                        toastMessage(message: 'Last page');
                       } else {
-                        final page = indexPage! - 1;
+                        final page = indexPage! + 1;
                         controller.setPage(page);
                       }
                     },

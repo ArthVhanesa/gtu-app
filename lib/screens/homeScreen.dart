@@ -41,9 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: [
                 const SizedBox(
-                  height: 60,
+                  height: 30,
                 ),
-                // row for Avatar and hello name
+                // row for Avatar, hamburger and 'hi, name'
                 Row(
                   children: [
                     InkWell(
@@ -68,14 +68,19 @@ class _HomeScreenState extends State<HomeScreen> {
                             maxLines: 1,
                           )),
                     ),
-                    InkWell(
-                      onTap: () {
-                        Get.to(const ProfileScreen());
-                      },
-                      child: CircleAvatar(
-                        radius: 23,
-                        backgroundImage: const AssetImage(profileIconImg),
-                        backgroundColor: _colors.blackColor,
+                    CircleAvatar(
+                      radius: 23,
+                      backgroundImage: const AssetImage(profileIconImg),
+                      backgroundColor: _colors.blackColor,
+                      child: Material(
+                        shape: const CircleBorder(),
+                        clipBehavior: Clip.hardEdge,
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            Get.to(const ProfileScreen());
+                          },
+                        ),
                       ),
                     ),
                   ],
