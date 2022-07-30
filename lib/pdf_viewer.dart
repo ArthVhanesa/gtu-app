@@ -96,8 +96,14 @@ class _PdfViewerState extends State<PdfViewer> {
           future: PDFApi.loadNetwork(widget.url),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return const Center(
-                child: CircularProgressIndicator(),
+              return Center(
+                child: Container(
+                  height: 80, // size of indicator
+                  child: LoadingIndicator(
+                    indicatorType: Indicator.ballClipRotateMultiple,
+                    colors: [_colors.primaryColor], // color of incdicator
+                  ),
+                ),
               );
             } else {
               final file = snapshot.data;

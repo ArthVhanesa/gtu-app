@@ -10,6 +10,7 @@ import 'package:gtu_app/controllers/circularController.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/models/circular_model.dart';
 import 'package:gtu_app/style.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 class CircularScreen extends StatefulWidget {
@@ -86,13 +87,14 @@ class AllCircular extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Padding(
-          padding: padding,
-          child: controller.obx(
-            (circularData) => Column(
-              children: [
-                ListView.separated(
+      physics: const BouncingScrollPhysics(),
+      child: Padding(
+        padding: padding,
+        child: Column(
+          children: [
+            controller.obx(
+              (circularData) {
+                return ListView.separated(
                   padding: const EdgeInsets.only(top: 10),
                   itemCount: circularData.length,
                   shrinkWrap: true,
@@ -105,12 +107,15 @@ class AllCircular extends StatelessWidget {
                           CircularModel.fromJson(circularData[index]),
                     );
                   },
-                ),
-                PoweredbyAstronApps()
-              ],
+                );
+              },
+              onLoading: OnLoading(),
             ),
-          ),
-        ));
+            PoweredbyAstronApps(),
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -120,17 +125,19 @@ class ImportantCircular extends StatelessWidget {
   }) : super(key: key);
 
   final controller = Get.put(ImpCircularController());
+  final AppColors _colors = AppColors();
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Padding(
-          padding: padding,
-          child: controller.obx(
-            (circularData) => Column(
-              children: [
-                ListView.separated(
+      physics: const BouncingScrollPhysics(),
+      child: Padding(
+        padding: padding,
+        child: Column(
+          children: [
+            controller.obx(
+              (circularData) {
+                return ListView.separated(
                   padding: const EdgeInsets.only(top: 10),
                   itemCount: circularData.length,
                   shrinkWrap: true,
@@ -143,11 +150,38 @@ class ImportantCircular extends StatelessWidget {
                           CircularModel.fromJson(circularData[index]),
                     );
                   },
-                ),
-                PoweredbyAstronApps()
-              ],
+                );
+              },
+              onLoading: OnLoading(),
             ),
+            PoweredbyAstronApps(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class OnLoading extends StatelessWidget {
+  OnLoading({
+    Key? key,
+  }) : super(key: key);
+
+  final AppColors _colors = AppColors();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 60), // padding of indicator
+      child: Center(
+        child: Container(
+          height: 80, // size of indicator
+          child: LoadingIndicator(
+            indicatorType: Indicator.ballClipRotateMultiple,
+            colors: [_colors.primaryColor], // color of incdicator
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
