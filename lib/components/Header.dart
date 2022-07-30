@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gtu_app/custome_tab.dart';
 import 'package:gtu_app/data/CardData.dart';
+import 'package:gtu_app/main.dart';
+import 'package:gtu_app/provider/globals.dart';
 import 'package:gtu_app/style.dart';
 import 'package:get/get.dart';
 
@@ -51,6 +53,8 @@ class _HeaderState extends State<Header> {
                     IconButton(
                       icon: const Icon(Icons.arrow_back_ios_new),
                       onPressed: () {
+                        AppGlobals.rootScaffoldMessengerKey.currentState!
+                            .removeCurrentSnackBar();
                         Get.back();
                       },
                     ),
