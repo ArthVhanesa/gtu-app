@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
@@ -65,85 +67,79 @@ class DrawerScreen extends StatelessWidget {
   }) : super(key: key);
 
   final signinController = Get.put(SignInController());
-  final GlobalKey<ScaffoldMessengerState> rootScaffoldMessengerKey =
-      GlobalKey<ScaffoldMessengerState>();
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldMessenger(
-      key: rootScaffoldMessengerKey,
-      child: Scaffold(
-          backgroundColor: _colors.drawerBgColor, // bg color of drawer
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 50),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Get.to(const ProfileScreen());
-                            ZoomDrawer.of(context)!.close();
-                          },
-                          child: CircleAvatar(
-                            radius: 50,
-                            backgroundImage: const AssetImage(profileIconImg),
-                            child: Material(
-                              shape: const CircleBorder(),
-                              clipBehavior: Clip.hardEdge,
-                              color: Colors.transparent,
-                              child: InkWell(
-                                onTap: () {
-                                  Get.to(const ProfileScreen());
-                                },
-                              ),
+    return Scaffold(
+        backgroundColor: _colors.drawerBgColor, // bg color of drawer
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 50),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 25),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Get.to(const ProfileScreen());
+                          ZoomDrawer.of(context)!.close();
+                        },
+                        child: CircleAvatar(
+                          radius: 50,
+                          backgroundImage: const AssetImage(profileIconImg),
+                          child: Material(
+                            shape: const CircleBorder(),
+                            clipBehavior: Clip.hardEdge,
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () {
+                                Get.to(const ProfileScreen());
+                              },
                             ),
                           ),
                         ),
-                        const SizedBox(height: 10),
-                        signinController.obx(
-                          (data) => Text(
-                            data.displayName ?? "",
-                            style: _fontStyle.manrope(20, FontWeight.w800),
-                          ),
+                      ),
+                      const SizedBox(height: 10),
+                      signinController.obx(
+                        (data) => Text(
+                          data.displayName ?? "",
+                          style: _fontStyle.manrope(20, FontWeight.w800),
                         ),
-                        const SizedBox(height: 10),
-                        Text(
-                          "{Enrollment no.}",
-                          style:
-                              _fontStyle.manrope(15, FontWeight.w700).copyWith(
-                                    color: _colors.titleColor,
-                                  ),
-                        ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        "{Enrollment no.}",
+                        style: _fontStyle.manrope(15, FontWeight.w700).copyWith(
+                              color: _colors.titleColor,
+                            ),
+                      ),
+                    ],
                   ),
-                  Column(
+                ),
+                Column(
+                  children: [
+                    ...MenuItems.all.map(buildMenuItem),
+                  ], // list builder of menu item
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25),
+                  child: Row(
                     children: [
-                      ...MenuItems.all.map(buildMenuItem),
-                    ], // list builder of menu item
+                      logOutButton(),
+                      const SizedBox(width: 10),
+                      settingButton(),
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25),
-                    child: Row(
-                      children: [
-                        logOutButton(),
-                        const SizedBox(width: 10),
-                        settingButton(),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          )),
-    );
+          ),
+        ));
   }
 
   Container settingButton() {

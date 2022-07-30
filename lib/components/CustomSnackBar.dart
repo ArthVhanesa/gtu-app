@@ -3,6 +3,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:gtu_app/image.dart';
+import 'package:gtu_app/main.dart';
+import 'package:gtu_app/provider/globals.dart';
+import 'package:gtu_app/screens/drawerScreen.dart';
 import 'package:gtu_app/style.dart';
 
 class SnackBarType {
@@ -88,9 +91,11 @@ class CustomSnackBar extends StatelessWidget {
 class ShowCustomSnackBar {
   // @usage:  ShowCustomSnackBar.warn(context,"title..","message...");
   //for warning
-  static warn(BuildContext context,
-      {String title = "Oops!!", String message = ""}) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  static warn({String title = "Oops!!", String message = ""}) {
+    //remove old snackbars before showing new one.
+    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+
+    AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
       content: CustomSnackBar(
           title: title, message: message, snackBarType: SnackBarType.warning),
       behavior: SnackBarBehavior.floating,
@@ -101,9 +106,10 @@ class ShowCustomSnackBar {
 
   // @usage:  ShowCustomSnackBar.error(context,"title..","message...");
   //for Error
-  static error(BuildContext context,
+  static error(
       {String title = "Error!!", String message = "Something went wrong!"}) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+    AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
       content: CustomSnackBar(
           title: title, message: message, snackBarType: SnackBarType.error),
       behavior: SnackBarBehavior.floating,

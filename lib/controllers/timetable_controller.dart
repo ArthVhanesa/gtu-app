@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:ffi';
 
 import 'package:get/get.dart';
+import 'package:gtu_app/components/CustomSnackBar.dart';
 import 'package:gtu_app/provider/provider.dart';
 
 class TimeTableController extends GetxController with StateMixin<dynamic> {

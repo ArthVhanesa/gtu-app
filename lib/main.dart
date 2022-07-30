@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:gtu_app/controllers/signInController.dart';
 import 'package:gtu_app/models/user_model.dart';
+import 'package:gtu_app/provider/globals.dart';
 import 'package:gtu_app/screens/drawerScreen.dart';
 import 'package:gtu_app/screens/logInDataScreen.dart';
 import 'package:gtu_app/screens/logInScreen.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
         null;
 
     return GetMaterialApp(
+        scaffoldMessengerKey: AppGlobals.rootScaffoldMessengerKey,
         debugShowCheckedModeBanner: false,
         title: 'gtu_app',
         theme: ThemeData(

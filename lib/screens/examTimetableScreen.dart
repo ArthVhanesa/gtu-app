@@ -12,7 +12,9 @@ import 'package:gtu_app/components/PoweredbyAstronApps.dart';
 import 'package:gtu_app/controllers/timetable_controller.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/ExamTimetable.dart';
+import 'package:gtu_app/main.dart';
 import 'package:gtu_app/models/timetable_model.dart';
+import 'package:gtu_app/provider/globals.dart';
 import 'package:gtu_app/style.dart';
 
 class ExamTimetableScreen extends StatefulWidget {
@@ -35,48 +37,51 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
   Widget build(BuildContext context) {
     TextStyle style = _fontStyle.montserrat(16, FontWeight.w600);
 
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: _colors.bgColor,
-      body: SafeArea(
-          child: Column(
-        children: [
-          Header(card: examTimetable),
-          Expanded(
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Padding(
-                padding: padding,
-                child: Obx(() => Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        dropDownMenus(style, context),
-                        ListView.separated(
-                          itemCount:
-                              timeTableController.timeTableData.value.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          separatorBuilder: (BuildContext context, int index) {
-                            return const SizedBox(
-                              height: 10,
-                            );
-                          },
-                          itemBuilder: (BuildContext context, int index) {
-                            TimeTableModel timetableData =
-                                TimeTableModel.fromJson(timeTableController
-                                    .timeTableData.value[index]);
-                            return ExamTimetableTile(data: timetableData);
-                          },
-                        ),
-                        PoweredbyAstronApps()
-                      ],
-                    )),
-              ),
-            ),
-          )
-        ],
-      )),
-    );
+    return WillPopScope(
+        onWillPop: AppGlobals.onBackPressed,
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: _colors.bgColor,
+          body: SafeArea(
+              child: Column(
+            children: [
+              Header(card: examTimetable),
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: Padding(
+                    padding: padding,
+                    child: Obx(() => Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            dropDownMenus(style, context),
+                            ListView.separated(
+                              itemCount: timeTableController
+                                  .timeTableData.value.length,
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              separatorBuilder:
+                                  (BuildContext context, int index) {
+                                return const SizedBox(
+                                  height: 10,
+                                );
+                              },
+                              itemBuilder: (BuildContext context, int index) {
+                                TimeTableModel timetableData =
+                                    TimeTableModel.fromJson(timeTableController
+                                        .timeTableData.value[index]);
+                                return ExamTimetableTile(data: timetableData);
+                              },
+                            ),
+                            PoweredbyAstronApps()
+                          ],
+                        )),
+                  ),
+                ),
+              )
+            ],
+          )),
+        ));
   }
 
   dropDownMenus(TextStyle style, BuildContext context) {
@@ -182,7 +187,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
   searchButton() {
     onSearchHandler() {
       if (_controller.text.length < 2) {
-        ShowCustomSnackBar.warn(context,
+        ShowCustomSnackBar.warn(
             title: "Invalid Input", message: "Enter correct branch code.");
         return;
       }
