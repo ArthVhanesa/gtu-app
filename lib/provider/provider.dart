@@ -26,7 +26,21 @@ class Provider extends GetConnect {
 
   Future<dynamic> getAllSem() async {
     final response =
-        await httpClient.get('http://192.168.0.103:5001/timetable/BE');
+        await httpClient.get('http://192.168.25.53:5001/timetable/BE');
+    if (response.status.hasError) {
+      return Future.error(response.statusText!);
+    } else {
+      return response.body;
+    }
+  }
+
+  Future<dynamic> getTimeTableData(String sem, String branchCode) async {
+    final response = await httpClient.post(
+        'http://192.168.25.53:5001/timetable',
+        body: {"degree": "BE", "sem": sem, "branchCode": branchCode});
+    if (response.statusCode == 400) {
+      return Future.error(response.body.toString());
+    }
     if (response.status.hasError) {
       return Future.error(response.statusText!);
     } else {

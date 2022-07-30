@@ -5,12 +5,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:gtu_app/components/CustomSnackBar.dart';
 import 'package:gtu_app/components/DropDownMenu.dart';
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/components/PoweredbyAstronApps.dart';
 import 'package:gtu_app/controllers/timetable_controller.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/ExamTimetable.dart';
+import 'package:gtu_app/models/timetable_model.dart';
 import 'package:gtu_app/style.dart';
 
 class ExamTimetableScreen extends StatefulWidget {
@@ -25,6 +27,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
   final FontStyle _fontStyle = FontStyle();
 
   final TextEditingController _controller = TextEditingController();
+  final timeTableController = Get.put(TimeTableController());
 
   String? value;
 
@@ -44,27 +47,30 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
               physics: const BouncingScrollPhysics(),
               child: Padding(
                 padding: padding,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    dropDownMenus(style, context),
-                    ListView.separated(
-                      itemCount: examTimetableData.length,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      separatorBuilder: (BuildContext context, int index) {
-                        return const SizedBox(
-                          height: 10,
-                        );
-                      },
-                      itemBuilder: (BuildContext context, int index) {
-                        return ExamTimetableTile(
-                            data: examTimetableData[index]);
-                      },
-                    ),
-                    PoweredbyAstronApps()
-                  ],
-                ),
+                child: Obx(() => Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        dropDownMenus(style, context),
+                        ListView.separated(
+                          itemCount:
+                              timeTableController.timeTableData.value.length,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          separatorBuilder: (BuildContext context, int index) {
+                            return const SizedBox(
+                              height: 10,
+                            );
+                          },
+                          itemBuilder: (BuildContext context, int index) {
+                            TimeTableModel timetableData =
+                                TimeTableModel.fromJson(timeTableController
+                                    .timeTableData.value[index]);
+                            return ExamTimetableTile(data: timetableData);
+                          },
+                        ),
+                        PoweredbyAstronApps()
+                      ],
+                    )),
               ),
             ),
           )
@@ -76,12 +82,15 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
   dropDownMenus(TextStyle style, BuildContext context) {
     final timeTableController = Get.put(TimeTableController());
 
-    Widget semSelector = timeTableController.obx((state) => DropDownMenu(
-          item: state['sem'] ?? ["No data found"],
-          hintText: 'Sem',
-          width: 0.4,
-          customOnChange: timeTableController.changeSem,
-        ));
+    Widget semSelector = timeTableController.obx(
+      (state) => DropDownMenu(
+        item: state['sem'] ?? ["No data found"],
+        hintText: state['sem'][0] ?? "Sem",
+        width: 0.4,
+        customOnChange: timeTableController.changeSem,
+      ),
+      onError: (error) => Text("Error loading Sem."),
+    );
 
     return Container(
       height: 250,
@@ -102,7 +111,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
               ),
               DropDownMenu(
                 item: course,
-                hintText: 'Choose a Branch',
+                hintText: course[0],
                 width: 1.0,
                 customOnChange: (p0) => {},
               ),
@@ -150,7 +159,8 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
                           maxLength: 4,
                           style: _fontStyle.montserrat(15, FontWeight.normal),
                           inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.allow(RegExp("[0-9.]"))
+                            FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+                            LengthLimitingTextInputFormatter(2)
                           ],
                           decoration: const InputDecoration(
                               hintText: "Branch code",
@@ -170,6 +180,15 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
   }
 
   searchButton() {
+    onSearchHandler() {
+      if (_controller.text.length < 2) {
+        ShowCustomSnackBar.warn(context,
+            title: "Invalid Input", message: "Enter correct branch code.");
+        return;
+      }
+      timeTableController.fetchTimeTableData(_controller.text);
+    }
+
     return Container(
       width: double.infinity,
       height: 45,
@@ -181,7 +200,9 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: const BorderRadius.all(Radius.circular(30)),
-          onTap: () {},
+          onTap: () {
+            onSearchHandler();
+          },
           child: Center(
               child: Text(
             'Search',
@@ -198,7 +219,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
 class ExamTimetableTile extends StatelessWidget {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
-  ExamTimetableData data;
+  TimeTableModel data;
 
   ExamTimetableTile({
     Key? key,
@@ -226,11 +247,11 @@ class ExamTimetableTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  data.date.substring(0, 2),
+                  data.date!.substring(0, 2),
                   style: _fontStyle.manrope(28, FontWeight.w700),
                 ),
                 Text(
-                  data.date.substring(3, 11),
+                  data.date!.substring(3, 11),
                   style: _fontStyle.manrope(12, FontWeight.w600),
                 ),
               ],
@@ -245,17 +266,17 @@ class ExamTimetableTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 AutoSizeText(
-                  '${data.subCode} (${data.marks} Marks)',
+                  '${data.subcode}',
                   style: _fontStyle.montserrat(15, FontWeight.w600),
                   maxLines: 1,
                 ),
                 AutoSizeText(
-                  data.subName,
+                  data.subname ?? "",
                   style: _fontStyle.montserrat(15, FontWeight.w600),
                   maxLines: 1,
                 ),
                 AutoSizeText(
-                  data.time,
+                  data.time ?? "",
                   style: _fontStyle.montserrat(15, FontWeight.w600),
                   maxLines: 1,
                 ),

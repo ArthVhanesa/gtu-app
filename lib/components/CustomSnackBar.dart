@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:gtu_app/image.dart';
 import 'package:gtu_app/style.dart';
@@ -29,8 +31,8 @@ class CustomSnackBar extends StatelessWidget {
 
   CustomSnackBar({
     Key? key,
-    required this.title,
-    required this.message,
+    this.title = "",
+    this.message = "",
     required this.snackBarType,
   }) : super(key: key);
 
@@ -80,5 +82,33 @@ class CustomSnackBar extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class ShowCustomSnackBar {
+  // @usage:  ShowCustomSnackBar.warn(context,"title..","message...");
+  //for warning
+  static warn(BuildContext context,
+      {String title = "Oops!!", String message = ""}) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: CustomSnackBar(
+          title: title, message: message, snackBarType: SnackBarType.warning),
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+    ));
+  }
+
+  // @usage:  ShowCustomSnackBar.error(context,"title..","message...");
+  //for Error
+  static error(BuildContext context,
+      {String title = "Error!!", String message = "Something went wrong!"}) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: CustomSnackBar(
+          title: title, message: message, snackBarType: SnackBarType.error),
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+    ));
   }
 }

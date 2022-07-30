@@ -1,15 +1,17 @@
 import 'dart:developer';
+import 'dart:ffi';
 
 import 'package:get/get.dart';
 import 'package:gtu_app/provider/provider.dart';
 
 class TimeTableController extends GetxController with StateMixin<dynamic> {
   final sem = "".obs;
+  final timeTableData = [].obs;
 
   @override
   void onInit() {
     Provider().getAllSem().then((value) {
-      log(value.toString());
+      // log(value.toString());
       sem.value = value['sem'][0];
       change(value, status: RxStatus.success());
     }, onError: (error) {
@@ -23,6 +25,15 @@ class TimeTableController extends GetxController with StateMixin<dynamic> {
   void changeSem(String sem) {
     log("semchanged: $sem");
     this.sem.value = sem;
+  }
+
+  void fetchTimeTableData(String branchCode) {
+    Provider().getTimeTableData(sem.value, branchCode).then((value) {
+      log("timetable: $value");
+      timeTableData.value = value;
+    }, onError: (error) {
+      log("Error : ${error.toString()}");
+    });
   }
 
   @override
