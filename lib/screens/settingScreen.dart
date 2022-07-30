@@ -273,34 +273,37 @@ class SettingMenu extends StatelessWidget {
     IconData menuIcon,
     void Function() onTap,
   ) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        width: MediaQuery.of(context).size.width * 0.40,
-        height: 100,
-        decoration: BoxDecoration(
-            color: color,
-            borderRadius: const BorderRadius.all(
-              Radius.circular(25),
-            )),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              menuIcon,
-              size: 40,
-              color: _colors.titleColor,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              menuTitle,
-              style: _fontStyle
-                  .montserrat(15, FontWeight.w500)
-                  .copyWith(color: _colors.titleColor),
-            ),
-          ],
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.40,
+      height: 100,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: const BorderRadius.all(Radius.circular(25)),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: const BorderRadius.all(Radius.circular(25)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                menuIcon,
+                size: 40,
+                color: _colors.titleColor,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                menuTitle,
+                style: _fontStyle
+                    .montserrat(15, FontWeight.w500)
+                    .copyWith(color: _colors.titleColor),
+              ),
+            ],
+          ),
         ),
       ),
     );
