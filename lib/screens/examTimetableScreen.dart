@@ -207,6 +207,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
           borderRadius: const BorderRadius.all(Radius.circular(30)),
           onTap: () {
             onSearchHandler();
+            FocusManager.instance.primaryFocus?.unfocus();
           },
           child: Center(
               child: Text(

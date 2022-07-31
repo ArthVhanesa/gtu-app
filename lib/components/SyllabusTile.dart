@@ -2,14 +2,15 @@
 import 'package:flutter/material.dart';
 import 'package:gtu_app/components/ModalBottomColumnFour.dart';
 import 'package:gtu_app/components/ModalBottomColumnThree.dart';
-import 'package:gtu_app/data/DummyDataQuestionPaper.dart';
+import 'package:gtu_app/launch_url.dart';
+import 'package:gtu_app/models/syllabus_model.dart';
 import 'package:gtu_app/style.dart';
 
 class SyllabusTile extends StatelessWidget {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
-  DummyDataQuestionPaper syllabus;
+  SyllabusModel syllabus;
 
   SyllabusTile({
     Key? key,
@@ -36,7 +37,9 @@ class SyllabusTile extends StatelessWidget {
                 shape: const RoundedRectangleBorder(
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(15))),
-                builder: (context) => ModalBottomSheet())
+                builder: (context) => ModalBottomSheet(
+                      syllabus: syllabus,
+                    ))
           },
           child: Padding(
             padding: const EdgeInsets.all(15),
@@ -48,11 +51,13 @@ class SyllabusTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        syllabus.subCode, //pass subject code
+                        syllabus.subcode ??
+                            "Subject code not found.", //pass subject code
                         style: _fontStyle.montserrat(16, FontWeight.w600),
                       ),
                       Text(
-                        syllabus.subName, //pass subject name
+                        syllabus.subname ??
+                            "subject name not available.", //pass subject name
                         style: _fontStyle.manrope(13, FontWeight.w600),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
@@ -76,9 +81,9 @@ class SyllabusTile extends StatelessWidget {
 class ModalBottomSheet extends StatelessWidget {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
-  ModalBottomSheet({
-    Key? key,
-  }) : super(key: key);
+  SyllabusModel syllabus;
+
+  ModalBottomSheet({Key? key, required this.syllabus}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -104,11 +109,11 @@ class ModalBottomSheet extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '3110005',
+                      syllabus.subcode ?? "Subcode",
                       style: _fontStyle.montserrat(20, FontWeight.w600),
                     ),
                     Text(
-                      'Complex Variables and Partial Differential Equations',
+                      syllabus.subname ?? "Subname",
                       style: _fontStyle.manrope(16, FontWeight.w600),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
@@ -138,35 +143,35 @@ class ModalBottomSheet extends StatelessWidget {
                 ModalBottomColumnThree(
                   color: _colors.skyBlueColor,
                   title:
-                      'Category: {pass catergory as a varible in string}', //example=> title: 'Category: $category_of_subject'
+                      'Category: ${syllabus.category}', //example=> title: 'Category: $category_of_subject'
                   boxTitle1: 'Branch',
-                  boxInt1: 25, //pass branch code here
+                  boxInt1: syllabus.branchcode ?? "", //pass branch code here
                   boxTitle2: 'Sem',
-                  boxInt2: 3, // pass sem here
+                  boxInt2: syllabus.sem ?? "", // pass sem here
                   boxTitle3: 'Credit',
-                  boxInt3: 4, // pass credit here
+                  boxInt3: syllabus.totalcredit ?? "", // pass credit here
                 ),
                 ModalBottomColumnThree(
                   color: _colors.orangeColor,
                   title: 'Teaching Hours (Weekly)', //no change
                   boxTitle1: 'Lecture',
-                  boxInt1: 3, //pass Lecture hours here
+                  boxInt1: syllabus.l ?? "", //pass Lecture hours here
                   boxTitle2: 'Tutorial',
-                  boxInt2: 1, // pass Tutorial hours here
+                  boxInt2: syllabus.t ?? "", // pass Tutorial hours here
                   boxTitle3: 'Practical',
-                  boxInt3: 2, // pass Practical hours here
+                  boxInt3: syllabus.p ?? "", // pass Practical hours here
                 ),
                 ModalBottomColumnFour(
                   color: _colors.pistaColor,
                   title: 'Evalution out of 150 Marks', //no change
                   boxTitle1: 'End Sem',
-                  boxInt1: 70, //pass End Sem marks here
+                  boxInt1: syllabus.e ?? "", //pass End Sem marks here
                   boxTitle2: 'Mid Sem',
-                  boxInt2: 30, // pass Mid Sem marks here
+                  boxInt2: syllabus.m ?? "", // pass Mid Sem marks here
                   boxTitle3: 'Internal',
-                  boxInt3: 20, // pass Internal marks here
+                  boxInt3: syllabus.i ?? "", // pass Internal marks here
                   boxTitle4: 'Viva',
-                  boxInt4: 30, // pass viva marks here
+                  boxInt4: syllabus.v ?? "", // pass viva marks here
                 ),
                 Container(
                   width: double.infinity,
@@ -179,7 +184,9 @@ class ModalBottomSheet extends StatelessWidget {
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius: const BorderRadius.all(Radius.circular(30)),
-                      onTap: () {},
+                      onTap: () {
+                        launchUrl(syllabus.pdflink ?? "");
+                      },
                       child: Center(
                           child: Text(
                         'View Syllabus',

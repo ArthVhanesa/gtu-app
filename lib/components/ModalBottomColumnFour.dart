@@ -10,10 +10,10 @@ class ModalBottomColumnFour extends StatelessWidget {
   final String boxTitle2;
   final String boxTitle3;
   final String boxTitle4;
-  final int boxInt1;
-  final int boxInt2;
-  final int boxInt3;
-  final int boxInt4;
+  final String boxInt1;
+  final String boxInt2;
+  final String boxInt3;
+  final String boxInt4;
 
   ModalBottomColumnFour({
     Key? key,
@@ -65,8 +65,8 @@ class ModalBottomColumnFour extends StatelessWidget {
             ),
             _Box(
               color: color,
-              title: boxTitle3,
-              number: boxInt3,
+              title: boxTitle4,
+              number: boxInt4,
             )
           ],
         )
@@ -78,7 +78,7 @@ class ModalBottomColumnFour extends StatelessWidget {
 class _Box extends StatelessWidget {
   final Color color;
   final String title;
-  final int number;
+  final String number;
   _Box({
     Key? key,
     required this.color,
