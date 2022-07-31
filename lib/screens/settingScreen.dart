@@ -1,10 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:gtu_app/components/AboutApp.dart';
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/controllers/signInController.dart';
 import 'package:gtu_app/data/CardData.dart';
+import 'package:gtu_app/dynamic_data.dart';
+import 'package:gtu_app/image.dart';
 import 'package:gtu_app/screens/logInScreen.dart';
 import 'package:gtu_app/style.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,21 +28,6 @@ class _SettingScreenState extends State<SettingScreen> {
   final FontStyle _fontStyle = FontStyle();
 
   final InAppReview inAppReview = InAppReview.instance;
-
-  String version = '0.0.0';
-
-  String shareAppMessage =
-      'The best app for GTU students'; // Message shared on click of share app
-  String toEmail =
-      'bookocean@gmail.com'; // Mail for receive bug report and feedback
-  String feedbackSubject = 'Feedback/Suggestion'; // Subject of feedback mail
-  String feedbackBody =
-      'Your suggestions and feedbacks are welcomed by Astron Apps.\n\nThank you.'; // Body of feedback mail
-  String bugSubject = 'Bug Report'; // Subject of Bug report mail
-  String bugBody =
-      'We are ready to improve App with help of your bug report.\n\nThank you.'; // Body of Bud report mail
-  String otherApps =
-      'https://play.google.com/store/apps/dev?id=9082115799273054085'; // Link will open on click of other apps
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +54,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   //   inAppReview.requestReview();
                   // },
                   secondMenuOnTap: () async {
-                    const url =
-                        'https://play.google.com/store/apps/dev?id=9082115799273054085';
+                    String url = astronApps;
 
                     if (await canLaunchUrl(Uri.parse(url))) {
                       await launchUrl(Uri.parse(url),
@@ -83,11 +71,16 @@ class _SettingScreenState extends State<SettingScreen> {
                   title: 'Help & Feedback',
                   firstMenuTitle: 'Feedback',
                   firstIcon: Icons.send,
-                  firstMenuOnTap:
-                      sendMail(subject: feedbackSubject, body: feedbackBody),
+                  firstMenuOnTap: sendMail(
+                    subject: HelpFeedback().subject,
+                    body: HelpFeedback().body,
+                  ),
                   secondMenuTitle: 'Bug report',
                   secondIcon: Icons.pest_control_outlined,
-                  secondMenuOnTap: sendMail(subject: bugSubject, body: bugBody),
+                  secondMenuOnTap: sendMail(
+                    subject: BugReport().subject,
+                    body: BugReport().body,
+                  ),
                   color: _colors.orangeColor,
                 ),
                 SettingMenu(
@@ -95,20 +88,33 @@ class _SettingScreenState extends State<SettingScreen> {
                   firstMenuTitle: 'Other Apps',
                   firstIcon: Icons.apps,
                   firstMenuOnTap: () async {
-                    final url = otherApps;
+                    final url = astronApps;
 
                     if (await canLaunchUrl(Uri.parse(url))) {
-                      await launchUrl(Uri.parse(url),
-                          mode: LaunchMode.externalApplication,
-                          webViewConfiguration: const WebViewConfiguration(
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                          ));
+                      await launchUrl(
+                        Uri.parse(url),
+                        mode: LaunchMode.externalApplication,
+                        webViewConfiguration: const WebViewConfiguration(
+                          enableJavaScript: true,
+                          enableDomStorage: true,
+                        ),
+                      );
                     }
                   },
                   secondMenuTitle: 'About App',
                   secondIcon: Icons.info_outline,
-                  secondMenuOnTap: () {},
+                  secondMenuOnTap: () {
+                    showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: _colors.bgColor,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(15))),
+                        builder: (context) {
+                          return AboutApp();
+                        });
+                  },
                   color: _colors.pistaColor,
                 )
               ],

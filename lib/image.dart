@@ -1,3 +1,5 @@
+const logoImg = 'assets/image/logo.jpg';
+
 const rocketImg = 'assets/image/rocket.png';
 const googleLogoImg = 'assets/image/googleLogo.png';
 

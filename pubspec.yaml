@@ -44,6 +44,7 @@ dependencies:
   shared_preferences: ^2.0.15
   flutter_svg: ^1.1.1+1
   google_fonts: ^3.0.1
+  font_awesome_flutter: ^10.1.0
   auto_size_text: ^3.0.0
   carousel_slider: ^4.1.1
   tab_indicator_styler: ^2.0.0

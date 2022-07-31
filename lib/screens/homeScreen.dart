@@ -51,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   children: [
                     InkWell(
+                      borderRadius: BorderRadius.circular(5),
                       onTap: () {
                         ZoomDrawer.of(context)!.toggle();
                         FocusScope.of(context).unfocus();
