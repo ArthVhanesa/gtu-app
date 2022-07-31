@@ -8,14 +8,14 @@ class SearchBar extends StatelessWidget {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
-  final TextEditingController controller;
+  final TextEditingController searchInputController;
 
   void Function() onTap;
 
   SearchBar({
     Key? key,
-    required this.controller,
     required this.onTap,
+    required this.searchInputController,
   }) : super(key: key);
 
   @override
@@ -32,7 +32,7 @@ class SearchBar extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 child: TextField(
-                  controller: controller,
+                  controller: searchInputController,
                   maxLength: 7,
                   style: _fontStyle.montserrat(16, FontWeight.normal),
                   inputFormatters: <TextInputFormatter>[

@@ -9,9 +9,9 @@ class ModalBottomColumnThree extends StatelessWidget {
   final String boxTitle1;
   final String boxTitle2;
   final String boxTitle3;
-  final int boxInt1;
-  final int boxInt2;
-  final int boxInt3;
+  final String boxInt1;
+  final String boxInt2;
+  final String boxInt3;
 
   ModalBottomColumnThree({
     Key? key,
@@ -67,7 +67,7 @@ class ModalBottomColumnThree extends StatelessWidget {
 class _Box extends StatefulWidget {
   final Color color;
   final String title;
-  final int number;
+  final String number;
   const _Box({
     Key? key,
     required this.color,

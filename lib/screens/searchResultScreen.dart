@@ -39,7 +39,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
           Padding(
             padding: padding,
             child: SearchBar(
-              controller: controller,
+              searchInputController: TextEditingController(),
               onTap: () {},
             ),
           ),
@@ -57,7 +57,8 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     Heading(
                       heading: 'Your subject syllabus',
                     ),
-                    SyllabusTile(syllabus: dummyDataQuestionPaper[0]),
+                    //@todo:
+                    // SyllabusTile(syllabus: dummyDataQuestionPaper[0]),
                     const SizedBox(
                       height: 40,
                     ),

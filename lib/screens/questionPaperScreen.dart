@@ -38,7 +38,7 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
           Padding(
             padding: padding,
             child: SearchBar(
-              controller: textController,
+              searchInputController: TextEditingController(),
               onTap: () {
                 questionPaperController.fetchQuestionPaper(textController.text);
                 FocusScope.of(context).unfocus();

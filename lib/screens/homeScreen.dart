@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 35,
                 ),
                 SearchBar(
-                  controller: textController,
+                  searchInputController: TextEditingController(),
                   onTap: () {},
                 ),
                 const SizedBox(

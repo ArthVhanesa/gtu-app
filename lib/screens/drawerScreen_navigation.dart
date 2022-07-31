@@ -17,7 +17,7 @@ import 'package:gtu_app/style.dart';
 
 // ============================================================================//
 // this is unused drawer screen with navigaion to other screens
-// whenever want to navigate to other screen from the drawe use this file
+// whenever want to navigate to other screen from the drawer use this file
 // ============================================================================//
 
 class ZoomDrawerScreen extends StatefulWidget {
