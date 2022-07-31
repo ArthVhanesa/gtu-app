@@ -24,6 +24,16 @@ class Provider extends GetConnect {
     }
   }
 
+  Future<dynamic> getQuestionPapers(String subCode) async {
+    final response = await httpClient
+        .get('https://bookocean-app.herokuapp.com/papers/${subCode}');
+    if (response.status.hasError) {
+      return Future.error(response.statusText!);
+    } else {
+      return response.body;
+    }
+  }
+
   Future<dynamic> getAllSem() async {
     final response =
         await httpClient.get('http://192.168.25.53:5001/timetable/BE');

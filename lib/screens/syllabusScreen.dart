@@ -7,6 +7,7 @@ import 'package:gtu_app/components/SyllabusTile.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/DummyDataQuestionPaper.dart';
 import 'package:gtu_app/style.dart';
+import 'package:get/get.dart';
 
 class SyllabusScreen extends StatefulWidget {
   const SyllabusScreen({super.key});
@@ -18,6 +19,8 @@ class SyllabusScreen extends StatefulWidget {
 class _SyllabusScreenState extends State<SyllabusScreen> {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
+
+  final textController = Get.put(TextEditingController());
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +36,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
           Padding(
             padding: padding,
             child: SearchBar(
+              controller: textController,
               onTap: () {},
             ),
           ),
