@@ -46,6 +46,10 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
                     .fetchQuestionPaper(questionPaperInputController.text);
                 FocusScope.of(context).unfocus();
               },
+              onSubmitted: (value) {
+                questionPaperController.fetchQuestionPaper(value);
+                FocusScope.of(context).unfocus();
+              },
             ),
           ),
           const SizedBox(height: 10),

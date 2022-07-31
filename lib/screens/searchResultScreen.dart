@@ -41,6 +41,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
             child: SearchBar(
               searchInputController: TextEditingController(),
               onTap: () {},
+              onSubmitted: (p0) {},
             ),
           ),
           const SizedBox(height: 10),

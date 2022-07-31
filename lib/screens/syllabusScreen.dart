@@ -50,6 +50,10 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                       .fetchSearchedSyllabus(_syllabusInputController.text);
                   FocusManager.instance.primaryFocus?.unfocus();
                 },
+                onSubmitted: (p0) {
+                  _syllabusController.fetchSearchedSyllabus(p0);
+                  FocusScope.of(context).unfocus();
+                },
               ),
             ),
             const SizedBox(height: 10),
