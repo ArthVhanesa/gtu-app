@@ -188,7 +188,8 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
     onSearchHandler() {
       if (_controller.text.length < 2) {
         ShowCustomSnackBar.warn(
-            title: "Invalid Input", message: "Enter correct branch code.");
+            title: "Invalid Input",
+            message: "E.g. If your branch code is '3' then enter '03'");
         return;
       }
       timeTableController.fetchTimeTableData(_controller.text);

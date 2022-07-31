@@ -36,8 +36,15 @@ class Provider extends GetConnect {
   }
 
   Future<dynamic> getQuestionPapers(String subCode) async {
-    final response = await httpClient
-        .get('https://bookocean-app.herokuapp.com/papers/${subCode}');
+    log("search for: $subCode");
+    final response =
+        await httpClient.get('${AppGlobals.API_URL}/papers/$subCode');
+
+    if (response.statusCode == 404) {
+      return Future.error("Question paper not found!");
+    } else if (response.statusCode != 200) {
+      return Future.error(response.body.toString());
+    }
     if (response.status.hasError) {
       return Future.error(response.statusText!);
     } else {

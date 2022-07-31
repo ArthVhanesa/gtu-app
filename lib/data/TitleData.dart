@@ -24,10 +24,10 @@ List<HomeScreenTileData> tile = [
       title: 'Information 📇',
       card1: circular,
       card2: academicCalendar,
-      card3: studentCorner),
+      card3: examTimetable),
   HomeScreenTileData(
-      title: 'Exam Related 📝',
-      card1: examTimetable,
+      title: 'GTU Corner 🎓',
+      card1: studentCorner,
       card2: pointActivity,
       card3: studentPortal),
 ];

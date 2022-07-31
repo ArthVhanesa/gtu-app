@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gtu_app/components/CustomLoadingIndicator.dart';
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/components/Heading.dart';
 import 'package:gtu_app/components/PoweredbyAstronApps.dart';
@@ -22,7 +23,8 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
   final FontStyle _fontStyle = FontStyle();
 
   final questionPaperController = Get.put(QuestionPaperController());
-  final textController = Get.put(TextEditingController());
+  final TextEditingController questionPaperInputController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +40,10 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
           Padding(
             padding: padding,
             child: SearchBar(
-              searchInputController: TextEditingController(),
+              searchInputController: questionPaperInputController,
               onTap: () {
-                questionPaperController.fetchQuestionPaper(textController.text);
+                questionPaperController
+                    .fetchQuestionPaper(questionPaperInputController.text);
                 FocusScope.of(context).unfocus();
               },
             ),
@@ -76,6 +79,7 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
                           },
                         );
                       },
+                      onLoading: CustomLoadingIndicator(),
                     ),
                     PoweredbyAstronApps()
                   ],
