@@ -107,7 +107,7 @@ CardData studentCorner = CardData(
     tagline: '',
     color: _colors.lightPinkColor,
     image: studentCornerImg,
-    onTapLink: '',
+    onTapLink: 'https://www.gtu.ac.in/StudentCorner.aspx',
     pageTitle: 'Student Corner 📪',
     pageSubtitle: '',
     pageLink: 'https://www.gtu.ac.in/StudentCorner.aspx' //pass link here

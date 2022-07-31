@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:gtu_app/components/CommonTile.dart';
+import 'package:gtu_app/components/CustomLoadingIndicator.dart';
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/components/PoweredbyAstronApps.dart';
 import 'package:gtu_app/controllers/circularController.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/models/circular_model.dart';
 import 'package:gtu_app/style.dart';
-import 'package:loading_indicator/loading_indicator.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 class CircularScreen extends StatefulWidget {
@@ -109,7 +109,7 @@ class AllCircular extends StatelessWidget {
                   },
                 );
               },
-              onLoading: OnLoading(),
+              onLoading: CustomLoadingIndicator(),
             ),
             PoweredbyAstronApps(),
           ],
@@ -152,34 +152,10 @@ class ImportantCircular extends StatelessWidget {
                   },
                 );
               },
-              onLoading: OnLoading(),
+              onLoading: CustomLoadingIndicator(),
             ),
             PoweredbyAstronApps(),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class OnLoading extends StatelessWidget {
-  OnLoading({
-    Key? key,
-  }) : super(key: key);
-
-  final AppColors _colors = AppColors();
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 60), // padding of indicator
-      child: Center(
-        child: Container(
-          height: 80, // size of indicator
-          child: LoadingIndicator(
-            indicatorType: Indicator.ballClipRotateMultiple,
-            colors: [_colors.primaryColor], // color of incdicator
-          ),
         ),
       ),
     );

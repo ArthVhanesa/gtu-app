@@ -25,6 +25,16 @@ class Provider extends GetConnect {
     }
   }
 
+  Future<dynamic> getAcademicCalendar() async {
+    final response =
+        await httpClient.get('${AppGlobals.API_URL}/circular/calender');
+    if (response.status.hasError) {
+      return Future.error(response.statusText!);
+    } else {
+      return response.body;
+    }
+  }
+
   Future<dynamic> getQuestionPapers(String subCode) async {
     final response = await httpClient
         .get('https://bookocean-app.herokuapp.com/papers/${subCode}');
