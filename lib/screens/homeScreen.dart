@@ -31,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final FontStyle _fontStyle = FontStyle();
 
   final signinController = Get.put(SignInController());
+  final textController = Get.put(TextEditingController());
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 35,
                 ),
                 SearchBar(
+                  controller: textController,
                   onTap: () {},
                 ),
                 const SizedBox(

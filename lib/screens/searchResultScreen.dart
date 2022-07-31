@@ -5,9 +5,11 @@ import 'package:gtu_app/components/PoweredbyAstronApps.dart';
 import 'package:gtu_app/components/QuestionPaperTile.dart';
 import 'package:gtu_app/components/SearchBar.dart';
 import 'package:gtu_app/components/SyllabusTile.dart';
+import 'package:gtu_app/controllers/papersController.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/DummyDataQuestionPaper.dart';
 import 'package:gtu_app/style.dart';
+import 'package:get/get.dart';
 
 class SearchResultScreen extends StatefulWidget {
   const SearchResultScreen({super.key});
@@ -19,6 +21,9 @@ class SearchResultScreen extends StatefulWidget {
 class _SearchResultScreenState extends State<SearchResultScreen> {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
+
+  final questionPaperController = Get.put(QuestionPaperController());
+  final controller = Get.put(TextEditingController());
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +39,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
           Padding(
             padding: padding,
             child: SearchBar(
+              controller: controller,
               onTap: () {},
             ),
           ),
@@ -58,16 +64,20 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     Heading(
                       heading: 'Previous Question Paper',
                     ),
-                    ListView.separated(
-                      padding: const EdgeInsets.only(top: 10),
-                      itemCount: dummyDataQuestionPaper.length,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      separatorBuilder: (context, index) =>
-                          const SizedBox(height: 10),
-                      itemBuilder: (BuildContext context, int index) {
-                        return QuestionPaperTile(
-                          questionPaper: dummyDataQuestionPaper[index],
+                    questionPaperController.obx(
+                      (questionPaper) {
+                        return ListView.separated(
+                          padding: const EdgeInsets.only(top: 10),
+                          itemCount: questionPaper.length,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          separatorBuilder: (context, index) =>
+                              const SizedBox(height: 10),
+                          itemBuilder: (BuildContext context, int index) {
+                            return QuestionPaperTile(
+                              questionPaper: questionPaper[index],
+                            );
+                          },
                         );
                       },
                     ),
