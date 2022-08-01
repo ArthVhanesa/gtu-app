@@ -10,7 +10,7 @@ import 'package:gtu_app/components/PoweredbyAstronApps.dart';
 import 'package:gtu_app/controllers/circularController.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/models/circular_model.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 class CircularScreen extends StatefulWidget {

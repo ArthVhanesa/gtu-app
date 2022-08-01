@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/data/IntroductionScreenData.dart';
 import 'package:gtu_app/screens/homeScreen.dart';
 import 'package:gtu_app/screens/logInScreen.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

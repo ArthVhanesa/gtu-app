@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 
 class KeepItUp extends StatelessWidget {
   final AppColors _colors = AppColors();

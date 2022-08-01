@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gtu_app/ScreenRouter.dart';
-import 'package:gtu_app/custome_tab.dart';
+import 'package:gtu_app/utils/screen_router.dart';
+import 'package:gtu_app/utils/custome_tab.dart';
 import 'package:gtu_app/data/CardData.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:get/get.dart';
 
 class RectangleCard extends StatelessWidget {

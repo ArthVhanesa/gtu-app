@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/components/RectangleCard.dart';
 import 'package:gtu_app/components/SquareCard.dart';
 import 'package:gtu_app/data/TitleData.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 
 class HomeScreenTile extends StatelessWidget {
   final HomeScreenTileData tile;

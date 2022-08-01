@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 class CustomLoadingIndicator extends StatelessWidget {

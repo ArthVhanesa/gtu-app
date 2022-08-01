@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gtu_app/controllers/signInController.dart';
 import 'package:gtu_app/provider/provider.dart';
-import 'package:gtu_app/style.dart';
-import 'package:gtu_app/image.dart';
+import 'package:gtu_app/style/style.dart';
+import 'package:gtu_app/style/image.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});

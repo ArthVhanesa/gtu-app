@@ -14,7 +14,7 @@ import 'package:gtu_app/screens/logInDataScreen.dart';
 import 'package:gtu_app/screens/logInScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:gtu_app/screens/introductionScreen.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

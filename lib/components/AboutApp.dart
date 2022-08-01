@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:gtu_app/dynamic_data.dart';
-import 'package:gtu_app/image.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/app_data.dart';
+import 'package:gtu_app/style/image.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutApp extends StatefulWidget {

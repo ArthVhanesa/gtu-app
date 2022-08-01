@@ -2,11 +2,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:gtu_app/image.dart';
+import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/main.dart';
 import 'package:gtu_app/provider/globals.dart';
 import 'package:gtu_app/screens/drawerScreen.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 
 class SnackBarType {
   Color color;

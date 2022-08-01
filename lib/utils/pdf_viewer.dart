@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:gtu_app/pdf_api.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/utils/pdf_api.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:path/path.dart';
 

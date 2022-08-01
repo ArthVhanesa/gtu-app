@@ -2,9 +2,9 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'package:gtu_app/image.dart';
+import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/screens/questionPaperScreen.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 
 final AppColors _colors = AppColors();
 

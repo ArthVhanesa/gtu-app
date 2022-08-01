@@ -12,10 +12,10 @@ import 'package:gtu_app/components/SearchBar.dart';
 import 'package:gtu_app/controllers/signInController.dart';
 import 'package:gtu_app/data/CarouselSliderData.dart';
 import 'package:gtu_app/data/TitleData.dart';
-import 'package:gtu_app/image.dart';
+import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/main.dart';
 import 'package:gtu_app/screens/profileScreen.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:get/get.dart';
 

@@ -8,7 +8,7 @@ import 'package:gtu_app/components/SearchBar.dart';
 import 'package:gtu_app/controllers/papersController.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/models/papers_model.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:get/get.dart';
 
 class QuestionPaperScreen extends StatefulWidget {
