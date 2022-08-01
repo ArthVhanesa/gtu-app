@@ -46,6 +46,8 @@ class _AboutAppState extends State<AboutApp> {
                       child: Image.asset(
                         logoImg,
                         height: 120,
+                        width: 120,
+                        fit: BoxFit.fill,
                       ),
                     ),
                     Column(
@@ -148,7 +150,7 @@ class _AboutAppState extends State<AboutApp> {
         Row(
           children: [
             socialMediaButton(
-              icon: FontAwesomeIcons.linkedin,
+              icon: FontAwesomeIcons.linkedinIn,
               link: linkedinLink,
             ),
             socialMediaButton(

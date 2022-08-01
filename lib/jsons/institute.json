@@ -1,0 +1,366 @@
+[
+    {
+        "instituteCode": 2,
+        "instituteName": "AHMEDABAD INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 4,
+        "instituteName": "B. H. GARDI COLLEGE OF ENGINEERING & TECHNOLOGY"
+    },
+    {
+        "instituteCode": 7,
+        "instituteName": "BIRLA VISHVAKARMA MAHAVIDYALAYA"
+    },
+    {
+        "instituteCode": 9,
+        "instituteName": "C. K. PITHAWALA COLLEGE OF ENGG & TECHNOLOGY"
+    },
+    {
+        "instituteCode": 12,
+        "instituteName": "GANDHINAGAR INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 13,
+        "instituteName": "GOVERNMENT ENGINEERING COLLEGE, SECTOR - 28"
+    },
+    {
+        "instituteCode": 14,
+        "instituteName": "GOVERNMENT ENGINEERING COLLEGE, BHARUCH"
+    },
+    {
+        "instituteCode": 15,
+        "instituteName": "GOVERNMENT ENGINEERING COLLEGE BHUJ"
+    },
+    {
+        "instituteCode": 16,
+        "instituteName": "GOVERNMENT ENGINEERING COLLEGE, MODASA"
+    },
+    {
+        "instituteCode": 17,
+        "instituteName": "VISHWAKARMA GOVERNMENT ENGINEERING COLLEGE,CHANDKHEDA"
+    },
+    {
+        "instituteCode": 18,
+        "instituteName": "GOVERNMENT ENGINEERING COLLEGE, DAHOD"
+    },
+    {
+        "instituteCode": 19,
+        "instituteName": "GOVERNMENT ENGINEERING COLLEGE, VALSAD"
+    },
+    {
+        "instituteCode": 20,
+        "instituteName": "GOVERNMENT ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 21,
+        "instituteName": "GOVERNMENT ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 22,
+        "instituteName": "GOVERNMENT ENGINEERING COLLEGE,AT.KATPUR, PATAN"
+    },
+    {
+        "instituteCode": 23,
+        "instituteName": "DR.S.& S.S.GHANDHY GOVERNMENT ENGINEERING COLLEGE, SURAT."
+    },
+    {
+        "instituteCode": 26,
+        "instituteName": "KALOL INSTITUTE OF TECHNOLOGY & RESEARCH CENTRE"
+    },
+    {
+        "instituteCode": 27,
+        "instituteName": "KANKESHWARIDEVI INSTITUTE OF TECHNOLOGY,JAMNAGAR"
+    },
+    {
+        "instituteCode": 28,
+        "instituteName": "L. D. COLLEGE OF ENGINEERING"
+    },
+    {
+        "instituteCode": 29,
+        "instituteName": "LALJIBHAI CHATURBHAI INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 31,
+        "instituteName": "LUKHDHIRJI ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 33,
+        "instituteName": "MAHATMA GANDHI INSTITUTE OF TECHNICAL EDUCATION AND RESEARCH CENTRE"
+    },
+    {
+        "instituteCode": 34,
+        "instituteName": "NARNARAYAN SHASTRI INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 35,
+        "instituteName": "NOBLE GROUP OF INSTITUTIONS"
+    },
+    {
+        "instituteCode": 36,
+        "instituteName": "SANJAYBHAI RAJGURU COLLEGE OF ENGINEERING"
+    },
+    {
+        "instituteCode": 39,
+        "instituteName": "S. P. B. PATEL ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 41,
+        "instituteName": "SARDAR VALLABHBHAI PATEL INSTITUTE OF TECHNOLOGY(SVIT)"
+    },
+    {
+        "instituteCode": 43,
+        "instituteName": "SHANTILAL SHAH ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 45,
+        "instituteName": "SHRI S'AD VIDYA MANDAL INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 47,
+        "instituteName": "V.V.P.ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 49,
+        "instituteName": "SHRI SITARAMBHAI NARANJI PATEL INSTITUTE OF TECHNOLOGY,MANAGED BY VIDYABHARTI TRUST,UMRAKH-BARDOLI"
+    },
+    {
+        "instituteCode": 50,
+        "instituteName": "SIGMA INSTITUTE OF ENGINEERING"
+    },
+    {
+        "instituteCode": 51,
+        "instituteName": "ALPHA COLLEGE OF ENGINEERING & TECHNOLOGY"
+    },
+    {
+        "instituteCode": 52,
+        "instituteName": "CENTRAL INSTITUTE OF PETROCHEMICALS ENGINEERING\r\nAND TECHNOLOGY"
+    },
+    {
+        "instituteCode": 55,
+        "instituteName": "ENGINEERING COLLEGE, TUWA"
+    },
+    {
+        "instituteCode": 56,
+        "instituteName": "GROW MORE FOUNDATION'S GROUP OF INSTITUTIONS"
+    },
+    {
+        "instituteCode": 57,
+        "instituteName": "MARWADI EDUCATION FOUNDATION'S GROUP OF INSTITUTIONS"
+    },
+    {
+        "instituteCode": 60,
+        "instituteName": "GOVERNMENT ENGINEERING COLLEGE, GODHRA"
+    },
+    {
+        "instituteCode": 61,
+        "instituteName": "GOVERNMENT ENGINEERING COLLEGE PALANPUR"
+    },
+    {
+        "instituteCode": 62,
+        "instituteName": "GUJARAT INSTITUTE OF TECHNICAL STUDIES"
+    },
+    {
+        "instituteCode": 64,
+        "instituteName": "K. J. INSTITUTE OF ENGINEERING & TECHNOLOGY"
+    },
+    {
+        "instituteCode": 65,
+        "instituteName": "MERCHANT ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 66,
+        "instituteName": "SABAR INSTITUTE OF TECHNOLOGY FOR GIRLS, TAJPUR, SABARKANTHA"
+    },
+    {
+        "instituteCode": 67,
+        "instituteName": "SAL INSTITUTE OF TECHNOLOGY & ENGINEERING RESEARCH"
+    },
+    {
+        "instituteCode": 75,
+        "instituteName": "SHANKERSINH VAGHELA BAPU TECHNICAL CAMPUS"
+    },
+    {
+        "instituteCode": 76,
+        "instituteName": "SHREE SWAMI ATMANAND SARASWATI INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 78,
+        "instituteName": "SMT. S. R. PATEL ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 79,
+        "instituteName": "AURUM INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 80,
+        "instituteName": "VADODARA INSTITUTE OF ENGINEERING"
+    },
+    {
+        "instituteCode": 82,
+        "instituteName": "DR. JIVRAJ MEHTA INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 83,
+        "instituteName": "DR. SUBHASH TECHNICAL CAMPUS"
+    },
+    {
+        "instituteCode": 84,
+        "instituteName": "R.N.G. PATEL INSTITUTE OF TECHNOLOGY RNGPIT"
+    },
+    {
+        "instituteCode": 85,
+        "instituteName": "HJD INSTITUTE OF TECHNICAL EDUCATION AND RESEARCH"
+    },
+    {
+        "instituteCode": 86,
+        "instituteName": "LAXMI INSTITUTE OF TECHNOLOGY, SARIGAM"
+    },
+    {
+        "instituteCode": 88,
+        "instituteName": "SAMARTH COLLEGE OF ENGINEERING & TECHNOLOGY"
+    },
+    {
+        "instituteCode": 89,
+        "instituteName": "SHRI LABHUBHAI TRIVEDI INSTITUTE OF ENGINEERING AND TECHNOLOGY"
+    },
+    {
+        "instituteCode": 90,
+        "instituteName": "TATVA INSTITUTE OF TECHNOLOGICAL STUDIE,(TITS),MODASA"
+    },
+    {
+        "instituteCode": 91,
+        "instituteName": "\"SHRI SATSANGI SAKETDHAM \"RAM ASHRAM\" GROUP OF INSTITUTIONS\""
+    },
+    {
+        "instituteCode": 92,
+        "instituteName": "VEERAYATAN INSTITUTE OF ENGINEERING"
+    },
+    {
+        "instituteCode": 93,
+        "instituteName": "ARRDEKTA INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 94,
+        "instituteName": "VIDHYADEEP INSTITUTE OF ENGINEERING AND TECHNOLOGY"
+    },
+    {
+        "instituteCode": 96,
+        "instituteName": "ARUN MUCHHALA ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 100,
+        "instituteName": "SIGMA ENGINEERING COLLEGE( MATAR)"
+    },
+    {
+        "instituteCode": 101,
+        "instituteName": "IPCOWALA INSTITUTE OF ENGINEERING & TECHNOLOGY"
+    },
+    {
+        "instituteCode": 102,
+        "instituteName": "OM ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 103,
+        "instituteName": "OM INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 104,
+        "instituteName": "GUJARAT POWER ENGINEERING AND RESEARCH INSTITUTE"
+    },
+    {
+        "instituteCode": 107,
+        "instituteName": "SHRI J.M. SABVA INSTITUTE OF ENGINEERING & TECHNOLOGY"
+    },
+    {
+        "instituteCode": 108,
+        "instituteName": "AMIRAJ COLLEGE OF ENGINEERING & TECHNOLOGY"
+    },
+    {
+        "instituteCode": 109,
+        "instituteName": "BALAJI ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 110,
+        "instituteName": "GIDC DEGREE ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 112,
+        "instituteName": "PACIFIC SCHOOL OF ENGINEERING"
+    },
+    {
+        "instituteCode": 113,
+        "instituteName": "SAL COLLEGE OF ENGINEERING"
+    },
+    {
+        "instituteCode": 115,
+        "instituteName": "SWAMINARAYAN COLLEGE OF ENGINEERING & TECHNOLOGY(DEGREE)"
+    },
+    {
+        "instituteCode": 117,
+        "instituteName": "NEOTECH INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 118,
+        "instituteName": "D A DEGREE ENGGINEERING AND TECHNOLOGY"
+    },
+    {
+        "instituteCode": 121,
+        "instituteName": "APOLLO INSTITUTE OF ENGINEERING & TECHNOLOGY"
+    },
+    {
+        "instituteCode": 123,
+        "instituteName": "S.S.AGRAWAL INSTITUTE OF ENGINEERING & TECHNOLOGY"
+    },
+    {
+        "instituteCode": 124,
+        "instituteName": "SARDAR PATEL COLLEGE OF ENGINEERING"
+    },
+    {
+        "instituteCode": 125,
+        "instituteName": "SHREE SWAMINARAYAN INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 126,
+        "instituteName": "SAL ENGINEERING & TECHNICAL INSTITUTE"
+    },
+    {
+        "instituteCode": 129,
+        "instituteName": "GYANMANJARI INSTITUTE OF TECHNOLOGY"
+    },
+    {
+        "instituteCode": 130,
+        "instituteName": "SMT SHANTABEN HARIBHAI GAJERA ENGINEERING COLLEGE"
+    },
+    {
+        "instituteCode": 131,
+        "instituteName": "ADANI INSTITUTE OF INFRASTRUCTURE ENGINEERING"
+    },
+    {
+        "instituteCode": 134,
+        "instituteName": "PRIME INSTITUTE OF ENGINEERING & TECHNOLOGY"
+    },
+    {
+        "instituteCode": 135,
+        "instituteName": "KNOWLEDGE INSTITUTE OF TECHNOLOGY AND ENGINEERING"
+    },
+    {
+        "instituteCode": 136,
+        "instituteName": "M.K. COLLEGE OF ENGINEERING & TECHNOLOGICAL RESEARCH"
+    },
+    {
+        "instituteCode": 138,
+        "instituteName": "DR. V. R. GODHANIA COLLEGE OF ENGINEERING & TECHNOLOGY"
+    },
+    {
+        "instituteCode": 142,
+        "instituteName": "GOVERNMENT ENGINEERING COLLEGE DAMAN"
+    },
+    {
+        "instituteCode": 143,
+        "instituteName": "New L.J. Institute of Engineering & Technology"
+    },
+    {
+        "instituteCode": 146,
+        "instituteName": "Shree Dhanvantary College Of Engineering & Technology"
+    }
+]
