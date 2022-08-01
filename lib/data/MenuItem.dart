@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MenuItemData {
   final String title;
@@ -37,7 +38,8 @@ class MenuItems {
   );
   static const dePortal = MenuItemData(
     title: 'DE Portal',
-    icon: Icons.construction_outlined, // precision_manufacturing_outlined
+    icon: Icons
+        .precision_manufacturing_outlined, // precision_manufacturing_outlined
     url: "https://de.gtu.ac.in/Account/Login",
   );
   static const studentPortal = MenuItemData(
@@ -47,7 +49,7 @@ class MenuItems {
   );
   static const hundredPointActivity = MenuItemData(
     title: '100 Point Activity',
-    icon: Icons.credit_score_outlined, // scoreboard_outlined
+    icon: Icons.rocket_launch_outlined, // scoreboard_outlined
     url: "https://www.100points.gtu.ac.in/",
   );
 
