@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 import 'package:gtu_app/data/DummyDataQuestionPaper.dart';
 import 'package:gtu_app/models/papers_model.dart';
-import 'package:gtu_app/pdf_viewer.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/utils/pdf_viewer.dart';
+import 'package:gtu_app/style/style.dart';
 
 class QuestionPaperTile extends StatelessWidget {
   final AppColors _colors = AppColors();

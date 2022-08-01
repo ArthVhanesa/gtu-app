@@ -6,13 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:gtu_app/controllers/signInController.dart';
-import 'package:gtu_app/custome_tab.dart';
+import 'package:gtu_app/utils/custome_tab.dart';
 import 'package:gtu_app/data/MenuItem.dart';
-import 'package:gtu_app/image.dart';
+import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/screens/homeScreen.dart';
 import 'package:gtu_app/screens/profileScreen.dart';
 import 'package:gtu_app/screens/settingScreen.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 
 class ZoomDrawerScreen extends StatefulWidget {
   const ZoomDrawerScreen({super.key});

@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/animation.dart';
-import 'package:gtu_app/image.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/image.dart';
+import 'package:gtu_app/style/style.dart';
 
 final AppColors _colors = AppColors();
 

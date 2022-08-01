@@ -5,7 +5,7 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:gtu_app/controllers/signInController.dart';
 import 'package:gtu_app/data/MenuItem_navigation.dart';
-import 'package:gtu_app/image.dart';
+import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/screens/circularScreen.dart';
 import 'package:gtu_app/screens/examTimetableScreen.dart';
 import 'package:gtu_app/screens/homeScreen.dart';
@@ -13,7 +13,7 @@ import 'package:gtu_app/screens/percentageCalculatorScreen.dart';
 import 'package:gtu_app/screens/questionPaperScreen.dart';
 import 'package:gtu_app/screens/resultScreen.dart';
 import 'package:gtu_app/screens/syllabusScreen.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 
 // ============================================================================//
 // this is unused drawer screen with navigaion to other screens

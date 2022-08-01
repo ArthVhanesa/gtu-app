@@ -4,10 +4,10 @@ import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/components/Heading.dart';
 import 'package:gtu_app/components/PoweredbyAstronApps.dart';
 import 'package:gtu_app/components/SquareCard.dart';
-import 'package:gtu_app/custome_tab.dart';
+import 'package:gtu_app/utils/custome_tab.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/DummyCommonCardData.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 
 class ResultScreen extends StatefulWidget {
   const ResultScreen({super.key});

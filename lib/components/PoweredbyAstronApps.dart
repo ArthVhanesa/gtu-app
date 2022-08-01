@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gtu_app/components/Heading.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PoweredbyAstronApps extends StatelessWidget {

@@ -8,7 +8,7 @@ import 'package:gtu_app/components/SyllabusTile.dart';
 import 'package:gtu_app/controllers/papersController.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/DummyDataQuestionPaper.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:get/get.dart';
 
 class SearchResultScreen extends StatefulWidget {

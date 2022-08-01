@@ -15,7 +15,7 @@ import 'package:gtu_app/data/ExamTimetable.dart';
 import 'package:gtu_app/main.dart';
 import 'package:gtu_app/models/timetable_model.dart';
 import 'package:gtu_app/provider/globals.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 
 class ExamTimetableScreen extends StatefulWidget {
   const ExamTimetableScreen({super.key});

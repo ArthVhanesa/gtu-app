@@ -5,7 +5,7 @@ import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/components/Heading.dart';
 import 'package:gtu_app/components/PoweredbyAstronApps.dart';
 import 'package:gtu_app/data/CardData.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class PercentageCalculatorScreen extends StatefulWidget {

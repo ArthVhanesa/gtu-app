@@ -5,7 +5,7 @@ import 'package:gtu_app/components/TextInput.dart';
 import 'package:gtu_app/controllers/signInController.dart';
 import 'package:gtu_app/models/user_model.dart';
 import 'package:gtu_app/screens/drawerScreen.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 
 class LogIn2Screen extends StatefulWidget {
   const LogIn2Screen({super.key});
@@ -75,7 +75,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                           width: MediaQuery.of(context).size.width * 1.0,
                           maxLength: 12,
                           titleName: "Enrollment No.",
-                          hintText: "200280116029",
+                          hintText: "123456789123",
                           keyboardType: TextInputType.number,
                           textInputFormatter: RegExp("[0-9]"),
                           // maxLengthEnforcement: MaxLengthEnforcement.enforced,

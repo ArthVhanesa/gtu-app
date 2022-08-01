@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 
 class ModalBottomColumnThree extends StatelessWidget {
   final FontStyle _fontStyle = FontStyle();

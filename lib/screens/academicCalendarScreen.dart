@@ -7,7 +7,7 @@ import 'package:gtu_app/controllers/calendar_controller.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/data/DummyCommonCardData.dart';
 import 'package:gtu_app/models/circular_model.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:get/get.dart';
 
 class AcademicCalendarScreen extends StatelessWidget {

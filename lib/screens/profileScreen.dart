@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/data/CardData.dart';
 import 'package:gtu_app/screens/settingScreen.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 import 'package:get/get.dart';
 
 class ProfileScreen extends StatefulWidget {

@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:gtu_app/components/ModalBottomColumnFour.dart';
 import 'package:gtu_app/components/ModalBottomColumnThree.dart';
-import 'package:gtu_app/launch_url.dart';
+import 'package:gtu_app/utils/launch_url.dart';
 import 'package:gtu_app/models/syllabus_model.dart';
-import 'package:gtu_app/style.dart';
+import 'package:gtu_app/style/style.dart';
 
 class SyllabusTile extends StatelessWidget {
   final AppColors _colors = AppColors();
