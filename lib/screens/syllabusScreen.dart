@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gtu_app/components/CustomLoadingIndicator.dart';
 import 'package:gtu_app/components/Header.dart';
 import 'package:gtu_app/components/Heading.dart';
 import 'package:gtu_app/components/PoweredbyAstronApps.dart';
@@ -84,6 +85,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                               );
                             },
                           ),
+                          onLoading: CustomLoadingIndicator(),
                         ),
                         PoweredbyAstronApps()
                       ],

@@ -86,7 +86,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 SettingMenu(
                   title: 'About',
                   firstMenuTitle: 'Other Apps',
-                  firstIcon: Icons.apps,
+                  firstIcon: FontAwesomeIcons.googlePlay,
                   firstMenuOnTap: () async {
                     final url = astronApps;
 
