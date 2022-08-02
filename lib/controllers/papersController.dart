@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:get/get.dart';
+import 'package:gtu_app/components/CustomSnackBar.dart';
 import 'package:gtu_app/provider/provider.dart';
 
 class QuestionPaperController extends GetxController with StateMixin<dynamic> {
@@ -12,10 +13,12 @@ class QuestionPaperController extends GetxController with StateMixin<dynamic> {
   }
 
   void fetchQuestionPaper(String subCode) {
+    change(null, status: RxStatus.loading());
     Provider().getQuestionPapers(subCode).then((value) {
       change(value, status: RxStatus.success());
     }, onError: (error) {
       log(error.toString());
+      ShowCustomSnackBar.error(message: error.toString());
       change(null, status: RxStatus.error(error.toString()));
     });
   }

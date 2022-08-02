@@ -1,22 +1,16 @@
-import 'dart:developer';
-
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:gtu_app/components/HomeScreenTile.dart';
 import 'package:gtu_app/components/KeepItUp.dart';
-import 'package:gtu_app/components/RectangleCard.dart';
 import 'package:gtu_app/components/SearchBar.dart';
+import 'package:gtu_app/components/carousel_home.dart';
 import 'package:gtu_app/controllers/signInController.dart';
-import 'package:gtu_app/data/CarouselSliderData.dart';
 import 'package:gtu_app/data/TitleData.dart';
 import 'package:gtu_app/style/image.dart';
-import 'package:gtu_app/main.dart';
 import 'package:gtu_app/screens/profileScreen.dart';
 import 'package:gtu_app/style/style.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -110,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
               physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
-                  carouselSlider(),
+                  CarouselSlider1(),
                   Padding(
                     padding: padding,
                     child: Column(
@@ -141,50 +135,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       )),
-    );
-  }
-
-  carouselSlider() {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 10,
-        ),
-        CarouselSlider.builder(
-          itemCount: carouselSliderData.length,
-          itemBuilder: (context, index, realIndex) {
-            return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 7),
-                child: RectangleCard(card: carouselSliderData[index]));
-          },
-          options: CarouselOptions(
-              height: 140,
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 3),
-              // enableInfiniteScroll: false,
-              enlargeCenterPage: true,
-              enlargeStrategy: CenterPageEnlargeStrategy.height,
-              onPageChanged: (index, reason) => setState(
-                    (() => activeIndex = index),
-                  )),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        AnimatedSmoothIndicator(
-          activeIndex: activeIndex,
-          count: carouselSliderData.length,
-          effect: ScrollingDotsEffect(
-            spacing: 6,
-            radius: 50,
-            dotWidth: 6,
-            dotHeight: 6,
-            activeDotScale: 1.5,
-            activeDotColor: _colors.primaryColor,
-            // fixedCenter: true,
-          ),
-        ),
-      ],
     );
   }
 }

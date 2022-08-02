@@ -29,6 +29,7 @@ class TimeTableController extends GetxController with StateMixin<dynamic> {
   }
 
   void fetchTimeTableData(String branchCode) {
+    change(null, status: RxStatus.loading());
     Provider().getTimeTableData(sem.value, branchCode).then((value) {
       log("timetable: $value");
       timeTableData.value = value;

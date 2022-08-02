@@ -7,6 +7,7 @@ class AllCircularController extends GetxController with StateMixin<dynamic> {
   @override
   void onInit() {
     super.onInit();
+    change(null, status: RxStatus.loading());
     Provider().getAllCircular().then((value) {
       change(value, status: RxStatus.success());
     }, onError: (error) {
@@ -25,6 +26,7 @@ class ImpCircularController extends GetxController with StateMixin<dynamic> {
   @override
   void onInit() {
     super.onInit();
+    change(null, status: RxStatus.loading());
     Provider().getImpCircular().then((value) {
       change(value, status: RxStatus.success());
     }, onError: (error) {
