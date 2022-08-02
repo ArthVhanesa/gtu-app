@@ -11,6 +11,7 @@ class SyllabusController extends GetxController with StateMixin<dynamic> {
   }
 
   void initialFetch() {
+    change(null, status: RxStatus.loading());
     Provider().getInitialSyllabusData().then((value) {
       change(value, status: RxStatus.success());
     }, onError: (error) {
@@ -20,6 +21,7 @@ class SyllabusController extends GetxController with StateMixin<dynamic> {
   }
 
   void fetchSearchedSyllabus(String subCode) {
+    change(null, status: RxStatus.loading());
     if (subCode == "") {
       initialFetch();
       return;

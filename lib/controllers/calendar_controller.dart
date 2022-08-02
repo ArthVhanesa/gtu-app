@@ -8,6 +8,7 @@ class AcademicCalendarController extends GetxController
   @override
   void onInit() {
     super.onInit();
+    change(null, status: RxStatus.loading());
     Provider().getAcademicCalendar().then((value) {
       change(value, status: RxStatus.success());
     }, onError: (error) {
