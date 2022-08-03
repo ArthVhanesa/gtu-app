@@ -1,6 +1,7 @@
+import 'package:get/get.dart';
+
 import 'package:gtu_app/utils/custome_tab.dart';
 import 'package:gtu_app/utils/pdf_viewer.dart';
-import 'package:get/get.dart';
 
 void launchUrl(String url) {
   String isPdf = url.substring(url.length - 4);

@@ -1,19 +1,17 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:gtu_app/controllers/signInController.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/models/user_model.dart';
 import 'package:gtu_app/provider/globals.dart';
-import 'package:gtu_app/screens/drawerScreen.dart';
-import 'package:gtu_app/screens/logInDataScreen.dart';
-import 'package:gtu_app/screens/logInScreen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:gtu_app/screens/introductionScreen.dart';
+import 'package:gtu_app/screens/drawer_screen.dart';
+import 'package:gtu_app/screens/introduction_screen.dart';
+import 'package:gtu_app/screens/log_in_screen.dart';
 import 'package:gtu_app/style/style.dart';
 
 void main() async {

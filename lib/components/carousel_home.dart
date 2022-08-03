@@ -1,12 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:gtu_app/components/RectangleCard.dart';
-import 'package:gtu_app/data/CarouselSliderData.dart';
-import 'package:gtu_app/style/style.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import 'package:gtu_app/components/rectangle_card.dart';
+import 'package:gtu_app/data/carousel_slider_data.dart';
+import 'package:gtu_app/style/style.dart';
+
 class CarouselSlider1 extends StatefulWidget {
-  CarouselSlider1({super.key});
+  const CarouselSlider1({super.key});
 
   @override
   State<CarouselSlider1> createState() => _CarouselSlider1State();

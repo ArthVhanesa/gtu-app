@@ -1,8 +1,9 @@
 import 'dart:async';
+import 'dart:io';
+
+import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:http/http.dart' as http;
-import 'dart:io';
 
 class PDFApi {
   static Future<File> loadNetwork(String url) async {
