@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:gtu_app/data/CardData.dart';
-import 'package:gtu_app/screens/academicCalendarScreen.dart';
-import 'package:gtu_app/screens/circularScreen.dart';
-import 'package:gtu_app/screens/examTimetableScreen.dart';
-import 'package:gtu_app/screens/percentageCalculatorScreen.dart';
-import 'package:gtu_app/screens/questionPaperScreen.dart';
-import 'package:gtu_app/screens/resultScreen.dart';
-import 'package:gtu_app/screens/studentCornerScreen.dart';
-import 'package:gtu_app/screens/syllabusScreen.dart';
+
+import 'package:gtu_app/data/card_data.dart';
+import 'package:gtu_app/screens/academic_calendar_screen.dart';
+import 'package:gtu_app/screens/circular_screen.dart';
+import 'package:gtu_app/screens/exam_timetable_screen.dart';
+import 'package:gtu_app/screens/percentage_calculator_screen.dart';
+import 'package:gtu_app/screens/question_paper_screen.dart';
+import 'package:gtu_app/screens/result_screen.dart';
+import 'package:gtu_app/screens/syllabus_screen.dart';
 
 class ScreenRoute extends StatefulWidget {
   final CardData card;
@@ -38,9 +38,6 @@ class _ScreenRouteState extends State<ScreenRoute> {
 
       case 'Academic Calendar Screen':
         return AcademicCalendarScreen();
-
-      case 'Student Corner Screen':
-        return const StudentCornerScreen();
 
       case 'Exam Timetable Screen':
         return const ExamTimetableScreen();

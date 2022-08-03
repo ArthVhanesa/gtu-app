@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gtu_app/utils/custome_tab.dart';
-import 'package:gtu_app/data/CardData.dart';
-import 'package:gtu_app/main.dart';
+import 'package:get/get.dart';
+
+import 'package:gtu_app/data/card_data.dart';
 import 'package:gtu_app/provider/globals.dart';
 import 'package:gtu_app/style/style.dart';
-import 'package:get/get.dart';
+import 'package:gtu_app/utils/custome_tab.dart';
 
 class Header extends StatefulWidget {
   final CardData card;
