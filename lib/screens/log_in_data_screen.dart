@@ -1,10 +1,13 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gtu_app/app_data.dart';
 
 import 'package:gtu_app/components/text_input.dart';
 import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/screens/drawer_screen.dart';
 import 'package:gtu_app/style/style.dart';
+import 'package:gtu_app/utils/launch_url.dart';
 
 class LogIn2Screen extends StatefulWidget {
   const LogIn2Screen({super.key});
@@ -74,7 +77,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                           width: MediaQuery.of(context).size.width * 1.0,
                           maxLength: 12,
                           titleName: "Enrollment No.",
-                          hintText: "123456789123",
+                          hintText: "123456789012",
                           keyboardType: TextInputType.number,
                           textInputFormatter: RegExp("[0-9]"),
                           // maxLengthEnforcement: MaxLengthEnforcement.enforced,
@@ -82,6 +85,41 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                         ),
                         const SizedBox(
                           height: 7,
+                        ),
+                        RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text:
+                                  'By clicking on Continue, you agree to the ',
+                              style: _fontStyle
+                                  .manrope(12, FontWeight.normal)
+                                  .copyWith(color: _colors.blackColor),
+                            ),
+                            TextSpan(
+                              text: 'Terms of Use',
+                              style: _fontStyle
+                                  .manrope(12, FontWeight.w500)
+                                  .copyWith(color: _colors.linkBlueColor),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap =
+                                    LaunchUrl().inAppWebView(url: termsOfUse),
+                            ),
+                            TextSpan(
+                              text: ' and ',
+                              style: _fontStyle
+                                  .manrope(12, FontWeight.normal)
+                                  .copyWith(color: _colors.blackColor),
+                            ),
+                            TextSpan(
+                              text: 'Privacy policy',
+                              style: _fontStyle
+                                  .manrope(12, FontWeight.w500)
+                                  .copyWith(color: _colors.linkBlueColor),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = LaunchUrl()
+                                    .inAppWebView(url: privacyPolicy),
+                            ),
+                          ]),
                         ),
                         Container(
                           width: 170,
@@ -99,7 +137,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                               onTap: () {
                                 var en = _enrollmentNo.text;
                                 print("Continue button pressed" + en);
-                                Get.to(() => ZoomDrawerScreen());
+                                Get.offAll(() => const ZoomDrawerScreen());
                               },
                               child: Center(
                                 child: Text("Continue",
@@ -114,7 +152,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                     ),
                   )),
               Center(
-                child: Text("Welcome to MyGTU",
+                child: Text("Welcome to $appName",
                     style: _fontStyle.manrope(20, FontWeight.w700)),
               )
             ],

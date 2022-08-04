@@ -75,7 +75,8 @@ class FontStyle {
   }
 
   TextStyle mPlusRounded1c(double fontSize, FontWeight fontWeight) {
-    return GoogleFonts.ebGaramond(fontSize: fontSize, fontWeight: fontWeight);
+    return GoogleFonts.mPlusRounded1c(
+        fontSize: fontSize, fontWeight: fontWeight);
   }
 }
 // styles of widget

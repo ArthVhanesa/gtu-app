@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:gtu_app/components/header.dart';
+import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/data/card_data.dart';
 import 'package:gtu_app/screens/setting_screen.dart';
 import 'package:gtu_app/style/style.dart';
@@ -17,6 +18,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
+  final signinController = Get.put(SignInController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,34 +30,38 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Header(card: profileScreen),
           Padding(
             padding: padding,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ProfileData(
-                  title: 'Name 🖊️',
-                  data: 'Arth',
-                ),
-                ProfileData(
-                  title: 'Enrollment No. 🔢',
-                  data: '200280116029',
-                ),
-                ProfileData(
-                  title: 'Admission year 🗓',
-                  data: '2020',
-                ),
-                ProfileData(
-                  title: 'Course 🎓',
-                  data: 'B.E.',
-                ),
-                ProfileData(
-                  title: 'Branch ⚡️',
-                  data: 'Information Technology',
-                ),
-                ProfileData(
-                  title: 'College 🏫',
-                  data: 'Lalbhai Dalpatbhai College of Engineering',
-                ),
-              ],
+            child: signinController.obx(
+              (data) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ProfileData(
+                      title: 'Name 🖊️',
+                      data: '${data.displayName ?? ""}',
+                    ),
+                    ProfileData(
+                      title: 'Enrollment No. 🔢',
+                      data: '200280116029',
+                    ),
+                    ProfileData(
+                      title: 'Admission year 🗓',
+                      data: '2020',
+                    ),
+                    ProfileData(
+                      title: 'Course 🎓',
+                      data: 'B.E.',
+                    ),
+                    ProfileData(
+                      title: 'Branch ⚡️',
+                      data: 'Information Technology',
+                    ),
+                    ProfileData(
+                      title: 'College 🏫',
+                      data: 'Lalbhai Dalpatbhai College of Engineering',
+                    ),
+                  ],
+                );
+              },
             ),
           ),
           Expanded(

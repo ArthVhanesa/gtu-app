@@ -2,24 +2,29 @@
 String version = '0.0.0';
 
 // Name of Application
-String appName = 'MyGTU';
+String appName = 'GTU Info';
 
 // Copyright message on About App
 String copyrightMessage = 'Copyright © 2022 Astron Apps';
 
 // About app message on About App
-String aboutAppMessage =
-    'MyGTU - Providing bridge between University and Students';
+String aboutAppMessage = 'GTU Info - A bridge between University and Students';
 
 // Message shared on click of share app
 String shareAppMessage = 'The best app for GTU students';
 
-// Mail for receive bug report and feedback
-String toEmail = 'bookocean@gmail.com';
-
-// Link will open on click of other apps
+// Playstore page link of Astron Apps
 String astronApps =
     'https://play.google.com/store/apps/dev?id=9082115799273054085';
+
+// Privacy policy link
+String privacyPolicy = 'https://www.google.com';
+
+// Terms of Use link
+String termsOfUse = 'https://www.github.com';
+
+// Mail for receive bug report and feedback
+String toEmail = 'contact.bookocean@gmail.com';
 
 class BugReport {
   // Subject of Bug report mail

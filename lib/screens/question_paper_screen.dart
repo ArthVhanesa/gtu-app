@@ -10,6 +10,7 @@ import 'package:gtu_app/components/searchbar.dart';
 import 'package:gtu_app/controllers/papers_controller.dart';
 import 'package:gtu_app/data/card_data.dart';
 import 'package:gtu_app/models/papers_model.dart';
+import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/style/style.dart';
 
 class QuestionPaperScreen extends StatefulWidget {
@@ -85,6 +86,26 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
                         );
                       },
                       onLoading: CustomLoadingIndicator(),
+                      onError: (error) => Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              noDataFound,
+                              height: 200,
+                            ),
+                            const SizedBox(height: 15),
+                            Text(
+                              error!,
+                              style: _fontStyle
+                                  .manrope(18, FontWeight.w600)
+                                  .copyWith(
+                                    color: _colors.primaryColor,
+                                  ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                     PoweredbyAstronApps()
                   ],

@@ -111,17 +111,23 @@ class DrawerScreen extends StatelessWidget {
                       const SizedBox(height: 10),
                       Text(
                         "{Enrollment no.}",
-                        style: _fontStyle.manrope(15, FontWeight.w700).copyWith(
-                              color: _colors.titleColor,
-                            ),
+                        style: _fontStyle
+                            .manrope(15, FontWeight.w700)
+                            .copyWith(color: _colors.titleColor),
                       ),
                     ],
                   ),
                 ),
-                Column(
-                  children: [
-                    ...MenuItems.all.map(buildMenuItem),
-                  ], // list builder of menu item
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        ...MenuItems.all.map(buildMenuItem),
+                      ], // list builder of menu item
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 25),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gtu_app/app_data.dart';
 
 import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/style/image.dart';
@@ -47,7 +48,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 ],
               ),
               Center(
-                child: Text("Welcome to MyGTU",
+                child: Text("Welcome to $appName",
                     style: _fontStyle.manrope(20, FontWeight.w700)),
               )
             ],
