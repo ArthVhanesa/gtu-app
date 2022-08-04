@@ -25,8 +25,7 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
   final FontStyle _fontStyle = FontStyle();
 
   final questionPaperController = Get.put(QuestionPaperController());
-  final TextEditingController questionPaperInputController =
-      TextEditingController();
+  final questionPaperInputController = Get.put(TextEditingController(text: ''));
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +45,11 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
               onTap: () {
                 questionPaperController
                     .fetchQuestionPaper(questionPaperInputController.text);
-                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
               },
               onSubmitted: (value) {
                 questionPaperController.fetchQuestionPaper(value);
-                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
               },
             ),
           ),

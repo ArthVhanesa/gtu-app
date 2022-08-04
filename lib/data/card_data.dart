@@ -38,8 +38,8 @@ CardData searchResultScreen = CardData(
     color: _colors.lavenderColor,
     image: searchImg,
     onTapLink: '',
-    pageTitle: '3110005 📖', //pass subject code here
-    pageSubtitle: 'Basic Electrical Engineering ', //pass subject name here
+    pageTitle: 'Search 🔍', //pass subject code here
+    pageSubtitle: '', //pass subject name here
     pageLink: '');
 
 CardData syllabus = CardData(
