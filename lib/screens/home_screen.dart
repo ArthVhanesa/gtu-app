@@ -11,6 +11,7 @@ import 'package:gtu_app/components/searchbar.dart';
 import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/data/title_data.dart';
 import 'package:gtu_app/screens/profile_screen.dart';
+import 'package:gtu_app/screens/search_result_screen.dart';
 import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/style/style.dart';
 
@@ -89,9 +90,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 35,
                 ),
                 SearchBar(
-                  searchInputController: TextEditingController(),
-                  onTap: () {},
-                  onSubmitted: (p0) {},
+                  searchInputController: textController,
+                  onTap: () {
+                    Get.to(
+                        SearchResultScreen(searchInput: textController.text));
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
+                  onSubmitted: (text) {
+                    Get.to(SearchResultScreen(searchInput: text));
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
                 ),
 
                 const SizedBox(

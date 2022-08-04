@@ -1,17 +1,28 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:gtu_app/components/custom_loading_indicator.dart';
 import 'package:gtu_app/components/header.dart';
 import 'package:gtu_app/components/heading.dart';
 import 'package:gtu_app/components/powered_by_astron_apps.dart';
 import 'package:gtu_app/components/question_paper_tile.dart';
 import 'package:gtu_app/components/searchbar.dart';
+import 'package:gtu_app/components/syllabus_tile.dart';
 import 'package:gtu_app/controllers/papers_controller.dart';
+import 'package:gtu_app/controllers/syllabus_controller.dart';
 import 'package:gtu_app/data/card_data.dart';
+import 'package:gtu_app/models/papers_model.dart';
+import 'package:gtu_app/models/syllabus_model.dart';
+import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/style/style.dart';
 
 class SearchResultScreen extends StatefulWidget {
-  const SearchResultScreen({super.key});
+  String searchInput;
+  SearchResultScreen({
+    Key? key,
+    required this.searchInput,
+  }) : super(key: key);
 
   @override
   State<SearchResultScreen> createState() => _SearchResultScreenState();
@@ -21,11 +32,14 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
+  final syllabusController = Get.put(SyllabusController());
   final questionPaperController = Get.put(QuestionPaperController());
-  final controller = Get.put(TextEditingController());
+  final textEditingController = Get.put(TextEditingController());
 
   @override
   Widget build(BuildContext context) {
+    syllabusController.fetchSearchedSyllabus(widget.searchInput);
+    questionPaperController.fetchQuestionPaper(widget.searchInput);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: _colors.bgColor,
@@ -38,9 +52,25 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
           Padding(
             padding: padding,
             child: SearchBar(
-              searchInputController: TextEditingController(),
-              onTap: () {},
-              onSubmitted: (p0) {},
+              searchInputController: textEditingController,
+              onTap: () {
+                syllabusController
+                    .fetchSearchedSyllabus(textEditingController.text);
+
+                questionPaperController
+                    .fetchQuestionPaper(textEditingController.text);
+
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              onSubmitted: (p0) {
+                syllabusController
+                    .fetchSearchedSyllabus(textEditingController.text);
+
+                questionPaperController
+                    .fetchQuestionPaper(textEditingController.text);
+
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
             ),
           ),
           const SizedBox(height: 10),
@@ -57,8 +87,42 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     Heading(
                       heading: 'Your subject syllabus',
                     ),
-                    //@todo:
-                    // SyllabusTile(syllabus: dummyDataQuestionPaper[0]),
+                    syllabusController.obx(
+                      (syllabus) => ListView.separated(
+                        padding: const EdgeInsets.only(top: 10),
+                        itemCount: syllabus.length,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        separatorBuilder: (context, index) =>
+                            const SizedBox(height: 10),
+                        itemBuilder: (BuildContext context, int index) {
+                          return SyllabusTile(
+                            syllabus: SyllabusModel.fromJson(syllabus[index]),
+                          );
+                        },
+                      ),
+                      onLoading: CustomLoadingIndicator(),
+                      onError: (error) => Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              noDataFound,
+                              height: 200,
+                            ),
+                            const SizedBox(height: 15),
+                            Text(
+                              error!,
+                              style: _fontStyle
+                                  .manrope(18, FontWeight.w600)
+                                  .copyWith(
+                                    color: _colors.primaryColor,
+                                  ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                     const SizedBox(
                       height: 40,
                     ),
@@ -69,18 +133,40 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                       (questionPaper) {
                         return ListView.separated(
                           padding: const EdgeInsets.only(top: 10),
-                          itemCount: questionPaper.length,
+                          itemCount: questionPaper.length, //length
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           separatorBuilder: (context, index) =>
                               const SizedBox(height: 10),
                           itemBuilder: (BuildContext context, int index) {
                             return QuestionPaperTile(
-                              questionPaper: questionPaper[index],
+                              questionPaper: QuestionPaperModel.fromJson(
+                                  questionPaper[index]),
                             );
                           },
                         );
                       },
+                      onLoading: CustomLoadingIndicator(),
+                      onError: (error) => Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              noDataFound,
+                              height: 200,
+                            ),
+                            const SizedBox(height: 15),
+                            Text(
+                              error!,
+                              style: _fontStyle
+                                  .manrope(18, FontWeight.w600)
+                                  .copyWith(
+                                    color: _colors.primaryColor,
+                                  ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                     PoweredbyAstronApps()
                   ],
