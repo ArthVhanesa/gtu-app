@@ -29,7 +29,7 @@ class QuestionPaperTile extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(25)),
           onTap: () async {
             Get.to(PdfViewer(url: "${questionPaper.pdflink}"));
-            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
           },
           child: Padding(
             padding: const EdgeInsets.all(15),

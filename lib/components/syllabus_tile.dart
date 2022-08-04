@@ -4,7 +4,7 @@ import 'package:gtu_app/components/modal_bottom_column_four.dart';
 import 'package:gtu_app/components/modal_bottom_column_three.dart';
 import 'package:gtu_app/models/syllabus_model.dart';
 import 'package:gtu_app/style/style.dart';
-import 'package:gtu_app/utils/launch_url.dart';
+import 'package:gtu_app/utils/launch_tab.dart';
 
 class SyllabusTile extends StatelessWidget {
   final AppColors _colors = AppColors();
@@ -31,15 +31,17 @@ class SyllabusTile extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(25)),
           onTap: () => {
             showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                backgroundColor: _colors.bgColor,
-                shape: const RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(15))),
-                builder: (context) => ModalBottomSheet(
-                      syllabus: syllabus,
-                    ))
+              context: context,
+              isScrollControlled: true,
+              backgroundColor: _colors.bgColor,
+              shape: const RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.vertical(top: Radius.circular(15))),
+              builder: (context) => ModalBottomSheet(
+                syllabus: syllabus,
+              ),
+            ),
+            FocusManager.instance.primaryFocus?.unfocus(),
           },
           child: Padding(
             padding: const EdgeInsets.all(15),
@@ -185,7 +187,7 @@ class ModalBottomSheet extends StatelessWidget {
                     child: InkWell(
                       borderRadius: const BorderRadius.all(Radius.circular(30)),
                       onTap: () {
-                        launchUrl(syllabus.pdflink ?? "");
+                        launchTab(syllabus.pdflink ?? "");
                       },
                       child: Center(
                           child: Text(

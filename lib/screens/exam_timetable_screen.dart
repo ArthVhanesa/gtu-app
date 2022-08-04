@@ -91,7 +91,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
         width: 0.4,
         customOnChange: timeTableController.changeSem,
       ),
-      onError: (error) => Text("Error loading Sem."),
+      onError: (error) => Text("Error in loading Sem."),
     );
 
     return Container(
@@ -147,30 +147,30 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
                     height: 10,
                   ),
                   Container(
-                      height: 48,
-                      width: MediaQuery.of(context).size.width * 0.4,
-                      decoration: BoxDecoration(
-                        color: _colors.whiteColor,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
+                    height: 48,
+                    width: MediaQuery.of(context).size.width * 0.4,
+                    decoration: BoxDecoration(
+                      color: _colors.whiteColor,
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      child: TextField(
+                        controller: _controller,
+                        maxLength: 4,
+                        style: _fontStyle.montserrat(15, FontWeight.normal),
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+                          LengthLimitingTextInputFormatter(2)
+                        ],
+                        decoration: const InputDecoration(
+                            hintText: "Branch code",
+                            counterText: '',
+                            border: InputBorder.none),
+                        keyboardType: TextInputType.number,
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 15, right: 15),
-                        child: TextField(
-                          controller: _controller,
-                          maxLength: 4,
-                          style: _fontStyle.montserrat(15, FontWeight.normal),
-                          inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.allow(RegExp("[0-9]")),
-                            LengthLimitingTextInputFormatter(2)
-                          ],
-                          decoration: const InputDecoration(
-                              hintText: "Branch code",
-                              counterText: '',
-                              border: InputBorder.none),
-                          keyboardType: TextInputType.number,
-                        ),
-                      ))
+                    ),
+                  ),
                 ],
               )
             ],

@@ -11,6 +11,7 @@ import 'package:gtu_app/controllers/syllabus_controller.dart';
 import 'package:gtu_app/data/card_data.dart';
 import 'package:gtu_app/models/syllabus_model.dart';
 import 'package:gtu_app/provider/globals.dart';
+import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/style/style.dart';
 
 class SyllabusScreen extends StatefulWidget {
@@ -59,37 +60,59 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
             const SizedBox(height: 10),
             Expanded(
               child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  child: Padding(
-                    padding: padding,
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 30,
+                physics: const BouncingScrollPhysics(),
+                child: Padding(
+                  padding: padding,
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Heading(
+                        heading: 'Your subject syllabus',
+                      ),
+                      _syllabusController.obx(
+                        (state) => ListView.separated(
+                          padding: const EdgeInsets.only(top: 10),
+                          itemCount: state.length,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          separatorBuilder: (context, index) =>
+                              const SizedBox(height: 10),
+                          itemBuilder: (BuildContext context, int index) {
+                            return SyllabusTile(
+                              syllabus: SyllabusModel.fromJson(state[index]),
+                            );
+                          },
                         ),
-                        Heading(
-                          heading: 'Your subject syllabus',
-                        ),
-                        _syllabusController.obx(
-                          (state) => ListView.separated(
-                            padding: const EdgeInsets.only(top: 10),
-                            itemCount: state.length,
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            separatorBuilder: (context, index) =>
-                                const SizedBox(height: 10),
-                            itemBuilder: (BuildContext context, int index) {
-                              return SyllabusTile(
-                                syllabus: SyllabusModel.fromJson(state[index]),
-                              );
-                            },
+                        onLoading: CustomLoadingIndicator(),
+                        // onError widget
+                        onError: (error) => Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                noDataFound,
+                                height: 200,
+                              ),
+                              const SizedBox(height: 15),
+                              Text(
+                                error!,
+                                style: _fontStyle
+                                    .manrope(18, FontWeight.w600)
+                                    .copyWith(
+                                      color: _colors.primaryColor,
+                                    ),
+                              )
+                            ],
                           ),
-                          onLoading: CustomLoadingIndicator(),
                         ),
-                        PoweredbyAstronApps()
-                      ],
-                    ),
-                  )),
+                      ),
+                      PoweredbyAstronApps()
+                    ],
+                  ),
+                ),
+              ),
             )
           ],
         )),

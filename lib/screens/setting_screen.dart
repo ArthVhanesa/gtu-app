@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:gtu_app/utils/launch_url.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'package:gtu_app/app_data.dart';
 import 'package:gtu_app/components/about_app.dart';
@@ -33,185 +33,168 @@ class _SettingScreenState extends State<SettingScreen> {
           child: Column(
         children: [
           Header(card: settingScreen),
-          Padding(
-            padding: padding,
-            child: Column(
+          Expanded(
+            child: Stack(
               children: [
-                SettingMenu(
-                  title: 'Share',
-                  firstMenuTitle: 'Share App',
-                  firstIcon: Icons.ios_share,
-                  firstMenuOnTap: () {
-                    Share.share(shareAppMessage);
-                  },
-                  secondMenuTitle: 'Rate App',
-                  secondIcon: Icons.star,
-                  // secondMenuOnTap: () {
-                  //   inAppReview.requestReview();
-                  // },
-                  secondMenuOnTap: () async {
-                    String url = astronApps;
-
-                    if (await canLaunchUrl(Uri.parse(url))) {
-                      await launchUrl(Uri.parse(url),
-                          mode: LaunchMode.externalApplication,
-                          webViewConfiguration: const WebViewConfiguration(
-                            enableJavaScript: true,
-                            enableDomStorage: true,
-                          ));
-                    }
-                  },
-                  color: _colors.skyBlueColor,
-                ),
-                SettingMenu(
-                  title: 'Help & Feedback',
-                  firstMenuTitle: 'Feedback',
-                  firstIcon: Icons.send,
-                  firstMenuOnTap: sendMail(
-                    subject: HelpFeedback().subject,
-                    body: HelpFeedback().body,
-                  ),
-                  secondMenuTitle: 'Bug report',
-                  secondIcon: Icons.pest_control_outlined,
-                  secondMenuOnTap: sendMail(
-                    subject: BugReport().subject,
-                    body: BugReport().body,
-                  ),
-                  color: _colors.orangeColor,
-                ),
-                SettingMenu(
-                  title: 'About',
-                  firstMenuTitle: 'Other Apps',
-                  firstIcon: FontAwesomeIcons.googlePlay,
-                  firstMenuOnTap: () async {
-                    final url = astronApps;
-
-                    if (await canLaunchUrl(Uri.parse(url))) {
-                      await launchUrl(
-                        Uri.parse(url),
-                        mode: LaunchMode.externalApplication,
-                        webViewConfiguration: const WebViewConfiguration(
-                          enableJavaScript: true,
-                          enableDomStorage: true,
+                SingleChildScrollView(
+                  child: Padding(
+                    padding: padding,
+                    child: Column(
+                      children: [
+                        SettingMenu(
+                          title: 'Share',
+                          firstMenuTitle: 'Share App',
+                          firstIcon: Icons.ios_share,
+                          firstMenuOnTap: () {
+                            Share.share(shareAppMessage);
+                          },
+                          secondMenuTitle: 'Rate App',
+                          secondIcon: Icons.star,
+                          // secondMenuOnTap: () {
+                          //   inAppReview.requestReview();
+                          // },
+                          secondMenuOnTap:
+                              LaunchUrl().externalApplication(url: astronApps),
+                          color: _colors.skyBlueColor,
                         ),
-                      );
-                    }
-                  },
-                  secondMenuTitle: 'About App',
-                  secondIcon: Icons.info_outline,
-                  secondMenuOnTap: () {
-                    showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        backgroundColor: _colors.bgColor,
-                        shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(15))),
-                        builder: (context) {
-                          return AboutApp();
-                        });
-                  },
-                  color: _colors.pistaColor,
-                )
+                        SettingMenu(
+                          title: 'Help & Feedback',
+                          firstMenuTitle: 'Feedback',
+                          firstIcon: Icons.send,
+                          firstMenuOnTap: LaunchUrl().sendMail(
+                            subject: HelpFeedback().subject,
+                            body: HelpFeedback().body,
+                          ),
+                          secondMenuTitle: 'Bug report',
+                          secondIcon: Icons.pest_control_outlined,
+                          secondMenuOnTap: LaunchUrl().sendMail(
+                            subject: BugReport().subject,
+                            body: BugReport().body,
+                          ),
+                          color: _colors.orangeColor,
+                        ),
+                        SettingMenu(
+                          title: 'About',
+                          firstMenuTitle: 'Other Apps',
+                          firstIcon: FontAwesomeIcons.googlePlay,
+                          firstMenuOnTap:
+                              LaunchUrl().externalApplication(url: astronApps),
+                          secondMenuTitle: 'About App',
+                          secondIcon: Icons.info_outline,
+                          secondMenuOnTap: () {
+                            showModalBottomSheet(
+                                context: context,
+                                isScrollControlled: true,
+                                backgroundColor: _colors.bgColor,
+                                shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(15))),
+                                builder: (context) {
+                                  return AboutApp();
+                                });
+                          },
+                          color: _colors.pistaColor,
+                        ),
+                        const SizedBox(height: 110),
+                      ],
+                    ),
+                  ),
+                ),
+                logoutButton()
               ],
             ),
           ),
-          logoutButton(context)
         ],
       )),
     );
   }
 
-  logoutButton(BuildContext context) {
+  logoutButton() {
     final signinController = Get.put(SignInController());
 
     TextStyle style = _fontStyle
         .montserrat(12, FontWeight.w600)
         .copyWith(decoration: TextDecoration.underline);
 
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            //Terms Privacy and version
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    InkWell(
-                        onTap: (() {}),
+    return Positioned(
+      bottom: 0,
+      left: 0,
+      right: 0,
+      child: Container(
+        color: _colors.bgColor,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(25, 5, 25, 25),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              //Terms Privacy and version
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      InkWell(
+                          onTap: LaunchUrl().inAppWebView(url: termsOfUse),
+                          child: Text(
+                            'Terms',
+                            style: style,
+                          )),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 5),
+                        child: Icon(
+                          Icons.circle,
+                          size: 6,
+                        ),
+                      ),
+                      InkWell(
+                        onTap: LaunchUrl().inAppWebView(url: privacyPolicy),
                         child: Text(
-                          'Terms',
+                          'Privacy',
                           style: style,
-                        )),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5),
-                      child: Icon(
-                        Icons.circle,
-                        size: 6,
+                        ),
                       ),
-                    ),
-                    InkWell(
-                      onTap: (() {}),
-                      child: Text(
-                        'Privacy',
-                        style: style,
-                      ),
-                    ),
-                  ],
-                ),
-                Text(
-                  'v. ${version}',
-                  style: style,
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            // logout button
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 55,
-              decoration: BoxDecoration(
-                color: _colors.lavenderColor,
-                borderRadius: const BorderRadius.all(Radius.circular(25)),
+                    ],
+                  ),
+                  Text(
+                    'v. ${version}',
+                    style: style,
+                  )
+                ],
               ),
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
+              const SizedBox(
+                height: 10,
+              ),
+              // logout button
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 55,
+                decoration: BoxDecoration(
+                  color: _colors.lavenderColor,
                   borderRadius: const BorderRadius.all(Radius.circular(25)),
-                  onTap: () {
-                    signinController.logOut();
-                  },
-                  child: Center(
-                    child: Text(
-                      'Log out',
-                      style: _fontStyle
-                          .montserrat(20, FontWeight.w600)
-                          .copyWith(color: _colors.titleColor),
+                ),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: const BorderRadius.all(Radius.circular(25)),
+                    onTap: () {
+                      signinController.logOut();
+                    },
+                    child: Center(
+                      child: Text(
+                        'Log out',
+                        style: _fontStyle
+                            .montserrat(20, FontWeight.w600)
+                            .copyWith(color: _colors.titleColor),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
-  }
-
-  void Function() sendMail({required String subject, required String body}) {
-    return () async {
-      final url = 'mailto:$toEmail?subject=$subject&body=$body';
-      if (await canLaunchUrl(Uri.parse(url))) {
-        await launchUrl(Uri.parse(url));
-      }
-    };
   }
 }
 

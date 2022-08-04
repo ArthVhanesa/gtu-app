@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(5),
                       onTap: () {
                         ZoomDrawer.of(context)!.toggle();
-                        FocusScope.of(context).unfocus();
+                        FocusManager.instance.primaryFocus?.unfocus();
                       },
                       child: SvgPicture.asset(
                         hamburger,

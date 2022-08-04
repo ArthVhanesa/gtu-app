@@ -134,7 +134,7 @@ class _PercentageCalculatorScreenState
               FilteringTextInputFormatter.allow(RegExp("[0-9.]"))
             ],
             decoration: const InputDecoration(
-                hintText: "SPI / CPI / CGPI",
+                hintText: "SPI / CPI / CGPA",
                 counterText: '',
                 border: InputBorder.none),
             keyboardType: TextInputType.number,
@@ -154,9 +154,8 @@ class _PercentageCalculatorScreenState
         progressColor: _colors.percentageCalcFillColor,
         circularStrokeCap: CircularStrokeCap.round,
         center: Text(
-          '${percentage}%',
-          style: GoogleFonts.mPlusRounded1c(
-              fontSize: 40, fontWeight: FontWeight.w500),
+          '$percentage%',
+          style: _fontStyle.mPlusRounded1c(40, FontWeight.w500),
         ),
       ),
     );

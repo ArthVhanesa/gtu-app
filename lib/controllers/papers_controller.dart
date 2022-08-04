@@ -18,7 +18,7 @@ class QuestionPaperController extends GetxController with StateMixin<dynamic> {
       change(value, status: RxStatus.success());
     }, onError: (error) {
       log(error.toString());
-      ShowCustomSnackBar.error(message: error.toString());
+      ShowCustomSnackBar.error(title: "Oh snap!", message: error.toString());
       change(null, status: RxStatus.error(error.toString()));
     });
   }

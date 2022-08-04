@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:gtu_app/models/circular_model.dart';
 import 'package:gtu_app/style/style.dart';
-import 'package:gtu_app/utils/launch_url.dart';
+import 'package:gtu_app/utils/launch_tab.dart';
 
 class CommonTile extends StatefulWidget {
   final CircularModel commonCardData;
@@ -204,7 +204,7 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(8)),
                             onTap: () {
-                              launchUrl(widget.commonCardData.ptags![0]
+                              launchTab(widget.commonCardData.ptags![0]
                                   .atags![index].link!);
                             },
                             child: Padding(

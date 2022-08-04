@@ -125,7 +125,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
             final prefs = await SharedPreferences.getInstance();
             prefs.setBool('showHome', true);
 
-            Get.off(() => const LogInScreen());
+            Get.offAll(() => const LogInScreen());
           },
           child: Center(
             child: Text(

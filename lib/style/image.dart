@@ -25,6 +25,7 @@ const percentageCalculatorImg = 'assets/image/percentageCalculator.png';
 
 const errorImg = 'assets/image/error.png';
 const warningImg = 'assets/image/warning.png';
+const noDataFound = 'assets/image/noDataFound.png';
 
 const hamburger = 'assets/icons/hamburger.svg'; // svg icon for hamburger
 

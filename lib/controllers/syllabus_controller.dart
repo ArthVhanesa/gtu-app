@@ -32,6 +32,8 @@ class SyllabusController extends GetxController with StateMixin<dynamic> {
       log("searchResult: $value");
       change([value], status: RxStatus.success());
     }, onError: (error) {
+      log(error.toString());
+      change(null, status: RxStatus.error(error.toString()));
       ShowCustomSnackBar.error(title: "Oh Snap!", message: error.toString());
       log("Error : ${error.toString()}");
     });
