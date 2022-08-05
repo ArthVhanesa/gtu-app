@@ -1,4 +1,4 @@
-const logoImg = 'assets/image/logo.jpg';
+const logoImg = 'assets/logo.png';
 
 const rocketImg = 'assets/image/rocket.png';
 const googleLogoImg = 'assets/image/googleLogo.png';
