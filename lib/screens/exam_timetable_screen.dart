@@ -256,7 +256,7 @@ class ExamTimetableTile extends StatelessWidget {
                 ),
                 Text(
                   data.date!.substring(3, 11),
-                  style: _fontStyle.manrope(12, FontWeight.w600),
+                  style: _fontStyle.manrope(11, FontWeight.w600),
                 ),
               ],
             ),

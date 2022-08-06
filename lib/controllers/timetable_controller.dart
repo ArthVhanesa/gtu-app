@@ -10,6 +10,7 @@ class TimeTableController extends GetxController with StateMixin<dynamic> {
 
   @override
   void onInit() {
+    change(null, status: RxStatus.loading());
     Provider().getAllSem().then((value) {
       // log(value.toString());
       sem.value = value['sem'][0];
@@ -28,7 +29,7 @@ class TimeTableController extends GetxController with StateMixin<dynamic> {
   }
 
   void fetchTimeTableData(String branchCode) {
-    change(null, status: RxStatus.loading());
+    // change(null, status: RxStatus.loading());
     Provider().getTimeTableData(sem.value, branchCode).then((value) {
       log("timetable: $value");
       timeTableData.value = value;

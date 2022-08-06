@@ -110,6 +110,7 @@ class _HeaderState extends State<Header> {
             widget.card.image,
             // height: MediaQuery.of(context).size.width * 0.35,
             height: 120,
+            gaplessPlayback: true,
           )
         ],
       ),
