@@ -96,6 +96,7 @@ class RectangleCard extends StatelessWidget {
                   child: Image.asset(
                     card.image,
                     height: 150,
+                    gaplessPlayback: true,
                   ),
                 ),
               ],

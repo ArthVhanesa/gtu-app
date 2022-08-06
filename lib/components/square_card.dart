@@ -59,6 +59,7 @@ class SquareCard extends StatelessWidget {
               Image.asset(
                 card.image,
                 height: 120,
+                gaplessPlayback: true,
               ),
               Text(
                 card.title,
