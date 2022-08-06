@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import 'package:gtu_app/components/custom_snackbar.dart';
 import 'package:gtu_app/components/dropdown_menu.dart';
+import 'package:gtu_app/components/exam_timetable_tile.dart';
 import 'package:gtu_app/components/header.dart';
 import 'package:gtu_app/components/powered_by_astron_apps.dart';
 import 'package:gtu_app/controllers/timetable_controller.dart';
@@ -25,7 +26,6 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
-  final TextEditingController _controller = TextEditingController();
   final timeTableController = Get.put(TimeTableController());
 
   String? value;
@@ -51,7 +51,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
                     child: Obx(() => Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            dropDownMenus(style, context),
+                            InputSection2(style: style),
                             ListView.separated(
                               itemCount: timeTableController
                                   .timeTableData.value.length,
@@ -80,10 +80,57 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
           )),
         ));
   }
+}
 
-  dropDownMenus(TextStyle style, BuildContext context) {
-    final timeTableController = Get.put(TimeTableController());
+class InputSection2 extends StatelessWidget {
+  final AppColors _colors = AppColors();
+  final FontStyle _fontStyle = FontStyle();
+  final TextEditingController _controller = TextEditingController();
+  late TextStyle style;
+  final timeTableController = Get.put(TimeTableController());
 
+  InputSection2({super.key, required this.style});
+
+  onSearchHandler() {
+    if (_controller.text.length < 2) {
+      ShowCustomSnackBar.warn(
+          title: "Invalid Input",
+          message: "E.g. If your branch code is '3' then enter '03'");
+      return;
+    }
+    timeTableController.fetchTimeTableData(_controller.text);
+  }
+
+  searchButton() {
+    return Container(
+      width: double.infinity,
+      height: 45,
+      decoration: BoxDecoration(
+        color: _colors.primaryColor,
+        borderRadius: const BorderRadius.all(Radius.circular(30)),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: const BorderRadius.all(Radius.circular(30)),
+          onTap: () {
+            onSearchHandler();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: Center(
+              child: Text(
+            'Search',
+            style: _fontStyle
+                .montserrat(20, FontWeight.w600)
+                .copyWith(color: _colors.whiteColor),
+          )),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     Widget semSelector = timeTableController.obx(
       (state) => DropDownMenu(
         item: state['sem'] ?? ["No data found"],
@@ -176,117 +223,6 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
             ],
           ),
           searchButton()
-        ],
-      ),
-    );
-  }
-
-  searchButton() {
-    onSearchHandler() {
-      if (_controller.text.length < 2) {
-        ShowCustomSnackBar.warn(
-            title: "Invalid Input",
-            message: "E.g. If your branch code is '3' then enter '03'");
-        return;
-      }
-      timeTableController.fetchTimeTableData(_controller.text);
-    }
-
-    return Container(
-      width: double.infinity,
-      height: 45,
-      decoration: BoxDecoration(
-        color: _colors.primaryColor,
-        borderRadius: const BorderRadius.all(Radius.circular(30)),
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          borderRadius: const BorderRadius.all(Radius.circular(30)),
-          onTap: () {
-            onSearchHandler();
-            FocusManager.instance.primaryFocus?.unfocus();
-          },
-          child: Center(
-              child: Text(
-            'Search',
-            style: _fontStyle
-                .montserrat(20, FontWeight.w600)
-                .copyWith(color: _colors.whiteColor),
-          )),
-        ),
-      ),
-    );
-  }
-}
-
-class ExamTimetableTile extends StatelessWidget {
-  final AppColors _colors = AppColors();
-  final FontStyle _fontStyle = FontStyle();
-  TimeTableModel data;
-
-  ExamTimetableTile({
-    Key? key,
-    required this.data,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(15),
-      height: 105,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-          color: _colors.questionPaperTileColor,
-          borderRadius: const BorderRadius.all(Radius.circular(25))),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            width: MediaQuery.of(context).size.width * 0.20,
-            decoration: BoxDecoration(
-                color: _colors.bgColor,
-                borderRadius: const BorderRadius.all(Radius.circular(20))),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  data.date!.substring(0, 2),
-                  style: _fontStyle.manrope(28, FontWeight.w700),
-                ),
-                Text(
-                  data.date!.substring(3, 11),
-                  style: _fontStyle.manrope(11, FontWeight.w600),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            width: 8,
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                AutoSizeText(
-                  '${data.subcode}',
-                  style: _fontStyle.montserrat(15, FontWeight.w600),
-                  maxLines: 1,
-                ),
-                AutoSizeText(
-                  data.subname ?? "",
-                  style: _fontStyle.montserrat(15, FontWeight.w600),
-                  maxLines: 1,
-                ),
-                AutoSizeText(
-                  data.time ?? "",
-                  style: _fontStyle.montserrat(15, FontWeight.w600),
-                  maxLines: 1,
-                ),
-              ],
-            ),
-          )
         ],
       ),
     );
