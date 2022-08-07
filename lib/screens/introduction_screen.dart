@@ -91,7 +91,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
               children: [
                 Text(
                   screen.title,
-                  style: _fontStyle.manrope(32, FontWeight.w700),
+                  style: _fontStyle.manrope(36, FontWeight.w700),
                 ),
                 const SizedBox(
                   height: 10,
@@ -99,7 +99,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
                 Text(
                   screen.body,
                   style: _fontStyle
-                      .manrope(22, FontWeight.w600)
+                      .manrope(25, FontWeight.w600)
                       .copyWith(color: _colors.titleColor),
                 ),
               ],
