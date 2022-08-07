@@ -21,30 +21,26 @@ class IntroductionScreenData {
 List<IntroductionScreenData> introductionScreenData = [
   IntroductionScreenData(
     color: _colors.lightMossGreenColor,
-    title: 'Get notifications when there’s a case',
-    body:
-        'A notification will be sent to all students along with an incident report.',
+    title: 'Academic Curriculum',
+    body: 'Explore your syllabus of each and every subject.',
     image: syllabusImg,
   ),
   IntroductionScreenData(
-    color: _colors.lightRedColor,
-    title: 'Get notifications when there’s a case',
-    body:
-        'A notification will be sent to all students along with an incident report.',
-    image: examTimetableImg,
+    color: _colors.lavenderColor,
+    title: 'Previous Question Papers',
+    body: 'Solve more, clear all the concepts and boost your grades.',
+    image: questionPaperImg,
   ),
   IntroductionScreenData(
     color: _colors.lightYellowColor,
-    title: 'Get notifications when there’s a case',
-    body:
-        'A notification will be sent to all students along with an incident report.',
+    title: 'GTU\nCirculars',
+    body: 'Stay up-to-date with all the GTU announcements.',
     image: circularImg,
   ),
   IntroductionScreenData(
-    color: _colors.lavenderColor,
-    title: 'Get notifications when there’s a case',
-    body:
-        'A notification will be sent to all students along with an incident report.',
-    image: questionPaperImg,
+    color: _colors.lightRedColor,
+    title: 'Exam\nTimetable',
+    body: 'Save your exam dates to excel in every exam.',
+    image: examTimetableImg,
   ),
 ];
