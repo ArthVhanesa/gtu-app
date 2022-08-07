@@ -52,7 +52,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   loading_indicator: ^3.1.0
   flutter_zoom_drawer: ^3.0.3
-  shimmer: ^2.0.0
+  lottie: ^1.4.1
   flutter_pdfview: ^1.2.2
   fluttertoast: ^8.0.9
   firebase_core: ^1.20.0
@@ -96,6 +96,7 @@ flutter:
     - assets/
     - assets/image/
     - assets/icons/
+    - assets/animations/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
