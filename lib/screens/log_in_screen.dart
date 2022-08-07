@@ -5,6 +5,7 @@ import 'package:gtu_app/app_data.dart';
 import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/style/style.dart';
+import 'package:lottie/lottie.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -25,7 +26,7 @@ class _LogInScreenState extends State<LogInScreen> {
       backgroundColor: _colors.whiteColor,
       body: SafeArea(
         child: Container(
-          color: _colors.whiteColor,
+          // color: _colors.whiteColor,
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.fromLTRB(25, 60, 25, 70),
@@ -34,8 +35,11 @@ class _LogInScreenState extends State<LogInScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text("Howdy 👋", style: _fontStyle.manrope(40, FontWeight.w800)),
+              // Center(
+              //   child: Image.asset(rocketImg, height: 250),
+              // ),
               Center(
-                child: Image.asset(rocketImg, height: 250),
+                child: Lottie.asset(rocketAnimation, height: 250),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

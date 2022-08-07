@@ -30,3 +30,7 @@ const noDataFound = 'assets/image/noDataFound.png';
 const hamburger = 'assets/icons/hamburger.svg'; // svg icon for hamburger
 
 const bellImg = 'assets/image/bell.png';
+
+// Animations
+
+const rocketAnimation = 'assets/animations/rocket-launch.json';
