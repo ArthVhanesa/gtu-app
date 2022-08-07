@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gtu_app/style/image.dart';
+import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import 'package:gtu_app/components/header.dart';
@@ -17,16 +20,18 @@ class PercentageCalculatorScreen extends StatefulWidget {
       _PercentageCalculatorScreenState();
 }
 
-class _PercentageCalculatorScreenState
-    extends State<PercentageCalculatorScreen> {
+class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
+    with SingleTickerProviderStateMixin {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final TextEditingController _controller = TextEditingController();
+  late final animationController = Get.put(AnimationController(vsync: this));
 
   double spi = 0;
   double percentage = 0;
-  bool isValidSPI = true;
+  bool isValidSPI = false;
+  bool isAnimationCompleted = false;
   String description =
       'SPI: Semester Performance Index\nCPI: Cumulative Performance Index\nCGPA: Cumulative Grade Point Average\n\nIf duration of course is of 2 years, the degree shall be given to students based upon CPI (Cumulative Performance Index) considering all the four semesters performance.\n\nIf duration of course is of 4 years, the degree shall be given to students based upon CGPA (Cumulative Grade Point Average) considering last four semesters performance.';
   String errorMessage = 'SPI / CPI / CGPA must be between 4 to 10';
@@ -56,64 +61,97 @@ class _PercentageCalculatorScreenState
 
   @override
   Widget build(BuildContext context) {
+    animationController.duration = const Duration(seconds: 4);
+    animationController.reverseDuration = const Duration(seconds: 0);
+
     if (spi > 10 || spi < 4) {
       isValidSPI = false;
       percentage = 0;
+      animationController.reverse();
     } else {
       isValidSPI = true;
       percentage = (spi - 0.5) * 10;
       percentage = double.parse((percentage).toStringAsPrecision(3));
+      animationController.forward();
     }
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: _colors.bgColor,
       body: SafeArea(
-          child: Column(
-        children: [
-          Header(card: percentageCalculator),
-          Expanded(
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Padding(
-                padding: padding,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    spiTextField(),
-                    isValidSPI
-                        ? const SizedBox(
-                            height: 0,
-                          )
-                        : Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 20),
-                            child: Text(
-                              errorMessage,
-                              style: _fontStyle
-                                  .montserrat(16, FontWeight.w600)
-                                  .copyWith(color: _colors.primaryColor),
+        child: Column(
+          children: [
+            Header(card: percentageCalculator),
+            Expanded(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Padding(
+                  padding: padding,
+                  child: Stack(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          spiTextField(),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: AnimatedOpacity(
+                              opacity: isValidSPI ? 0 : 1,
+                              duration: const Duration(milliseconds: 500),
+                              child: Text(
+                                errorMessage,
+                                style: _fontStyle
+                                    .montserrat(14, FontWeight.w600)
+                                    .copyWith(color: _colors.primaryColor),
+                              ),
                             ),
                           ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    progressIndicator(),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Heading(heading: 'Description'),
-                    Text(
-                      description,
-                      style: _fontStyle.montserrat(18, FontWeight.w600),
-                    ),
-                    PoweredbyAstronApps(),
-                  ],
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          progressIndicator(),
+                          const SizedBox(
+                            height: 40,
+                          ),
+                          Heading(heading: 'Description'),
+                          Text(
+                            description,
+                            style: _fontStyle.montserrat(18, FontWeight.w600),
+                          ),
+                          PoweredbyAstronApps(),
+                        ],
+                      ),
+                      Positioned(
+                        top: 50,
+                        right: 0,
+                        left: 0,
+                        child: Center(
+                          child: Lottie.asset(
+                            celebrationAnimation,
+                            height: 400,
+                            controller: animationController,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 50,
+                        right: 0,
+                        left: .0,
+                        child: Center(
+                            child: Lottie.asset(
+                          trophyAnimation,
+                          height: 370,
+                          controller: animationController,
+                        )),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
-      )),
+          ],
+        ),
+      ),
     );
   }
 
