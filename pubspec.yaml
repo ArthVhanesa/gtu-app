@@ -97,7 +97,14 @@ flutter:
     - assets/image/
     - assets/icons/
     - assets/animations/
-  #   - images/a_dot_ham.jpeg
+    
+    # Assets for Fonts
+    - assets/fonts/
+    - assets/fonts/EBGaramond/
+    - assets/fonts/Manrope/
+    - assets/fonts/Montserrat/
+    - assets/fonts/MPLUSRounded1c/
+    - assets/fonts/PlayfairDisplay/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
