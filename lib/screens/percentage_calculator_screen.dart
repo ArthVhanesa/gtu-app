@@ -21,17 +21,19 @@ class PercentageCalculatorScreen extends StatefulWidget {
 }
 
 class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final TextEditingController _controller = TextEditingController();
-  late final animationController = Get.put(AnimationController(vsync: this));
+  late final trophyAnimationController =
+      Get.put(AnimationController(vsync: this));
+  late final confettiAnimationController =
+      Get.put(AnimationController(vsync: this));
 
   double spi = 0;
   double percentage = 0;
   bool isValidSPI = false;
-  bool isAnimationCompleted = false;
   String description =
       'SPI: Semester Performance Index\nCPI: Cumulative Performance Index\nCGPA: Cumulative Grade Point Average\n\nIf duration of course is of 2 years, the degree shall be given to students based upon CPI (Cumulative Performance Index) considering all the four semesters performance.\n\nIf duration of course is of 4 years, the degree shall be given to students based upon CGPA (Cumulative Grade Point Average) considering last four semesters performance.';
   String errorMessage = 'SPI / CPI / CGPA must be between 4 to 10';
@@ -61,18 +63,30 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
 
   @override
   Widget build(BuildContext context) {
-    animationController.duration = const Duration(seconds: 4);
-    animationController.reverseDuration = const Duration(seconds: 0);
+    trophyAnimationController.duration = const Duration(seconds: 1);
+    trophyAnimationController.reverseDuration = const Duration(seconds: 0);
+    confettiAnimationController.duration = const Duration(seconds: 4);
+    confettiAnimationController.reverseDuration = const Duration(seconds: 0);
 
     if (spi > 10 || spi < 4) {
       isValidSPI = false;
       percentage = 0;
-      animationController.reverse();
+      trophyAnimationController.reverse();
+      confettiAnimationController.reverse();
     } else {
       isValidSPI = true;
       percentage = (spi - 0.5) * 10;
       percentage = double.parse((percentage).toStringAsPrecision(3));
-      animationController.forward();
+
+      trophyAnimationController.forward();
+      confettiAnimationController.forward();
+
+      // Future.delayed(
+      //   Duration(seconds: 1),
+      //   () {
+      //     trophyAnimationController.forward();
+      //   },
+      // );
     }
 
     return Scaffold(
@@ -127,22 +141,36 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
                         left: 0,
                         child: Center(
                           child: Lottie.asset(
-                            celebrationAnimation,
+                            confettiAnimation,
                             height: 400,
-                            controller: animationController,
+                            controller: confettiAnimationController,
                           ),
                         ),
                       ),
+                      if (spi >= 9 && spi <= 10)
+                        Positioned(
+                          top: 50,
+                          right: 0,
+                          left: .0,
+                          child: Center(
+                            child: Lottie.asset(
+                              trophyAnimation,
+                              height: 370,
+                              controller: trophyAnimationController,
+                            ),
+                          ),
+                        ),
                       Positioned(
                         top: 50,
                         right: 0,
                         left: .0,
                         child: Center(
-                            child: Lottie.asset(
-                          trophyAnimation,
-                          height: 370,
-                          controller: animationController,
-                        )),
+                          child: Lottie.asset(
+                            confetti_2Animation,
+                            height: 400,
+                            controller: confettiAnimationController,
+                          ),
+                        ),
                       ),
                     ],
                   ),

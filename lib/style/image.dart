@@ -34,5 +34,6 @@ const bellImg = 'assets/image/bell.png';
 // Animations
 
 const rocketAnimation = 'assets/animations/rocket-launch.json';
-const celebrationAnimation = 'assets/animations/celebration.json';
+const confettiAnimation = 'assets/animations/confetti.json';
+const confetti_2Animation = 'assets/animations/confetti-2.json';
 const trophyAnimation = 'assets/animations/trophy.json';
