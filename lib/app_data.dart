@@ -8,7 +8,7 @@ String appName = 'GTU Info';
 String copyrightMessage = 'Copyright © 2022 Astron Apps';
 
 // About app message on About App
-String aboutAppMessage = 'GTU Info - A bridge between University and Students';
+String aboutAppMessage = 'GTU Info - A bridge between Students and University';
 
 // Message shared on click of share app
 String shareAppMessage = 'The best app for GTU students';
