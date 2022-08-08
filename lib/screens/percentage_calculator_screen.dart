@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:gtu_app/style/image.dart';
 import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -26,10 +25,7 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
   final FontStyle _fontStyle = FontStyle();
 
   final TextEditingController _controller = TextEditingController();
-  late final trophyAnimationController =
-      Get.put(AnimationController(vsync: this));
-  late final confettiAnimationController =
-      Get.put(AnimationController(vsync: this));
+  late final animationController = Get.put(AnimationController(vsync: this));
 
   double spi = 0;
   double percentage = 0;
@@ -63,30 +59,20 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
 
   @override
   Widget build(BuildContext context) {
-    trophyAnimationController.duration = const Duration(seconds: 1);
-    trophyAnimationController.reverseDuration = const Duration(seconds: 0);
-    confettiAnimationController.duration = const Duration(seconds: 4);
-    confettiAnimationController.reverseDuration = const Duration(seconds: 0);
+    animationController.duration = const Duration(seconds: 4);
+    animationController.reverseDuration = const Duration(seconds: 0);
 
     if (spi > 10 || spi < 4) {
       isValidSPI = false;
       percentage = 0;
-      trophyAnimationController.reverse();
-      confettiAnimationController.reverse();
+
+      animationController.reverse();
     } else {
       isValidSPI = true;
       percentage = (spi - 0.5) * 10;
       percentage = double.parse((percentage).toStringAsPrecision(3));
 
-      trophyAnimationController.forward();
-      confettiAnimationController.forward();
-
-      // Future.delayed(
-      //   Duration(seconds: 1),
-      //   () {
-      //     trophyAnimationController.forward();
-      //   },
-      // );
+      animationController.forward();
     }
 
     return Scaffold(
@@ -143,7 +129,7 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
                           child: Lottie.asset(
                             confettiAnimation,
                             height: 400,
-                            controller: confettiAnimationController,
+                            controller: animationController,
                           ),
                         ),
                       ),
@@ -156,22 +142,23 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
                             child: Lottie.asset(
                               trophyAnimation,
                               height: 370,
-                              controller: trophyAnimationController,
+                              controller: animationController,
                             ),
                           ),
                         ),
-                      Positioned(
-                        top: 50,
-                        right: 0,
-                        left: .0,
-                        child: Center(
-                          child: Lottie.asset(
-                            confetti_2Animation,
-                            height: 400,
-                            controller: confettiAnimationController,
+                      if (spi >= 7 && spi <= 10)
+                        Positioned(
+                          top: 50,
+                          right: 0,
+                          left: .0,
+                          child: Center(
+                            child: Lottie.asset(
+                              confetti_2Animation,
+                              height: 250,
+                              controller: animationController,
+                            ),
                           ),
                         ),
-                      ),
                     ],
                   ),
                 ),
