@@ -16,7 +16,7 @@ class KeepItUp extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Keep it up!',
+            'Keep\nit up!',
             style: _fontStyle
                 .playfairDisplay(100, FontWeight.w900)
                 .copyWith(color: _colors.keepitupColor, height: 1.2),

@@ -32,6 +32,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: PageView(
         physics: const BouncingScrollPhysics(),
         controller: controller,
@@ -46,20 +47,22 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
             buildPage(screen: _screen[i])
         ],
       ),
-      bottomSheet: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        height: 80, // height should be equal to padding of bottom
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            isFirstPage ? const SizedBox(width: 0) : backButton(),
-            isLastPage ? launchAppButton() : const SizedBox(width: 0),
-            isLastPage
-                ? const SizedBox(
-                    width:
-                        25) // Width of the sized box should be equal to the size of the backButton
-                : nextButton(),
-          ],
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          height: 80, // height should be equal to padding of bottom
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              isFirstPage ? const SizedBox(width: 0) : backButton(),
+              isLastPage ? launchAppButton() : const SizedBox(width: 0),
+              isLastPage
+                  ? const SizedBox(
+                      width:
+                          25) // Width of the sized box should be equal to the size of the backButton
+                  : nextButton(),
+            ],
+          ),
         ),
       ),
     );
@@ -91,7 +94,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
               children: [
                 Text(
                   screen.title,
-                  style: _fontStyle.manrope(36, FontWeight.w700),
+                  style: _fontStyle.manrope(34, FontWeight.w700),
                 ),
                 const SizedBox(
                   height: 10,
@@ -99,7 +102,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
                 Text(
                   screen.body,
                   style: _fontStyle
-                      .manrope(25, FontWeight.w600)
+                      .manrope(22, FontWeight.w600)
                       .copyWith(color: _colors.titleColor),
                 ),
               ],

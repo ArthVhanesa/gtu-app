@@ -122,118 +122,121 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
       isDate = true;
     }
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        const SizedBox(height: 10),
-        Container(
-          width: 40,
-          height: 5,
-          decoration: BoxDecoration(
-            color: _colors.titleColor,
-            borderRadius: const BorderRadius.all(Radius.circular(25)),
+    return SafeArea(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SizedBox(height: 10),
+          Container(
+            width: 40,
+            height: 5,
+            decoration: BoxDecoration(
+              color: _colors.titleColor,
+              borderRadius: const BorderRadius.all(Radius.circular(25)),
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Circular',
-                      style: _fontStyle.montserrat(20, FontWeight.w600),
-                    ),
-                    isDate
-                        ? Text(
-                            'Date: ${widget.commonCardData.date!}',
-                            style: _fontStyle.manrope(16, FontWeight.w600),
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
-                          )
-                        : const SizedBox(height: 0)
-                  ],
-                ),
-              ),
-              const Icon(
-                Icons.campaign_outlined,
-                size: 30,
-              )
-            ],
-          ),
-        ),
-        Divider(
-          height: 1,
-          thickness: 1,
-          color: _colors.blackColor,
-        ),
-        Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ListView.separated(
-                itemCount: widget.commonCardData.ptags![0].atags!.length,
-                // itemCount: 1,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                separatorBuilder: (context, index) => const SizedBox(height: 8),
-                itemBuilder: (BuildContext context, int index) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: Text(
-                          "• ${widget.commonCardData.ptags![0].atags![index].atext}",
-                          style: _fontStyle.manrope(15, FontWeight.w600),
-                        ),
+                      Text(
+                        'Circular',
+                        style: _fontStyle.montserrat(20, FontWeight.w600),
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 10),
-                        decoration: BoxDecoration(
-                          color: _colors.linkBlueBgColor,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(8)),
+                      isDate
+                          ? Text(
+                              'Date: ${widget.commonCardData.date!}',
+                              style: _fontStyle.manrope(16, FontWeight.w600),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                            )
+                          : const SizedBox(height: 0)
+                    ],
+                  ),
+                ),
+                const Icon(
+                  Icons.campaign_outlined,
+                  size: 30,
+                )
+              ],
+            ),
+          ),
+          Divider(
+            height: 1,
+            thickness: 1,
+            color: _colors.blackColor,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ListView.separated(
+                  itemCount: widget.commonCardData.ptags![0].atags!.length,
+                  // itemCount: 1,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 8),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "• ${widget.commonCardData.ptags![0].atags![index].atext}",
+                            style: _fontStyle.manrope(15, FontWeight.w600),
+                          ),
                         ),
-                        child: Material(
-                          color: Colors.transparent,
-                          child: InkWell(
+                        Container(
+                          margin: const EdgeInsets.only(left: 10),
+                          decoration: BoxDecoration(
+                            color: _colors.linkBlueBgColor,
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(8)),
-                            onTap: () {
-                              launchTab(widget.commonCardData.ptags![0]
-                                  .atags![index].link!);
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 5,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'View',
-                                  style: _fontStyle
-                                      .montserrat(15, FontWeight.w500)
-                                      .copyWith(
-                                        color: _colors.linkBlueColor,
-                                      ),
+                          ),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(8)),
+                              onTap: () {
+                                launchTab(widget.commonCardData.ptags![0]
+                                    .atags![index].link!);
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                  vertical: 5,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'View',
+                                    style: _fontStyle
+                                        .montserrat(15, FontWeight.w500)
+                                        .copyWith(
+                                          color: _colors.linkBlueColor,
+                                        ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  );
-                },
-              )
-            ],
+                      ],
+                    );
+                  },
+                )
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
