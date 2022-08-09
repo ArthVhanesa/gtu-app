@@ -45,7 +45,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       ProfileData(
                         title: 'Admission year 🗓',
-                        data: userData.admisssionYear ?? "",
+                        data: userData.admissionYear ?? "",
                       ),
                       ProfileData(
                         title: 'Course 🎓',

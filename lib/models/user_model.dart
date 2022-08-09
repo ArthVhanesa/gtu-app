@@ -47,7 +47,7 @@ class DbUserModel {
   String? firstName;
   String? lastName;
   String? enrollmentNo;
-  String? admisssionYear;
+  String? admissionYear;
   String? collegeCode;
   String? courseCode;
   String? branchCode;
@@ -60,7 +60,7 @@ class DbUserModel {
       this.firstName,
       this.lastName,
       this.enrollmentNo,
-      this.admisssionYear,
+      this.admissionYear,
       this.collegeCode,
       this.courseCode,
       this.branchCode,
@@ -73,7 +73,7 @@ class DbUserModel {
     firstName = json['first_name'];
     lastName = json['last_name'];
     enrollmentNo = json['enrollment_no'];
-    admisssionYear = json['admisssion_year'];
+    admissionYear = json['admission_year'];
     collegeCode = json['college_code'];
     courseCode = json['course_code'];
     branchCode = json['branch_code'];
@@ -88,7 +88,7 @@ class DbUserModel {
     data['first_name'] = this.firstName;
     data['last_name'] = this.lastName;
     data['enrollment_no'] = this.enrollmentNo;
-    data['admisssion_year'] = this.admisssionYear;
+    data['admission_year'] = this.admissionYear;
     data['college_code'] = this.collegeCode;
     data['course_code'] = this.courseCode;
     data['branch_code'] = this.branchCode;
