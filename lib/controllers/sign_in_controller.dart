@@ -54,7 +54,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
           UserProfileModel(displayName: "Student", firstName: "Student");
       prefs.setString("userData", jsonEncode(userData.toJson()));
       //to show intro screen again.
-      prefs.setBool('showHome', false);
+      // prefs.setBool('showHome', false);
       change(userData, status: RxStatus.success());
       Get.offAll(() => const LogInScreen());
     });

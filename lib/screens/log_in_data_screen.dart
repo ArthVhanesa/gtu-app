@@ -30,10 +30,9 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: _colors.whiteColor,
+      backgroundColor: _colors.drawerBgColor,
       body: SafeArea(
         child: Container(
-          color: _colors.whiteColor,
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.fromLTRB(25, 60, 25, 70),

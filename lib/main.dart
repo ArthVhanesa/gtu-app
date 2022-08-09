@@ -24,13 +24,21 @@ void main() async {
   final prefs = await SharedPreferences.getInstance();
   final isIntroDone = prefs.getBool('showHome') ?? false;
 
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent, // status bar color
-    statusBarIconBrightness: Brightness.dark, //status barIcon Brightness
-    // statusBarBrightness: Brightness.dark, //status bar brigtness
-    systemNavigationBarColor: Colors.transparent, // navigation bar color
-    systemNavigationBarIconBrightness: Brightness.dark, //navigation bar icon
-  ));
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // status bar color
+      statusBarIconBrightness: Brightness.dark, //status barIcon Brightness
+      systemStatusBarContrastEnforced: false,
+      // statusBarBrightness: Brightness.dark, //status bar brigtness
+      systemNavigationBarColor: Colors.transparent, // navigation bar color
+      systemNavigationBarIconBrightness: Brightness.dark, //navigation bar icon
+      systemNavigationBarContrastEnforced: false,
+    ),
+  );
+
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge,
+      overlays: [SystemUiOverlay.top]);
+
   runApp(MyApp(isIntroDone: isIntroDone, prefs: prefs));
 }
 
@@ -55,13 +63,15 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'gtu_app',
         theme: ThemeData(
-          scaffoldBackgroundColor: _color.bgColor,
-          bottomSheetTheme: BottomSheetThemeData(
-            backgroundColor: Colors.black.withOpacity(0),
-          ),
-        ),
+            scaffoldBackgroundColor: _color.bgColor,
+            // bottomSheetTheme: BottomSheetThemeData(
+            //   backgroundColor: Colors.black.withOpacity(0),
+            // ),
+            bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+              backgroundColor: Color(0x00ffffff),
+            )),
         home: isIntroDone
-            ? (isUserLoggedin ? ZoomDrawerScreen() : LogInScreen())
-            : IntroductionScreens());
+            ? (isUserLoggedin ? const ZoomDrawerScreen() : const LogInScreen())
+            : const IntroductionScreens());
   }
 }

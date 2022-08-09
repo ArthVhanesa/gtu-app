@@ -93,35 +93,37 @@ class _PdfViewerState extends State<PdfViewer> {
               : null,
           backgroundColor: _colors.bgColor,
         ),
-        body: FutureBuilder<File>(
-          future: PDFApi.loadNetwork(widget.url),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return Center(
-                child: Container(
-                  height: 80, // size of indicator
-                  child: LoadingIndicator(
-                    indicatorType: Indicator.ballClipRotateMultiple,
-                    colors: [_colors.primaryColor], // color of incdicator
+        body: SafeArea(
+          child: FutureBuilder<File>(
+            future: PDFApi.loadNetwork(widget.url),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return Center(
+                  child: Container(
+                    height: 80, // size of indicator
+                    child: LoadingIndicator(
+                      indicatorType: Indicator.ballClipRotateMultiple,
+                      colors: [_colors.primaryColor], // color of incdicator
+                    ),
                   ),
-                ),
-              );
-            } else {
-              final file = snapshot.data;
-              name = basename(file!.path);
-              return PDFView(
-                filePath: file.path,
-                autoSpacing: false,
-                pageSnap: false,
-                pageFling: false,
-                onRender: (pages) => setState(() => this.pages = pages),
-                onViewCreated: (controller) =>
-                    setState(() => this.controller = controller),
-                onPageChanged: (indexPage, _) =>
-                    setState(() => this.indexPage = indexPage),
-              );
-            }
-          },
+                );
+              } else {
+                final file = snapshot.data;
+                name = basename(file!.path);
+                return PDFView(
+                  filePath: file.path,
+                  autoSpacing: false,
+                  pageSnap: false,
+                  pageFling: false,
+                  onRender: (pages) => setState(() => this.pages = pages),
+                  onViewCreated: (controller) =>
+                      setState(() => this.controller = controller),
+                  onPageChanged: (indexPage, _) =>
+                      setState(() => this.indexPage = indexPage),
+                );
+              }
+            },
+          ),
         ));
   }
 }

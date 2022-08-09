@@ -34,116 +34,119 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-          child: Column(
-        children: [
-          Padding(
-            padding: padding,
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 30,
-                ),
-                // row for Avatar, hamburger and 'hi, name'
-                Row(
-                  children: [
-                    InkWell(
-                      borderRadius: BorderRadius.circular(5),
-                      onTap: () {
-                        ZoomDrawer.of(context)!.toggle();
-                        FocusManager.instance.primaryFocus?.unfocus();
-                      },
-                      child: SvgPicture.asset(
-                        hamburger,
-                        height: 35,
-                        width: 35,
-                        color: _colors.blackColor,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 15,
-                    ),
-                    Expanded(
-                      child: signinController.obx((data) => AutoSizeText(
-                            "Hi, ${data.firstName ?? ""}👋",
-                            style: _fontStyle.montserrat(25, FontWeight.w600),
-                            maxLines: 1,
-                          )),
-                    ),
-                    CircleAvatar(
-                      radius: 23,
-                      backgroundImage: const AssetImage(profileIconImg),
-                      backgroundColor: _colors.blackColor,
-                      child: Material(
-                        shape: const CircleBorder(),
-                        clipBehavior: Clip.hardEdge,
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            Get.to(const ProfileScreen());
-                          },
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 35,
-                ),
-                SearchBar(
-                  searchInputController: textController,
-                  onTap: () {
-                    Get.to(
-                        SearchResultScreen(searchInput: textController.text));
-                    FocusManager.instance.primaryFocus?.unfocus();
-                  },
-                  onSubmitted: (text) {
-                    Get.to(SearchResultScreen(searchInput: text));
-                    FocusManager.instance.primaryFocus?.unfocus();
-                  },
-                ),
-
-                const SizedBox(
-                  height: 10,
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            Padding(
+              padding: padding,
               child: Column(
                 children: [
-                  CarouselSlider1(),
-                  Padding(
-                    padding: padding,
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 30,
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  // row for Avatar, hamburger and 'hi, name'
+                  Row(
+                    children: [
+                      InkWell(
+                        borderRadius: BorderRadius.circular(5),
+                        onTap: () {
+                          ZoomDrawer.of(context)!.toggle();
+                          FocusManager.instance.primaryFocus?.unfocus();
+                        },
+                        child: SvgPicture.asset(
+                          hamburger,
+                          height: 35,
+                          width: 35,
+                          color: _colors.blackColor,
                         ),
-                        ListView.separated(
-                          itemCount: tile.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          separatorBuilder: (BuildContext context, int index) {
-                            return const SizedBox(
-                              height: 60,
-                            );
-                          },
-                          itemBuilder: (BuildContext context, int index) {
-                            return HomeScreenTile(tile: tile[index]);
-                          },
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      Expanded(
+                        child: signinController.obx((data) => AutoSizeText(
+                              "Hi, ${data.firstName ?? ""}👋",
+                              style: _fontStyle.montserrat(25, FontWeight.w600),
+                              maxLines: 1,
+                            )),
+                      ),
+                      CircleAvatar(
+                        radius: 23,
+                        backgroundImage: const AssetImage(profileIconImg),
+                        backgroundColor: _colors.blackColor,
+                        child: Material(
+                          shape: const CircleBorder(),
+                          clipBehavior: Clip.hardEdge,
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () {
+                              Get.to(const ProfileScreen());
+                            },
+                          ),
                         ),
-                        KeepItUp(),
-                      ],
-                    ),
-                  )
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 35,
+                  ),
+                  SearchBar(
+                    searchInputController: textController,
+                    onTap: () {
+                      Get.to(
+                          SearchResultScreen(searchInput: textController.text));
+                      FocusManager.instance.primaryFocus?.unfocus();
+                    },
+                    onSubmitted: (text) {
+                      Get.to(SearchResultScreen(searchInput: text));
+                      FocusManager.instance.primaryFocus?.unfocus();
+                    },
+                  ),
+
+                  const SizedBox(
+                    height: 10,
+                  ),
                 ],
               ),
             ),
-          ),
-        ],
-      )),
+            Expanded(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    const CarouselSlider1(),
+                    Padding(
+                      padding: padding,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          ListView.separated(
+                            itemCount: tile.length,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            separatorBuilder:
+                                (BuildContext context, int index) {
+                              return const SizedBox(
+                                height: 60,
+                              );
+                            },
+                            itemBuilder: (BuildContext context, int index) {
+                              return HomeScreenTile(tile: tile[index]);
+                            },
+                          ),
+                          KeepItUp(),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
