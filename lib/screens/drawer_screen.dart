@@ -21,8 +21,6 @@ class ZoomDrawerScreen extends StatefulWidget {
 }
 
 class _ZoomDrawerScreenState extends State<ZoomDrawerScreen> {
-  final AppColors _colors = AppColors();
-
   @override
   Widget build(BuildContext context) {
     return ZoomDrawer(
@@ -45,8 +43,8 @@ class _ZoomDrawerScreenState extends State<ZoomDrawerScreen> {
           0.7, // menuScreenWidth should be same as sideWidth
       androidCloseOnBackTap: true,
       borderRadius: 30,
-      menuBackgroundColor: _colors.drawerBgColor,
-      drawerShadowsBackgroundColor: _colors.lavenderColor,
+      menuBackgroundColor: AppColors.drawerBgColor,
+      drawerShadowsBackgroundColor: AppColors.lavenderColor,
       mainScreenScale: 0.2,
       mainScreenTapClose: true,
       clipMainScreen: true,
@@ -55,7 +53,6 @@ class _ZoomDrawerScreenState extends State<ZoomDrawerScreen> {
 }
 
 class DrawerScreen extends StatelessWidget {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final ValueChanged<MenuItemData> onSelectedItem;
@@ -72,7 +69,7 @@ class DrawerScreen extends StatelessWidget {
     final userData = signinController.dbUserData;
 
     return Scaffold(
-        backgroundColor: _colors.drawerBgColor, // bg color of drawer
+        backgroundColor: AppColors.drawerBgColor, // bg color of drawer
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 50),
@@ -118,7 +115,7 @@ class DrawerScreen extends StatelessWidget {
                           userData.value.enrollmentNo ?? "",
                           style: _fontStyle
                               .manrope(15, FontWeight.w700)
-                              .copyWith(color: _colors.titleColor),
+                              .copyWith(color: AppColors.titleColor),
                         ),
                       )
                     ],
@@ -156,7 +153,7 @@ class DrawerScreen extends StatelessWidget {
       height: 50,
       width: 50,
       decoration: BoxDecoration(
-        color: _colors.blackColor,
+        color: AppColors.blackColor,
         borderRadius: const BorderRadius.all(Radius.circular(50)),
       ),
       child: Material(
@@ -169,7 +166,7 @@ class DrawerScreen extends StatelessWidget {
           child: Icon(
             Icons.settings_outlined,
             size: 30,
-            color: _colors.bgColor,
+            color: AppColors.bgColor,
           ),
         ),
       ),
@@ -181,7 +178,7 @@ class DrawerScreen extends StatelessWidget {
       height: 50,
       width: 120,
       decoration: BoxDecoration(
-          color: _colors.primaryColor,
+          color: AppColors.primaryColor,
           borderRadius: const BorderRadius.all(Radius.circular(50))),
       child: Material(
         color: Colors.transparent,
@@ -197,20 +194,20 @@ class DrawerScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  color: _colors.bgColor,
+                  color: AppColors.bgColor,
                   borderRadius: const BorderRadius.all(Radius.circular(50)),
                 ),
                 child: Icon(
                   Icons.power_settings_new_outlined,
                   size: 25,
-                  color: _colors.primaryColor,
+                  color: AppColors.primaryColor,
                 ),
               ),
               const SizedBox(width: 6),
               Text(
                 'Log Out',
                 style: _fontStyle.manrope(16, FontWeight.w700).copyWith(
-                      color: _colors.bgColor,
+                      color: AppColors.bgColor,
                     ),
               ),
               const SizedBox(width: 5)
@@ -224,7 +221,7 @@ class DrawerScreen extends StatelessWidget {
   Widget buildMenuItem(MenuItemData item) => ListTile(
         selectedTileColor:
             Colors.black.withOpacity(0.1), //bg color of selected menu
-        selectedColor: _colors.primaryColor, // color of selected menu
+        selectedColor: AppColors.primaryColor, // color of selected menu
         minLeadingWidth: 20,
         contentPadding: const EdgeInsets.only(left: 25),
         leading: Icon(item.icon),

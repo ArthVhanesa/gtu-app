@@ -29,7 +29,6 @@ class SearchResultScreen extends StatefulWidget {
 }
 
 class _SearchResultScreenState extends State<SearchResultScreen> {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final syllabusController = Get.put(SyllabusController());
@@ -42,7 +41,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
     questionPaperController.fetchQuestionPaper(widget.searchInput);
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: _colors.bgColor,
+      backgroundColor: AppColors.bgColor,
       body: SafeArea(
           child: Column(
         children: [
@@ -116,7 +115,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                               style: _fontStyle
                                   .manrope(18, FontWeight.w600)
                                   .copyWith(
-                                    color: _colors.primaryColor,
+                                    color: AppColors.primaryColor,
                                   ),
                             )
                           ],
@@ -161,7 +160,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                               style: _fontStyle
                                   .manrope(18, FontWeight.w600)
                                   .copyWith(
-                                    color: _colors.primaryColor,
+                                    color: AppColors.primaryColor,
                                   ),
                             )
                           ],

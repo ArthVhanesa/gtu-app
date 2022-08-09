@@ -81,8 +81,6 @@ class _Box extends StatefulWidget {
 }
 
 class _BoxState extends State<_Box> {
-  final AppColors _colors = AppColors();
-
   final FontStyle _fontStyle = FontStyle();
 
   @override
@@ -100,12 +98,12 @@ class _BoxState extends State<_Box> {
             '${widget.number}',
             style: _fontStyle
                 .montserrat(40, FontWeight.w600)
-                .copyWith(color: _colors.titleColor, height: 1),
+                .copyWith(color: AppColors.titleColor, height: 1),
           ),
           Text(widget.title,
               style: _fontStyle
                   .manrope(15, FontWeight.normal)
-                  .copyWith(color: _colors.titleColor))
+                  .copyWith(color: AppColors.titleColor))
         ],
       ),
     );

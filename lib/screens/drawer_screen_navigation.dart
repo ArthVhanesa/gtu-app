@@ -28,8 +28,6 @@ class ZoomDrawerScreenNavigation extends StatefulWidget {
 
 class _ZoomDrawerScreenNavigationState
     extends State<ZoomDrawerScreenNavigation> {
-  final AppColors _colors = AppColors();
-
   MenuItemData currentItem = MenuItems.Home; // Defalut menu select
 
   @override
@@ -57,8 +55,8 @@ class _ZoomDrawerScreenNavigationState
           0.7, // menuScreenWidth should be same as sideWidth
       androidCloseOnBackTap: true,
       borderRadius: 30,
-      menuBackgroundColor: _colors.drawerBgColor,
-      drawerShadowsBackgroundColor: _colors.lavenderColor,
+      menuBackgroundColor: AppColors.drawerBgColor,
+      drawerShadowsBackgroundColor: AppColors.lavenderColor,
       mainScreenScale: 0.2,
       mainScreenTapClose: true,
       clipMainScreen: true,
@@ -92,7 +90,6 @@ class _ZoomDrawerScreenNavigationState
 }
 
 class DrawerScreen extends StatelessWidget {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final MenuItemData currentItem;
@@ -109,7 +106,7 @@ class DrawerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _colors.drawerBgColor, // bg color of drawer
+      backgroundColor: AppColors.drawerBgColor, // bg color of drawer
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 50),
@@ -144,7 +141,7 @@ class DrawerScreen extends StatelessWidget {
               width: 120,
               margin: EdgeInsets.only(left: 25),
               decoration: BoxDecoration(
-                  color: _colors.primaryColor,
+                  color: AppColors.primaryColor,
                   borderRadius: BorderRadius.all(Radius.circular(50))),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -152,20 +149,20 @@ class DrawerScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
-                      color: _colors.bgColor,
+                      color: AppColors.bgColor,
                       borderRadius: const BorderRadius.all(Radius.circular(50)),
                     ),
                     child: Icon(
                       Icons.power_settings_new_outlined,
                       size: 25,
-                      color: _colors.primaryColor,
+                      color: AppColors.primaryColor,
                     ),
                   ),
                   const SizedBox(width: 6),
                   Text(
                     'Log Out',
                     style: _fontStyle.manrope(16, FontWeight.w700).copyWith(
-                          color: _colors.bgColor,
+                          color: AppColors.bgColor,
                         ),
                   ),
                   const SizedBox(width: 5)
@@ -181,7 +178,7 @@ class DrawerScreen extends StatelessWidget {
   Widget buildMenuItem(MenuItemData item) => ListTile(
         selectedTileColor:
             Colors.black.withOpacity(0.1), //bg color of selected menu
-        selectedColor: _colors.primaryColor, // color of selected menu
+        selectedColor: AppColors.primaryColor, // color of selected menu
         selected: currentItem == item,
         minLeadingWidth: 20,
         contentPadding: const EdgeInsets.only(left: 25),

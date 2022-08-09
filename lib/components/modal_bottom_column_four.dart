@@ -85,8 +85,6 @@ class _Box extends StatelessWidget {
     required this.number,
   }) : super(key: key);
 
-  final AppColors _colors = AppColors();
-
   final FontStyle _fontStyle = FontStyle();
 
   @override
@@ -104,12 +102,12 @@ class _Box extends StatelessWidget {
             '$number',
             style: _fontStyle
                 .montserrat(30, FontWeight.w600)
-                .copyWith(color: _colors.titleColor, height: 1),
+                .copyWith(color: AppColors.titleColor, height: 1),
           ),
           Text(title,
               style: _fontStyle
                   .manrope(12, FontWeight.normal)
-                  .copyWith(color: _colors.titleColor))
+                  .copyWith(color: AppColors.titleColor))
         ],
       ),
     );

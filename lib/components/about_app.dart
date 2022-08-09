@@ -16,7 +16,6 @@ class AboutApp extends StatefulWidget {
 }
 
 class _AboutAppState extends State<AboutApp> {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   @override
@@ -30,7 +29,7 @@ class _AboutAppState extends State<AboutApp> {
             width: 40,
             height: 5,
             decoration: BoxDecoration(
-              color: _colors.titleColor,
+              color: AppColors.titleColor,
               borderRadius: const BorderRadius.all(Radius.circular(25)),
             ),
           ),
@@ -71,7 +70,7 @@ class _AboutAppState extends State<AboutApp> {
                         copyrightMessage,
                         style: _fontStyle
                             .montserrat(14, FontWeight.w500)
-                            .copyWith(color: _colors.titleColor),
+                            .copyWith(color: AppColors.titleColor),
                       ),
                       const SizedBox(height: 10),
                     ],
@@ -80,7 +79,7 @@ class _AboutAppState extends State<AboutApp> {
                 Divider(
                   height: 1,
                   thickness: 1,
-                  color: _colors.blackColor,
+                  color: AppColors.blackColor,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -96,7 +95,7 @@ class _AboutAppState extends State<AboutApp> {
                 Divider(
                   height: 1,
                   thickness: 1,
-                  color: _colors.blackColor,
+                  color: AppColors.blackColor,
                 ),
                 Column(
                   children: [
@@ -187,7 +186,7 @@ class _AboutAppState extends State<AboutApp> {
         padding: const EdgeInsets.all(10),
         child: FaIcon(
           icon,
-          color: _colors.linkBlueColor,
+          color: AppColors.linkBlueColor,
         ),
       ),
     );

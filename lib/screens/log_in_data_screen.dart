@@ -19,7 +19,6 @@ class LogIn2Screen extends StatefulWidget {
 }
 
 class _LogIn2ScreenState extends State<LogIn2Screen> {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final TextEditingController enrollmentNo = TextEditingController();
@@ -35,7 +34,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: _colors.drawerBgColor,
+      backgroundColor: AppColors.drawerBgColor,
       body: SafeArea(
         child: Container(
           height: MediaQuery.of(context).size.height,
@@ -97,13 +96,13 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                                   'By clicking on Continue, you agree to the ',
                               style: _fontStyle
                                   .manrope(12, FontWeight.normal)
-                                  .copyWith(color: _colors.blackColor),
+                                  .copyWith(color: AppColors.blackColor),
                             ),
                             TextSpan(
                               text: 'Terms of Use',
                               style: _fontStyle
                                   .manrope(12, FontWeight.w500)
-                                  .copyWith(color: _colors.linkBlueColor),
+                                  .copyWith(color: AppColors.linkBlueColor),
                               recognizer: TapGestureRecognizer()
                                 ..onTap =
                                     LaunchUrl().inAppWebView(url: termsOfUse),
@@ -112,13 +111,13 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                               text: ' and ',
                               style: _fontStyle
                                   .manrope(12, FontWeight.normal)
-                                  .copyWith(color: _colors.blackColor),
+                                  .copyWith(color: AppColors.blackColor),
                             ),
                             TextSpan(
                               text: 'Privacy policy',
                               style: _fontStyle
                                   .manrope(12, FontWeight.w500)
-                                  .copyWith(color: _colors.linkBlueColor),
+                                  .copyWith(color: AppColors.linkBlueColor),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = LaunchUrl()
                                     .inAppWebView(url: privacyPolicy),
@@ -129,7 +128,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                           width: 170,
                           height: 60,
                           decoration: BoxDecoration(
-                            color: _colors.blackColor,
+                            color: AppColors.blackColor,
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(30)),
                           ),
@@ -149,7 +148,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                                 child: Text("Continue",
                                     style: _fontStyle
                                         .manrope(22, FontWeight.w600)
-                                        .copyWith(color: _colors.whiteColor)),
+                                        .copyWith(color: AppColors.whiteColor)),
                               ),
                             ),
                           ),

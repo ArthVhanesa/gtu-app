@@ -17,7 +17,6 @@ class CustomDialog extends StatelessWidget {
     required this.buttonName,
   }) : super(key: key);
 
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   @override
@@ -53,7 +52,7 @@ class CustomDialog extends StatelessWidget {
                     message,
                     style: _fontStyle
                         .manrope(16, FontWeight.bold)
-                        .copyWith(color: _colors.titleColor),
+                        .copyWith(color: AppColors.titleColor),
                     textAlign: TextAlign.center,
                   ),
                   Padding(

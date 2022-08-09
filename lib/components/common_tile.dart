@@ -17,8 +17,6 @@ class CommonTile extends StatefulWidget {
 }
 
 class _CommonTileState extends State<CommonTile> {
-  final AppColors _colors = AppColors();
-
   final FontStyle _fontStyle = FontStyle();
 
   bool isSubtitle = false;
@@ -34,7 +32,7 @@ class _CommonTileState extends State<CommonTile> {
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: _colors.questionPaperTileColor,
+        color: AppColors.questionPaperTileColor,
         borderRadius: const BorderRadius.all(Radius.circular(25)),
       ),
       child: Material(
@@ -45,7 +43,7 @@ class _CommonTileState extends State<CommonTile> {
             showModalBottomSheet(
                 context: context,
                 isScrollControlled: true,
-                backgroundColor: _colors.bgColor,
+                backgroundColor: AppColors.bgColor,
                 shape: const RoundedRectangleBorder(
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(15))),
@@ -86,7 +84,7 @@ class _CommonTileState extends State<CommonTile> {
                         widget.commonCardData.date!, //pass subject name
                         style: _fontStyle
                             .manrope(13, FontWeight.w600)
-                            .copyWith(color: _colors.titleColor),
+                            .copyWith(color: AppColors.titleColor),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                       )
@@ -112,7 +110,6 @@ class ModalBottomSheet extends StatefulWidget {
 }
 
 class _ModalBottomSheetState extends State<ModalBottomSheet> {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   bool isDate = false;
@@ -131,7 +128,7 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
             width: 40,
             height: 5,
             decoration: BoxDecoration(
-              color: _colors.titleColor,
+              color: AppColors.titleColor,
               borderRadius: const BorderRadius.all(Radius.circular(25)),
             ),
           ),
@@ -169,7 +166,7 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
           Divider(
             height: 1,
             thickness: 1,
-            color: _colors.blackColor,
+            color: AppColors.blackColor,
           ),
           Padding(
             padding: const EdgeInsets.all(20),
@@ -196,7 +193,7 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
                         Container(
                           margin: const EdgeInsets.only(left: 10),
                           decoration: BoxDecoration(
-                            color: _colors.linkBlueBgColor,
+                            color: AppColors.linkBlueBgColor,
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(8)),
                           ),
@@ -220,7 +217,7 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
                                     style: _fontStyle
                                         .montserrat(15, FontWeight.w500)
                                         .copyWith(
-                                          color: _colors.linkBlueColor,
+                                          color: AppColors.linkBlueColor,
                                         ),
                                   ),
                                 ),

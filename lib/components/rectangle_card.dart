@@ -17,8 +17,6 @@ class RectangleCard extends StatelessWidget {
 
   final FontStyle _fontStyle = FontStyle();
 
-  final AppColors _colors = AppColors();
-
   bool istagLine = false;
 
   bool islinkAvailable = false;
@@ -70,7 +68,7 @@ class RectangleCard extends StatelessWidget {
                         card.title,
                         style: _fontStyle
                             .montserrat(32, FontWeight.w700)
-                            .copyWith(color: _colors.titleColor),
+                            .copyWith(color: AppColors.titleColor),
                         maxLines: 2,
                       ),
                       SizedBox(
@@ -81,7 +79,7 @@ class RectangleCard extends StatelessWidget {
                               card.tagline,
                               style: _fontStyle
                                   .montserrat(15, FontWeight.w600)
-                                  .copyWith(color: _colors.titleColor),
+                                  .copyWith(color: AppColors.titleColor),
                               maxLines: 1,
                             )
                           : const SizedBox(height: 0),

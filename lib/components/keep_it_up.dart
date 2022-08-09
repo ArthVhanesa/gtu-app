@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/style/style.dart';
 
 class KeepItUp extends StatelessWidget {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   KeepItUp({super.key});
@@ -19,7 +18,7 @@ class KeepItUp extends StatelessWidget {
             'Keep\nit up!',
             style: _fontStyle
                 .playfairDisplay(100, FontWeight.w900)
-                .copyWith(color: _colors.keepitupColor, height: 1.2),
+                .copyWith(color: AppColors.keepitupColor, height: 1.2),
           ),
           const SizedBox(
             height: 15,
@@ -28,7 +27,7 @@ class KeepItUp extends StatelessWidget {
             'Crafted with ❤️ in Surat.',
             style: _fontStyle
                 .manrope(20, FontWeight.normal)
-                .copyWith(color: _colors.keepitupColor, letterSpacing: 1),
+                .copyWith(color: AppColors.keepitupColor, letterSpacing: 1),
           ),
         ],
       ),

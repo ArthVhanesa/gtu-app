@@ -14,8 +14,6 @@ class CarouselSlider1 extends StatefulWidget {
 }
 
 class _CarouselSlider1State extends State<CarouselSlider1> {
-  final AppColors _colors = AppColors();
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -53,7 +51,7 @@ class _CarouselSlider1State extends State<CarouselSlider1> {
             dotWidth: 6,
             dotHeight: 6,
             activeDotScale: 1.5,
-            activeDotColor: _colors.primaryColor,
+            activeDotColor: AppColors.primaryColor,
             // fixedCenter: true,
           ),
         ),

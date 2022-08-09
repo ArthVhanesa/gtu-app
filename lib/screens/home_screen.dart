@@ -23,7 +23,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final signinController = Get.put(SignInController());
@@ -56,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           hamburger,
                           height: 35,
                           width: 35,
-                          color: _colors.blackColor,
+                          color: AppColors.blackColor,
                         ),
                       ),
                       const SizedBox(
@@ -72,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       CircleAvatar(
                         radius: 23,
                         backgroundImage: const AssetImage(profileIconImg),
-                        backgroundColor: _colors.blackColor,
+                        backgroundColor: AppColors.blackColor,
                         child: Material(
                           shape: const CircleBorder(),
                           clipBehavior: Clip.hardEdge,

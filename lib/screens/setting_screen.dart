@@ -20,7 +20,6 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final InAppReview inAppReview = InAppReview.instance;
@@ -28,7 +27,7 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _colors.bgColor,
+      backgroundColor: AppColors.bgColor,
       body: SafeArea(
           child: Column(
         children: [
@@ -55,7 +54,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           // },
                           secondMenuOnTap:
                               LaunchUrl().externalApplication(url: astronApps),
-                          color: _colors.skyBlueColor,
+                          color: AppColors.skyBlueColor,
                         ),
                         SettingMenu(
                           title: 'Help & Feedback',
@@ -71,7 +70,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             subject: BugReport().subject,
                             body: BugReport().body,
                           ),
-                          color: _colors.orangeColor,
+                          color: AppColors.orangeColor,
                         ),
                         SettingMenu(
                           title: 'About',
@@ -85,7 +84,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             showModalBottomSheet(
                                 context: context,
                                 isScrollControlled: true,
-                                backgroundColor: _colors.bgColor,
+                                backgroundColor: AppColors.bgColor,
                                 shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.vertical(
                                         top: Radius.circular(15))),
@@ -121,7 +120,7 @@ class _SettingScreenState extends State<SettingScreen> {
       left: 0,
       right: 0,
       child: Container(
-        color: _colors.bgColor,
+        color: AppColors.bgColor,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(25, 5, 25, 25),
           child: Column(
@@ -169,7 +168,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 width: MediaQuery.of(context).size.width,
                 height: 55,
                 decoration: BoxDecoration(
-                  color: _colors.lavenderColor,
+                  color: AppColors.lavenderColor,
                   borderRadius: const BorderRadius.all(Radius.circular(25)),
                 ),
                 child: Material(
@@ -184,7 +183,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         'Log out',
                         style: _fontStyle
                             .montserrat(20, FontWeight.w600)
-                            .copyWith(color: _colors.titleColor),
+                            .copyWith(color: AppColors.titleColor),
                       ),
                     ),
                   ),
@@ -199,7 +198,6 @@ class _SettingScreenState extends State<SettingScreen> {
 }
 
 class SettingMenu extends StatelessWidget {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   String title;
@@ -276,7 +274,7 @@ class SettingMenu extends StatelessWidget {
               Icon(
                 menuIcon,
                 size: 40,
-                color: _colors.titleColor,
+                color: AppColors.titleColor,
               ),
               const SizedBox(
                 height: 10,
@@ -285,7 +283,7 @@ class SettingMenu extends StatelessWidget {
                 menuTitle,
                 style: _fontStyle
                     .montserrat(15, FontWeight.w500)
-                    .copyWith(color: _colors.titleColor),
+                    .copyWith(color: AppColors.titleColor),
               ),
             ],
           ),

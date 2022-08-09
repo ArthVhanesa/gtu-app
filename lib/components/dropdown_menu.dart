@@ -21,8 +21,6 @@ class DropDownMenu extends StatefulWidget {
 }
 
 class _DropDownMenuState extends State<DropDownMenu> {
-  final AppColors _colors = AppColors();
-
   final FontStyle _fontStyle = FontStyle();
 
   String? value;
@@ -37,7 +35,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
       decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
-          color: _colors.whiteColor),
+          color: AppColors.whiteColor),
       child: DropdownButtonHideUnderline(
         child: DropdownButton(
           hint: Text(
@@ -56,7 +54,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
           iconSize: 30,
           icon: Icon(
             Icons.expand_more,
-            color: _colors.titleColor,
+            color: AppColors.titleColor,
           ),
         ),
       ),

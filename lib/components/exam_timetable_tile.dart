@@ -4,7 +4,6 @@ import 'package:gtu_app/models/timetable_model.dart';
 import 'package:gtu_app/style/style.dart';
 
 class ExamTimetableTile extends StatelessWidget {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
   TimeTableModel data;
 
@@ -20,7 +19,7 @@ class ExamTimetableTile extends StatelessWidget {
       height: 105,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-          color: _colors.questionPaperTileColor,
+          color: AppColors.questionPaperTileColor,
           borderRadius: const BorderRadius.all(Radius.circular(25))),
       child: Row(
         children: [
@@ -28,7 +27,7 @@ class ExamTimetableTile extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             width: MediaQuery.of(context).size.width * 0.20,
             decoration: BoxDecoration(
-                color: _colors.bgColor,
+                color: AppColors.bgColor,
                 borderRadius: const BorderRadius.all(Radius.circular(20))),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

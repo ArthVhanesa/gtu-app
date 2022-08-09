@@ -15,7 +15,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final signinController = Get.put(SignInController());
@@ -23,7 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _colors.bgColor,
+      backgroundColor: AppColors.bgColor,
       body: SafeArea(
           child: Column(
         children: [
@@ -79,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: Container(
         height: 55,
         decoration: BoxDecoration(
-          color: _colors.lavenderColor,
+          color: AppColors.lavenderColor,
           borderRadius: const BorderRadius.all(Radius.circular(25)),
         ),
         child: Material(
@@ -94,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 'Settings',
                 style: _fontStyle
                     .montserrat(20, FontWeight.w600)
-                    .copyWith(color: _colors.titleColor),
+                    .copyWith(color: AppColors.titleColor),
               ),
             ),
           ),

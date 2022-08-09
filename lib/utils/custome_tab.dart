@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_tabs/flutter_custom_tabs.dart';
 import 'package:gtu_app/style/style.dart';
 
-final AppColors _colors = AppColors();
-
 void launchCustomTab(String url) async {
   try {
     await launch(
       url,
       customTabsOption: CustomTabsOption(
-        toolbarColor: _colors.bgColor,
+        toolbarColor: AppColors.bgColor,
         enableInstantApps: true,
         enableDefaultShare: true,
         enableUrlBarHiding: true,
@@ -23,7 +21,7 @@ void launchCustomTab(String url) async {
         ],
       ),
       safariVCOption: SafariViewControllerOption(
-        preferredBarTintColor: _colors.bgColor,
+        preferredBarTintColor: AppColors.bgColor,
         preferredControlTintColor: Colors.white,
         barCollapsingEnabled: true,
         entersReaderIfAvailable: false,
