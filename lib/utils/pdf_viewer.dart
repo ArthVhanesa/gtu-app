@@ -21,7 +21,6 @@ class PdfViewer extends StatefulWidget {
 }
 
 class _PdfViewerState extends State<PdfViewer> {
-  final AppColors _colors = AppColors();
   final FontStyle _style = FontStyle();
 
   late PDFViewController controller;
@@ -44,12 +43,12 @@ class _PdfViewerState extends State<PdfViewer> {
 
     return Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: _colors.blackColor),
+          iconTheme: IconThemeData(color: AppColors.blackColor),
           //Pdf viewer Appbar title
           title: Text(
             name == null ? 'PDF Viewer' : name!.substring(0, name!.length - 4),
             style: _style.manrope(18, FontWeight.w500).copyWith(
-                  color: _colors.blackColor,
+                  color: AppColors.blackColor,
                 ),
           ),
           actions: pages! >= 2
@@ -58,7 +57,7 @@ class _PdfViewerState extends State<PdfViewer> {
                       child: Text(
                     text,
                     style: _style.manrope(15, FontWeight.w500).copyWith(
-                          color: _colors.blackColor,
+                          color: AppColors.blackColor,
                         ),
                   )),
                   IconButton(
@@ -91,7 +90,7 @@ class _PdfViewerState extends State<PdfViewer> {
                   ),
                 ]
               : null,
-          backgroundColor: _colors.bgColor,
+          backgroundColor: AppColors.bgColor,
         ),
         body: SafeArea(
           child: FutureBuilder<File>(
@@ -103,7 +102,7 @@ class _PdfViewerState extends State<PdfViewer> {
                     height: 80, // size of indicator
                     child: LoadingIndicator(
                       indicatorType: Indicator.ballClipRotateMultiple,
-                      colors: [_colors.primaryColor], // color of incdicator
+                      colors: [AppColors.primaryColor], // color of incdicator
                     ),
                   ),
                 );

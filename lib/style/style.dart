@@ -3,43 +3,43 @@ import 'package:google_fonts/google_fonts.dart';
 
 // Color
 class AppColors {
-  final Color primaryColor = const Color(0xFFFF6C6C);
-  final Color bgColor = const Color(0xFFF5F8FF);
-  final Color drawerBgColor = const Color(0xFFEBEFF9);
+  static Color primaryColor = const Color(0xFFFF6C6C);
+  static Color bgColor = const Color(0xFFF5F8FF);
+  static Color drawerBgColor = const Color(0xFFEBEFF9);
 
-  final Color titleColor = const Color(0xB3000000);
+  static Color titleColor = const Color(0xB3000000);
 
-  final Color waterBlueColor = const Color(0xFFD2ECFF);
-  final Color lightMossGreenColor = const Color(0xFFD5FAEE);
-  final Color lavenderColor = const Color(0xFFECDDFF);
-  final Color lightYellowColor = const Color(0xFFF8F7C2);
-  final Color lightOrangeColor = const Color(0xFFF8E0D5);
-  final Color lightPinkColor = const Color(0xFFF8E4FE);
-  final Color lightRedColor = const Color(0xFFF8E2E4);
-  final Color lightPistaColor = const Color(0xFFD8FAD7);
-  final Color lightGreenColor = const Color(0xFFCDFAF3);
-  final Color lightlavenderColor = const Color(0xFFF8E3FD);
+  static Color waterBlueColor = const Color(0xFFD2ECFF);
+  static Color lightMossGreenColor = const Color(0xFFD5FAEE);
+  static Color lavenderColor = const Color(0xFFECDDFF);
+  static Color lightYellowColor = const Color(0xFFF8F7C2);
+  static Color lightOrangeColor = const Color(0xFFF8E0D5);
+  static Color lightPinkColor = const Color(0xFFF8E4FE);
+  static Color lightRedColor = const Color(0xFFF8E2E4);
+  static Color lightPistaColor = const Color(0xFFD8FAD7);
+  static Color lightGreenColor = const Color(0xFFCDFAF3);
+  static Color lightlavenderColor = const Color(0xFFF8E3FD);
 
-  final Color skyBlueColor = const Color(0xFFB5E4FF);
-  final Color orangeColor = const Color(0xFFFFC692);
+  static Color skyBlueColor = const Color(0xFFB5E4FF);
+  static Color orangeColor = const Color(0xFFFFC692);
   static Color pistaColor = const Color(0xFFBEF294);
 
-  final Color keepitupColor = const Color(0xFF6B8CA5);
+  static Color keepitupColor = const Color(0xFF6B8CA5);
 
-  final Color syllabusTileColor = const Color(0xFFA0C3F9);
-  final Color questionPaperTileColor = const Color(0xFF92D8FF);
+  static Color syllabusTileColor = const Color(0xFFA0C3F9);
+  static Color questionPaperTileColor = const Color(0xFF92D8FF);
 
-  final Color percentageCalcFillColor = const Color(0xFFFF9356);
-  final Color percentageCalcBgColor = const Color(0xFFFFEFE6);
+  static Color percentageCalcFillColor = const Color(0xFFFF9356);
+  static Color percentageCalcBgColor = const Color(0xFFFFEFE6);
 
-  final Color linkBlueColor = const Color(0xFF3666D9);
-  final Color linkBlueBgColor = const Color(0xFFD4DEF7);
+  static Color linkBlueColor = const Color(0xFF3666D9);
+  static Color linkBlueBgColor = const Color(0xFFD4DEF7);
 
-  final Color errorColor = const Color(0xFFFFCFCF);
-  final Color warningColor = const Color(0xFFFFF9BF);
+  static Color errorColor = const Color(0xFFFFCFCF);
+  static Color warningColor = const Color(0xFFFFF9BF);
 
-  final Color blackColor = const Color(0XFF000000);
-  final Color whiteColor = const Color(0XFFFFFFFF);
+  static Color blackColor = const Color(0XFF000000);
+  static Color whiteColor = const Color(0XFFFFFFFF);
 }
 
 // Normal padding of all pages

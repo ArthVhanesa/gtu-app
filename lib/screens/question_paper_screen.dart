@@ -21,7 +21,6 @@ class QuestionPaperScreen extends StatefulWidget {
 }
 
 class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final questionPaperController = Get.put(QuestionPaperController());
@@ -31,7 +30,7 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: _colors.bgColor,
+      backgroundColor: AppColors.bgColor,
       body: SafeArea(
           child: Column(
         children: [
@@ -99,7 +98,7 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
                               style: _fontStyle
                                   .manrope(18, FontWeight.w600)
                                   .copyWith(
-                                    color: _colors.primaryColor,
+                                    color: AppColors.primaryColor,
                                   ),
                             )
                           ],

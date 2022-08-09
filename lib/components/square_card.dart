@@ -13,8 +13,6 @@ class SquareCard extends StatelessWidget {
     required this.card,
   }) : super(key: key);
 
-  final AppColors _color = AppColors();
-
   final FontStyle _fontStyle = FontStyle();
 
   bool islinkAvailable = false;
@@ -65,7 +63,7 @@ class SquareCard extends StatelessWidget {
                 card.title,
                 style: _fontStyle
                     .montserrat(16, FontWeight.w600)
-                    .copyWith(color: _color.titleColor),
+                    .copyWith(color: AppColors.titleColor),
                 textAlign: TextAlign.center,
               )
             ],

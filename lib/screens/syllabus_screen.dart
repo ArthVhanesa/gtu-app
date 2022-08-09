@@ -22,7 +22,6 @@ class SyllabusScreen extends StatefulWidget {
 }
 
 class _SyllabusScreenState extends State<SyllabusScreen> {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final _syllabusController = Get.put(SyllabusController());
@@ -35,7 +34,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
       onWillPop: AppGlobals.onBackPressed,
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: _colors.bgColor,
+        backgroundColor: AppColors.bgColor,
         body: SafeArea(
             child: Column(
           children: [
@@ -101,7 +100,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                                 style: _fontStyle
                                     .manrope(18, FontWeight.w600)
                                     .copyWith(
-                                      color: _colors.primaryColor,
+                                      color: AppColors.primaryColor,
                                     ),
                               )
                             ],

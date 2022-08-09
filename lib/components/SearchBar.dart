@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:gtu_app/style/style.dart';
 
 class SearchBar extends StatelessWidget {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final TextEditingController searchInputController;
@@ -27,7 +26,7 @@ class SearchBar extends StatelessWidget {
           child: Container(
               height: 48,
               decoration: BoxDecoration(
-                color: _colors.whiteColor,
+                color: AppColors.whiteColor,
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
               ),
               child: Padding(
@@ -56,7 +55,7 @@ class SearchBar extends StatelessWidget {
           height: 48,
           width: 48,
           decoration: BoxDecoration(
-            color: _colors.primaryColor,
+            color: AppColors.primaryColor,
             borderRadius: const BorderRadius.all(Radius.circular(10)),
           ),
           child: Material(
@@ -66,7 +65,7 @@ class SearchBar extends StatelessWidget {
               onTap: onTap,
               child: Icon(
                 Icons.search,
-                color: _colors.whiteColor,
+                color: AppColors.whiteColor,
                 size: 30,
               ),
             ),

@@ -21,7 +21,6 @@ class PercentageCalculatorScreen extends StatefulWidget {
 
 class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
     with TickerProviderStateMixin {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final TextEditingController _controller = TextEditingController();
@@ -77,7 +76,7 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: _colors.bgColor,
+      backgroundColor: AppColors.bgColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -102,7 +101,7 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
                                 errorMessage,
                                 style: _fontStyle
                                     .montserrat(14, FontWeight.w600)
-                                    .copyWith(color: _colors.primaryColor),
+                                    .copyWith(color: AppColors.primaryColor),
                               ),
                             ),
                           ),
@@ -174,7 +173,7 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
     return Container(
         height: 48,
         decoration: BoxDecoration(
-          color: _colors.whiteColor,
+          color: AppColors.whiteColor,
           borderRadius: const BorderRadius.all(Radius.circular(10)),
         ),
         child: Padding(
@@ -203,8 +202,8 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
         animation: true,
         percent: percentage / 100,
         animationDuration: 1000,
-        backgroundColor: _colors.percentageCalcBgColor,
-        progressColor: _colors.percentageCalcFillColor,
+        backgroundColor: AppColors.percentageCalcBgColor,
+        progressColor: AppColors.percentageCalcFillColor,
         circularStrokeCap: CircularStrokeCap.round,
         center: Text(
           '$percentage%',

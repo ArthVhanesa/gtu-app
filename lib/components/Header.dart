@@ -23,8 +23,6 @@ class _HeaderState extends State<Header> {
 
   bool ispageLink = false;
 
-  final AppColors _colors = AppColors();
-
   final FontStyle _fontStyle = FontStyle();
 
   @override
@@ -38,7 +36,7 @@ class _HeaderState extends State<Header> {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 160,
-      // decoration: BoxDecoration(color: _colors.lightGreenColor),
+      // decoration: BoxDecoration(color: AppColors.lightGreenColor),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +94,7 @@ class _HeaderState extends State<Header> {
                             'Official Website 🔗',
                             style: _fontStyle
                                 .montserrat(15, FontWeight.normal)
-                                .copyWith(color: _colors.linkBlueColor),
+                                .copyWith(color: AppColors.linkBlueColor),
                           ),
                         ),
                       )

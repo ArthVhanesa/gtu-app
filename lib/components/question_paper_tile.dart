@@ -6,7 +6,6 @@ import 'package:gtu_app/style/style.dart';
 import 'package:gtu_app/utils/pdf_viewer.dart';
 
 class QuestionPaperTile extends StatelessWidget {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
   QuestionPaperModel questionPaper;
 
@@ -20,7 +19,7 @@ class QuestionPaperTile extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: _colors.questionPaperTileColor,
+        color: AppColors.questionPaperTileColor,
         borderRadius: const BorderRadius.all(Radius.circular(25)),
       ),
       child: Material(

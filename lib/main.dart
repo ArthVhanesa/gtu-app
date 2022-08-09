@@ -51,8 +51,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppColors _color = AppColors();
-    final signinController = Get.put(SignInController());
     final isUserLoggedin = GoogleProfileModel.fromJson(
                 jsonDecode(prefs.getString("userData") ?? "{}"))
             .uid !=
@@ -63,7 +61,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'gtu_app',
         theme: ThemeData(
-            scaffoldBackgroundColor: _color.bgColor,
+            scaffoldBackgroundColor: AppColors.bgColor,
             // bottomSheetTheme: BottomSheetThemeData(
             //   backgroundColor: Colors.black.withOpacity(0),
             // ),

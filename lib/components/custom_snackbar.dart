@@ -12,8 +12,6 @@ class SnackBarType {
     required this.image,
   });
 
-  final AppColors _colors = AppColors();
-
   static SnackBarType error =
       SnackBarType(color: Color(0xFFFFCFCF), image: errorImg);
   static SnackBarType warning =
@@ -24,7 +22,6 @@ class SnackBarType {
 
 class CustomSnackBar extends StatelessWidget {
   final FontStyle _fontStyle = FontStyle();
-  final AppColors _colors = AppColors();
 
   String title;
   String message;
@@ -67,13 +64,13 @@ class CustomSnackBar extends StatelessWidget {
                   title,
                   style: _fontStyle
                       .manrope(18, FontWeight.w600)
-                      .copyWith(color: _colors.blackColor),
+                      .copyWith(color: AppColors.blackColor),
                 ),
                 Text(
                   message,
                   style: _fontStyle
                       .manrope(12, FontWeight.w500)
-                      .copyWith(color: _colors.blackColor),
+                      .copyWith(color: AppColors.blackColor),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),

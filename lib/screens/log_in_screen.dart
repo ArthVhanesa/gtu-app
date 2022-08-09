@@ -15,7 +15,6 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final signinController = Get.put(SignInController());
@@ -23,7 +22,7 @@ class _LogInScreenState extends State<LogInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _colors.drawerBgColor,
+      backgroundColor: AppColors.drawerBgColor,
       body: SafeArea(
         child: Container(
           height: MediaQuery.of(context).size.height,
@@ -65,10 +64,10 @@ class _LogInScreenState extends State<LogInScreen> {
     return Container(
       height: 80,
       decoration: BoxDecoration(
-        color: _colors.whiteColor,
+        color: AppColors.whiteColor,
         borderRadius: const BorderRadius.all(Radius.circular(20)),
         border: Border.all(
-          color: _colors.blackColor,
+          color: AppColors.blackColor,
           width: 4,
         ),
       ),

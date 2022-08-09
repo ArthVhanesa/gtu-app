@@ -23,7 +23,6 @@ class ExamTimetableScreen extends StatefulWidget {
 }
 
 class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final timeTableController = Get.put(TimeTableController());
@@ -38,7 +37,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
         onWillPop: AppGlobals.onBackPressed,
         child: Scaffold(
           resizeToAvoidBottomInset: false,
-          backgroundColor: _colors.bgColor,
+          backgroundColor: AppColors.bgColor,
           body: SafeArea(
               child: Column(
             children: [
@@ -83,7 +82,6 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
 }
 
 class InputSection2 extends StatelessWidget {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
   final TextEditingController _controller = TextEditingController();
   late TextStyle style;
@@ -106,7 +104,7 @@ class InputSection2 extends StatelessWidget {
       width: double.infinity,
       height: 45,
       decoration: BoxDecoration(
-        color: _colors.primaryColor,
+        color: AppColors.primaryColor,
         borderRadius: const BorderRadius.all(Radius.circular(30)),
       ),
       child: Material(
@@ -122,7 +120,7 @@ class InputSection2 extends StatelessWidget {
             'Search',
             style: _fontStyle
                 .montserrat(20, FontWeight.w600)
-                .copyWith(color: _colors.whiteColor),
+                .copyWith(color: AppColors.whiteColor),
           )),
         ),
       ),
@@ -197,7 +195,7 @@ class InputSection2 extends StatelessWidget {
                     height: 48,
                     width: MediaQuery.of(context).size.width * 0.4,
                     decoration: BoxDecoration(
-                      color: _colors.whiteColor,
+                      color: AppColors.whiteColor,
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
                     ),
                     child: Padding(

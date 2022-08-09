@@ -20,14 +20,13 @@ class CircularScreen extends StatefulWidget {
 
 class _CircularScreenState extends State<CircularScreen>
     with TickerProviderStateMixin {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
     return Scaffold(
-      backgroundColor: _colors.bgColor,
+      backgroundColor: AppColors.bgColor,
       body: SafeArea(
           child: Column(
         children: [
@@ -35,10 +34,10 @@ class _CircularScreenState extends State<CircularScreen>
           Container(
             child: TabBar(
                 controller: tabController,
-                labelColor: _colors.primaryColor,
-                unselectedLabelColor: _colors.titleColor,
+                labelColor: AppColors.primaryColor,
+                unselectedLabelColor: AppColors.titleColor,
                 indicator: MaterialIndicator(
-                  color: _colors.primaryColor,
+                  color: AppColors.primaryColor,
                   topLeftRadius: 5,
                   topRightRadius: 5,
                   bottomLeftRadius: 5,
@@ -123,7 +122,6 @@ class ImportantCircular extends StatelessWidget {
   }) : super(key: key);
 
   final controller = Get.put(ImpCircularController());
-  final AppColors _colors = AppColors();
 
   @override
   Widget build(BuildContext context) {

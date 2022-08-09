@@ -12,8 +12,6 @@ import 'package:gtu_app/models/circular_model.dart';
 import 'package:gtu_app/style/style.dart';
 
 class AcademicCalendarScreen extends StatelessWidget {
-  final AppColors _colors = AppColors();
-
   AcademicCalendarScreen({super.key});
 
   final controller = Get.put(AcademicCalendarController());
@@ -21,7 +19,7 @@ class AcademicCalendarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _colors.bgColor,
+      backgroundColor: AppColors.bgColor,
       body: SafeArea(
           child: Column(
         children: [

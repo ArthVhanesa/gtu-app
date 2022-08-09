@@ -8,8 +8,6 @@ class CustomLoadingIndicator extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final AppColors _colors = AppColors();
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,7 +17,7 @@ class CustomLoadingIndicator extends StatelessWidget {
           height: 80, // size of indicator
           child: LoadingIndicator(
             indicatorType: Indicator.ballClipRotateMultiple,
-            colors: [_colors.primaryColor], // color of incdicator
+            colors: [AppColors.primaryColor], // color of incdicator
           ),
         ),
       ),

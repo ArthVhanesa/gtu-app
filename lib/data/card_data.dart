@@ -4,8 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/style/style.dart';
 
-final AppColors _colors = AppColors();
-
 class CardData {
   String id;
   String title;
@@ -35,7 +33,7 @@ CardData searchResultScreen = CardData(
     id: 'Search Result Screen',
     title: '',
     tagline: '',
-    color: _colors.lavenderColor,
+    color: AppColors.lavenderColor,
     image: searchImg,
     onTapLink: '',
     pageTitle: 'Search 🔍', //pass subject code here
@@ -46,7 +44,7 @@ CardData syllabus = CardData(
     id: 'Syllabus Screen',
     title: 'Syllabus',
     tagline: '',
-    color: _colors.lightMossGreenColor,
+    color: AppColors.lightMossGreenColor,
     image: syllabusImg,
     onTapLink: '',
     pageTitle: 'Syllabus 📖',
@@ -57,7 +55,7 @@ CardData questionPaper = CardData(
     id: 'Question Paper Screen',
     title: 'Question Paper',
     tagline: '',
-    color: _colors.lavenderColor,
+    color: AppColors.lavenderColor,
     image: questionPaperImg,
     onTapLink: '',
     pageTitle: 'Question Paper 📋',
@@ -68,7 +66,7 @@ CardData result = CardData(
     id: 'Result Screen',
     title: 'Result',
     tagline: 'All you need is here',
-    color: _colors.waterBlueColor,
+    color: AppColors.waterBlueColor,
     image: resultImg,
     onTapLink: '',
     pageTitle: 'Result 📊',
@@ -79,7 +77,7 @@ CardData circular = CardData(
     id: 'Circular Screen',
     title: 'Circular',
     tagline: '',
-    color: _colors.lightYellowColor,
+    color: AppColors.lightYellowColor,
     image: circularImg,
     onTapLink: '',
     pageTitle: 'Circular 📃',
@@ -91,7 +89,7 @@ CardData academicCalendar = CardData(
     id: 'Academic Calendar Screen',
     title: 'Academic Calendar',
     tagline: '',
-    color: _colors.lightOrangeColor,
+    color: AppColors.lightOrangeColor,
     image: academicCalendarImg,
     onTapLink: '',
     pageTitle: 'Academic Calendar 📆',
@@ -103,7 +101,7 @@ CardData studentCorner = CardData(
     id: 'Student Corner Screen',
     title: 'Student Corner',
     tagline: '',
-    color: _colors.lightRedColor,
+    color: AppColors.lightRedColor,
     image: studentCornerImg,
     onTapLink: 'https://www.gtu.ac.in/StudentCorner.aspx',
     pageTitle: 'Student Corner 📪',
@@ -115,7 +113,7 @@ CardData examTimetable = CardData(
     id: 'Exam Timetable Screen',
     title: 'Exam Timetable',
     tagline: '',
-    color: _colors.lightPinkColor,
+    color: AppColors.lightPinkColor,
     image: examTimetableImg,
     onTapLink: '',
     pageTitle: 'Exam Timetable ⏰',
@@ -127,7 +125,7 @@ CardData pointActivity = CardData(
     id: '100 Point Activity',
     title: 'Point Activity',
     tagline: '',
-    color: _colors.lightPistaColor,
+    color: AppColors.lightPistaColor,
     image: pointActivityImg,
     onTapLink: 'https://www.100points.gtu.ac.in', //pass link here
 
@@ -139,7 +137,7 @@ CardData studentPortal = CardData(
     id: 'Student Portal',
     title: 'Student Portal',
     tagline: '',
-    color: _colors.lightGreenColor,
+    color: AppColors.lightGreenColor,
     image: studentPortalImg,
     onTapLink: 'https://student.gtu.ac.in/Login.aspx', //pass link here
 
@@ -153,7 +151,7 @@ CardData resultTile = CardData(
     id: 'Result',
     title: 'Result',
     tagline: '',
-    color: _colors.lightMossGreenColor,
+    color: AppColors.lightMossGreenColor,
     image: resultImageImg,
     onTapLink: 'https://www.gturesults.in', //pass link here
 
@@ -165,7 +163,7 @@ CardData midMarks = CardData(
     id: 'Mid marks',
     title: 'Internal/Mid Marks',
     tagline: '',
-    color: _colors.lavenderColor,
+    color: AppColors.lavenderColor,
     image: midMarksImg,
     onTapLink:
         'https://www.me.gtu.ac.in/student/Studentmarkdisplay.aspx', //pass link here
@@ -178,7 +176,7 @@ CardData gradeHistory = CardData(
     id: 'Grade History',
     title: 'Grade History',
     tagline: '',
-    color: _colors.lightlavenderColor,
+    color: AppColors.lightlavenderColor,
     image: gradeHistoryImg,
     onTapLink: 'https://www.students.gtu.ac.in', //pass link here
 
@@ -190,7 +188,7 @@ CardData percentageCalculator = CardData(
     id: 'Percentage Calculator Screen',
     title: 'Percentage Calculator',
     tagline: '',
-    color: _colors.lightOrangeColor,
+    color: AppColors.lightOrangeColor,
     image: percentageCalculatorImg,
     onTapLink: '',
     pageTitle: 'Percentage Calculator 💯',
@@ -203,7 +201,7 @@ CardData profileScreen = CardData(
     id: 'Profile Screen',
     title: '',
     tagline: '',
-    color: _colors.whiteColor,
+    color: AppColors.whiteColor,
     image: profileImageImg,
     onTapLink: '',
     pageTitle: 'Profile 🗂',
@@ -214,7 +212,7 @@ CardData settingScreen = CardData(
     id: 'Setting Screen',
     title: '',
     tagline: '',
-    color: _colors.whiteColor,
+    color: AppColors.whiteColor,
     image: settingImg,
     onTapLink: '',
     pageTitle: 'Settings ⚙️',

@@ -14,7 +14,6 @@ class IntroductionScreens extends StatefulWidget {
 }
 
 class _IntroductionScreensState extends State<IntroductionScreens> {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
   final List<IntroductionScreenData> _screen = introductionScreenData;
   final totalIntroScreen = introductionScreenData.length;
@@ -103,7 +102,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
                   screen.body,
                   style: _fontStyle
                       .manrope(22, FontWeight.w600)
-                      .copyWith(color: _colors.titleColor),
+                      .copyWith(color: AppColors.titleColor),
                 ),
               ],
             ),
@@ -118,7 +117,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
       width: 160,
       height: 60,
       decoration: BoxDecoration(
-          color: _colors.blackColor,
+          color: AppColors.blackColor,
           borderRadius: const BorderRadius.all(Radius.circular(30))),
       child: Material(
         color: Colors.transparent,
@@ -135,7 +134,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
               'Launch App',
               style: _fontStyle
                   .manrope(20, FontWeight.w600)
-                  .copyWith(color: _colors.whiteColor),
+                  .copyWith(color: AppColors.whiteColor),
             ),
           ),
         ),
@@ -148,7 +147,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
       width: 125,
       height: 60,
       decoration: BoxDecoration(
-        color: _colors.blackColor,
+        color: AppColors.blackColor,
         borderRadius: const BorderRadius.all(Radius.circular(30)),
       ),
       child: Material(
@@ -167,14 +166,14 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
                 'Next',
                 style: _fontStyle
                     .manrope(20, FontWeight.w600)
-                    .copyWith(color: _colors.whiteColor),
+                    .copyWith(color: AppColors.whiteColor),
               ),
               const SizedBox(
                 width: 5,
               ),
               Icon(
                 Icons.arrow_forward,
-                color: _colors.whiteColor,
+                color: AppColors.whiteColor,
               ),
             ],
           ),

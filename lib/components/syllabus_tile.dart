@@ -7,7 +7,6 @@ import 'package:gtu_app/style/style.dart';
 import 'package:gtu_app/utils/launch_tab.dart';
 
 class SyllabusTile extends StatelessWidget {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   SyllabusModel syllabus;
@@ -22,7 +21,7 @@ class SyllabusTile extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: _colors.syllabusTileColor,
+        color: AppColors.syllabusTileColor,
         borderRadius: const BorderRadius.all(Radius.circular(25)),
       ),
       child: Material(
@@ -33,7 +32,7 @@ class SyllabusTile extends StatelessWidget {
             showModalBottomSheet(
               context: context,
               isScrollControlled: true,
-              backgroundColor: _colors.bgColor,
+              backgroundColor: AppColors.bgColor,
               shape: const RoundedRectangleBorder(
                   borderRadius:
                       BorderRadius.vertical(top: Radius.circular(15))),
@@ -81,7 +80,6 @@ class SyllabusTile extends StatelessWidget {
 }
 
 class ModalBottomSheet extends StatelessWidget {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
   SyllabusModel syllabus;
 
@@ -98,7 +96,7 @@ class ModalBottomSheet extends StatelessWidget {
             width: 40,
             height: 5,
             decoration: BoxDecoration(
-              color: _colors.titleColor,
+              color: AppColors.titleColor,
               borderRadius: const BorderRadius.all(Radius.circular(25)),
             ),
           ),
@@ -134,7 +132,7 @@ class ModalBottomSheet extends StatelessWidget {
           Divider(
             height: 1,
             thickness: 1,
-            color: _colors.blackColor,
+            color: AppColors.blackColor,
           ),
           Padding(
             padding: const EdgeInsets.all(20),
@@ -144,7 +142,7 @@ class ModalBottomSheet extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ModalBottomColumnThree(
-                    color: _colors.skyBlueColor,
+                    color: AppColors.skyBlueColor,
                     title:
                         'Category: ${syllabus.category}', //example=> title: 'Category: $category_of_subject'
                     boxTitle1: 'Branch',
@@ -155,7 +153,7 @@ class ModalBottomSheet extends StatelessWidget {
                     boxInt3: syllabus.totalcredit ?? "", // pass credit here
                   ),
                   ModalBottomColumnThree(
-                    color: _colors.orangeColor,
+                    color: AppColors.orangeColor,
                     title: 'Teaching Hours (Weekly)', //no change
                     boxTitle1: 'Lecture',
                     boxInt1: syllabus.l ?? "", //pass Lecture hours here
@@ -180,7 +178,7 @@ class ModalBottomSheet extends StatelessWidget {
                     width: double.infinity,
                     height: 45,
                     decoration: BoxDecoration(
-                      color: _colors.primaryColor,
+                      color: AppColors.primaryColor,
                       borderRadius: const BorderRadius.all(Radius.circular(30)),
                     ),
                     child: Material(
@@ -196,7 +194,7 @@ class ModalBottomSheet extends StatelessWidget {
                           'View Syllabus',
                           style: _fontStyle
                               .montserrat(20, FontWeight.w600)
-                              .copyWith(color: _colors.whiteColor),
+                              .copyWith(color: AppColors.whiteColor),
                         )),
                       ),
                     ),

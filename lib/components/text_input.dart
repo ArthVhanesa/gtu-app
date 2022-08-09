@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:gtu_app/style/style.dart';
 
 class TextInput extends StatelessWidget {
-  final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
   final double width;
@@ -39,10 +38,10 @@ class TextInput extends StatelessWidget {
             width: width,
             height: 80,
             decoration: BoxDecoration(
-                color: _colors.whiteColor,
+                color: AppColors.whiteColor,
                 borderRadius: const BorderRadius.all(Radius.circular(20)),
                 border: Border.all(
-                  color: _colors.blackColor,
+                  color: AppColors.blackColor,
                   width: 4,
                 )),
             child: Center(
