@@ -142,7 +142,6 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                                 signinController.registerNewUser(
                                     firstName.text, lastName.text, en);
                                 print("Continue button pressed" + en);
-                                Get.offAll(() => const ZoomDrawerScreen());
                               },
                               child: Center(
                                 child: Text("Continue",

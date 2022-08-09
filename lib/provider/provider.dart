@@ -7,6 +7,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:gtu_app/provider/globals.dart';
 
 class Provider extends GetConnect {
+  Map<String, String> errorMsgObj = {"error_message": "Something Went Wrong!"};
+
   Future<UserCredential> signInWithGoogle() async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -47,11 +49,9 @@ class Provider extends GetConnect {
       "first_name": fname,
       "last_name": lname
     });
+
     if (response.statusCode != 200) {
-      return Future.error(response.body.toString());
-    }
-    if (response.status.hasError) {
-      return Future.error(response.statusText!);
+      return Future.error(response.body ?? errorMsgObj);
     } else {
       return response.body;
     }
