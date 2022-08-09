@@ -18,6 +18,8 @@ class SnackBarType {
       SnackBarType(color: Color(0xFFFFCFCF), image: errorImg);
   static SnackBarType warning =
       SnackBarType(color: Color(0xFFFFF9BF), image: warningImg);
+  static SnackBarType success =
+      SnackBarType(color: AppColors.pistaColor, image: warningImg);
 }
 
 class CustomSnackBar extends StatelessWidget {
@@ -108,6 +110,17 @@ class ShowCustomSnackBar {
     AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
       content: CustomSnackBar(
           title: title, message: message, snackBarType: SnackBarType.error),
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+    ));
+  }
+
+  static success({String title = "Hurray!", String message = "Successfull!"}) {
+    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+    AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
+      content: CustomSnackBar(
+          title: title, message: message, snackBarType: SnackBarType.success),
       behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.transparent,
       elevation: 0,

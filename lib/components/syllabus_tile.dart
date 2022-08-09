@@ -165,7 +165,7 @@ class ModalBottomSheet extends StatelessWidget {
                     boxInt3: syllabus.p ?? "", // pass Practical hours here
                   ),
                   ModalBottomColumnFour(
-                    color: _colors.pistaColor,
+                    color: AppColors.pistaColor,
                     title: 'Evalution out of 150 Marks', //no change
                     boxTitle1: 'End Sem',
                     boxInt1: syllabus.e ?? "", //pass End Sem marks here

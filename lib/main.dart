@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppColors _color = AppColors();
     final signinController = Get.put(SignInController());
-    final isUserLoggedin = UserProfileModel.fromJson(
+    final isUserLoggedin = GoogleProfileModel.fromJson(
                 jsonDecode(prefs.getString("userData") ?? "{}"))
             .uid !=
         null;

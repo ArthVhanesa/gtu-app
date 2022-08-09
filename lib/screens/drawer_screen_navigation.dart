@@ -18,15 +18,16 @@ import 'package:gtu_app/style/style.dart';
 // this is unused drawer screen with navigaion to other screens
 // whenever want to navigate to other screen from the drawer use this file
 // ============================================================================//
-
-class ZoomDrawerScreen extends StatefulWidget {
-  const ZoomDrawerScreen({super.key});
+class ZoomDrawerScreenNavigation extends StatefulWidget {
+  const ZoomDrawerScreenNavigation({super.key});
 
   @override
-  State<ZoomDrawerScreen> createState() => _ZoomDrawerScreenState();
+  State<ZoomDrawerScreenNavigation> createState() =>
+      _ZoomDrawerScreenNavigationState();
 }
 
-class _ZoomDrawerScreenState extends State<ZoomDrawerScreen> {
+class _ZoomDrawerScreenNavigationState
+    extends State<ZoomDrawerScreenNavigation> {
   final AppColors _colors = AppColors();
 
   MenuItemData currentItem = MenuItems.Home; // Defalut menu select

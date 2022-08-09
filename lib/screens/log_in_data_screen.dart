@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,14 +22,17 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
   final AppColors _colors = AppColors();
   final FontStyle _fontStyle = FontStyle();
 
-  final signinController = Get.put(SignInController());
+  final TextEditingController enrollmentNo = TextEditingController();
 
-  final TextEditingController _firstName = TextEditingController();
-  final TextEditingController _lastName = TextEditingController();
-  final TextEditingController _enrollmentNo = TextEditingController();
+  final signinController = Get.put(SignInController());
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController firstName =
+        TextEditingController(text: signinController.state.firstName);
+    final TextEditingController lastName =
+        TextEditingController(text: signinController.state.lastName);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: _colors.drawerBgColor,
@@ -54,21 +59,21 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                               width: MediaQuery.of(context).size.width * 0.4,
                               maxLength: 20,
                               titleName: "First name",
-                              hintText: data.firstName ?? "",
+                              hintText: "",
                               keyboardType: TextInputType.name,
                               textInputFormatter: RegExp("[a-zA-Z]"),
                               // maxLengthEnforcement: MaxLengthEnforcement.none,
-                              controller: _firstName,
+                              controller: firstName,
                             ),
                             TextInput(
                               width: MediaQuery.of(context).size.width * 0.4,
                               maxLength: 20,
                               titleName: "Last name",
-                              hintText: data.lastName ?? "",
+                              hintText: "",
                               keyboardType: TextInputType.name,
                               textInputFormatter: RegExp("[a-zA-Z]"),
                               // maxLengthEnforcement: MaxLengthEnforcement.none,
-                              controller: _lastName,
+                              controller: lastName,
                             ),
                           ],
                         ),
@@ -76,11 +81,11 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                           width: MediaQuery.of(context).size.width * 1.0,
                           maxLength: 12,
                           titleName: "Enrollment No.",
-                          hintText: "123456789012",
+                          hintText: "190420107000",
                           keyboardType: TextInputType.number,
                           textInputFormatter: RegExp("[0-9]"),
                           // maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                          controller: _enrollmentNo,
+                          controller: enrollmentNo,
                         ),
                         const SizedBox(
                           height: 7,
@@ -134,7 +139,9 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(30)),
                               onTap: () {
-                                var en = _enrollmentNo.text;
+                                var en = enrollmentNo.text;
+                                signinController.registerNewUser(
+                                    firstName.text, lastName.text, en);
                                 print("Continue button pressed" + en);
                                 Get.offAll(() => const ZoomDrawerScreen());
                               },
