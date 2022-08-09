@@ -37,11 +37,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     ProfileData(
                       title: 'Name 🖊️',
-                      data: "Het Patel",
+                      data: '${data.displayName ?? ""}',
                     ),
                     ProfileData(
                       title: 'Enrollment No. 🔢',
-                      data: '123456789012',
+                      data: '200280116029',
                     ),
                     ProfileData(
                       title: 'Admission year 🗓',

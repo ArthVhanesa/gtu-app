@@ -37,4 +37,3 @@ const rocketAnimation = 'assets/animations/rocket-launch.json';
 const confettiAnimation = 'assets/animations/confetti.json';
 const confetti_2Animation = 'assets/animations/confetti-2.json';
 const trophyAnimation = 'assets/animations/trophy.json';
-const noInternetAnimation = 'assets/animations/no-internet.json';
