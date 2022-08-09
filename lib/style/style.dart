@@ -22,7 +22,7 @@ class AppColors {
 
   final Color skyBlueColor = const Color(0xFFB5E4FF);
   final Color orangeColor = const Color(0xFFFFC692);
-  final Color pistaColor = const Color(0xFFBEF294);
+  static Color pistaColor = const Color(0xFFBEF294);
 
   final Color keepitupColor = const Color(0xFF6B8CA5);
 
