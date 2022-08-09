@@ -24,6 +24,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
     GoogleProfileModel userData = GoogleProfileModel.fromJson(
         jsonDecode(prefs.getString("userData") ?? "{}"));
     if (userData.email != null) {
+      googleUserData = userData;
       isUserAlreadyRegistered(userData.email ?? "");
     }
     log("storedData ${userData.toJson()}");
@@ -75,8 +76,9 @@ class SignInController extends GetxController with StateMixin<dynamic> {
       log("registered: $value");
       dbUserData.value = DbUserModel.fromJson(value['document']);
       ShowCustomSnackBar.success(message: "Successfully registered.");
+      Get.to(() => const ZoomDrawerScreen());
     }, onError: (err) {
-      ShowCustomSnackBar.error(message: "Facing some issues in registration.");
+      ShowCustomSnackBar.error(message: err['error_message'] ?? "");
     });
   }
 
@@ -85,8 +87,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
       GoogleProfileModel userData =
           GoogleProfileModel(displayName: "Student", firstName: "Student");
       prefs.setString("userData", jsonEncode(userData.toJson()));
-      //to show intro screen again.
-      // prefs.setBool('showHome', false);
+
       change(userData, status: RxStatus.success());
       Get.offAll(() => const LogInScreen());
     });
