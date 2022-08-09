@@ -7,6 +7,56 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:gtu_app/provider/globals.dart';
 
 class Provider extends GetConnect {
+  Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  Future<dynamic> getUserByEmail(String email) async {
+    final response = await httpClient
+        .post('${AppGlobals.API_URL}/get-user', body: {"email": email});
+    if (response.statusCode != 200) {
+      return Future.error(response.body.toString());
+    }
+    if (response.status.hasError) {
+      return Future.error(response.statusText!);
+    } else {
+      return response.body;
+    }
+  }
+
+  Future<dynamic> registerNewUser(
+      String email, String fname, String lname, String enrollment) async {
+    final response =
+        await httpClient.post('${AppGlobals.API_URL}/register-user', body: {
+      "email": email,
+      "enrollment_no": enrollment,
+      "first_name": fname,
+      "last_name": lname
+    });
+    if (response.statusCode != 200) {
+      return Future.error(response.body.toString());
+    }
+    if (response.status.hasError) {
+      return Future.error(response.statusText!);
+    } else {
+      return response.body;
+    }
+  }
+
   Future<dynamic> getAllCircular() async {
     final response =
         await httpClient.get('${AppGlobals.API_URL}/circular/recent');
@@ -104,24 +154,6 @@ class Provider extends GetConnect {
     } else {
       return response.body;
     }
-  }
-
-  Future<UserCredential> signInWithGoogle() async {
-    // Trigger the authentication flow
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-    // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
-
-    // Create a new credential
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
-
-    // Once signed in, return the UserCredential
-    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   Future<void> logOut() async {

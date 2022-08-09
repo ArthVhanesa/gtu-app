@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
@@ -67,6 +69,8 @@ class DrawerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userData = signinController.dbUserData;
+
     return Scaffold(
         backgroundColor: _colors.drawerBgColor, // bg color of drawer
         body: SafeArea(
@@ -102,19 +106,21 @@ class DrawerScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      signinController.obx(
-                        (data) => Text(
-                          data.displayName ?? "",
+                      Obx(
+                        () => Text(
+                          "${userData.value.firstName ?? "User"} ${userData.value.lastName ?? ""}",
                           style: _fontStyle.manrope(20, FontWeight.w800),
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Text(
-                        "{Enrollment no.}",
-                        style: _fontStyle
-                            .manrope(15, FontWeight.w700)
-                            .copyWith(color: _colors.titleColor),
-                      ),
+                      Obx(
+                        () => Text(
+                          userData.value.enrollmentNo ?? "",
+                          style: _fontStyle
+                              .manrope(15, FontWeight.w700)
+                              .copyWith(color: _colors.titleColor),
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -181,6 +187,7 @@ class DrawerScreen extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: () {
+            log("log out pressed");
             signinController.logOut();
           },
           borderRadius: const BorderRadius.all(Radius.circular(50)),

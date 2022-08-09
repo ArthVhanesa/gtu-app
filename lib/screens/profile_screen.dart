@@ -29,41 +29,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
         children: [
           Header(card: profileScreen),
           Padding(
-            padding: padding,
-            child: signinController.obx(
-              (data) {
+              padding: padding,
+              child: Obx(() {
+                final userData = signinController.dbUserData.value;
                 return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ProfileData(
-                      title: 'Name 🖊️',
-                      data: "Het Patel",
-                    ),
-                    ProfileData(
-                      title: 'Enrollment No. 🔢',
-                      data: '123456789012',
-                    ),
-                    ProfileData(
-                      title: 'Admission year 🗓',
-                      data: '2020',
-                    ),
-                    ProfileData(
-                      title: 'Course 🎓',
-                      data: 'B.E.',
-                    ),
-                    ProfileData(
-                      title: 'Branch ⚡️',
-                      data: 'Information Technology',
-                    ),
-                    ProfileData(
-                      title: 'College 🏫',
-                      data: 'Lalbhai Dalpatbhai College of Engineering',
-                    ),
-                  ],
-                );
-              },
-            ),
-          ),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ProfileData(
+                        title: 'Name 🖊️',
+                        data:
+                            "${userData.firstName ?? "Anonymous"} ${userData.lastName ?? ""}",
+                      ),
+                      ProfileData(
+                        title: 'Enrollment No. 🔢',
+                        data: userData.enrollmentNo ?? "",
+                      ),
+                      ProfileData(
+                        title: 'Admission year 🗓',
+                        data: userData.admisssionYear ?? "",
+                      ),
+                      ProfileData(
+                        title: 'Course 🎓',
+                        data: 'B.E.',
+                      ),
+                      ProfileData(
+                        title: 'Branch ⚡️',
+                        data: userData.branchName ?? "",
+                      ),
+                      ProfileData(
+                        title: 'College 🏫',
+                        data: userData.collegeName ?? "",
+                      ),
+                    ]);
+              })),
           Expanded(
             child: Align(
               alignment: FractionalOffset.bottomCenter,

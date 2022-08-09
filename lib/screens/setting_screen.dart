@@ -93,7 +93,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                   return AboutApp();
                                 });
                           },
-                          color: _colors.pistaColor,
+                          color: AppColors.pistaColor,
                         ),
                         const SizedBox(height: 110),
                       ],
