@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         scaffoldMessengerKey: AppGlobals.rootScaffoldMessengerKey,
         debugShowCheckedModeBanner: false,
-        title: 'gtu_app',
+        title: 'GTU Info',
         theme: ThemeData(
             scaffoldBackgroundColor: AppColors.bgColor,
             // bottomSheetTheme: BottomSheetThemeData(

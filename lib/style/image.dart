@@ -31,6 +31,7 @@ class AppImage {
 
   static const noDataFoundImg = 'assets/image/noDataFound.png';
 
+  static const pencilImg = 'assets/image/pencil.png';
   static const bellImg = 'assets/image/bell.png';
 
   static const hamburger =
