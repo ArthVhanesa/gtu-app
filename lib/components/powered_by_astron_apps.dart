@@ -5,8 +5,6 @@ import 'package:gtu_app/components/heading.dart';
 import 'package:gtu_app/style/style.dart';
 
 class PoweredbyAstronApps extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
   PoweredbyAstronApps({
     Key? key,
   }) : super(key: key);
@@ -22,7 +20,7 @@ class PoweredbyAstronApps extends StatelessWidget {
           const SizedBox(height: 40),
           Text(
             'Powered by',
-            style: _fontStyle.ebGaramond(20, FontWeight.w600),
+            style: FontStyle.ebGaramond(20, FontWeight.w600),
           ),
           InkWell(
             onTap: () async {
@@ -41,7 +39,7 @@ class PoweredbyAstronApps extends StatelessWidget {
             splashFactory: NoSplash.splashFactory,
             child: Text(
               'Astron Apps⚡️',
-              style: _fontStyle.ebGaramond(25, FontWeight.w600),
+              style: FontStyle.ebGaramond(25, FontWeight.w600),
             ),
           ),
         ],

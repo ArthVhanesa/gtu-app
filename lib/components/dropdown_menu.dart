@@ -21,13 +21,11 @@ class DropDownMenu extends StatefulWidget {
 }
 
 class _DropDownMenuState extends State<DropDownMenu> {
-  final FontStyle _fontStyle = FontStyle();
-
   String? value;
 
   @override
   Widget build(BuildContext context) {
-    TextStyle style = _fontStyle.montserrat(16, FontWeight.w600);
+    TextStyle style = FontStyle.montserrat(16, FontWeight.w600);
 
     return Container(
       height: 48,
@@ -65,7 +63,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
         value: item,
         child: Text(
           item,
-          style: _fontStyle.montserrat(15, FontWeight.normal),
+          style: FontStyle.montserrat(15, FontWeight.normal),
           maxLines: 2, // max line of selected item from dropdown menu
           overflow: TextOverflow.ellipsis,
         ),

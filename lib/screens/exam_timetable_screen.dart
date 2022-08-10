@@ -23,15 +23,13 @@ class ExamTimetableScreen extends StatefulWidget {
 }
 
 class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
-  final FontStyle _fontStyle = FontStyle();
-
   final timeTableController = Get.put(TimeTableController());
 
   String? value;
 
   @override
   Widget build(BuildContext context) {
-    TextStyle style = _fontStyle.montserrat(16, FontWeight.w600);
+    TextStyle style = FontStyle.montserrat(16, FontWeight.w600);
 
     return WillPopScope(
         onWillPop: AppGlobals.onBackPressed,
@@ -82,7 +80,6 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
 }
 
 class InputSection2 extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
   final TextEditingController _controller = TextEditingController();
   late TextStyle style;
   final timeTableController = Get.put(TimeTableController());
@@ -118,8 +115,7 @@ class InputSection2 extends StatelessWidget {
           child: Center(
               child: Text(
             'Search',
-            style: _fontStyle
-                .montserrat(20, FontWeight.w600)
+            style: FontStyle.montserrat(20, FontWeight.w600)
                 .copyWith(color: AppColors.whiteColor),
           )),
         ),
@@ -203,7 +199,7 @@ class InputSection2 extends StatelessWidget {
                       child: TextField(
                         controller: _controller,
                         maxLength: 4,
-                        style: _fontStyle.montserrat(15, FontWeight.normal),
+                        style: FontStyle.montserrat(15, FontWeight.normal),
                         inputFormatters: <TextInputFormatter>[
                           FilteringTextInputFormatter.allow(RegExp("[0-9]")),
                           LengthLimitingTextInputFormatter(2)

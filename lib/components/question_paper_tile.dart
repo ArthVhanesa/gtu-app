@@ -6,7 +6,6 @@ import 'package:gtu_app/style/style.dart';
 import 'package:gtu_app/utils/pdf_viewer.dart';
 
 class QuestionPaperTile extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
   QuestionPaperModel questionPaper;
 
   QuestionPaperTile({
@@ -41,11 +40,11 @@ class QuestionPaperTile extends StatelessWidget {
                     children: [
                       Text(
                         "${questionPaper.subcode} (${questionPaper.session})", //pass subject code
-                        style: _fontStyle.montserrat(16, FontWeight.w600),
+                        style: FontStyle.montserrat(16, FontWeight.w600),
                       ),
                       // Text(
                       //   "questionPaper.subcode", //pass subject name
-                      //   style: _fontStyle.manrope(13, FontWeight.w600),
+                      //   style: FontStyle.manrope(13, FontWeight.w600),
                       //   overflow: TextOverflow.ellipsis,
                       //   maxLines: 2,
                       // )

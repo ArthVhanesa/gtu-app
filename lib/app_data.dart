@@ -18,40 +18,40 @@ String astronApps =
     'https://play.google.com/store/apps/dev?id=9082115799273054085';
 
 // Privacy policy link
-String privacyPolicy = 'https://www.google.com';
+String privacyPolicy = 'https://gtu-info.unicornplatform.page/privacy-policy/';
 
 // Terms of Use link
-String termsOfUse = 'https://www.github.com';
+String termsOfUse = 'https://gtu-info.unicornplatform.page/terms-of-use/';
 
 // Mail for receive bug report and feedback
 String toEmail = 'contact.bookocean@gmail.com';
 
 class BugReport {
   // Subject of Bug report mail
-  String subject = 'Bug Report';
+  static String subject = 'Bug Report';
   // Body of Bud report mail
-  String body =
+  static String body =
       'We are ready to improve App with help of your bug report.\n\nThank you.';
 }
 
 class HelpFeedback {
   // Subject of Help & Feedback mail
-  String subject = 'Feedback/Suggestion';
+  static String subject = 'Feedback/Suggestion';
   // Body of Help & Feedback mail
-  String body =
+  static String body =
       'Your suggestions and feedbacks are welcomed by Astron Apps.\n\nThank you.';
 }
 
 // Developer 1 details
 class Dev1 {
-  String name = 'Arth';
-  String linkedinLink = 'https://www.linkedin.com/in/arthvhanesa/';
-  String twitterLink = 'https://twitter.com/ArthVhanesa';
+  static String name = 'Arth';
+  static String linkedinLink = 'https://www.linkedin.com/in/arthvhanesa/';
+  static String twitterLink = 'https://twitter.com/ArthVhanesa';
 }
 
 // Developer 2 details
 class Dev2 {
-  String name = 'Kartik';
-  String linkedinLink = 'https://www.linkedin.com/in/kartik-jetani';
-  String twitterLink = 'https://twitter.com/JetaniKartik';
+  static String name = 'Kartik';
+  static String linkedinLink = 'https://www.linkedin.com/in/kartik-jetani';
+  static String twitterLink = 'https://twitter.com/JetaniKartik';
 }

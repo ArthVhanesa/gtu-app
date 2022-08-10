@@ -21,8 +21,6 @@ class PdfViewer extends StatefulWidget {
 }
 
 class _PdfViewerState extends State<PdfViewer> {
-  final FontStyle _style = FontStyle();
-
   late PDFViewController controller;
   int? pages = 0;
   int? indexPage = 0;
@@ -47,18 +45,18 @@ class _PdfViewerState extends State<PdfViewer> {
           //Pdf viewer Appbar title
           title: Text(
             name == null ? 'PDF Viewer' : name!.substring(0, name!.length - 4),
-            style: _style.manrope(18, FontWeight.w500).copyWith(
-                  color: AppColors.blackColor,
-                ),
+            style: FontStyle.manrope(18, FontWeight.w500).copyWith(
+              color: AppColors.blackColor,
+            ),
           ),
           actions: pages! >= 2
               ? [
                   Center(
                       child: Text(
                     text,
-                    style: _style.manrope(15, FontWeight.w500).copyWith(
-                          color: AppColors.blackColor,
-                        ),
+                    style: FontStyle.manrope(15, FontWeight.w500).copyWith(
+                      color: AppColors.blackColor,
+                    ),
                   )),
                   IconButton(
                     icon: const Icon(Icons.chevron_left, size: 32),

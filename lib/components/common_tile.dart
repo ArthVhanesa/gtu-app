@@ -17,8 +17,6 @@ class CommonTile extends StatefulWidget {
 }
 
 class _CommonTileState extends State<CommonTile> {
-  final FontStyle _fontStyle = FontStyle();
-
   bool isSubtitle = false;
 
   bool isDate = false;
@@ -70,7 +68,7 @@ class _CommonTileState extends State<CommonTile> {
                         itemBuilder: (BuildContext context, int index) {
                           return Text(
                             "• ${widget.commonCardData.ptags![0].atags![index].atext}",
-                            style: _fontStyle.montserrat(15, FontWeight.w600),
+                            style: FontStyle.montserrat(15, FontWeight.w600),
                             overflow: TextOverflow.ellipsis,
                             maxLines: 5,
                           );
@@ -82,8 +80,7 @@ class _CommonTileState extends State<CommonTile> {
                 isDate
                     ? Text(
                         widget.commonCardData.date!, //pass subject name
-                        style: _fontStyle
-                            .manrope(13, FontWeight.w600)
+                        style: FontStyle.manrope(13, FontWeight.w600)
                             .copyWith(color: AppColors.titleColor),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
@@ -110,8 +107,6 @@ class ModalBottomSheet extends StatefulWidget {
 }
 
 class _ModalBottomSheetState extends State<ModalBottomSheet> {
-  final FontStyle _fontStyle = FontStyle();
-
   bool isDate = false;
   @override
   Widget build(BuildContext context) {
@@ -143,12 +138,12 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
                     children: [
                       Text(
                         'Circular',
-                        style: _fontStyle.montserrat(20, FontWeight.w600),
+                        style: FontStyle.montserrat(20, FontWeight.w600),
                       ),
                       isDate
                           ? Text(
                               'Date: ${widget.commonCardData.date!}',
-                              style: _fontStyle.manrope(16, FontWeight.w600),
+                              style: FontStyle.manrope(16, FontWeight.w600),
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
                             )
@@ -187,7 +182,7 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
                         Expanded(
                           child: Text(
                             "• ${widget.commonCardData.ptags![0].atags![index].atext}",
-                            style: _fontStyle.manrope(15, FontWeight.w600),
+                            style: FontStyle.manrope(15, FontWeight.w600),
                           ),
                         ),
                         Container(
@@ -214,11 +209,11 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
                                 child: Center(
                                   child: Text(
                                     'View',
-                                    style: _fontStyle
-                                        .montserrat(15, FontWeight.w500)
+                                    style: FontStyle.montserrat(
+                                            15, FontWeight.w500)
                                         .copyWith(
-                                          color: AppColors.linkBlueColor,
-                                        ),
+                                      color: AppColors.linkBlueColor,
+                                    ),
                                   ),
                                 ),
                               ),

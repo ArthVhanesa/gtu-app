@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:gtu_app/components/custom_loading_indicator.dart';
 import 'package:gtu_app/components/header.dart';
 import 'package:gtu_app/components/heading.dart';
+import 'package:gtu_app/components/no_data_found.dart';
 import 'package:gtu_app/components/powered_by_astron_apps.dart';
 import 'package:gtu_app/components/question_paper_tile.dart';
 import 'package:gtu_app/components/searchbar.dart';
@@ -29,8 +30,6 @@ class SearchResultScreen extends StatefulWidget {
 }
 
 class _SearchResultScreenState extends State<SearchResultScreen> {
-  final FontStyle _fontStyle = FontStyle();
-
   final syllabusController = Get.put(SyllabusController());
   final questionPaperController = Get.put(QuestionPaperController());
   final textEditingController = Get.put(TextEditingController());
@@ -101,26 +100,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                         },
                       ),
                       onLoading: CustomLoadingIndicator(),
-                      onError: (error) => Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              noDataFound,
-                              height: 200,
-                            ),
-                            const SizedBox(height: 15),
-                            Text(
-                              error!,
-                              style: _fontStyle
-                                  .manrope(18, FontWeight.w600)
-                                  .copyWith(
-                                    color: AppColors.primaryColor,
-                                  ),
-                            )
-                          ],
-                        ),
-                      ),
+                      onError: (error) => NoDataFound(error: error),
                     ),
                     const SizedBox(
                       height: 40,
@@ -146,26 +126,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                         );
                       },
                       onLoading: CustomLoadingIndicator(),
-                      onError: (error) => Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              noDataFound,
-                              height: 200,
-                            ),
-                            const SizedBox(height: 15),
-                            Text(
-                              error!,
-                              style: _fontStyle
-                                  .manrope(18, FontWeight.w600)
-                                  .copyWith(
-                                    color: AppColors.primaryColor,
-                                  ),
-                            )
-                          ],
-                        ),
-                      ),
+                      onError: (error) => NoDataFound(error: error),
                     ),
                     PoweredbyAstronApps()
                   ],

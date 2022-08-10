@@ -13,8 +13,6 @@ class ResultScreen extends StatefulWidget {
 }
 
 class _ResultScreenState extends State<ResultScreen> {
-  final FontStyle _fontStyle = FontStyle();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

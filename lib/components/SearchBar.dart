@@ -4,8 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:gtu_app/style/style.dart';
 
 class SearchBar extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
   final TextEditingController searchInputController;
 
   void Function() onTap;
@@ -36,7 +34,7 @@ class SearchBar extends StatelessWidget {
                   onSubmitted: onSubmitted,
                   textInputAction: TextInputAction.done,
                   maxLength: 7,
-                  style: _fontStyle.montserrat(16, FontWeight.normal),
+                  style: FontStyle.montserrat(16, FontWeight.normal),
                   inputFormatters: <TextInputFormatter>[
                     FilteringTextInputFormatter.allow(RegExp("[0-9]"))
                   ],

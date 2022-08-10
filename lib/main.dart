@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/models/user_model.dart';
 import 'package:gtu_app/provider/globals.dart';
 import 'package:gtu_app/screens/drawer_screen.dart';

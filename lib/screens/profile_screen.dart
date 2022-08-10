@@ -15,8 +15,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  final FontStyle _fontStyle = FontStyle();
-
   final signinController = Get.put(SignInController());
 
   @override
@@ -91,8 +89,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Center(
               child: Text(
                 'Settings',
-                style: _fontStyle
-                    .montserrat(20, FontWeight.w600)
+                style: FontStyle.montserrat(20, FontWeight.w600)
                     .copyWith(color: AppColors.titleColor),
               ),
             ),
@@ -104,8 +101,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 }
 
 class ProfileData extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
   final String title;
   final String data;
 
@@ -122,11 +117,11 @@ class ProfileData extends StatelessWidget {
       children: [
         Text(
           title,
-          style: _fontStyle.montserrat(16, FontWeight.bold),
+          style: FontStyle.montserrat(16, FontWeight.bold),
         ),
         Text(
           data,
-          style: _fontStyle.montserrat(20, FontWeight.normal),
+          style: FontStyle.montserrat(20, FontWeight.normal),
         ),
         const SizedBox(
           height: 20,

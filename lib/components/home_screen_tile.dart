@@ -12,8 +12,6 @@ class HomeScreenTile extends StatelessWidget {
     required this.tile,
   }) : super(key: key);
 
-  final FontStyle _fontStyle = FontStyle();
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,7 +19,7 @@ class HomeScreenTile extends StatelessWidget {
       children: [
         Text(
           tile.title,
-          style: _fontStyle.montserrat(24, FontWeight.w800),
+          style: FontStyle.montserrat(24, FontWeight.w800),
         ),
         const SizedBox(
           height: 18,

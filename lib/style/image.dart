@@ -1,40 +1,49 @@
-const logoImg = 'assets/logo.png';
+class AppImage {
+  static const logoImg = 'assets/logo.png';
 
-const rocketImg = 'assets/image/rocket.png';
-const googleLogoImg = 'assets/image/googleLogo.png';
+  static const rocketImg = 'assets/image/rocket.png';
+  static const googleLogoImg = 'assets/image/googleLogo.png';
 
-const profileIconImg = 'assets/image/profileIcon.png';
-const profileImageImg = 'assets/image/profileImage.png';
+  static const profileIconImg = 'assets/image/profileIcon.png';
+  static const profileImageImg = 'assets/image/profileImage.png';
 
-const syllabusImg = 'assets/image/syllabus.png';
-const questionPaperImg = 'assets/image/questionPaper.png';
-const resultImg = 'assets/image/result.png';
-const circularImg = 'assets/image/circular.png';
-const academicCalendarImg = 'assets/image/academicCalendar.png';
-const studentCornerImg = 'assets/image/studentCorner.png';
-const examTimetableImg = 'assets/image/examTimetable.png';
-const pointActivityImg = 'assets/image/pointActivity.png';
-const studentPortalImg = 'assets/image/studentPortal.png';
-const searchImg = 'assets/image/search.png';
-const settingImg = 'assets/image/setting.png';
+  static const syllabusImg = 'assets/image/syllabus.png';
+  static const questionPaperImg = 'assets/image/questionPaper.png';
+  static const resultImg = 'assets/image/result.png';
+  static const circularImg = 'assets/image/circular.png';
+  static const academicCalendarImg = 'assets/image/academicCalendar.png';
+  static const studentCornerImg = 'assets/image/studentCorner.png';
+  static const examTimetableImg = 'assets/image/examTimetable.png';
+  static const pointActivityImg = 'assets/image/pointActivity.png';
+  static const studentPortalImg = 'assets/image/studentPortal.png';
+  static const searchImg = 'assets/image/search.png';
+  static const settingImg = 'assets/image/setting.png';
 
-const resultImageImg = 'assets/image/resultImage.png';
-const midMarksImg = 'assets/image/midMarks.png';
-const gradeHistoryImg = 'assets/image/gradeHistory.png';
-const percentageCalculatorImg = 'assets/image/percentageCalculator.png';
+  static const resultImageImg = 'assets/image/resultImage.png';
+  static const midMarksImg = 'assets/image/midMarks.png';
+  static const gradeHistoryImg = 'assets/image/gradeHistory.png';
+  static const percentageCalculatorImg =
+      'assets/image/percentageCalculator.png';
 
-const errorImg = 'assets/image/error.png';
-const warningImg = 'assets/image/warning.png';
-const noDataFound = 'assets/image/noDataFound.png';
+  static const errorImg = 'assets/image/error.png';
+  static const warningImg = 'assets/image/warning.png';
+  static const sucessImg = 'assets/image/midMarks.png';
 
-const hamburger = 'assets/icons/hamburger.svg'; // svg icon for hamburger
+  static const noDataFoundImg = 'assets/image/noDataFound.png';
 
-const bellImg = 'assets/image/bell.png';
+  static const bellImg = 'assets/image/bell.png';
 
+  static const hamburger =
+      'assets/icons/hamburger.svg'; // svg icon for hamburger
+
+}
+
+class AppAnimation {
 // Animations
 
-const rocketAnimation = 'assets/animations/rocket-launch.json';
-const confettiAnimation = 'assets/animations/confetti.json';
-const confetti_2Animation = 'assets/animations/confetti-2.json';
-const trophyAnimation = 'assets/animations/trophy.json';
-const noInternetAnimation = 'assets/animations/no-internet.json';
+  static const rocketAnimation = 'assets/animations/rocket-launch.json';
+  static const confettiAnimation = 'assets/animations/confetti.json';
+  static const confetti_2Animation = 'assets/animations/confetti-2.json';
+  static const trophyAnimation = 'assets/animations/trophy.json';
+  static const noInternetAnimation = 'assets/animations/no-internet.json';
+}

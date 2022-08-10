@@ -16,8 +16,6 @@ class AboutApp extends StatefulWidget {
 }
 
 class _AboutAppState extends State<AboutApp> {
-  final FontStyle _fontStyle = FontStyle();
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -45,7 +43,7 @@ class _AboutAppState extends State<AboutApp> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.asset(
-                          logoImg,
+                          AppImage.logoImg,
                           height: 120,
                           width: 120,
                           fit: BoxFit.fill,
@@ -55,21 +53,19 @@ class _AboutAppState extends State<AboutApp> {
                         children: [
                           Text(
                             appName,
-                            style: _fontStyle.manrope(18, FontWeight.bold),
+                            style: FontStyle.manrope(18, FontWeight.bold),
                           ),
                           const SizedBox(height: 5),
                           Text(
                             'Version $version',
-                            style: _fontStyle
-                                .montserrat(14, FontWeight.w500)
+                            style: FontStyle.montserrat(14, FontWeight.w500)
                                 .copyWith(decoration: TextDecoration.underline),
                           ),
                         ],
                       ),
                       Text(
                         copyrightMessage,
-                        style: _fontStyle
-                            .montserrat(14, FontWeight.w500)
+                        style: FontStyle.montserrat(14, FontWeight.w500)
                             .copyWith(color: AppColors.titleColor),
                       ),
                       const SizedBox(height: 10),
@@ -88,7 +84,7 @@ class _AboutAppState extends State<AboutApp> {
                   ),
                   child: Text(
                     aboutAppMessage,
-                    style: _fontStyle.manrope(15, FontWeight.normal),
+                    style: FontStyle.manrope(15, FontWeight.normal),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -103,7 +99,7 @@ class _AboutAppState extends State<AboutApp> {
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: Text(
                         'Developed and maintained by Astron Apps',
-                        style: _fontStyle.manrope(20, FontWeight.w500),
+                        style: FontStyle.manrope(20, FontWeight.w500),
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -113,14 +109,14 @@ class _AboutAppState extends State<AboutApp> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           nameWithSocials(
-                            name: Dev1().name,
-                            linkedinLink: Dev1().linkedinLink,
-                            twitterLink: Dev1().twitterLink,
+                            name: Dev1.name,
+                            linkedinLink: Dev1.linkedinLink,
+                            twitterLink: Dev1.twitterLink,
                           ),
                           nameWithSocials(
-                            name: Dev2().name,
-                            linkedinLink: Dev2().linkedinLink,
-                            twitterLink: Dev2().twitterLink,
+                            name: Dev2.name,
+                            linkedinLink: Dev2.linkedinLink,
+                            twitterLink: Dev2.twitterLink,
                           ),
                         ],
                       ),
@@ -144,8 +140,7 @@ class _AboutAppState extends State<AboutApp> {
       children: [
         Text(
           name,
-          style: _fontStyle
-              .manrope(18, FontWeight.w600)
+          style: FontStyle.manrope(18, FontWeight.w600)
               .copyWith(decoration: TextDecoration.underline),
         ),
         const SizedBox(height: 10),

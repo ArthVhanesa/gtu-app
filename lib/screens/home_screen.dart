@@ -23,8 +23,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final FontStyle _fontStyle = FontStyle();
-
   final signinController = Get.put(SignInController());
   final textController = Get.put(TextEditingController());
 
@@ -52,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           FocusManager.instance.primaryFocus?.unfocus();
                         },
                         child: SvgPicture.asset(
-                          hamburger,
+                          AppImage.hamburger,
                           height: 35,
                           width: 35,
                           color: AppColors.blackColor,
@@ -64,13 +62,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       Expanded(
                         child: signinController.obx((data) => AutoSizeText(
                               "Hi, ${data.firstName ?? ""}👋",
-                              style: _fontStyle.montserrat(25, FontWeight.w600),
+                              style: FontStyle.montserrat(25, FontWeight.w600),
                               maxLines: 1,
                             )),
                       ),
                       CircleAvatar(
                         radius: 23,
-                        backgroundImage: const AssetImage(profileIconImg),
+                        backgroundImage:
+                            const AssetImage(AppImage.profileIconImg),
                         backgroundColor: AppColors.blackColor,
                         child: Material(
                           shape: const CircleBorder(),
