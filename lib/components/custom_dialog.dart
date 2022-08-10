@@ -17,8 +17,6 @@ class CustomDialog extends StatelessWidget {
     required this.buttonName,
   }) : super(key: key);
 
-  final FontStyle _fontStyle = FontStyle();
-
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -44,14 +42,13 @@ class CustomDialog extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: _fontStyle.manrope(18, FontWeight.bold),
+                    style: FontStyle.manrope(18, FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 10),
                   Text(
                     message,
-                    style: _fontStyle
-                        .manrope(16, FontWeight.bold)
+                    style: FontStyle.manrope(16, FontWeight.bold)
                         .copyWith(color: AppColors.titleColor),
                     textAlign: TextAlign.center,
                   ),
@@ -75,7 +72,7 @@ class CustomDialog extends StatelessWidget {
                             ),
                             child: Text(
                               buttonName,
-                              style: _fontStyle.manrope(18, FontWeight.bold),
+                              style: FontStyle.manrope(18, FontWeight.bold),
                             ),
                           ),
                         ),
@@ -107,7 +104,7 @@ class ShowCustomDialog {
       {required context,
       required String title,
       required String message,
-      String image = circularImg,
+      String image = AppImage.circularImg,
       String buttonName = 'Ok'}) {
     return showDialog(
       context: context,

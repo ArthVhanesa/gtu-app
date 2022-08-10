@@ -21,24 +21,24 @@ List<IntroductionScreenData> introductionScreenData = [
     color: AppColors.lightMossGreenColor,
     title: 'Academic Curriculum',
     body: 'Explore your syllabus of each and every subject.',
-    image: syllabusImg,
+    image: AppImage.syllabusImg,
   ),
   IntroductionScreenData(
     color: AppColors.lavenderColor,
     title: 'Previous Question Papers',
     body: 'Solve more, clear all the concepts and boost your grades.',
-    image: questionPaperImg,
+    image: AppImage.questionPaperImg,
   ),
   IntroductionScreenData(
     color: AppColors.lightYellowColor,
     title: 'GTU\nCirculars',
     body: 'Stay up-to-date with all the GTU announcements.',
-    image: circularImg,
+    image: AppImage.circularImg,
   ),
   IntroductionScreenData(
     color: AppColors.lightRedColor,
     title: 'Exam\nTimetable',
     body: 'Save your exam dates to excel in every exam.',
-    image: examTimetableImg,
+    image: AppImage.examTimetableImg,
   ),
 ];

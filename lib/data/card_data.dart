@@ -34,7 +34,7 @@ CardData searchResultScreen = CardData(
     title: '',
     tagline: '',
     color: AppColors.lavenderColor,
-    image: searchImg,
+    image: AppImage.searchImg,
     onTapLink: '',
     pageTitle: 'Search 🔍', //pass subject code here
     pageSubtitle: '', //pass subject name here
@@ -45,7 +45,7 @@ CardData syllabus = CardData(
     title: 'Syllabus',
     tagline: '',
     color: AppColors.lightMossGreenColor,
-    image: syllabusImg,
+    image: AppImage.syllabusImg,
     onTapLink: '',
     pageTitle: 'Syllabus 📖',
     pageSubtitle: '',
@@ -56,7 +56,7 @@ CardData questionPaper = CardData(
     title: 'Question Paper',
     tagline: '',
     color: AppColors.lavenderColor,
-    image: questionPaperImg,
+    image: AppImage.questionPaperImg,
     onTapLink: '',
     pageTitle: 'Question Paper 📋',
     pageSubtitle: '',
@@ -67,7 +67,7 @@ CardData result = CardData(
     title: 'Result',
     tagline: 'All you need is here',
     color: AppColors.waterBlueColor,
-    image: resultImg,
+    image: AppImage.resultImg,
     onTapLink: '',
     pageTitle: 'Result 📊',
     pageSubtitle: '',
@@ -78,7 +78,7 @@ CardData circular = CardData(
     title: 'Circular',
     tagline: '',
     color: AppColors.lightYellowColor,
-    image: circularImg,
+    image: AppImage.circularImg,
     onTapLink: '',
     pageTitle: 'Circular 📃',
     pageSubtitle: '',
@@ -90,7 +90,7 @@ CardData academicCalendar = CardData(
     title: 'Academic Calendar',
     tagline: '',
     color: AppColors.lightOrangeColor,
-    image: academicCalendarImg,
+    image: AppImage.academicCalendarImg,
     onTapLink: '',
     pageTitle: 'Academic Calendar 📆',
     pageSubtitle: '',
@@ -102,7 +102,7 @@ CardData studentCorner = CardData(
     title: 'Student Corner',
     tagline: '',
     color: AppColors.lightRedColor,
-    image: studentCornerImg,
+    image: AppImage.studentCornerImg,
     onTapLink: 'https://www.gtu.ac.in/StudentCorner.aspx',
     pageTitle: 'Student Corner 📪',
     pageSubtitle: '',
@@ -114,7 +114,7 @@ CardData examTimetable = CardData(
     title: 'Exam Timetable',
     tagline: '',
     color: AppColors.lightPinkColor,
-    image: examTimetableImg,
+    image: AppImage.examTimetableImg,
     onTapLink: '',
     pageTitle: 'Exam Timetable ⏰',
     pageSubtitle: '',
@@ -126,7 +126,7 @@ CardData pointActivity = CardData(
     title: 'Point Activity',
     tagline: '',
     color: AppColors.lightPistaColor,
-    image: pointActivityImg,
+    image: AppImage.pointActivityImg,
     onTapLink: 'https://www.100points.gtu.ac.in', //pass link here
 
     pageTitle: '',
@@ -138,7 +138,7 @@ CardData studentPortal = CardData(
     title: 'Student Portal',
     tagline: '',
     color: AppColors.lightGreenColor,
-    image: studentPortalImg,
+    image: AppImage.studentPortalImg,
     onTapLink: 'https://student.gtu.ac.in/Login.aspx', //pass link here
 
     pageTitle: '',
@@ -152,7 +152,7 @@ CardData resultTile = CardData(
     title: 'Result',
     tagline: '',
     color: AppColors.lightMossGreenColor,
-    image: resultImageImg,
+    image: AppImage.resultImageImg,
     onTapLink: 'https://www.gturesults.in', //pass link here
 
     pageTitle: '',
@@ -164,7 +164,7 @@ CardData midMarks = CardData(
     title: 'Internal/Mid Marks',
     tagline: '',
     color: AppColors.lavenderColor,
-    image: midMarksImg,
+    image: AppImage.midMarksImg,
     onTapLink:
         'https://www.me.gtu.ac.in/student/Studentmarkdisplay.aspx', //pass link here
 
@@ -177,7 +177,7 @@ CardData gradeHistory = CardData(
     title: 'Grade History',
     tagline: '',
     color: AppColors.lightlavenderColor,
-    image: gradeHistoryImg,
+    image: AppImage.gradeHistoryImg,
     onTapLink: 'https://www.students.gtu.ac.in', //pass link here
 
     pageTitle: '',
@@ -189,7 +189,7 @@ CardData percentageCalculator = CardData(
     title: 'Percentage Calculator',
     tagline: '',
     color: AppColors.lightOrangeColor,
-    image: percentageCalculatorImg,
+    image: AppImage.percentageCalculatorImg,
     onTapLink: '',
     pageTitle: 'Percentage Calculator 💯',
     pageSubtitle: '',
@@ -202,7 +202,7 @@ CardData profileScreen = CardData(
     title: '',
     tagline: '',
     color: AppColors.whiteColor,
-    image: profileImageImg,
+    image: AppImage.profileImageImg,
     onTapLink: '',
     pageTitle: 'Profile 🗂',
     pageSubtitle: '',
@@ -213,7 +213,7 @@ CardData settingScreen = CardData(
     title: '',
     tagline: '',
     color: AppColors.whiteColor,
-    image: settingImg,
+    image: AppImage.settingImg,
     onTapLink: '',
     pageTitle: 'Settings ⚙️',
     pageSubtitle: '',

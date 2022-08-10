@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/style/style.dart';
 
 class Heading extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
   final String heading;
 
   Heading({
@@ -20,7 +18,7 @@ class Heading extends StatelessWidget {
         children: [
           Text(
             heading,
-            style: _fontStyle.montserrat(18, FontWeight.w600),
+            style: FontStyle.montserrat(18, FontWeight.w600),
           ),
           const SizedBox(
             width: 15,

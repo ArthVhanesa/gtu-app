@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:gtu_app/components/custom_loading_indicator.dart';
 import 'package:gtu_app/components/header.dart';
 import 'package:gtu_app/components/heading.dart';
+import 'package:gtu_app/components/no_data_found.dart';
 import 'package:gtu_app/components/powered_by_astron_apps.dart';
 import 'package:gtu_app/components/searchbar.dart';
 import 'package:gtu_app/components/syllabus_tile.dart';
@@ -11,7 +12,6 @@ import 'package:gtu_app/controllers/syllabus_controller.dart';
 import 'package:gtu_app/data/card_data.dart';
 import 'package:gtu_app/models/syllabus_model.dart';
 import 'package:gtu_app/provider/globals.dart';
-import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/style/style.dart';
 
 class SyllabusScreen extends StatefulWidget {
@@ -22,8 +22,6 @@ class SyllabusScreen extends StatefulWidget {
 }
 
 class _SyllabusScreenState extends State<SyllabusScreen> {
-  final FontStyle _fontStyle = FontStyle();
-
   final _syllabusController = Get.put(SyllabusController());
   final TextEditingController _syllabusInputController =
       TextEditingController();
@@ -86,26 +84,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
                         ),
                         onLoading: CustomLoadingIndicator(),
                         // onError widget
-                        onError: (error) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                noDataFound,
-                                height: 200,
-                              ),
-                              const SizedBox(height: 15),
-                              Text(
-                                error!,
-                                style: _fontStyle
-                                    .manrope(18, FontWeight.w600)
-                                    .copyWith(
-                                      color: AppColors.primaryColor,
-                                    ),
-                              )
-                            ],
-                          ),
-                        ),
+                        onError: (error) => NoDataFound(error: error),
                       ),
                       PoweredbyAstronApps()
                     ],

@@ -4,8 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:gtu_app/style/style.dart';
 
 class TextInput extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
   final double width;
   final int maxLength;
   final String hintText;
@@ -30,7 +28,7 @@ class TextInput extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(titleName, style: _fontStyle.manrope(20, FontWeight.w700)),
+        Text(titleName, style: FontStyle.manrope(20, FontWeight.w700)),
         const SizedBox(
           height: 10,
         ),
@@ -54,7 +52,7 @@ class TextInput extends StatelessWidget {
                   ],
                   // maxLengthEnforcement: maxLengthEnforcement,
                   maxLength: maxLength,
-                  style: _fontStyle.manrope(18, FontWeight.normal),
+                  style: FontStyle.manrope(18, FontWeight.normal),
                   decoration: InputDecoration(
                       hintText: hintText,
                       counterText: '',

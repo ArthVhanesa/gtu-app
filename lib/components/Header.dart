@@ -23,8 +23,6 @@ class _HeaderState extends State<Header> {
 
   bool ispageLink = false;
 
-  final FontStyle _fontStyle = FontStyle();
-
   @override
   Widget build(BuildContext context) {
     if (widget.card.pageSubtitle != '') {
@@ -60,7 +58,7 @@ class _HeaderState extends State<Header> {
                       width: MediaQuery.of(context).size.width * 0.5,
                       child: Text(
                         widget.card.pageTitle,
-                        style: _fontStyle.montserrat(25, FontWeight.w700),
+                        style: FontStyle.montserrat(25, FontWeight.w700),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                       ),
@@ -73,7 +71,7 @@ class _HeaderState extends State<Header> {
                         margin: const EdgeInsets.only(left: 48),
                         child: Text(
                           widget.card.pageSubtitle,
-                          style: _fontStyle.montserrat(15, FontWeight.w700),
+                          style: FontStyle.montserrat(15, FontWeight.w700),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                         ),
@@ -92,8 +90,7 @@ class _HeaderState extends State<Header> {
                               tapTargetSize: MaterialTapTargetSize.shrinkWrap),
                           child: Text(
                             'Official Website 🔗',
-                            style: _fontStyle
-                                .montserrat(15, FontWeight.normal)
+                            style: FontStyle.montserrat(15, FontWeight.normal)
                                 .copyWith(color: AppColors.linkBlueColor),
                           ),
                         ),

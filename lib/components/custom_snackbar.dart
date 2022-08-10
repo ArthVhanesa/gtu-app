@@ -13,16 +13,14 @@ class SnackBarType {
   });
 
   static SnackBarType error =
-      SnackBarType(color: Color(0xFFFFCFCF), image: errorImg);
+      SnackBarType(color: AppColors.errorColor, image: AppImage.errorImg);
   static SnackBarType warning =
-      SnackBarType(color: Color(0xFFFFF9BF), image: warningImg);
+      SnackBarType(color: AppColors.warningColor, image: AppImage.warningImg);
   static SnackBarType success =
-      SnackBarType(color: AppColors.pistaColor, image: warningImg);
+      SnackBarType(color: AppColors.sucessColor, image: AppImage.sucessImg);
 }
 
 class CustomSnackBar extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
   String title;
   String message;
   SnackBarType snackBarType;
@@ -62,14 +60,12 @@ class CustomSnackBar extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: _fontStyle
-                      .manrope(18, FontWeight.w600)
+                  style: FontStyle.manrope(18, FontWeight.w600)
                       .copyWith(color: AppColors.blackColor),
                 ),
                 Text(
                   message,
-                  style: _fontStyle
-                      .manrope(12, FontWeight.w500)
+                  style: FontStyle.manrope(12, FontWeight.w500)
                       .copyWith(color: AppColors.blackColor),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,

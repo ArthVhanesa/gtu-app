@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/style/style.dart';
 
 class ModalBottomColumnThree extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
   final Color color;
   final String title;
   final String boxTitle1;
@@ -33,7 +31,7 @@ class ModalBottomColumnThree extends StatelessWidget {
       children: [
         Text(
           title,
-          style: _fontStyle.montserrat(18, FontWeight.w600),
+          style: FontStyle.montserrat(18, FontWeight.w600),
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
         ),
@@ -81,8 +79,6 @@ class _Box extends StatefulWidget {
 }
 
 class _BoxState extends State<_Box> {
-  final FontStyle _fontStyle = FontStyle();
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -96,13 +92,11 @@ class _BoxState extends State<_Box> {
         children: [
           Text(
             '${widget.number}',
-            style: _fontStyle
-                .montserrat(40, FontWeight.w600)
+            style: FontStyle.montserrat(40, FontWeight.w600)
                 .copyWith(color: AppColors.titleColor, height: 1),
           ),
           Text(widget.title,
-              style: _fontStyle
-                  .manrope(15, FontWeight.normal)
+              style: FontStyle.manrope(15, FontWeight.normal)
                   .copyWith(color: AppColors.titleColor))
         ],
       ),

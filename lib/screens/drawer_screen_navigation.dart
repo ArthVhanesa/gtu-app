@@ -90,8 +90,6 @@ class _ZoomDrawerScreenNavigationState
 }
 
 class DrawerScreen extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
   final MenuItemData currentItem;
   final ValueChanged<MenuItemData> onSelectedItem;
 
@@ -121,12 +119,12 @@ class DrawerScreen extends StatelessWidget {
                 children: [
                   const CircleAvatar(
                     radius: 50,
-                    backgroundImage: AssetImage(profileIconImg),
+                    backgroundImage: AssetImage(AppImage.profileIconImg),
                   ),
                   const SizedBox(height: 10),
                   signinController.obx((data) => Text(
                         data.displayName,
-                        style: _fontStyle.manrope(20, FontWeight.w800),
+                        style: FontStyle.manrope(20, FontWeight.w800),
                       )),
                 ],
               ),
@@ -161,9 +159,9 @@ class DrawerScreen extends StatelessWidget {
                   const SizedBox(width: 6),
                   Text(
                     'Log Out',
-                    style: _fontStyle.manrope(16, FontWeight.w700).copyWith(
-                          color: AppColors.bgColor,
-                        ),
+                    style: FontStyle.manrope(16, FontWeight.w700).copyWith(
+                      color: AppColors.bgColor,
+                    ),
                   ),
                   const SizedBox(width: 5)
                 ],
@@ -185,7 +183,7 @@ class DrawerScreen extends StatelessWidget {
         leading: Icon(item.icon),
         title: Text(
           item.title,
-          style: _fontStyle.manrope(16, FontWeight.w600),
+          style: FontStyle.manrope(16, FontWeight.w600),
         ),
         onTap: () {
           onSelectedItem(item);

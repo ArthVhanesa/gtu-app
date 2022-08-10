@@ -37,9 +37,35 @@ class AppColors {
 
   static Color errorColor = const Color(0xFFFFCFCF);
   static Color warningColor = const Color(0xFFFFF9BF);
+  static Color sucessColor = const Color(0xFFBEF294);
 
   static Color blackColor = const Color(0XFF000000);
   static Color whiteColor = const Color(0XFFFFFFFF);
+}
+
+// Font Style
+class FontStyle {
+  static TextStyle manrope(double fontSize, FontWeight fontWeight) {
+    return GoogleFonts.manrope(fontSize: fontSize, fontWeight: fontWeight);
+  }
+
+  static TextStyle montserrat(double fontSize, FontWeight fontWeight) {
+    return GoogleFonts.montserrat(fontSize: fontSize, fontWeight: fontWeight);
+  }
+
+  static TextStyle playfairDisplay(double fontSize, FontWeight fontWeight) {
+    return GoogleFonts.playfairDisplay(
+        fontSize: fontSize, fontWeight: fontWeight);
+  }
+
+  static TextStyle ebGaramond(double fontSize, FontWeight fontWeight) {
+    return GoogleFonts.ebGaramond(fontSize: fontSize, fontWeight: fontWeight);
+  }
+
+  static TextStyle mPlusRounded1c(double fontSize, FontWeight fontWeight) {
+    return GoogleFonts.mPlusRounded1c(
+        fontSize: fontSize, fontWeight: fontWeight);
+  }
 }
 
 // Normal padding of all pages
@@ -54,29 +80,3 @@ EdgeInsetsGeometry padding = const EdgeInsets.fromLTRB(25, 0, 25, 0);
 // const FontWeight bold = FontWeight.w700;
 // const FontWeight extraBold = FontWeight.w800;
 // const FontWeight thick = FontWeight.w900;
-
-// Font Style
-class FontStyle {
-  TextStyle manrope(double fontSize, FontWeight fontWeight) {
-    return GoogleFonts.manrope(fontSize: fontSize, fontWeight: fontWeight);
-  }
-
-  TextStyle montserrat(double fontSize, FontWeight fontWeight) {
-    return GoogleFonts.montserrat(fontSize: fontSize, fontWeight: fontWeight);
-  }
-
-  TextStyle playfairDisplay(double fontSize, FontWeight fontWeight) {
-    return GoogleFonts.playfairDisplay(
-        fontSize: fontSize, fontWeight: fontWeight);
-  }
-
-  TextStyle ebGaramond(double fontSize, FontWeight fontWeight) {
-    return GoogleFonts.ebGaramond(fontSize: fontSize, fontWeight: fontWeight);
-  }
-
-  TextStyle mPlusRounded1c(double fontSize, FontWeight fontWeight) {
-    return GoogleFonts.mPlusRounded1c(
-        fontSize: fontSize, fontWeight: fontWeight);
-  }
-}
-// styles of widget

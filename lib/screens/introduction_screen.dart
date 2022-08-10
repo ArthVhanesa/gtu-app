@@ -14,7 +14,6 @@ class IntroductionScreens extends StatefulWidget {
 }
 
 class _IntroductionScreensState extends State<IntroductionScreens> {
-  final FontStyle _fontStyle = FontStyle();
   final List<IntroductionScreenData> _screen = introductionScreenData;
   final totalIntroScreen = introductionScreenData.length;
 
@@ -93,15 +92,14 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
               children: [
                 Text(
                   screen.title,
-                  style: _fontStyle.manrope(34, FontWeight.w700),
+                  style: FontStyle.manrope(34, FontWeight.w700),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 Text(
                   screen.body,
-                  style: _fontStyle
-                      .manrope(22, FontWeight.w600)
+                  style: FontStyle.manrope(22, FontWeight.w600)
                       .copyWith(color: AppColors.titleColor),
                 ),
               ],
@@ -132,8 +130,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
           child: Center(
             child: Text(
               'Launch App',
-              style: _fontStyle
-                  .manrope(20, FontWeight.w600)
+              style: FontStyle.manrope(20, FontWeight.w600)
                   .copyWith(color: AppColors.whiteColor),
             ),
           ),
@@ -164,8 +161,7 @@ class _IntroductionScreensState extends State<IntroductionScreens> {
             children: [
               Text(
                 'Next',
-                style: _fontStyle
-                    .manrope(20, FontWeight.w600)
+                style: FontStyle.manrope(20, FontWeight.w600)
                     .copyWith(color: AppColors.whiteColor),
               ),
               const SizedBox(

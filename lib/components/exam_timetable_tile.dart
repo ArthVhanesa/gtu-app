@@ -4,7 +4,6 @@ import 'package:gtu_app/models/timetable_model.dart';
 import 'package:gtu_app/style/style.dart';
 
 class ExamTimetableTile extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
   TimeTableModel data;
 
   ExamTimetableTile({
@@ -34,11 +33,11 @@ class ExamTimetableTile extends StatelessWidget {
               children: [
                 Text(
                   data.date!.substring(0, 2),
-                  style: _fontStyle.manrope(28, FontWeight.w700),
+                  style: FontStyle.manrope(28, FontWeight.w700),
                 ),
                 Text(
                   data.date!.substring(3, 11),
-                  style: _fontStyle.manrope(11, FontWeight.w600),
+                  style: FontStyle.manrope(11, FontWeight.w600),
                 ),
               ],
             ),
@@ -53,17 +52,17 @@ class ExamTimetableTile extends StatelessWidget {
               children: [
                 AutoSizeText(
                   '${data.subcode}',
-                  style: _fontStyle.montserrat(15, FontWeight.w600),
+                  style: FontStyle.montserrat(15, FontWeight.w600),
                   maxLines: 1,
                 ),
                 AutoSizeText(
                   data.subname ?? "",
-                  style: _fontStyle.montserrat(15, FontWeight.w600),
+                  style: FontStyle.montserrat(15, FontWeight.w600),
                   maxLines: 1,
                 ),
                 AutoSizeText(
                   data.time ?? "",
-                  style: _fontStyle.montserrat(15, FontWeight.w600),
+                  style: FontStyle.montserrat(15, FontWeight.w600),
                   maxLines: 1,
                 ),
               ],

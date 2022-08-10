@@ -28,8 +28,6 @@ class ModalBottomColumnFour extends StatelessWidget {
     required this.boxInt4,
   }) : super(key: key);
 
-  final FontStyle _fontStyle = FontStyle();
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,7 +35,7 @@ class ModalBottomColumnFour extends StatelessWidget {
       children: [
         Text(
           title,
-          style: _fontStyle.montserrat(18, FontWeight.w600),
+          style: FontStyle.montserrat(18, FontWeight.w600),
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
         ),
@@ -85,8 +83,6 @@ class _Box extends StatelessWidget {
     required this.number,
   }) : super(key: key);
 
-  final FontStyle _fontStyle = FontStyle();
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -100,13 +96,11 @@ class _Box extends StatelessWidget {
         children: [
           Text(
             '$number',
-            style: _fontStyle
-                .montserrat(30, FontWeight.w600)
+            style: FontStyle.montserrat(30, FontWeight.w600)
                 .copyWith(color: AppColors.titleColor, height: 1),
           ),
           Text(title,
-              style: _fontStyle
-                  .manrope(12, FontWeight.normal)
+              style: FontStyle.manrope(12, FontWeight.normal)
                   .copyWith(color: AppColors.titleColor))
         ],
       ),

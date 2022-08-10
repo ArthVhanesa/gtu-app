@@ -21,8 +21,6 @@ class PercentageCalculatorScreen extends StatefulWidget {
 
 class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
     with TickerProviderStateMixin {
-  final FontStyle _fontStyle = FontStyle();
-
   final TextEditingController _controller = TextEditingController();
   late final animationController = Get.put(AnimationController(vsync: this));
 
@@ -99,8 +97,7 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
                               duration: const Duration(milliseconds: 500),
                               child: Text(
                                 errorMessage,
-                                style: _fontStyle
-                                    .montserrat(14, FontWeight.w600)
+                                style: FontStyle.montserrat(14, FontWeight.w600)
                                     .copyWith(color: AppColors.primaryColor),
                               ),
                             ),
@@ -115,7 +112,7 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
                           Heading(heading: 'Description'),
                           Text(
                             description,
-                            style: _fontStyle.montserrat(18, FontWeight.w600),
+                            style: FontStyle.montserrat(18, FontWeight.w600),
                           ),
                           PoweredbyAstronApps(),
                         ],
@@ -126,7 +123,7 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
                         left: 0,
                         child: Center(
                           child: Lottie.asset(
-                            confettiAnimation,
+                            AppAnimation.confettiAnimation,
                             height: 400,
                             controller: animationController,
                           ),
@@ -139,7 +136,7 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
                           left: .0,
                           child: Center(
                             child: Lottie.asset(
-                              trophyAnimation,
+                              AppAnimation.trophyAnimation,
                               height: 370,
                               controller: animationController,
                             ),
@@ -152,7 +149,7 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
                           left: .0,
                           child: Center(
                             child: Lottie.asset(
-                              confetti_2Animation,
+                              AppAnimation.confetti_2Animation,
                               height: 250,
                               controller: animationController,
                             ),
@@ -181,7 +178,7 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
           child: TextField(
             controller: _controller,
             maxLength: 4,
-            style: _fontStyle.montserrat(16, FontWeight.normal),
+            style: FontStyle.montserrat(16, FontWeight.normal),
             inputFormatters: <TextInputFormatter>[
               FilteringTextInputFormatter.allow(RegExp("[0-9.]"))
             ],
@@ -207,7 +204,7 @@ class _PercentageCalculatorScreenState extends State<PercentageCalculatorScreen>
         circularStrokeCap: CircularStrokeCap.round,
         center: Text(
           '$percentage%',
-          style: _fontStyle.mPlusRounded1c(40, FontWeight.w500),
+          style: FontStyle.mPlusRounded1c(40, FontWeight.w500),
         ),
       ),
     );

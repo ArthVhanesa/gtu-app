@@ -20,8 +20,6 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  final FontStyle _fontStyle = FontStyle();
-
   final InAppReview inAppReview = InAppReview.instance;
 
   @override
@@ -61,14 +59,14 @@ class _SettingScreenState extends State<SettingScreen> {
                           firstMenuTitle: 'Feedback',
                           firstIcon: Icons.send,
                           firstMenuOnTap: LaunchUrl().sendMail(
-                            subject: HelpFeedback().subject,
-                            body: HelpFeedback().body,
+                            subject: HelpFeedback.subject,
+                            body: HelpFeedback.body,
                           ),
                           secondMenuTitle: 'Bug report',
                           secondIcon: Icons.pest_control_outlined,
                           secondMenuOnTap: LaunchUrl().sendMail(
-                            subject: BugReport().subject,
-                            body: BugReport().body,
+                            subject: BugReport.subject,
+                            body: BugReport.body,
                           ),
                           color: AppColors.orangeColor,
                         ),
@@ -111,8 +109,7 @@ class _SettingScreenState extends State<SettingScreen> {
   logoutButton() {
     final signinController = Get.put(SignInController());
 
-    TextStyle style = _fontStyle
-        .montserrat(12, FontWeight.w600)
+    TextStyle style = FontStyle.montserrat(12, FontWeight.w600)
         .copyWith(decoration: TextDecoration.underline);
 
     return Positioned(
@@ -181,8 +178,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     child: Center(
                       child: Text(
                         'Log out',
-                        style: _fontStyle
-                            .montserrat(20, FontWeight.w600)
+                        style: FontStyle.montserrat(20, FontWeight.w600)
                             .copyWith(color: AppColors.titleColor),
                       ),
                     ),
@@ -198,8 +194,6 @@ class _SettingScreenState extends State<SettingScreen> {
 }
 
 class SettingMenu extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
   String title;
   String firstMenuTitle;
   String secondMenuTitle;
@@ -228,7 +222,7 @@ class SettingMenu extends StatelessWidget {
       children: [
         Text(
           title,
-          style: _fontStyle.montserrat(16, FontWeight.w600),
+          style: FontStyle.montserrat(16, FontWeight.w600),
         ),
         const SizedBox(
           height: 10,
@@ -281,8 +275,7 @@ class SettingMenu extends StatelessWidget {
               ),
               Text(
                 menuTitle,
-                style: _fontStyle
-                    .montserrat(15, FontWeight.w500)
+                style: FontStyle.montserrat(15, FontWeight.w500)
                     .copyWith(color: AppColors.titleColor),
               ),
             ],

@@ -53,8 +53,6 @@ class _ZoomDrawerScreenState extends State<ZoomDrawerScreen> {
 }
 
 class DrawerScreen extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
   final ValueChanged<MenuItemData> onSelectedItem;
 
   DrawerScreen({
@@ -89,7 +87,8 @@ class DrawerScreen extends StatelessWidget {
                         },
                         child: CircleAvatar(
                           radius: 50,
-                          backgroundImage: const AssetImage(profileIconImg),
+                          backgroundImage:
+                              const AssetImage(AppImage.profileIconImg),
                           child: Material(
                             shape: const CircleBorder(),
                             clipBehavior: Clip.hardEdge,
@@ -106,15 +105,14 @@ class DrawerScreen extends StatelessWidget {
                       Obx(
                         () => Text(
                           "${userData.value.firstName ?? "User"} ${userData.value.lastName ?? ""}",
-                          style: _fontStyle.manrope(20, FontWeight.w800),
+                          style: FontStyle.manrope(20, FontWeight.w800),
                         ),
                       ),
                       const SizedBox(height: 10),
                       Obx(
                         () => Text(
                           userData.value.enrollmentNo ?? "",
-                          style: _fontStyle
-                              .manrope(15, FontWeight.w700)
+                          style: FontStyle.manrope(15, FontWeight.w700)
                               .copyWith(color: AppColors.titleColor),
                         ),
                       )
@@ -206,9 +204,9 @@ class DrawerScreen extends StatelessWidget {
               const SizedBox(width: 6),
               Text(
                 'Log Out',
-                style: _fontStyle.manrope(16, FontWeight.w700).copyWith(
-                      color: AppColors.bgColor,
-                    ),
+                style: FontStyle.manrope(16, FontWeight.w700).copyWith(
+                  color: AppColors.bgColor,
+                ),
               ),
               const SizedBox(width: 5)
             ],
@@ -227,7 +225,7 @@ class DrawerScreen extends StatelessWidget {
         leading: Icon(item.icon),
         title: Text(
           item.title,
-          style: _fontStyle.manrope(16, FontWeight.w600),
+          style: FontStyle.manrope(16, FontWeight.w600),
         ),
         onTap: () {
           launchCustomTab(item.url);

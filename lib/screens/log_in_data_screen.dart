@@ -19,8 +19,6 @@ class LogIn2Screen extends StatefulWidget {
 }
 
 class _LogIn2ScreenState extends State<LogIn2Screen> {
-  final FontStyle _fontStyle = FontStyle();
-
   final TextEditingController enrollmentNo = TextEditingController();
 
   final signinController = Get.put(SignInController());
@@ -44,7 +42,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("Howdy 👋", style: _fontStyle.manrope(40, FontWeight.w800)),
+              Text("Howdy 👋", style: FontStyle.manrope(40, FontWeight.w800)),
               Container(
                   height: MediaQuery.of(context).size.height * 0.47,
                   child: signinController.obx(
@@ -94,14 +92,12 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                             TextSpan(
                               text:
                                   'By clicking on Continue, you agree to the ',
-                              style: _fontStyle
-                                  .manrope(12, FontWeight.normal)
+                              style: FontStyle.manrope(12, FontWeight.normal)
                                   .copyWith(color: AppColors.blackColor),
                             ),
                             TextSpan(
                               text: 'Terms of Use',
-                              style: _fontStyle
-                                  .manrope(12, FontWeight.w500)
+                              style: FontStyle.manrope(12, FontWeight.w500)
                                   .copyWith(color: AppColors.linkBlueColor),
                               recognizer: TapGestureRecognizer()
                                 ..onTap =
@@ -109,14 +105,12 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                             ),
                             TextSpan(
                               text: ' and ',
-                              style: _fontStyle
-                                  .manrope(12, FontWeight.normal)
+                              style: FontStyle.manrope(12, FontWeight.normal)
                                   .copyWith(color: AppColors.blackColor),
                             ),
                             TextSpan(
                               text: 'Privacy policy',
-                              style: _fontStyle
-                                  .manrope(12, FontWeight.w500)
+                              style: FontStyle.manrope(12, FontWeight.w500)
                                   .copyWith(color: AppColors.linkBlueColor),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = LaunchUrl()
@@ -145,8 +139,8 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                               },
                               child: Center(
                                 child: Text("Continue",
-                                    style: _fontStyle
-                                        .manrope(22, FontWeight.w600)
+                                    style: FontStyle.manrope(
+                                            22, FontWeight.w600)
                                         .copyWith(color: AppColors.whiteColor)),
                               ),
                             ),
@@ -157,7 +151,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                   )),
               Center(
                 child: Text("Welcome to $appName",
-                    style: _fontStyle.manrope(20, FontWeight.w700)),
+                    style: FontStyle.manrope(20, FontWeight.w700)),
               )
             ],
           ),

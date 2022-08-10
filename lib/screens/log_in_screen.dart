@@ -15,8 +15,6 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
-  final FontStyle _fontStyle = FontStyle();
-
   final signinController = Get.put(SignInController());
 
   @override
@@ -32,17 +30,17 @@ class _LogInScreenState extends State<LogInScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("Howdy 👋", style: _fontStyle.manrope(40, FontWeight.w800)),
+              Text("Howdy 👋", style: FontStyle.manrope(40, FontWeight.w800)),
               // Center(
               //   child: Image.asset(rocketImg, height: 250),
               // ),
               Center(
-                child: Lottie.asset(rocketAnimation, height: 250),
+                child: Lottie.asset(AppAnimation.rocketAnimation, height: 250),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("LogIn", style: _fontStyle.manrope(30, FontWeight.w700)),
+                  Text("LogIn", style: FontStyle.manrope(30, FontWeight.w700)),
                   const SizedBox(
                     height: 25,
                   ),
@@ -51,7 +49,7 @@ class _LogInScreenState extends State<LogInScreen> {
               ),
               Center(
                 child: Text("Welcome to $appName",
-                    style: _fontStyle.manrope(20, FontWeight.w700)),
+                    style: FontStyle.manrope(20, FontWeight.w700)),
               )
             ],
           ),
@@ -80,7 +78,7 @@ class _LogInScreenState extends State<LogInScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                googleLogoImg,
+                AppImage.googleLogoImg,
                 height: 30,
                 width: 30,
               ),
@@ -88,7 +86,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 width: 10,
               ),
               Text("Continue with Google",
-                  style: _fontStyle.manrope(18, FontWeight.w600))
+                  style: FontStyle.manrope(18, FontWeight.w600))
             ],
           ),
         ),

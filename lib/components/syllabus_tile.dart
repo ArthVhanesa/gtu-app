@@ -7,8 +7,6 @@ import 'package:gtu_app/style/style.dart';
 import 'package:gtu_app/utils/launch_tab.dart';
 
 class SyllabusTile extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-
   SyllabusModel syllabus;
 
   SyllabusTile({
@@ -54,12 +52,12 @@ class SyllabusTile extends StatelessWidget {
                       Text(
                         syllabus.subcode ??
                             "Subject code not found.", //pass subject code
-                        style: _fontStyle.montserrat(16, FontWeight.w600),
+                        style: FontStyle.montserrat(16, FontWeight.w600),
                       ),
                       Text(
                         syllabus.subname ??
                             "subject name not available.", //pass subject name
-                        style: _fontStyle.manrope(13, FontWeight.w600),
+                        style: FontStyle.manrope(13, FontWeight.w600),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                       )
@@ -80,7 +78,6 @@ class SyllabusTile extends StatelessWidget {
 }
 
 class ModalBottomSheet extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
   SyllabusModel syllabus;
 
   ModalBottomSheet({Key? key, required this.syllabus}) : super(key: key);
@@ -111,11 +108,11 @@ class ModalBottomSheet extends StatelessWidget {
                     children: [
                       Text(
                         syllabus.subcode ?? "Subcode",
-                        style: _fontStyle.montserrat(20, FontWeight.w600),
+                        style: FontStyle.montserrat(20, FontWeight.w600),
                       ),
                       Text(
                         syllabus.subname ?? "Subname",
-                        style: _fontStyle.manrope(16, FontWeight.w600),
+                        style: FontStyle.manrope(16, FontWeight.w600),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                       )
@@ -192,8 +189,7 @@ class ModalBottomSheet extends StatelessWidget {
                         child: Center(
                             child: Text(
                           'View Syllabus',
-                          style: _fontStyle
-                              .montserrat(20, FontWeight.w600)
+                          style: FontStyle.montserrat(20, FontWeight.w600)
                               .copyWith(color: AppColors.whiteColor),
                         )),
                       ),

@@ -20,8 +20,6 @@ class CircularScreen extends StatefulWidget {
 
 class _CircularScreenState extends State<CircularScreen>
     with TickerProviderStateMixin {
-  final FontStyle _fontStyle = FontStyle();
-
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
@@ -48,13 +46,13 @@ class _CircularScreenState extends State<CircularScreen>
                   Tab(
                     child: Text(
                       'All Circular',
-                      style: _fontStyle.montserrat(15, FontWeight.w500),
+                      style: FontStyle.montserrat(15, FontWeight.w500),
                     ),
                   ),
                   Tab(
                     child: Text(
                       'Important',
-                      style: _fontStyle.montserrat(15, FontWeight.w500),
+                      style: FontStyle.montserrat(15, FontWeight.w500),
                     ),
                   ),
                 ]),
