@@ -100,7 +100,7 @@ class CustomDialog extends StatelessWidget {
 }
 
 class ShowCustomDialog {
-  defalut(
+  static initial(
       {required context,
       required String title,
       required String message,
@@ -118,7 +118,7 @@ class ShowCustomDialog {
     );
   }
 
-  customized(
+  static customized(
       {required context,
       required String title,
       required String message,

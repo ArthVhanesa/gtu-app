@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gtu_app/components/edit_field.dart';
 
 import 'package:gtu_app/components/header.dart';
 import 'package:gtu_app/controllers/sign_in_controller.dart';
@@ -21,6 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgColor,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
           child: Column(
         children: [
@@ -32,28 +34,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ProfileData(
+                      ProfileData.editable(
+                        context: context,
                         title: 'Name 🖊️',
                         data:
                             "${userData.firstName ?? "Anonymous"} ${userData.lastName ?? ""}",
+                        onTap: () {
+                          ShowEditDialog.nameEditDialog(context: context);
+                        },
                       ),
-                      ProfileData(
+                      ProfileData.editable(
+                        context: context,
                         title: 'Enrollment No. 🔢',
                         data: userData.enrollmentNo ?? "",
+                        onTap: () {
+                          ShowEditDialog.enrollmentEditDialog(context: context);
+                        },
                       ),
-                      ProfileData(
+                      ProfileData.initial(
                         title: 'Admission year 🗓',
                         data: userData.admissionYear ?? "",
                       ),
-                      ProfileData(
+                      ProfileData.initial(
                         title: 'Course 🎓',
                         data: 'B.E.',
                       ),
-                      ProfileData(
+                      ProfileData.initial(
                         title: 'Branch ⚡️',
                         data: userData.branchName ?? "",
                       ),
-                      ProfileData(
+                      ProfileData.initial(
                         title: 'College 🏫',
                         data: userData.collegeName ?? "",
                       ),
@@ -84,7 +94,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: InkWell(
             borderRadius: const BorderRadius.all(Radius.circular(25)),
             onTap: () {
-              Get.to(() => SettingScreen());
+              Get.to(() => const SettingScreen());
             },
             child: Center(
               child: Text(
@@ -100,18 +110,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 }
 
-class ProfileData extends StatelessWidget {
-  final String title;
-  final String data;
-
-  ProfileData({
-    Key? key,
-    required this.title,
-    required this.data,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+class ProfileData {
+  static initial({required String title, required String data}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -126,6 +126,43 @@ class ProfileData extends StatelessWidget {
         const SizedBox(
           height: 20,
         )
+      ],
+    );
+  }
+
+  static editable(
+      {required context,
+      required String title,
+      required String data,
+      required void Function() onTap}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: FontStyle.montserrat(16, FontWeight.bold),
+            ),
+            Text(
+              data,
+              style: FontStyle.montserrat(20, FontWeight.normal),
+            ),
+            const SizedBox(
+              height: 20,
+            )
+          ],
+        ),
+        const SizedBox(width: 10),
+        InkResponse(
+            containedInkWell: false,
+            radius: 20,
+            onTap: onTap,
+            child: Icon(
+              Icons.edit_outlined,
+              color: AppColors.blackColor.withAlpha(140),
+            ))
       ],
     );
   }
