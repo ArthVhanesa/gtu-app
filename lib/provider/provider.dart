@@ -126,9 +126,9 @@ class Provider extends GetConnect {
     }
   }
 
-  Future<dynamic> getInitialSyllabusData() async {
+  Future<dynamic> getInitialSyllabusData(String branch, String sem) async {
     final response =
-        await httpClient.get('${AppGlobals.API_URL}/syllabus/BE/07/7');
+        await httpClient.get('${AppGlobals.API_URL}/syllabus/BE/$branch/$sem');
     if (response.statusCode != 200) {
       return Future.error(response.body.toString());
     }

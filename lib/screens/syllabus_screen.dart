@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,7 +31,10 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: AppGlobals.onBackPressed,
+      onWillPop: () {
+        Get.delete<SyllabusController>();
+        return AppGlobals.onBackPressed();
+      },
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: AppColors.bgColor,
