@@ -3,9 +3,14 @@ import 'dart:developer';
 import 'package:get/get.dart';
 
 import 'package:gtu_app/components/custom_snackbar.dart';
+import 'package:gtu_app/controllers/sign_in_controller.dart';
+import 'package:gtu_app/models/user_model.dart';
 import 'package:gtu_app/provider/provider.dart';
+import 'package:gtu_app/utils/utils_functions.dart';
 
 class SyllabusController extends GetxController with StateMixin<dynamic> {
+  final signInController = Get.put(SignInController());
+
   @override
   void onInit() {
     initialFetch();
@@ -14,7 +19,12 @@ class SyllabusController extends GetxController with StateMixin<dynamic> {
 
   void initialFetch() {
     change(null, status: RxStatus.loading());
-    Provider().getInitialSyllabusData().then((value) {
+    DbUserModel userData = signInController.dbUserData.value;
+    final sem = Utils.getSem(int.parse(userData.admissionYear ?? "2020"));
+
+    Provider()
+        .getInitialSyllabusData(userData.branchCode ?? "06", sem.toString())
+        .then((value) {
       change(value, status: RxStatus.success());
     }, onError: (error) {
       log(error.toString());
