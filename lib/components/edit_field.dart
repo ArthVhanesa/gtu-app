@@ -20,17 +20,21 @@ class ShowEditDialog {
     return showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (context) => EditDialog(isNameEditDialog: false),
+      builder: (context) => EditDialog(isEnrollmentEditDialog: true),
     );
   }
 }
 
 class EditDialog extends StatelessWidget {
   bool isNameEditDialog;
+  bool isEnrollmentEditDialog;
+  bool isSemEditDialog;
 
   EditDialog({
     Key? key,
-    required this.isNameEditDialog,
+    this.isNameEditDialog = false,
+    this.isEnrollmentEditDialog = false,
+    this.isSemEditDialog = false,
   }) : super(key: key);
 
   final signinController = Get.put(SignInController());
@@ -91,7 +95,9 @@ class EditDialog extends StatelessWidget {
                             ),
                           ],
                         )
-                      : TextInput(
+                      : const SizedBox(height: 0),
+                  isEnrollmentEditDialog
+                      ? TextInput(
                           width: MediaQuery.of(context).size.width * 1.0,
                           maxLength: 12,
                           titleName: "Enrollment No.",
@@ -100,7 +106,8 @@ class EditDialog extends StatelessWidget {
                           textInputFormatter: RegExp("[0-9]"),
                           // maxLengthEnforcement: MaxLengthEnforcement.enforced,
                           controller: enrollmentNo,
-                        ),
+                        )
+                      : const SizedBox(height: 0),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: Container(
