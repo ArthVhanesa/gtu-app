@@ -41,6 +41,7 @@ dependencies:
   flutter_custom_tabs: ^1.0.4
   share_plus: ^4.0.10
   in_app_review: ^2.0.4
+  in_app_update: ^3.0.0
   shared_preferences: ^2.0.15
   flutter_svg: ^1.1.1+1
   google_fonts: ^3.0.1
