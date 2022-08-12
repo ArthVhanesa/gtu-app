@@ -11,6 +11,7 @@ import 'package:gtu_app/components/header.dart';
 import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/data/card_data.dart';
 import 'package:gtu_app/style/style.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -47,24 +48,30 @@ class _SettingScreenState extends State<SettingScreen> {
                           },
                           secondMenuTitle: 'Rate App',
                           secondIcon: Icons.star,
-                          // secondMenuOnTap: () {
-                          //   inAppReview.requestReview();
-                          // },
-                          secondMenuOnTap:
-                              LaunchUrl().externalApplication(url: astronApps),
+                          secondMenuOnTap: () async {
+                            final isAvailable = await inAppReview.isAvailable();
+                            if (isAvailable) {
+                              inAppReview.requestReview();
+                            } else {
+                              inAppReview.openStoreListing(
+                                  appStoreId: 'com.astronapps.gtuApp');
+                            }
+                          },
+                          // secondMenuOnTap:
+                          //     LaunchUrl.externalApplication(url: astronApps),
                           color: AppColors.skyBlueColor,
                         ),
                         SettingMenu(
                           title: 'Help & Feedback',
                           firstMenuTitle: 'Feedback',
                           firstIcon: Icons.send,
-                          firstMenuOnTap: LaunchUrl().sendMail(
+                          firstMenuOnTap: LaunchUrl.sendMail(
                             subject: HelpFeedback.subject,
                             body: HelpFeedback.body,
                           ),
                           secondMenuTitle: 'Bug report',
                           secondIcon: Icons.pest_control_outlined,
-                          secondMenuOnTap: LaunchUrl().sendMail(
+                          secondMenuOnTap: LaunchUrl.sendMail(
                             subject: BugReport.subject,
                             body: BugReport.body,
                           ),
@@ -75,7 +82,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           firstMenuTitle: 'Other Apps',
                           firstIcon: FontAwesomeIcons.googlePlay,
                           firstMenuOnTap:
-                              LaunchUrl().externalApplication(url: astronApps),
+                              LaunchUrl.externalApplication(url: astronApps),
                           secondMenuTitle: 'About App',
                           secondIcon: Icons.info_outline,
                           secondMenuOnTap: () {
@@ -130,7 +137,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   Row(
                     children: [
                       InkWell(
-                          onTap: LaunchUrl().inAppWebView(url: termsOfUse),
+                          onTap: LaunchUrl.inAppWebView(url: termsOfUse),
                           child: Text(
                             'Terms',
                             style: style,
@@ -143,7 +150,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         ),
                       ),
                       InkWell(
-                        onTap: LaunchUrl().inAppWebView(url: privacyPolicy),
+                        onTap: LaunchUrl.inAppWebView(url: privacyPolicy),
                         child: Text(
                           'Privacy',
                           style: style,

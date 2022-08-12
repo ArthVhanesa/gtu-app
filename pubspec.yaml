@@ -55,6 +55,7 @@ dependencies:
   lottie: ^1.4.1
   flutter_pdfview: ^1.2.2
   fluttertoast: ^8.0.9
+  package_info_plus: ^1.4.3+1
   firebase_core: ^1.20.0
   firebase_auth: ^3.5.0
   google_sign_in: ^5.4.0

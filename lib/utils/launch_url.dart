@@ -2,7 +2,7 @@ import 'package:gtu_app/app_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LaunchUrl {
-  void Function() inAppWebView({required String url}) {
+  static inAppWebView({required String url}) {
     return () async {
       if (await canLaunchUrl(Uri.parse(url))) {
         await launchUrl(
@@ -17,7 +17,7 @@ class LaunchUrl {
     };
   }
 
-  void Function() externalApplication({required String url}) {
+  static externalApplication({required String url}) {
     return () async {
       if (await canLaunchUrl(Uri.parse(url))) {
         await launchUrl(
@@ -32,7 +32,7 @@ class LaunchUrl {
     };
   }
 
-  sendMail({required String subject, required String body}) {
+  static sendMail({required String subject, required String body}) {
     return () async {
       final url = 'mailto:$toEmail?subject=$subject&body=$body';
       if (await canLaunchUrl(Uri.parse(url))) {

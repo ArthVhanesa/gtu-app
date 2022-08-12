@@ -28,7 +28,7 @@ String toEmail = 'contact.bookocean@gmail.com';
 
 class BugReport {
   // Subject of Bug report mail
-  static String subject = 'Bug Report';
+  static String subject = 'Bug Report (GTU Info)';
   // Body of Bud report mail
   static String body =
       'We are ready to improve App with help of your bug report.\n\nThank you.';
@@ -36,7 +36,7 @@ class BugReport {
 
 class HelpFeedback {
   // Subject of Help & Feedback mail
-  static String subject = 'Feedback/Suggestion';
+  static String subject = 'Feedback/Suggestion (GTU Info)';
   // Body of Help & Feedback mail
   static String body =
       'Your suggestions and feedbacks are welcomed by Astron Apps.\n\nThank you.';

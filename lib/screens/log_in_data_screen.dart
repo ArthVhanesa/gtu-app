@@ -101,7 +101,7 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                                   .copyWith(color: AppColors.linkBlueColor),
                               recognizer: TapGestureRecognizer()
                                 ..onTap =
-                                    LaunchUrl().inAppWebView(url: termsOfUse),
+                                    LaunchUrl.inAppWebView(url: termsOfUse),
                             ),
                             TextSpan(
                               text: ' and ',
@@ -113,8 +113,8 @@ class _LogIn2ScreenState extends State<LogIn2Screen> {
                               style: FontStyle.manrope(12, FontWeight.w500)
                                   .copyWith(color: AppColors.linkBlueColor),
                               recognizer: TapGestureRecognizer()
-                                ..onTap = LaunchUrl()
-                                    .inAppWebView(url: privacyPolicy),
+                                ..onTap =
+                                    LaunchUrl.inAppWebView(url: privacyPolicy),
                             ),
                           ]),
                         ),
