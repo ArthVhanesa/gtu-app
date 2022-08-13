@@ -15,7 +15,11 @@ class QuestionPaperController extends GetxController with StateMixin<dynamic> {
   void fetchQuestionPaper(String subCode) {
     change(null, status: RxStatus.loading());
     Provider().getQuestionPapers(subCode).then((value) {
-      change(value, status: RxStatus.success());
+      if (value.length == 0) {
+        change(null, status: RxStatus.error("No results found"));
+      } else {
+        change(value, status: RxStatus.success());
+      }
     }, onError: (error) {
       log(error.toString());
       ShowCustomSnackBar.error(title: "Oh snap!", message: error.toString());

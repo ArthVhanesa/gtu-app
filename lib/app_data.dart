@@ -11,7 +11,8 @@ String copyrightMessage = 'Copyright © 2022 Astron Apps';
 String aboutAppMessage = 'GTU Info - A bridge between Students and University';
 
 // Message shared on click of share app
-String shareAppMessage = 'The best app for GTU students';
+String shareAppMessage =
+    'Hey, I am using this app and I loved it\'s features.\nYou can find Syllabus, Papers, Timetable and lot more things.\nDownload from given link 👉 https://play.google.com/store/apps/details?id=com.astronapps.gtuApp';
 
 // Playstore page link of Astron Apps
 String astronApps =
