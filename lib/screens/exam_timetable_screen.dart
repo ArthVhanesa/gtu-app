@@ -8,7 +8,6 @@ import 'package:gtu_app/components/custom_snackbar.dart';
 import 'package:gtu_app/components/dropdown_menu.dart';
 import 'package:gtu_app/components/exam_timetable_tile.dart';
 import 'package:gtu_app/components/header.dart';
-import 'package:gtu_app/components/no_data_found.dart';
 import 'package:gtu_app/components/powered_by_astron_apps.dart';
 import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/controllers/timetable_controller.dart';
@@ -35,52 +34,56 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
     TextStyle style = FontStyle.montserrat(16, FontWeight.w600);
 
     return WillPopScope(
-      onWillPop: AppGlobals.onBackPressed,
-      child: Scaffold(
+        onWillPop: AppGlobals.onBackPressed,
+        child: Scaffold(
           resizeToAvoidBottomInset: false,
           backgroundColor: AppColors.bgColor,
           body: SafeArea(
-              child: Column(children: [
-            Header(card: examTimetable),
-            Expanded(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Padding(
+              child: Column(
+            children: [
+              Header(card: examTimetable),
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: Padding(
                     padding: padding,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        InputSection2(style: style),
-                        timeTableController.obx(
-                            (state) => ListView.separated(
-                                  itemCount: state.length,
-                                  shrinkWrap: true,
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  separatorBuilder:
-                                      (BuildContext context, int index) {
-                                    return const SizedBox(
-                                      height: 10,
-                                    );
-                                  },
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    TimeTableModel timetableData =
-                                        TimeTableModel.fromJson(state[index]);
-                                    return ExamTimetableTile(
-                                        data: timetableData);
-                                  },
-                                ),
-                            onLoading: CustomLoadingIndicator(),
-                            onError: (error) => NoDataFound(
-                                  error: error,
-                                )),
-                        PoweredbyAstronApps()
-                      ],
-                    )),
-              ),
-            ),
-          ]))),
-    );
+                    child: Obx(() => Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            InputSection2(style: style),
+                            (timeTableController.isLoading.value)
+                                ? CustomLoadingIndicator()
+                                : ListView.separated(
+                                    itemCount: timeTableController
+                                        .timeTableData.value.length,
+                                    shrinkWrap: true,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    separatorBuilder:
+                                        (BuildContext context, int index) {
+                                      return const SizedBox(
+                                        height: 10,
+                                      );
+                                    },
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      TimeTableModel timetableData =
+                                          TimeTableModel.fromJson(
+                                              timeTableController
+                                                  .timeTableData.value[index]);
+                                      return ExamTimetableTile(
+                                          data: timetableData);
+                                    },
+                                  ),
+                            PoweredbyAstronApps()
+                          ],
+                        )),
+                  ),
+                ),
+              )
+            ],
+          )),
+        ));
   }
 }
 
@@ -88,7 +91,6 @@ class InputSection2 extends StatelessWidget {
   late final TextEditingController _controller;
   late TextStyle style;
   final timeTableController = Get.put(TimeTableController());
-  final semController = Get.put(SemController());
   final signInController = Get.put(SignInController());
 
   InputSection2({super.key, required this.style}) {
@@ -135,12 +137,12 @@ class InputSection2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget semSelector = semController.obx(
+    Widget semSelector = timeTableController.obx(
       (state) => DropDownMenu(
-        item: state ?? ["No data found"],
-        hintText: state[0] ?? "Sem",
+        item: state['sem'] ?? ["No data found"],
+        hintText: state['sem'][0] ?? "Sem",
         width: 0.4,
-        customOnChange: semController.changeSem,
+        customOnChange: timeTableController.changeSem,
       ),
       onError: (error) => Text("Error in loading Sem."),
     );

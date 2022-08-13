@@ -5,36 +5,16 @@ import 'package:get/get.dart';
 import 'package:gtu_app/provider/provider.dart';
 
 class TimeTableController extends GetxController with StateMixin<dynamic> {
-  final semController = Get.put(SemController());
-  @override
-  void onInit() {
-    change(null, status: RxStatus.empty());
-    super.onInit();
-  }
-
-  void fetchTimeTableData(String branchCode) {
-    change([], status: RxStatus.loading());
-    Provider()
-        .getTimeTableData(semController.selectedSem.value, branchCode)
-        .then((value) {
-      log("timetable: $value");
-      change(value, status: RxStatus.success());
-    }, onError: (error) {
-      log("Error : ${error.toString()}");
-      change(null, status: RxStatus.error(error['error_message']));
-    });
-  }
-}
-
-class SemController extends GetxController with StateMixin<dynamic> {
-  final selectedSem = "".obs;
+  final sem = "".obs;
+  final timeTableData = [].obs;
+  final isLoading = false.obs;
 
   @override
   void onInit() {
     Provider().getAllSem().then((value) {
-      log(value.toString());
-      selectedSem.value = value['sem'][0];
-      change(value['sem'], status: RxStatus.success());
+      // log(value.toString());
+      sem.value = value['sem'][0];
+      change(value, status: RxStatus.success());
     }, onError: (error) {
       log(error.toString());
       change(null, status: RxStatus.error(error.toString()));
@@ -45,6 +25,24 @@ class SemController extends GetxController with StateMixin<dynamic> {
 
   void changeSem(String sem) {
     log("semchanged: $sem");
-    this.selectedSem.value = sem;
+    this.sem.value = sem;
+  }
+
+  void fetchTimeTableData(String branchCode) {
+    isLoading.value = true;
+    Provider().getTimeTableData(sem.value, branchCode).then((value) {
+      // log("timetable: $value");
+      timeTableData.value = value;
+      isLoading.value = false;
+    }, onError: (error) {
+      log("Error : ${error.toString()}");
+      isLoading.value = false;
+    });
+  }
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
   }
 }

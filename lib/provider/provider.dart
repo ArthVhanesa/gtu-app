@@ -118,7 +118,7 @@ class Provider extends GetConnect {
         await httpClient.get('${AppGlobals.API_URL}/papers/$subCode');
 
     if (response.statusCode == 404) {
-      return [];
+      return Future.error("Question paper not found!");
     } else if (response.statusCode != 200) {
       return Future.error(response.body.toString());
     }
@@ -142,7 +142,7 @@ class Provider extends GetConnect {
     final response = await httpClient.post('${AppGlobals.API_URL}/timetable',
         body: {"degree": "BE", "sem": sem, "branchCode": branchCode});
     if (response.statusCode != 200) {
-      return Future.error(response.body ?? errorMsgObj);
+      return Future.error(response.body.toString());
     }
     if (response.status.hasError) {
       return Future.error(response.statusText!);
