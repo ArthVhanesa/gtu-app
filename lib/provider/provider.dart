@@ -164,10 +164,11 @@ class Provider extends GetConnect {
     }
   }
 
-  Future<dynamic> getSearchedSyllabusData(String subCode) async {
+  Future<dynamic> getSearchedSyllabusData(
+      String subCode, String branchCode) async {
     log("search for: $subCode");
-    final response =
-        await httpClient.get('${AppGlobals.API_URL}/syllabus/BE/$subCode');
+    final response = await httpClient.post('${AppGlobals.API_URL}/syllabus',
+        body: {"subject_code": subCode, "branch_code": branchCode});
 
     if (response.statusCode == 404) {
       return Future.error("Subject not found!");
