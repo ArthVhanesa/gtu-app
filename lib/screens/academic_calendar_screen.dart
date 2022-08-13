@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:gtu_app/components/common_tile.dart';
 import 'package:gtu_app/components/custom_loading_indicator.dart';
 import 'package:gtu_app/components/header.dart';
+import 'package:gtu_app/components/no_data_found.dart';
 import 'package:gtu_app/components/powered_by_astron_apps.dart';
 import 'package:gtu_app/controllers/calendar_controller.dart';
 import 'package:gtu_app/data/card_data.dart';
@@ -49,6 +50,7 @@ class AcademicCalendarScreen extends StatelessWidget {
                       );
                     },
                     onLoading: CustomLoadingIndicator(),
+                    onError: (error) => NoDataFound(error: error),
                   ),
                   PoweredbyAstronApps()
                 ],
