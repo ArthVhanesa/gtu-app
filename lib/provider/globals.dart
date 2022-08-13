@@ -14,18 +14,4 @@ class AppGlobals {
     rootScaffoldMessengerKey.currentState!.removeCurrentSnackBar();
     return Future.value(true);
   }
-
-  static Future<bool> checkInternetConnection() async {
-    var isInternetAvailable = true;
-    try {
-      final result = await InternetAddress.lookup('google.com');
-      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-        // ShowCustomSnackBar.success(message: "You are online.");
-      }
-    } on SocketException catch (_) {
-      isInternetAvailable = false;
-      ShowCustomSnackBar.error(message: "You are offline");
-    }
-    return isInternetAvailable;
-  }
 }

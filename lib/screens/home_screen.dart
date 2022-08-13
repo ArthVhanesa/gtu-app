@@ -111,52 +111,42 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            FutureBuilder(
-                future: AppGlobals.checkInternetConnection(),
-                builder: ((context, snapshot) {
-                  if (snapshot.hasData) {
-                    return Expanded(
-                      child: SingleChildScrollView(
-                        physics: const BouncingScrollPhysics(),
-                        child: Column(
-                          children: [
-                            const CarouselSlider1(),
-                            Padding(
-                              padding: padding,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(
-                                    height: 30,
-                                  ),
-                                  ListView.separated(
-                                    itemCount: tile.length,
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    separatorBuilder:
-                                        (BuildContext context, int index) {
-                                      return const SizedBox(
-                                        height: 60,
-                                      );
-                                    },
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return HomeScreenTile(tile: tile[index]);
-                                    },
-                                  ),
-                                  KeepItUp(),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
+            Expanded(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    const CarouselSlider1(),
+                    Padding(
+                      padding: padding,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          ListView.separated(
+                            itemCount: tile.length,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            separatorBuilder:
+                                (BuildContext context, int index) {
+                              return const SizedBox(
+                                height: 60,
+                              );
+                            },
+                            itemBuilder: (BuildContext context, int index) {
+                              return HomeScreenTile(tile: tile[index]);
+                            },
+                          ),
+                          KeepItUp(),
+                        ],
                       ),
-                    );
-                  } else {
-                    return NoInternetConnection();
-                  }
-                }))
+                    )
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),
