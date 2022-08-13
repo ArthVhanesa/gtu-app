@@ -57,6 +57,31 @@ class Provider extends GetConnect {
     }
   }
 
+  Future<dynamic> updateUserName(
+      String email, String fname, String lname) async {
+    final response = await httpClient.post(
+        '${AppGlobals.API_URL}/update-user-name',
+        body: {"email": email, "first_name": fname, "last_name": lname});
+
+    if (response.statusCode != 200) {
+      return Future.error(response.body ?? errorMsgObj);
+    } else {
+      return response.body;
+    }
+  }
+
+  Future<dynamic> updateEnrollment(String email, String enrollment) async {
+    final response = await httpClient.post(
+        '${AppGlobals.API_URL}/update-user-enrollment',
+        body: {"email": email, "enrollment_no": enrollment});
+
+    if (response.statusCode != 200) {
+      return Future.error(response.body ?? errorMsgObj);
+    } else {
+      return response.body;
+    }
+  }
+
   Future<dynamic> getAllCircular() async {
     final response =
         await httpClient.get('${AppGlobals.API_URL}/circular/recent');

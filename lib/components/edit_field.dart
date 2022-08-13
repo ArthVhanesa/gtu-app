@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -47,6 +49,15 @@ class EditDialog extends StatelessWidget {
         TextEditingController(text: signinController.dbUserData.value.lastName);
     final TextEditingController enrollmentNo = TextEditingController(
         text: signinController.dbUserData.value.enrollmentNo);
+
+    void onSubmitHandler() {
+      if (isNameEditDialog) {
+        signinController.updateUserName(firstName.text, lastName.text);
+      }
+      if (isEnrollmentEditDialog) {
+        signinController.updateEnrollment(enrollmentNo.text);
+      }
+    }
 
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -120,6 +131,7 @@ class EditDialog extends StatelessWidget {
                           borderRadius:
                               const BorderRadius.all(Radius.circular(20)),
                           onTap: () {
+                            onSubmitHandler();
                             Get.back();
                           },
                           child: Padding(
