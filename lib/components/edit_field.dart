@@ -31,15 +31,18 @@ class EditDialog extends StatelessWidget {
   bool isNameEditDialog;
   bool isEnrollmentEditDialog;
   bool isSemEditDialog;
+  late final TextEditingController enrollmentNo;
+  final signinController = Get.put(SignInController());
 
   EditDialog({
     Key? key,
     this.isNameEditDialog = false,
     this.isEnrollmentEditDialog = false,
     this.isSemEditDialog = false,
-  }) : super(key: key);
-
-  final signinController = Get.put(SignInController());
+  }) : super(key: key) {
+    enrollmentNo = TextEditingController(
+        text: signinController.dbUserData.value.enrollmentNo);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +50,6 @@ class EditDialog extends StatelessWidget {
         text: signinController.dbUserData.value.firstName);
     final TextEditingController lastName =
         TextEditingController(text: signinController.dbUserData.value.lastName);
-    final TextEditingController enrollmentNo = TextEditingController(
-        text: signinController.dbUserData.value.enrollmentNo);
 
     void onSubmitHandler() {
       if (isNameEditDialog) {

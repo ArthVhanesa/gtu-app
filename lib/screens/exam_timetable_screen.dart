@@ -2,12 +2,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:gtu_app/components/custom_loading_indicator.dart';
 
 import 'package:gtu_app/components/custom_snackbar.dart';
 import 'package:gtu_app/components/dropdown_menu.dart';
 import 'package:gtu_app/components/exam_timetable_tile.dart';
 import 'package:gtu_app/components/header.dart';
 import 'package:gtu_app/components/powered_by_astron_apps.dart';
+import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/controllers/timetable_controller.dart';
 import 'package:gtu_app/data/card_data.dart';
 import 'package:gtu_app/data/dummy_exam_timetable_data.dart';
@@ -49,24 +51,30 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             InputSection2(style: style),
-                            ListView.separated(
-                              itemCount: timeTableController
-                                  .timeTableData.value.length,
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              separatorBuilder:
-                                  (BuildContext context, int index) {
-                                return const SizedBox(
-                                  height: 10,
-                                );
-                              },
-                              itemBuilder: (BuildContext context, int index) {
-                                TimeTableModel timetableData =
-                                    TimeTableModel.fromJson(timeTableController
-                                        .timeTableData.value[index]);
-                                return ExamTimetableTile(data: timetableData);
-                              },
-                            ),
+                            (timeTableController.isLoading.value)
+                                ? CustomLoadingIndicator()
+                                : ListView.separated(
+                                    itemCount: timeTableController
+                                        .timeTableData.value.length,
+                                    shrinkWrap: true,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    separatorBuilder:
+                                        (BuildContext context, int index) {
+                                      return const SizedBox(
+                                        height: 10,
+                                      );
+                                    },
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      TimeTableModel timetableData =
+                                          TimeTableModel.fromJson(
+                                              timeTableController
+                                                  .timeTableData.value[index]);
+                                      return ExamTimetableTile(
+                                          data: timetableData);
+                                    },
+                                  ),
                             PoweredbyAstronApps()
                           ],
                         )),
@@ -80,11 +88,15 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
 }
 
 class InputSection2 extends StatelessWidget {
-  final TextEditingController _controller = TextEditingController();
+  late final TextEditingController _controller;
   late TextStyle style;
   final timeTableController = Get.put(TimeTableController());
+  final signInController = Get.put(SignInController());
 
-  InputSection2({super.key, required this.style});
+  InputSection2({super.key, required this.style}) {
+    _controller = TextEditingController(
+        text: signInController.dbUserData.value.branchCode);
+  }
 
   onSearchHandler() {
     if (_controller.text.length < 2) {

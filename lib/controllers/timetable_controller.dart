@@ -7,6 +7,7 @@ import 'package:gtu_app/provider/provider.dart';
 class TimeTableController extends GetxController with StateMixin<dynamic> {
   final sem = "".obs;
   final timeTableData = [].obs;
+  final isLoading = false.obs;
 
   @override
   void onInit() {
@@ -28,11 +29,14 @@ class TimeTableController extends GetxController with StateMixin<dynamic> {
   }
 
   void fetchTimeTableData(String branchCode) {
+    isLoading.value = true;
     Provider().getTimeTableData(sem.value, branchCode).then((value) {
-      log("timetable: $value");
+      // log("timetable: $value");
       timeTableData.value = value;
+      isLoading.value = false;
     }, onError: (error) {
       log("Error : ${error.toString()}");
+      isLoading.value = false;
     });
   }
 
