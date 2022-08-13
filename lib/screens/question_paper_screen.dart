@@ -8,6 +8,7 @@ import 'package:gtu_app/components/heading.dart';
 import 'package:gtu_app/components/no_data_found.dart';
 import 'package:gtu_app/components/powered_by_astron_apps.dart';
 import 'package:gtu_app/components/question_paper_tile.dart';
+import 'package:gtu_app/components/search_now.dart';
 import 'package:gtu_app/components/searchbar.dart';
 import 'package:gtu_app/controllers/papers_controller.dart';
 import 'package:gtu_app/data/card_data.dart';
@@ -74,20 +75,28 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
                         ),
                         questionPaperController.obx(
                           (questionPaper) {
-                            return ListView.separated(
-                              padding: const EdgeInsets.only(top: 10),
-                              itemCount: questionPaper.length, //length
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              separatorBuilder: (context, index) =>
-                                  const SizedBox(height: 10),
-                              itemBuilder: (BuildContext context, int index) {
-                                return QuestionPaperTile(
-                                  questionPaper: QuestionPaperModel.fromJson(
-                                      questionPaper[index]),
-                                );
-                              },
-                            );
+                            return questionPaper.length != 0
+                                ? ListView.separated(
+                                    padding: const EdgeInsets.only(top: 10),
+                                    itemCount: questionPaper.length, //length
+                                    shrinkWrap: true,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    separatorBuilder: (context, index) =>
+                                        const SizedBox(height: 10),
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return QuestionPaperTile(
+                                        questionPaper:
+                                            QuestionPaperModel.fromJson(
+                                                questionPaper[index]),
+                                      );
+                                    },
+                                  )
+                                : const SearchNow(
+                                    message:
+                                        "Search Question papers 👆\nTry searching '3110006'",
+                                  );
                           },
                           onLoading: CustomLoadingIndicator(),
                           onError: (error) => NoDataFound(error: error),
