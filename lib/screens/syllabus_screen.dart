@@ -28,11 +28,15 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
   final TextEditingController _syllabusInputController =
       TextEditingController();
 
+  _SyllabusScreenState() {
+    _syllabusController.initialFetch();
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () {
-        Get.delete<SyllabusController>();
+        // Get.delete<SyllabusController>();
         return AppGlobals.onBackPressed();
       },
       child: Scaffold(

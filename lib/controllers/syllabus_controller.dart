@@ -10,16 +10,16 @@ import 'package:gtu_app/utils/utils_functions.dart';
 
 class SyllabusController extends GetxController with StateMixin<dynamic> {
   final signInController = Get.put(SignInController());
-
+  late DbUserModel userData;
   @override
   void onInit() {
-    initialFetch();
+    userData = signInController.dbUserData.value;
+    // initialFetch();
     super.onInit();
   }
 
   void initialFetch() {
     change(null, status: RxStatus.loading());
-    DbUserModel userData = signInController.dbUserData.value;
     final sem = Utils.getSem(int.parse(userData.admissionYear ?? "2020"));
 
     Provider()
@@ -38,7 +38,8 @@ class SyllabusController extends GetxController with StateMixin<dynamic> {
       initialFetch();
       return;
     }
-    Provider().getSearchedSyllabusData(subCode).then((value) {
+    Provider().getSearchedSyllabusData(subCode, userData.branchCode!).then(
+        (value) {
       log("searchResult: $value");
       change(value, status: RxStatus.success());
     }, onError: (error) {
