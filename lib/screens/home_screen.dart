@@ -28,6 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final userData = signinController.dbUserData;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -60,12 +62,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 15,
                       ),
                       Expanded(
-                        child: signinController.obx((data) => AutoSizeText(
-                              "Hi, ${data.firstName ?? ""}👋",
-                              style: FontStyle.montserrat(25, FontWeight.w600),
-                              maxLines: 1,
-                            )),
-                      ),
+                          child: Obx(
+                        () => AutoSizeText(
+                          "Hi, ${userData.value.firstName ?? ""}👋",
+                          style: FontStyle.montserrat(25, FontWeight.w600),
+                          maxLines: 1,
+                        ),
+                      )),
                       CircleAvatar(
                         radius: 23,
                         backgroundImage:
