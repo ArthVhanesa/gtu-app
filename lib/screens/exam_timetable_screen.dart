@@ -48,7 +48,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
                 child: Padding(
                     padding: padding,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         InputSection2(style: style),
                         timeTableController.obx(
