@@ -18,6 +18,8 @@ class SnackBarType {
       SnackBarType(color: AppColors.warningColor, image: AppImage.warningImg);
   static SnackBarType success =
       SnackBarType(color: AppColors.sucessColor, image: AppImage.sucessImg);
+  static SnackBarType noInternet = SnackBarType(
+      color: AppColors.noInternetColor, image: AppImage.noInternetImg);
 }
 
 class CustomSnackBar extends StatelessWidget {
