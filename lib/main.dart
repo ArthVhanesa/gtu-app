@@ -61,9 +61,6 @@ class MyApp extends StatelessWidget {
         title: 'GTU Info',
         theme: ThemeData(
             scaffoldBackgroundColor: AppColors.bgColor,
-            // bottomSheetTheme: BottomSheetThemeData(
-            //   backgroundColor: Colors.black.withOpacity(0),
-            // ),
             bottomNavigationBarTheme: const BottomNavigationBarThemeData(
               backgroundColor: Color(0x00ffffff),
             )),
