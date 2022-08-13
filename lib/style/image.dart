@@ -28,6 +28,7 @@ class AppImage {
   static const errorImg = 'assets/image/error.png';
   static const warningImg = 'assets/image/warning.png';
   static const sucessImg = 'assets/image/midMarks.png';
+  static const noInternetImg = 'assets/image/noInternet.png';
 
   static const noDataFoundImg = 'assets/image/noDataFound.png';
 

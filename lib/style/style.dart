@@ -38,6 +38,7 @@ class AppColors {
   static Color errorColor = const Color(0xFFFFCFCF);
   static Color warningColor = const Color(0xFFFFF9BF);
   static Color sucessColor = const Color(0xFFBEF294);
+  static Color noInternetColor = const Color(0xFFB5E4FF);
 
   static Color blackColor = const Color(0XFF000000);
   static Color whiteColor = const Color(0XFFFFFFFF);
