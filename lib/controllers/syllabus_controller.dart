@@ -40,7 +40,7 @@ class SyllabusController extends GetxController with StateMixin<dynamic> {
     }
     Provider().getSearchedSyllabusData(subCode).then((value) {
       log("searchResult: $value");
-      change([value], status: RxStatus.success());
+      change(value, status: RxStatus.success());
     }, onError: (error) {
       log(error.toString());
       change(null, status: RxStatus.error(error.toString()));

@@ -8,7 +8,7 @@ import 'package:gtu_app/provider/provider.dart';
 class QuestionPaperController extends GetxController with StateMixin<dynamic> {
   @override
   void onInit() {
-    fetchQuestionPaper('');
+    change([], status: RxStatus.success());
     super.onInit();
   }
 
