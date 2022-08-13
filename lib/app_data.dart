@@ -1,5 +1,5 @@
 //Version of Application
-String version = '1.0.0';
+String version = '1.0.0+2';
 
 // Name of Application
 String appName = 'GTU Info';
