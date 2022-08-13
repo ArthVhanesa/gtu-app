@@ -41,11 +41,7 @@ class SyllabusController extends GetxController with StateMixin<dynamic> {
     Provider().getSearchedSyllabusData(subCode, userData.branchCode!).then(
         (value) {
       log("searchResult: $value");
-      if (value.length == 0) {
-        change(null, status: RxStatus.error("No results found"));
-      } else {
-        change(value, status: RxStatus.success());
-      }
+      change(value, status: RxStatus.success());
     }, onError: (error) {
       log(error.toString());
       change(null, status: RxStatus.error(error.toString()));
