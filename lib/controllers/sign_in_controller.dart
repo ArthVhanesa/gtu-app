@@ -56,6 +56,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
     });
   }
 
+  //it checks if user is available in database?
   void isUserAlreadyRegistered(String email) {
     Provider().getUserByEmail(email).then((value) {
       log("UserDatabase:$value");
@@ -77,6 +78,33 @@ class SignInController extends GetxController with StateMixin<dynamic> {
       dbUserData.value = DbUserModel.fromJson(value['document']);
       ShowCustomSnackBar.success(message: "Successfully registered.");
       Get.to(() => const ZoomDrawerScreen());
+    }, onError: (err) {
+      ShowCustomSnackBar.error(message: err['error_message'] ?? "");
+    });
+  }
+
+  void updateUserName(String? fname, String? lname) {
+    fname ??= dbUserData.value.firstName;
+    lname ??= dbUserData.value.lastName;
+
+    Provider().updateUserName(googleUserData.email ?? "", fname!, lname!).then(
+        (value) {
+      log("updated profile: $value");
+      dbUserData.value = DbUserModel.fromJson(value['document']);
+      ShowCustomSnackBar.success(message: "Profile updated successfully.");
+    }, onError: (err) {
+      ShowCustomSnackBar.error(message: err['error_message'] ?? "");
+    });
+  }
+
+  void updateEnrollment(String? enrollment) {
+    enrollment ??= dbUserData.value.enrollmentNo;
+
+    Provider().updateEnrollment(googleUserData.email ?? "", enrollment!).then(
+        (value) {
+      log("updated profile: $value");
+      dbUserData.value = DbUserModel.fromJson(value['document']);
+      ShowCustomSnackBar.success(message: "Enrollment updated successfully.");
     }, onError: (err) {
       ShowCustomSnackBar.error(message: err['error_message'] ?? "");
     });
