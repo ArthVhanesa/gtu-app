@@ -7,9 +7,11 @@ import 'package:get/get.dart';
 import 'package:gtu_app/components/carousel_home.dart';
 import 'package:gtu_app/components/home_screen_tile.dart';
 import 'package:gtu_app/components/keep_it_up.dart';
+import 'package:gtu_app/components/no_internet_connection.dart';
 import 'package:gtu_app/components/searchbar.dart';
 import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/data/title_data.dart';
+import 'package:gtu_app/provider/globals.dart';
 import 'package:gtu_app/screens/profile_screen.dart';
 import 'package:gtu_app/screens/search_result_screen.dart';
 import 'package:gtu_app/style/image.dart';
@@ -109,42 +111,52 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            Expanded(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  children: [
-                    const CarouselSlider1(),
-                    Padding(
-                      padding: padding,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          ListView.separated(
-                            itemCount: tile.length,
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            separatorBuilder:
-                                (BuildContext context, int index) {
-                              return const SizedBox(
-                                height: 60,
-                              );
-                            },
-                            itemBuilder: (BuildContext context, int index) {
-                              return HomeScreenTile(tile: tile[index]);
-                            },
-                          ),
-                          KeepItUp(),
-                        ],
+            FutureBuilder(
+                future: AppGlobals.checkInternetConnection(),
+                builder: ((context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Expanded(
+                      child: SingleChildScrollView(
+                        physics: const BouncingScrollPhysics(),
+                        child: Column(
+                          children: [
+                            const CarouselSlider1(),
+                            Padding(
+                              padding: padding,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  ListView.separated(
+                                    itemCount: tile.length,
+                                    shrinkWrap: true,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    separatorBuilder:
+                                        (BuildContext context, int index) {
+                                      return const SizedBox(
+                                        height: 60,
+                                      );
+                                    },
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return HomeScreenTile(tile: tile[index]);
+                                    },
+                                  ),
+                                  KeepItUp(),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+                    );
+                  } else {
+                    return NoInternetConnection();
+                  }
+                }))
           ],
         ),
       ),
