@@ -19,7 +19,7 @@ class SnackBarType {
   static SnackBarType success =
       SnackBarType(color: AppColors.sucessColor, image: AppImage.sucessImg);
   static SnackBarType noInternet = SnackBarType(
-      color: AppColors.noInternetColor, image: AppImage.noInternetImg);
+      color: AppColors.warningColor, image: AppImage.noInternetImg);
 }
 
 class CustomSnackBar extends StatelessWidget {
@@ -119,6 +119,20 @@ class ShowCustomSnackBar {
       behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.transparent,
       elevation: 0,
+    ));
+  }
+
+  static noInternet() {
+    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+    AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
+      content: CustomSnackBar(
+          title: "Oops!",
+          message: "You are offline!",
+          snackBarType: SnackBarType.noInternet),
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      duration: const Duration(days: 1),
     ));
   }
 }

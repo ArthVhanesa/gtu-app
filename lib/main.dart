@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gtu_app/controllers/internet_status_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:gtu_app/models/user_model.dart';
@@ -44,8 +45,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   final bool isIntroDone;
   final SharedPreferences prefs;
-
-  const MyApp({Key? key, required this.isIntroDone, required this.prefs})
+  final _ = Get.put(InternetController());
+  MyApp({Key? key, required this.isIntroDone, required this.prefs})
       : super(key: key);
 
   @override
@@ -65,7 +66,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: Color(0x00ffffff),
             )),
         home: isIntroDone
-            ? (isUserLoggedin ? const ZoomDrawerScreen() : const LogInScreen())
+            ? (isUserLoggedin ? ZoomDrawerScreen() : const LogInScreen())
             : const IntroductionScreens());
   }
 }
