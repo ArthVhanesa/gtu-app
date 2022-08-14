@@ -103,10 +103,8 @@ flutter:
     
     # Assets for Fonts
     - assets/fonts/
-    - assets/fonts/EBGaramond/
     - assets/fonts/Manrope/
     - assets/fonts/Montserrat/
-    - assets/fonts/MPLUSRounded1c/
     - assets/fonts/PlayfairDisplay/
 
   # An image asset can refer to one or more resolution-specific "variants", see
