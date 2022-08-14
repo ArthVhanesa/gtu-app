@@ -12,7 +12,7 @@ String aboutAppMessage = 'GTU Info - A bridge between Students and University';
 
 // Message shared on click of share app
 String shareAppMessage =
-    'Hey, I am using this app and I loved it\'s features.\nYou can find Syllabus, Papers, Timetable and lot more things.\nDownload from given link 👉 https://play.google.com/store/apps/details?id=com.astronapps.gtuApp';
+    'Hey, I am using this app and I loved its features.\nYou can find Syllabus, Papers, Timetable and a lot more things.\nDownload now from the Play Store 👉  https://play.google.com/store/apps/details?id=com.astronapps.gtuApp';
 
 // Playstore page link of Astron Apps
 String astronApps =
