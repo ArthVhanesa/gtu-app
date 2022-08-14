@@ -14,7 +14,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SignInController extends GetxController with StateMixin<dynamic> {
   late SharedPreferences prefs;
   final dbUserData = DbUserModel().obs;
-  GoogleProfileModel googleUserData = GoogleProfileModel();
+  final googleUserData = GoogleProfileModel().obs;
 
   @override
   void onInit() async {
@@ -45,7 +45,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
             photoURL: value.user!.photoURL,
             phoneNumber: value.user!.phoneNumber);
 
-        googleUserData = userData;
+        googleUserData.value = userData;
         //set userData to shared preference to stop login again and again.
         // prefs.setString("userData", jsonEncode(userData.toJson()));
         change(userData, status: RxStatus.success());
@@ -76,7 +76,8 @@ class SignInController extends GetxController with StateMixin<dynamic> {
 
   void registerNewUser(String fname, String lname, String enrollment) {
     Provider()
-        .registerNewUser(googleUserData.email ?? "", fname, lname, enrollment)
+        .registerNewUser(
+            googleUserData.value.email ?? "", fname, lname, enrollment)
         .then((value) {
       log("registered: $value");
       dbUserData.value = DbUserModel.fromJson(value['document']);
