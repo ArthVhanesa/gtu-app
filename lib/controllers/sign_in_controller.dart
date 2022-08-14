@@ -115,6 +115,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
       GoogleProfileModel userData =
           GoogleProfileModel(displayName: "Student", firstName: "Student");
       prefs.setString("userData", jsonEncode(userData.toJson()));
+      log("storedData ${userData.toJson()}");
 
       change(userData, status: RxStatus.success());
       Get.offAll(() => const LogInScreen());
