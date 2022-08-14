@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:gtu_app/provider/globals.dart';
 import 'package:gtu_app/style/image.dart';
@@ -42,9 +43,9 @@ class CustomSnackBar extends StatelessWidget {
       decoration: BoxDecoration(
           color: snackBarType.color,
           borderRadius: const BorderRadius.all(Radius.circular(20)),
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
-              color: Colors.grey,
+              color: snackBarType.color.withOpacity(0.9),
               blurRadius: 7,
               offset: Offset(0, 4),
             )
@@ -81,7 +82,7 @@ class CustomSnackBar extends StatelessWidget {
   }
 }
 
-class ShowCustomSnackBar {
+class ShowCustomSnackBarWithoutGet {
   // @usage:  ShowCustomSnackBar.warn(context,"title..","message...");
   //for warning
   static warn({String title = "Oops!!", String message = ""}) {
@@ -134,5 +135,75 @@ class ShowCustomSnackBar {
       elevation: 0,
       duration: const Duration(days: 1),
     ));
+  }
+}
+
+class ShowCustomSnackBar {
+  // @usage:  ShowCustomSnackBar.warn(context,"title..","message...");
+  //for warning
+  static warn({String title = "Oops!!", String message = ""}) {
+    //remove old snackbars before showing new one.
+    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+
+    Get.snackbar(
+      title,
+      message,
+      icon: const Icon(Icons.warning_outlined, color: Colors.black),
+      snackPosition: SnackPosition.TOP,
+      barBlur: 10,
+      overlayColor: AppColors.warningColor,
+      backgroundColor: AppColors.warningColor.withOpacity(0.5),
+      margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+    );
+  }
+
+  // @usage:  ShowCustomSnackBar.error(context,"title..","message...");
+  //for Error
+  static error(
+      {String title = "Error!!", String message = "Something went wrong!"}) {
+    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+
+    Get.snackbar(
+      title,
+      message,
+      icon: const Icon(Icons.error_outline, color: Colors.black),
+      snackPosition: SnackPosition.BOTTOM,
+      barBlur: 7,
+      overlayColor: AppColors.errorColor,
+      backgroundColor: AppColors.errorColor.withOpacity(0.5),
+      margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+    );
+  }
+
+  static success({String title = "Hurray!", String message = "Successfull!"}) {
+    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+
+    Get.snackbar(
+      title,
+      message,
+      icon: const Icon(Icons.done, color: Colors.black),
+      snackPosition: SnackPosition.BOTTOM,
+      barBlur: 7,
+      overlayColor: AppColors.sucessColor,
+      backgroundColor: AppColors.sucessColor.withOpacity(0.5),
+      margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+    );
+  }
+
+  static noInternet() {
+    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+
+    Get.snackbar(
+      "Oops!",
+      "You are offline!",
+      icon: const Icon(Icons.wifi_off, color: Colors.black),
+      snackPosition: SnackPosition.TOP,
+      barBlur: 10,
+      overlayColor: AppColors.noInternetColor,
+      backgroundColor: AppColors.noInternetColor.withOpacity(0.5),
+      margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      isDismissible: true,
+      duration: const Duration(days: 1),
+    );
   }
 }
