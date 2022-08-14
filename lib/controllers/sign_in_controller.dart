@@ -80,6 +80,8 @@ class SignInController extends GetxController with StateMixin<dynamic> {
         .then((value) {
       log("registered: $value");
       dbUserData.value = DbUserModel.fromJson(value['document']);
+      prefs.setString("userData", jsonEncode(dbUserData.value.toJson()));
+
       ShowCustomSnackBar.success(message: "Successfully registered.");
       Get.off(() => const ZoomDrawerScreen());
     }, onError: (err) {
