@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:gtu_app/components/custom_snackbar.dart';
@@ -32,6 +33,7 @@ class InternetController extends GetxController {
         ShowCustomSnackBar.noInternet();
       } else {
         log("back to online");
+        ShowCustomSnackBar.success(message: "Back to Online mode");
         AppGlobals.rootScaffoldMessengerKey.currentState!
             .removeCurrentSnackBar();
       }
