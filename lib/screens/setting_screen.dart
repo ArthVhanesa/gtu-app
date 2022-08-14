@@ -180,6 +180,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   child: InkWell(
                     borderRadius: const BorderRadius.all(Radius.circular(25)),
                     onTap: () {
+                      Get.closeCurrentSnackbar();
                       signinController.logOut();
                     },
                     child: Center(

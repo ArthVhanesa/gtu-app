@@ -40,6 +40,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         data:
                             "${userData.firstName ?? "Anonymous"} ${userData.lastName ?? ""}",
                         onTap: () {
+                          Get.closeCurrentSnackbar();
                           ShowEditDialog.nameEditDialog(context: context);
                         },
                       ),
@@ -48,6 +49,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         title: 'Enrollment No. 🔢',
                         data: userData.enrollmentNo ?? "",
                         onTap: () {
+                          Get.closeCurrentSnackbar();
                           ShowEditDialog.enrollmentEditDialog(context: context);
                         },
                       ),
@@ -94,6 +96,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: InkWell(
             borderRadius: const BorderRadius.all(Radius.circular(25)),
             onTap: () {
+              Get.closeCurrentSnackbar();
               Get.to(() => const SettingScreen());
             },
             child: Center(

@@ -18,7 +18,7 @@ class InternetController extends GetxController {
       ShowCustomSnackBar.noInternet();
     } else {
       log("back to online");
-      AppGlobals.rootScaffoldMessengerKey.currentState!.removeCurrentSnackBar();
+      ShowCustomSnackBar.activeInternet();
     }
 
     subscription = Connectivity()
@@ -32,8 +32,6 @@ class InternetController extends GetxController {
       } else {
         log("back to online");
         ShowCustomSnackBar.activeInternet();
-        AppGlobals.rootScaffoldMessengerKey.currentState!
-            .removeCurrentSnackBar();
       }
       log("$result");
     });

@@ -89,7 +89,7 @@ class ShowCustomSnackBarWithoutGet {
   //for warning
   static warn({String title = "Oops!!", String message = ""}) {
     //remove old snackbars before showing new one.
-    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+    Get.closeCurrentSnackbar();
 
     AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
       content: CustomSnackBarWithoutGet(
@@ -104,7 +104,8 @@ class ShowCustomSnackBarWithoutGet {
   //for Error
   static error(
       {String title = "Error!!", String message = "Something went wrong!"}) {
-    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+    Get.closeCurrentSnackbar();
+
     AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
       content: CustomSnackBarWithoutGet(
           title: title, message: message, snackBarType: SnackBarType.error),
@@ -115,7 +116,8 @@ class ShowCustomSnackBarWithoutGet {
   }
 
   static success({String title = "Hurray!", String message = "Successfull!"}) {
-    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+    Get.closeCurrentSnackbar();
+
     AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
       content: CustomSnackBarWithoutGet(
           title: title, message: message, snackBarType: SnackBarType.success),
@@ -126,7 +128,8 @@ class ShowCustomSnackBarWithoutGet {
   }
 
   static noInternet() {
-    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+    Get.closeCurrentSnackbar();
+
     AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
       content: CustomSnackBarWithoutGet(
           title: "Oops!",
@@ -145,7 +148,7 @@ class ShowCustomSnackBar {
   //for warning
   static warn({String title = "Oops!!", String message = ""}) {
     //remove old snackbars before showing new one.
-    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+    Get.closeCurrentSnackbar();
 
     Get.snackbar(
       titleText: Text(
@@ -180,7 +183,7 @@ class ShowCustomSnackBar {
   //for Error
   static error(
       {String title = "Error!!", String message = "Something went wrong!"}) {
-    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+    Get.closeCurrentSnackbar();
 
     Get.snackbar(
       titleText: Text(
@@ -212,7 +215,7 @@ class ShowCustomSnackBar {
   }
 
   static success({String title = "Hurray!", String message = "Successfull!"}) {
-    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+    Get.closeCurrentSnackbar();
 
     Get.snackbar(
       titleText: Text(
@@ -244,7 +247,7 @@ class ShowCustomSnackBar {
   }
 
   static noInternet() {
-    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+    Get.closeCurrentSnackbar();
 
     Get.snackbar(
       titleText: Text(
@@ -273,12 +276,12 @@ class ShowCustomSnackBar {
       margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
       isDismissible: false,
-      duration: const Duration(seconds: 5),
+      duration: const Duration(days: 1),
     );
   }
 
   static activeInternet() {
-    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+    Get.closeCurrentSnackbar();
 
     Get.snackbar(
       titleText: Text(
@@ -306,8 +309,7 @@ class ShowCustomSnackBar {
       backgroundColor: AppColors.sucessColor.withOpacity(0.5),
       margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-      isDismissible: false,
-      duration: const Duration(seconds: 5),
+      isDismissible: true,
     );
   }
 }

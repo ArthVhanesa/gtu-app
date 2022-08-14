@@ -1,7 +1,8 @@
 import 'dart:io';
 
+import 'package:get/get.dart';
+
 import 'package:flutter/material.dart';
-import 'package:gtu_app/components/custom_snackbar.dart';
 
 class AppGlobals {
   static final GlobalKey<ScaffoldMessengerState> rootScaffoldMessengerKey =
@@ -11,7 +12,8 @@ class AppGlobals {
   // static const API_URL = "https://bookocean-app.herokuapp.com";
 
   static Future<bool> onBackPressed() {
-    rootScaffoldMessengerKey.currentState!.removeCurrentSnackBar();
+    Get.closeCurrentSnackbar();
+    // rootScaffoldMessengerKey.currentState!.removeCurrentSnackBar();
     return Future.value(true);
   }
 }
