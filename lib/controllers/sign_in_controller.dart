@@ -64,9 +64,9 @@ class SignInController extends GetxController with StateMixin<dynamic> {
       log(dbUserData.value.enrollmentNo ?? "");
 
       // Go to HomePage when Sign in successfull.
-      Get.offAll(() => const ZoomDrawerScreen());
+      Get.off(() => const ZoomDrawerScreen());
     }, onError: (err) {
-      Get.offAll(() => const LogIn2Screen());
+      Get.off(() => const LogIn2Screen());
     });
   }
 
@@ -77,7 +77,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
       log("registered: $value");
       dbUserData.value = DbUserModel.fromJson(value['document']);
       ShowCustomSnackBar.success(message: "Successfully registered.");
-      Get.offAll(() => const ZoomDrawerScreen());
+      Get.off(() => const ZoomDrawerScreen());
     }, onError: (err) {
       ShowCustomSnackBar.error(message: err['error_message'] ?? "");
     });
