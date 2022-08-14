@@ -184,6 +184,7 @@ class Provider extends GetConnect {
 
   Future<void> logOut() async {
     log("logged out");
+    await GoogleSignIn().signOut();
     return FirebaseAuth.instance.signOut();
   }
 }
