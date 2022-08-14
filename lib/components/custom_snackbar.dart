@@ -23,12 +23,13 @@ class SnackBarType {
       color: AppColors.warningColor, image: AppImage.noInternetImg);
 }
 
-class CustomSnackBar extends StatelessWidget {
+// Custome snackbar without get
+class CustomSnackBarWithoutGet extends StatelessWidget {
   String title;
   String message;
   SnackBarType snackBarType;
 
-  CustomSnackBar({
+  CustomSnackBarWithoutGet({
     Key? key,
     this.title = "",
     this.message = "",
@@ -82,6 +83,7 @@ class CustomSnackBar extends StatelessWidget {
   }
 }
 
+// show Custome snackbar without get
 class ShowCustomSnackBarWithoutGet {
   // @usage:  ShowCustomSnackBar.warn(context,"title..","message...");
   //for warning
@@ -90,7 +92,7 @@ class ShowCustomSnackBarWithoutGet {
     AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
 
     AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
-      content: CustomSnackBar(
+      content: CustomSnackBarWithoutGet(
           title: title, message: message, snackBarType: SnackBarType.warning),
       behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.transparent,
@@ -98,13 +100,13 @@ class ShowCustomSnackBarWithoutGet {
     ));
   }
 
-  // @usage:  ShowCustomSnackBar.error(context,"title..","message...");
+  // @usage:  ShowWiCustomSnackBarWithoutGet.error(context,"title..","message...");
   //for Error
   static error(
       {String title = "Error!!", String message = "Something went wrong!"}) {
     AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
     AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
-      content: CustomSnackBar(
+      content: CustomSnackBarWithoutGet(
           title: title, message: message, snackBarType: SnackBarType.error),
       behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.transparent,
@@ -115,7 +117,7 @@ class ShowCustomSnackBarWithoutGet {
   static success({String title = "Hurray!", String message = "Successfull!"}) {
     AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
     AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
-      content: CustomSnackBar(
+      content: CustomSnackBarWithoutGet(
           title: title, message: message, snackBarType: SnackBarType.success),
       behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.transparent,
@@ -126,7 +128,7 @@ class ShowCustomSnackBarWithoutGet {
   static noInternet() {
     AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
     AppGlobals.rootScaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
-      content: CustomSnackBar(
+      content: CustomSnackBarWithoutGet(
           title: "Oops!",
           message: "You are offline!",
           snackBarType: SnackBarType.noInternet),
@@ -146,14 +148,31 @@ class ShowCustomSnackBar {
     AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
 
     Get.snackbar(
+      titleText: Text(
+        title,
+        style: FontStyle.manrope(18, FontWeight.w600)
+            .copyWith(color: AppColors.blackColor),
+      ),
+      messageText: Text(
+        message,
+        style: FontStyle.manrope(15, FontWeight.w400)
+            .copyWith(color: AppColors.titleColor),
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
       title,
       message,
-      icon: const Icon(Icons.warning_outlined, color: Colors.black),
+      icon: const Icon(
+        Icons.warning_outlined,
+        color: Colors.black,
+        size: 35,
+      ),
       snackPosition: SnackPosition.TOP,
       barBlur: 10,
       overlayColor: AppColors.warningColor,
       backgroundColor: AppColors.warningColor.withOpacity(0.5),
       margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
     );
   }
 
@@ -164,14 +183,31 @@ class ShowCustomSnackBar {
     AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
 
     Get.snackbar(
+      titleText: Text(
+        title,
+        style: FontStyle.manrope(18, FontWeight.w600)
+            .copyWith(color: AppColors.blackColor),
+      ),
+      messageText: Text(
+        message,
+        style: FontStyle.manrope(15, FontWeight.w400)
+            .copyWith(color: AppColors.titleColor),
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
       title,
       message,
-      icon: const Icon(Icons.error_outline, color: Colors.black),
+      icon: const Icon(
+        Icons.error_outline,
+        color: Colors.black,
+        size: 35,
+      ),
       snackPosition: SnackPosition.BOTTOM,
       barBlur: 7,
       overlayColor: AppColors.errorColor,
       backgroundColor: AppColors.errorColor.withOpacity(0.5),
       margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
     );
   }
 
@@ -179,14 +215,31 @@ class ShowCustomSnackBar {
     AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
 
     Get.snackbar(
+      titleText: Text(
+        title,
+        style: FontStyle.manrope(18, FontWeight.w600)
+            .copyWith(color: AppColors.blackColor),
+      ),
+      messageText: Text(
+        message,
+        style: FontStyle.manrope(15, FontWeight.w400)
+            .copyWith(color: AppColors.titleColor),
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
       title,
       message,
-      icon: const Icon(Icons.done, color: Colors.black),
+      icon: const Icon(
+        Icons.done,
+        color: Colors.black,
+        size: 35,
+      ),
       snackPosition: SnackPosition.BOTTOM,
       barBlur: 7,
       overlayColor: AppColors.sucessColor,
       backgroundColor: AppColors.sucessColor.withOpacity(0.5),
       margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
     );
   }
 
@@ -194,14 +247,31 @@ class ShowCustomSnackBar {
     AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
 
     Get.snackbar(
+      titleText: Text(
+        'Oops!',
+        style: FontStyle.manrope(18, FontWeight.w600)
+            .copyWith(color: AppColors.blackColor),
+      ),
+      messageText: Text(
+        "You are offline!",
+        style: FontStyle.manrope(15, FontWeight.w400)
+            .copyWith(color: AppColors.titleColor),
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
       "Oops!",
       "You are offline!",
-      icon: const Icon(Icons.wifi_off, color: Colors.black),
+      icon: const Icon(
+        Icons.wifi_off,
+        color: Colors.black,
+        size: 35,
+      ),
       snackPosition: SnackPosition.TOP,
       barBlur: 10,
       overlayColor: AppColors.noInternetColor,
       backgroundColor: AppColors.noInternetColor.withOpacity(0.5),
       margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
       isDismissible: true,
       duration: const Duration(days: 1),
     );
