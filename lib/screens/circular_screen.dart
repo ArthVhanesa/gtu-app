@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gtu_app/components/no_data_found.dart';
+import 'package:gtu_app/provider/globals.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 import 'package:gtu_app/components/common_tile.dart';
@@ -21,6 +22,13 @@ class CircularScreen extends StatefulWidget {
 
 class _CircularScreenState extends State<CircularScreen>
     with TickerProviderStateMixin {
+  final allCircularController = Get.put(AllCircularController());
+  final importantCircular = Get.put(ImpCircularController());
+
+  _CircularScreenState() {
+    allCircularController.onInit();
+    importantCircular.onInit();
+  }
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
