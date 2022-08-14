@@ -58,8 +58,6 @@ class SignInController extends GetxController with StateMixin<dynamic> {
 
   //it checks if user is available in database?
   void isUserAlreadyRegistered(String email) {
-    GoogleProfileModel userData = GoogleProfileModel.fromJson(
-        jsonDecode(prefs.getString("userData") ?? "{}"));
     Provider().getUserByEmail(email).then((value) {
       log("UserDatabase:$value");
       dbUserData.value = DbUserModel.fromJson(value);
@@ -68,7 +66,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
       // Go to HomePage when Sign in successfull.
       Get.off(() => const ZoomDrawerScreen());
     }, onError: (err) async {
-      if (userData.uid != null) {
+      if (dbUserData.value.email != null) {
         Get.off(() => const ZoomDrawerScreen());
       } else {
         Get.off(() => const LogIn2Screen());
