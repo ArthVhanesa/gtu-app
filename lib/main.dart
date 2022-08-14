@@ -51,10 +51,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isUserLoggedin = GoogleProfileModel.fromJson(
-                jsonDecode(prefs.getString("userData") ?? "{}"))
-            .uid !=
-        null;
+    final isUserLoggedin =
+        DbUserModel.fromJson(jsonDecode(prefs.getString("userData") ?? "{}"))
+                .email !=
+            null;
 
     return GetMaterialApp(
         scaffoldMessengerKey: AppGlobals.rootScaffoldMessengerKey,
