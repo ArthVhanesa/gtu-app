@@ -21,10 +21,10 @@ class SignInController extends GetxController with StateMixin<dynamic> {
     prefs = await SharedPreferences.getInstance();
 
     //get userData on init to decide initial screen (login screen or home screen.)
-    GoogleProfileModel userData = GoogleProfileModel.fromJson(
-        jsonDecode(prefs.getString("userData") ?? "{}"));
+    DbUserModel userData =
+        DbUserModel.fromJson(jsonDecode(prefs.getString("userData") ?? "{}"));
     if (userData.email != null) {
-      googleUserData = userData;
+      dbUserData.value = userData;
       isUserAlreadyRegistered(userData.email ?? "");
     }
     log("storedData ${userData.toJson()}");
@@ -47,7 +47,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
 
         googleUserData = userData;
         //set userData to shared preference to stop login again and again.
-        prefs.setString("userData", jsonEncode(userData.toJson()));
+        // prefs.setString("userData", jsonEncode(userData.toJson()));
         change(userData, status: RxStatus.success());
         isUserAlreadyRegistered(userData.email ?? "");
       }
@@ -64,7 +64,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
       log("UserDatabase:$value");
       dbUserData.value = DbUserModel.fromJson(value);
       log(dbUserData.value.enrollmentNo ?? "");
-
+      prefs.setString("userData", jsonEncode(dbUserData.value.toJson()));
       // Go to HomePage when Sign in successfull.
       Get.off(() => const ZoomDrawerScreen());
     }, onError: (err) async {
@@ -93,8 +93,9 @@ class SignInController extends GetxController with StateMixin<dynamic> {
     fname ??= dbUserData.value.firstName;
     lname ??= dbUserData.value.lastName;
 
-    Provider().updateUserName(googleUserData.email ?? "", fname!, lname!).then(
-        (value) {
+    Provider()
+        .updateUserName(dbUserData.value.email ?? "", fname!, lname!)
+        .then((value) {
       log("updated profile: $value");
       dbUserData.value = DbUserModel.fromJson(value['document']);
       ShowCustomSnackBar.success(message: "Profile updated successfully.");
@@ -106,7 +107,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
   void updateEnrollment(String? enrollment) {
     enrollment ??= dbUserData.value.enrollmentNo;
 
-    Provider().updateEnrollment(googleUserData.email ?? "", enrollment!).then(
+    Provider().updateEnrollment(dbUserData.value.email ?? "", enrollment!).then(
         (value) {
       log("updated profile: $value");
       dbUserData.value = DbUserModel.fromJson(value['document']);
