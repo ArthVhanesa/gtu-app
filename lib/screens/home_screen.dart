@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final userData = signinController.dbUserData;
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Column(
           children: [

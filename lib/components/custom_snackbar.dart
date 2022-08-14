@@ -266,10 +266,44 @@ class ShowCustomSnackBar {
         color: Colors.black,
         size: 35,
       ),
-      snackPosition: SnackPosition.TOP,
+      snackPosition: SnackPosition.BOTTOM,
       barBlur: 10,
       overlayColor: AppColors.noInternetColor,
       backgroundColor: AppColors.noInternetColor.withOpacity(0.5),
+      margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+      isDismissible: false,
+      duration: const Duration(seconds: 5),
+    );
+  }
+
+  static activeInternet() {
+    AppGlobals.rootScaffoldMessengerKey.currentState!.clearSnackBars();
+
+    Get.snackbar(
+      titleText: Text(
+        'Hurray!',
+        style: FontStyle.manrope(18, FontWeight.w600)
+            .copyWith(color: AppColors.blackColor),
+      ),
+      messageText: Text(
+        "Active connection!",
+        style: FontStyle.manrope(15, FontWeight.w400)
+            .copyWith(color: AppColors.titleColor),
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
+      "Hurray!",
+      "Active connection!",
+      icon: const Icon(
+        Icons.wifi,
+        color: Colors.black,
+        size: 35,
+      ),
+      snackPosition: SnackPosition.BOTTOM,
+      barBlur: 10,
+      overlayColor: AppColors.sucessColor,
+      backgroundColor: AppColors.sucessColor.withOpacity(0.5),
       margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
       isDismissible: false,
