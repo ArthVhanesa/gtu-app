@@ -272,8 +272,8 @@ class ShowCustomSnackBar {
       backgroundColor: AppColors.noInternetColor.withOpacity(0.5),
       margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-      isDismissible: true,
-      duration: const Duration(days: 1),
+      isDismissible: false,
+      duration: const Duration(seconds: 5),
     );
   }
 }
