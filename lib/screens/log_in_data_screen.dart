@@ -20,16 +20,19 @@ class LogIn2Screen extends StatefulWidget {
 
 class _LogIn2ScreenState extends State<LogIn2Screen> {
   final TextEditingController enrollmentNo = TextEditingController();
-
+  late TextEditingController firstName;
+  late TextEditingController lastName;
   final signinController = Get.put(SignInController());
+
+  _LogIn2ScreenState() {
+    firstName = TextEditingController(
+        text: signinController.googleUserData.value.firstName);
+    lastName = TextEditingController(
+        text: signinController.googleUserData.value.lastName);
+  }
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController firstName =
-        TextEditingController(text: signinController.state.firstName);
-    final TextEditingController lastName =
-        TextEditingController(text: signinController.state.lastName);
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.drawerBgColor,

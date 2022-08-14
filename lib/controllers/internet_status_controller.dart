@@ -11,16 +11,6 @@ class InternetController extends GetxController {
 
   @override
   void onInit() async {
-    var connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.none) {
-      log("Offline");
-      isConnected.value = false;
-      ShowCustomSnackBar.noInternet();
-    } else {
-      log("back to online");
-      ShowCustomSnackBar.activeInternet();
-    }
-
     subscription = Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) {
