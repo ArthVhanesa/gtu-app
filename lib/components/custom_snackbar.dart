@@ -170,10 +170,10 @@ class ShowCustomSnackBar {
         color: Colors.black,
         size: 35,
       ),
-      snackPosition: SnackPosition.TOP,
+      snackPosition: SnackPosition.BOTTOM,
       barBlur: 10,
       overlayColor: AppColors.warningColor,
-      backgroundColor: AppColors.warningColor.withOpacity(0.5),
+      backgroundColor: AppColors.warningColor.withOpacity(0.7),
       margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
     );
