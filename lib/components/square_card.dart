@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:gtu_app/data/card_data.dart';
 import 'package:gtu_app/style/style.dart';
@@ -34,6 +35,7 @@ class SquareCard extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: () {
+            Get.closeCurrentSnackbar();
             if (islinkAvailable) {
               launchCustomTab(card.onTapLink);
             } else {

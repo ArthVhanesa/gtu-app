@@ -35,20 +35,6 @@ class _ResultScreenState extends State<ResultScreen> {
                     SquareCard(card: percentageCalculator),
                   ]),
                   const SizedBox(height: 40),
-                  // Heading(heading: 'Result announcement'),
-                  // ListView.separated(
-                  //   padding: const EdgeInsets.only(top: 10),
-                  //   itemCount: dummyCommonCardData.length,
-                  //   shrinkWrap: true,
-                  //   physics: const NeverScrollableScrollPhysics(),
-                  //   separatorBuilder: (context, index) =>
-                  //       const SizedBox(height: 10),
-                  //   itemBuilder: (BuildContext context, int index) {
-                  //     return CommonTile(
-                  //       dummyCommonCardData: dummyCommonCardData[index],
-                  //     );
-                  //   },
-                  // ),
                   PoweredbyAstronApps()
                 ],
               ),

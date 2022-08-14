@@ -80,6 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Colors.transparent,
                           child: InkWell(
                             onTap: () {
+                              Get.closeCurrentSnackbar();
                               Get.to(() => const ProfileScreen());
                             },
                           ),

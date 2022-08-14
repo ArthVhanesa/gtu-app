@@ -42,6 +42,7 @@ class RectangleCard extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: () {
+            Get.closeCurrentSnackbar();
             if (islinkAvailable) {
               launchCustomTab(card.onTapLink);
             } else {
