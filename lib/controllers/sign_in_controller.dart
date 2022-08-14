@@ -25,7 +25,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
         DbUserModel.fromJson(jsonDecode(prefs.getString("userData") ?? "{}"));
     if (userData.email != null) {
       dbUserData.value = userData;
-      isUserAlreadyRegistered(userData.email ?? "");
+      Get.off(() => const ZoomDrawerScreen());
     }
     log("storedData ${userData.toJson()}");
     change(userData, status: RxStatus.success());
