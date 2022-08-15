@@ -95,7 +95,15 @@ class _LogInScreenState extends State<LogInScreen> {
             ),
           ),
         ),
-        onLoading: Center(child: CircularProgressIndicator()),
+        onLoading: Center(
+          child: Container(
+            height: 70,
+            child: LoadingIndicator(
+              indicatorType: Indicator.ballClipRotateMultiple,
+              colors: [AppColors.primaryColor],
+            ),
+          ),
+        ),
         onError: (error) => Container(),
       ),
     );
