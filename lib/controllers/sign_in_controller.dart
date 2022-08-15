@@ -25,7 +25,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
         DbUserModel.fromJson(jsonDecode(prefs.getString("userData") ?? "{}"));
     if (userData.email != null) {
       dbUserData.value = userData;
-      Get.off(() => const ZoomDrawerScreen());
+      // Get.off(() => const ZoomDrawerScreen());
     }
     log("storedData ${userData.toJson()}");
     change(userData, status: RxStatus.success());
@@ -33,6 +33,7 @@ class SignInController extends GetxController with StateMixin<dynamic> {
   }
 
   void loginWithGoogle() {
+    change(null, status: RxStatus.loading());
     Provider().signInWithGoogle().then((value) {
       log("value.user=> ${value.user}");
       if (value.user != null) {
@@ -58,17 +59,23 @@ class SignInController extends GetxController with StateMixin<dynamic> {
 
   //it checks if user is available in database?
   void isUserAlreadyRegistered(String email) {
+    // change(null, status: RxStatus.loading());
+
     Provider().getUserByEmail(email).then((value) {
       log("UserDatabase:$value");
       dbUserData.value = DbUserModel.fromJson(value);
       log(dbUserData.value.enrollmentNo ?? "");
       prefs.setString("userData", jsonEncode(dbUserData.value.toJson()));
+      change(googleUserData.value, status: RxStatus.success());
+
       // Go to HomePage when Sign in successfull.
       Get.off(() => const ZoomDrawerScreen());
     }, onError: (err) async {
       if (dbUserData.value.email != null) {
+        change(googleUserData.value, status: RxStatus.success());
         Get.off(() => const ZoomDrawerScreen());
       } else {
+        change(googleUserData.value, status: RxStatus.success());
         Get.off(() => const LogIn2Screen());
       }
     });
@@ -120,11 +127,10 @@ class SignInController extends GetxController with StateMixin<dynamic> {
 
   void logOut() {
     Provider().logOut().then((val) {
-      GoogleProfileModel userData =
-          GoogleProfileModel(displayName: "Student", firstName: "Student");
+      DbUserModel userData = DbUserModel(firstName: "Student");
       prefs.setString("userData", jsonEncode(userData.toJson()));
       log("storedData ${userData.toJson()}");
-
+      dbUserData.value = DbUserModel();
       change(userData, status: RxStatus.success());
       Get.offAll(() => const LogInScreen());
     });

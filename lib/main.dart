@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gtu_app/controllers/internet_status_controller.dart';
+import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:gtu_app/models/user_model.dart';
@@ -46,6 +47,8 @@ class MyApp extends StatelessWidget {
   final bool isIntroDone;
   final SharedPreferences prefs;
   final _ = Get.put(InternetController());
+  final signinController = Get.put(SignInController());
+
   MyApp({Key? key, required this.isIntroDone, required this.prefs})
       : super(key: key);
 
