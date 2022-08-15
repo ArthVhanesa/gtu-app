@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gtu_app/app_data.dart';
+import 'package:gtu_app/components/custom_loading_indicator.dart';
 
 import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/style/style.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:lottie/lottie.dart';
 
 class LogInScreen extends StatefulWidget {
@@ -61,6 +63,7 @@ class _LogInScreenState extends State<LogInScreen> {
   logInButton() {
     return Container(
       height: 80,
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -69,27 +72,31 @@ class _LogInScreenState extends State<LogInScreen> {
           width: 4,
         ),
       ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          borderRadius: const BorderRadius.all(Radius.circular(16)),
-          onTap: () => {signinController.loginWithGoogle()},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                AppImage.googleLogoImg,
-                height: 30,
-                width: 30,
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Text("Continue with Google",
-                  style: FontStyle.manrope(18, FontWeight.w600))
-            ],
+      child: signinController.obx(
+        (state) => Material(
+          color: Colors.transparent,
+          child: InkWell(
+            borderRadius: const BorderRadius.all(Radius.circular(16)),
+            onTap: () => {signinController.loginWithGoogle()},
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  AppImage.googleLogoImg,
+                  height: 30,
+                  width: 30,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text("Continue with Google",
+                    style: FontStyle.manrope(18, FontWeight.w600))
+              ],
+            ),
           ),
         ),
+        onLoading: Center(child: CircularProgressIndicator()),
+        onError: (error) => Container(),
       ),
     );
   }
