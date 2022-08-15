@@ -53,7 +53,11 @@ class SignInController extends GetxController with StateMixin<dynamic> {
         isUserAlreadyRegistered(userData.email ?? "");
       }
     }, onError: (error) {
-      change(null, status: RxStatus.error(error.toString()));
+      if (error.message['error_code'] == 400) {
+        change(null, status: RxStatus.success());
+      } else {
+        change(null, status: RxStatus.error(error));
+      }
     });
   }
 

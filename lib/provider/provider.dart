@@ -17,6 +17,10 @@ class Provider extends GetConnect {
     final GoogleSignInAuthentication? googleAuth =
         await googleUser?.authentication;
 
+    if (googleAuth == null) {
+      throw Exception(
+          {"error_code": 400, "error_message": "No account selected by user."});
+    }
     // Create a new credential
     final credential = GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,
