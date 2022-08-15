@@ -35,13 +35,13 @@ class SignInController extends GetxController with StateMixin<dynamic> {
   void loginWithGoogle() {
     change(null, status: RxStatus.loading());
     Provider().signInWithGoogle().then((value) {
-      log("value.user=> ${value.user}");
+      log("value.user=> ${value.additionalUserInfo!.profile}");
       if (value.user != null) {
         GoogleProfileModel userData = GoogleProfileModel(
             uid: value.user!.uid,
             displayName: value.user!.displayName,
-            firstName: value.user!.displayName!.split(" ")[0],
-            lastName: value.user!.displayName!.split(" ")[1],
+            firstName: value.additionalUserInfo!.profile!['given_name'],
+            lastName: value.additionalUserInfo!.profile!['family_name'],
             email: value.user!.email,
             photoURL: value.user!.photoURL,
             phoneNumber: value.user!.phoneNumber);
