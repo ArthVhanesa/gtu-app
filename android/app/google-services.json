@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1001328795342",
+    "project_id": "gtu-app-3b991",
+    "storage_bucket": "gtu-app-3b991.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001328795342:android:22fc72214fdc5936633a9f",
+        "android_client_info": {
+          "package_name": "com.astronapps.gtuApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001328795342-5mi6ctjjs00l8raf8me9gd2ottu8ldok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCHp0vv6sVbnyTIskm-Wkkc9K2rOrwvD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1001328795342-5mi6ctjjs00l8raf8me9gd2ottu8ldok.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1001328795342-dr199qbivkrl13du7330ikkoipbcvvgu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gtuApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

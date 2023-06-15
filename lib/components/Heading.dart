@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gtu_app/style.dart';
+
+import 'package:gtu_app/style/style.dart';
 
 class Heading extends StatelessWidget {
-  final FontStyle _fontStyle = FontStyle();
-  final AppColors _colors = AppColors();
-
   final String heading;
 
   Heading({
@@ -20,7 +18,7 @@ class Heading extends StatelessWidget {
         children: [
           Text(
             heading,
-            style: _fontStyle.montserrat(18, FontWeight.w600),
+            style: FontStyle.montserrat(18, FontWeight.w600),
           ),
           const SizedBox(
             width: 15,
@@ -35,8 +33,6 @@ class Heading extends StatelessWidget {
 }
 
 class Dot extends StatelessWidget {
-  final AppColors _colors = AppColors();
-
   final double size;
 
   Dot({
@@ -50,7 +46,7 @@ class Dot extends StatelessWidget {
       width: size,
       height: size,
       decoration:
-          BoxDecoration(color: _colors.primaryColor, shape: BoxShape.circle),
+          BoxDecoration(color: AppColors.primaryColor, shape: BoxShape.circle),
     );
   }
 }

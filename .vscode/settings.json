@@ -1,0 +1,7 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "[dart]": {
+        "editor.formatOnType": true
+    },
+    "editor.formatOnType": true
+}

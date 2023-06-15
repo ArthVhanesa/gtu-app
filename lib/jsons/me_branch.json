@@ -1,0 +1,246 @@
+[
+    {
+        "branchCode": "01",
+        "branchName": "COMPUTER (COMPUTER SCIENCE & ENGINEERING)"
+    },
+    {
+        "branchCode": "02",
+        "branchName": "COMPUTER ENGINEERING"
+    },
+    {
+        "branchCode": "03",
+        "branchName": "INSTRUMENTATION AND CONTROL(APPLIED INSTRUMENTATION)"
+    },
+    {
+        "branchCode": "04",
+        "branchName": "ELECTRONICS AND COMMUNICATION ENGINEERING"
+    },
+    {
+        "branchCode": "05",
+        "branchName": "ELECTRONICS AND COMMUNICATION (COMMUNICATION SYSTEMS ENGINEERING)"
+    },
+    {
+        "branchCode": "06",
+        "branchName": "ELECTRONICS AND COMMUNICATION (COMMUNICATION ENGINEERING)"
+    },
+    {
+        "branchCode": "07",
+        "branchName": "ELECTRICAL ENGINEERING"
+    },
+    {
+        "branchCode": "08",
+        "branchName": "MECHANICAL (CAD/CAM)"
+    },
+    {
+        "branchCode": "09",
+        "branchName": "MECHANICAL (MACHINE DESIGN)"
+    },
+    {
+        "branchCode": "10",
+        "branchName": "MECHANICAL (CRYOGENIC ENGINEERING)"
+    },
+    {
+        "branchCode": "11",
+        "branchName": "MECHANICAL (I.C.ENGINE & AUTOMOBILE)"
+    },
+    {
+        "branchCode": "12",
+        "branchName": "CIVIL ( WATER RESOURCES MANAGEMENT)"
+    },
+    {
+        "branchCode": "13",
+        "branchName": "CIVIL (TRANSPORTATION ENGINEERING)"
+    },
+    {
+        "branchCode": "14",
+        "branchName": "CIVIL (CONSTRUCTION ENGINEERING & MANAGEMENT)"
+    },
+    {
+        "branchCode": "15",
+        "branchName": "CIVIL (CASAD)"
+    },
+    {
+        "branchCode": "16",
+        "branchName": "CHEMICAL ENGINEERING (COMPUTER AIDED PROCESS DESIGN)"
+    },
+    {
+        "branchCode": "17",
+        "branchName": "ENVIRONMENTAL ENGINEERING"
+    },
+    {
+        "branchCode": "18",
+        "branchName": "ENVIRONMENTAL MANAGEMENT"
+    },
+    {
+        "branchCode": "19",
+        "branchName": "CIVIL (TRANSPORTATION SYSTEM ENGINEERING)"
+    },
+    {
+        "branchCode": "20",
+        "branchName": "CIVIL (STRUCTURAL ENGINEERING)"
+    },
+    {
+        "branchCode": "21",
+        "branchName": "MECHANICAL (THERMAL ENGINEERING)"
+    },
+    {
+        "branchCode": "22",
+        "branchName": "ELECTRONICS AND COMMUNICATION (DIGITAL COMMUNICATIONS)"
+    },
+    {
+        "branchCode": "23",
+        "branchName": "INFORMATION TECHNOLOGY"
+    },
+    {
+        "branchCode": "24",
+        "branchName": "PLASTIC ENGINEERING"
+    },
+    {
+        "branchCode": "25",
+        "branchName": "TEXTILE ENGINEERING"
+    },
+    {
+        "branchCode": "26",
+        "branchName": "ELECTRONICS AND COMMUNICATION (SIGNAL PROCESSING AND VLSI TECHNOLOGY)"
+    },
+    {
+        "branchCode": "27",
+        "branchName": "ELECTRONICS AND COMMUNICATION (WIRELESS COMMUNICATION SYSTEMS AND NETWORKS)"
+    },
+    {
+        "branchCode": "28",
+        "branchName": "MECHANICAL (PRODUCTION ENGINEERING)"
+    },
+    {
+        "branchCode": "29",
+        "branchName": "POWER ELECTRONICS"
+    },
+    {
+        "branchCode": "30",
+        "branchName": "CHEMICAL ENGINEERING"
+    },
+    {
+        "branchCode": "31",
+        "branchName": "BIO-MEDICAL ENGINEERING"
+    },
+    {
+        "branchCode": "32",
+        "branchName": "CIVIL (COMPUTER AIDED STRUCTURAL ANALYSIS)"
+    },
+    {
+        "branchCode": "33",
+        "branchName": "CIVIL (WATER RESOURCES ENGINEERING)"
+    },
+    {
+        "branchCode": "34",
+        "branchName": "MECHANICAL (THERMAL SCIENCE)"
+    },
+    {
+        "branchCode": "35",
+        "branchName": "MECHANICAL (AUTOMOBILE ENGINEERING)"
+    },
+    {
+        "branchCode": "36",
+        "branchName": "ME ELECTRICAL (AUTOMATION AND CONTROL POWER SYSTEM)"
+    },
+    {
+        "branchCode": "37",
+        "branchName": "ELECTRICAL (POWER SYSTEM ENGINEERING)"
+    },
+    {
+        "branchCode": "38",
+        "branchName": "COMPUTER (COMPUTER SCIENCE & TECHNOLOGY)"
+    },
+    {
+        "branchCode": "39",
+        "branchName": "MECHANICAL (ENERGY ENGINEERING)"
+    },
+    {
+        "branchCode": "40",
+        "branchName": "RUBBER ENGINEERING"
+    },
+    {
+        "branchCode": "41",
+        "branchName": "ELECTRONICS AND COMMUNICATION (SIGNAL PROCESSING & COMMUNICATION)"
+    },
+    {
+        "branchCode": "42",
+        "branchName": "ELECTRONICS AND COMMUNICATION (VLSI SYSTEM DESIGN)"
+    },
+    {
+        "branchCode": "43",
+        "branchName": "CIVIL (GEOTECHNICAL ENGINEERING)"
+    },
+    {
+        "branchCode": "44",
+        "branchName": "ELECTRONICS AND COMMUNICATION (WIRELESS COMMUNICATION TECHNOLOGY)"
+    },
+    {
+        "branchCode": "45",
+        "branchName": "ELECTRICAL (POWER ELECTRONICS & ELECTRICAL DRIVES)"
+    },
+    {
+        "branchCode": "46",
+        "branchName": "MECHANICAL (INDUSTRIAL ENGINEERING)"
+    },
+    {
+        "branchCode": "47",
+        "branchName": "MECHATRONICS"
+    },
+    {
+        "branchCode": "48",
+        "branchName": "TOWN AND COUNTRY PLANNING"
+    },
+    {
+        "branchCode": "49",
+        "branchName": "CONSTRUCTION MANAGEMENT"
+    },
+    {
+        "branchCode": "50",
+        "branchName": "ADVANCED MANUFACTURING SYSTEM"
+    },
+    {
+        "branchCode": "51",
+        "branchName": "COMPUTER ENGINEERING (IT SYSTEMS AND NETWORK SECURITY)"
+    },
+    {
+        "branchCode": "52",
+        "branchName": "ELECTRONICS AND COMMUNICATION (VLSI & EMBEDDED SYSTEMS DESIGN)"
+    },
+    {
+        "branchCode": "53",
+        "branchName": "COMPUTER ENGINEERING (WIRELESS & MOBILE COMPUTING)"
+    },
+    {
+        "branchCode": "54",
+        "branchName": "ELECTRONICS AND COMMUNICATION (EMBEDDED SYSTEM)"
+    },
+    {
+        "branchCode": "55",
+        "branchName": "COMPUTER ENGINEERING (HIGH PERFORMANCE COMPUTING)"
+    },
+    {
+        "branchCode": "56",
+        "branchName": "COMPUTER ENGINEERING (SYSTEMS AND NETWORK SECURITY)"
+    },
+    {
+        "branchCode": "59",
+        "branchName": "COMPUTER ENGINEERING (CYBER SECURITY)"
+    },
+    {
+        "branchCode": "60",
+        "branchName": "ELECTRONICS AND COMMUNICATION ENGINEERING (MOBILE COMMUNICATION AND NETWORK TECHNOLOGY)"
+    },
+    {
+        "branchCode": "61",
+        "branchName": "EC (VLSI AND EMBEDDED SYSTEMS)"
+    },
+    {
+        "branchCode": "62",
+        "branchName": "COMPUTER (IOT)"
+    },
+    {
+        "branchCode": "94",
+        "branchName": "ME (MECH) ARMAMENT ENGINEERING"
+    }
+]

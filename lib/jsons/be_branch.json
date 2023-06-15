@@ -1,0 +1,292 @@
+[
+  {
+    "course": "BE",
+    "branch_code": "01",
+    "branch_name": "AERONAUTICAL ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "02",
+    "branch_name": "AUTOMOBILE ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "03",
+    "branch_name": "BIO-MEDICAL ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "04",
+    "branch_name": "BIO-TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "05",
+    "branch_name": "CHEMICAL ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "06",
+    "branch_name": "CIVIL ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "07",
+    "branch_name": "COMPUTER ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "08",
+    "branch_name": "ELECTRICAL & ELECTRONICS ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "09",
+    "branch_name": "ELECTRICAL ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "10",
+    "branch_name": "ELECTRONICS ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "11",
+    "branch_name": "ELECTRONICS & COMMUNICATION ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "12",
+    "branch_name": "ELECTRONICS & TELECOMMUNICATION ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "13",
+    "branch_name": "ENVIRONMENTAL ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "14",
+    "branch_name": "FOOD PROCESSING TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "15",
+    "branch_name": "INDUSTRIAL ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "16",
+    "branch_name": "INFORMATION TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "17",
+    "branch_name": "INSTRUMENTATION & CONTROL ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "18",
+    "branch_name": "MARINE ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "19",
+    "branch_name": "MECHANICAL ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "20",
+    "branch_name": "MECHATRONICS ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "21",
+    "branch_name": "METALLURGY ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "22",
+    "branch_name": "MINING ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "23",
+    "branch_name": "PLASTIC TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "24",
+    "branch_name": "POWER ELECTRONICS"
+  },
+  {
+    "course": "BE",
+    "branch_code": "25",
+    "branch_name": "PRODUCTION ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "26",
+    "branch_name": "RUBBER TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "28",
+    "branch_name": "TEXTILE PROCESSING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "29",
+    "branch_name": "TEXTILE TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "31",
+    "branch_name": "COMPUTER SCIENCE & ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "32",
+    "branch_name": "INFORMATION & COMMUNICATION TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "34",
+    "branch_name": "MANUFACTURING ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "35",
+    "branch_name": "ENVIRONMENTAL SCIENCE & TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "36",
+    "branch_name": "CHEMICAL TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "37",
+    "branch_name": "ENVIRONMENTAL SCIENCE AND ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "39",
+    "branch_name": "NANO TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "40",
+    "branch_name": "CIVIL & INFRASTRUCTURE ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "41",
+    "branch_name": "ROBOTICS AND AUTOMATION"
+  },
+  {
+    "course": "BE",
+    "branch_code": "42",
+    "branch_name": "COMPUTER SCIENCE & ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)"
+  },
+  {
+    "course": "BE",
+    "branch_code": "43",
+    "branch_name": "ARTIFICIAL INTELLIGENCE AND DATA SCIENCE"
+  },
+  {
+    "course": "BE",
+    "branch_code": "44",
+    "branch_name": "CHEMICAL ENGINEERING (GREEN TECHNOLOGY & SUSTAINABILITY ENGINEERING)"
+  },
+  {
+    "course": "BE",
+    "branch_code": "45",
+    "branch_name": "COMPUTER SCIENCE & ENGINEERING (INTERNET OF THINGS AND CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLO"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AA",
+    "branch_name": "MINOR/HONORS -INDUSTRIAL PROCESS SAFETY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AB",
+    "branch_name": "MINOR/HONORS -WASTE TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AC",
+    "branch_name": "MINOR/HONORS -CONSTRUCTION TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AD",
+    "branch_name": "MINOR/HONORS -NEXT GENERATION SMART VILLAGE"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AE",
+    "branch_name": "MINOR/HONORS -INFRASTRUCTURE ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AF",
+    "branch_name": "MINOR/HONORS -SMART CITIES"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AG",
+    "branch_name": "MINOR/HONORS -ARTIFICIAL INTELLIGENCE & MACHINE LEARNING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AH",
+    "branch_name": "MINOR/HONORS -CYBER SECURITY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AI",
+    "branch_name": "MINOR/HONORS -INTERNET OF THINGS"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AJ",
+    "branch_name": "MINOR/HONORS - Solar energy systems"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AK",
+    "branch_name": "MINOR/HONORS -ELECTRICAL AND COMPUTER"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AL",
+    "branch_name": "MINOR/HONORS -ELECTRIC VEHICLES"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AM",
+    "branch_name": "MINOR/HONORS -CONTROL SYSTEMS AND SENSORS TECHNOLOGY"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AN",
+    "branch_name": "MINOR/HONORS -3 D PRINTING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AO",
+    "branch_name": "MINOR/HONORS -ROBOTICS"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AP",
+    "branch_name": "MINOR/HONORS -ENERGY ENGINEERING"
+  },
+  {
+    "course": "BE",
+    "branch_code": "AQ",
+    "branch_name": "MINOR/HONORS - Global Citizenship Personality Development"
+  }
+]

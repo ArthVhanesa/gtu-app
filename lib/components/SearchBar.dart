@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gtu_app/style.dart';
+
+import 'package:gtu_app/style/style.dart';
 
 class SearchBar extends StatelessWidget {
-  final AppColors _colors = AppColors();
-  final FontStyle _fontStyle = FontStyle();
+  final TextEditingController searchInputController;
 
-  final TextEditingController _subjectCode = TextEditingController();
+  void Function() onTap;
+  void Function(String) onSubmitted;
 
-  SearchBar({super.key});
+  SearchBar({
+    Key? key,
+    required this.searchInputController,
+    required this.onTap,
+    required this.onSubmitted,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +24,17 @@ class SearchBar extends StatelessWidget {
           child: Container(
               height: 48,
               decoration: BoxDecoration(
-                color: _colors.whiteColor,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                color: AppColors.whiteColor,
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
               ),
               child: Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 child: TextField(
-                  controller: _subjectCode,
+                  controller: searchInputController,
+                  onSubmitted: onSubmitted,
+                  textInputAction: TextInputAction.done,
                   maxLength: 7,
-                  style: _fontStyle.montserrat(16, FontWeight.normal),
+                  style: FontStyle.montserrat(16, FontWeight.normal),
                   inputFormatters: <TextInputFormatter>[
                     FilteringTextInputFormatter.allow(RegExp("[0-9]"))
                   ],
@@ -41,19 +49,23 @@ class SearchBar extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        InkWell(
-          onTap: () => print(_subjectCode.text),
-          child: Container(
-            height: 48,
-            width: 48,
-            decoration: BoxDecoration(
-              color: _colors.primaryColor,
+        Container(
+          height: 48,
+          width: 48,
+          decoration: BoxDecoration(
+            color: AppColors.primaryColor,
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+          ),
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
-            ),
-            child: Icon(
-              Icons.search,
-              color: _colors.whiteColor,
-              size: 30,
+              onTap: onTap,
+              child: Icon(
+                Icons.search,
+                color: AppColors.whiteColor,
+                size: 30,
+              ),
             ),
           ),
         )
