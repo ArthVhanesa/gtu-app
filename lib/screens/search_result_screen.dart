@@ -15,9 +15,9 @@ import 'package:gtu_app/controllers/syllabus_controller.dart';
 import 'package:gtu_app/data/card_data.dart';
 import 'package:gtu_app/models/papers_model.dart';
 import 'package:gtu_app/models/syllabus_model.dart';
-import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/style/style.dart';
 
+// ignore: must_be_immutable
 class SearchResultScreen extends StatefulWidget {
   String searchInput;
   SearchResultScreen({

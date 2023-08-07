@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -84,6 +83,7 @@ class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
   }
 }
 
+// ignore: must_be_immutable
 class InputSection2 extends StatelessWidget {
   late final TextEditingController _controller;
   late TextStyle style;

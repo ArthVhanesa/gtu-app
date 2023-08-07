@@ -1,6 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,6 +25,7 @@ class ShowEditDialog {
   }
 }
 
+// ignore: must_be_immutable
 class EditDialog extends StatelessWidget {
   bool isNameEditDialog;
   bool isEnrollmentEditDialog;

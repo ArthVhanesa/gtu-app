@@ -11,7 +11,6 @@ import 'package:gtu_app/components/header.dart';
 import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/data/card_data.dart';
 import 'package:gtu_app/style/style.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -201,6 +200,7 @@ class _SettingScreenState extends State<SettingScreen> {
   }
 }
 
+// ignore: must_be_immutable
 class SettingMenu extends StatelessWidget {
   String title;
   String firstMenuTitle;

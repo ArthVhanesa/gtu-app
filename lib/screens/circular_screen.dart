@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gtu_app/components/no_data_found.dart';
-import 'package:gtu_app/provider/globals.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 import 'package:gtu_app/components/common_tile.dart';

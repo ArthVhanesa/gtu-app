@@ -31,7 +31,7 @@ class AcademicCalenderModel {
 }
 
 class Ptags {
-  Null? ptext;
+  Null ptext;
   List<Atags>? atags;
 
   Ptags({this.ptext, this.atags});

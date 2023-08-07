@@ -7,6 +7,7 @@ import 'package:gtu_app/style/style.dart';
 import 'package:gtu_app/utils/custome_tab.dart';
 import 'package:gtu_app/utils/screen_router.dart';
 
+// ignore: must_be_immutable
 class RectangleCard extends StatelessWidget {
   final CardData card;
 

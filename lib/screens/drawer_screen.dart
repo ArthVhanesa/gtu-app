@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
-import 'package:gtu_app/controllers/internet_status_controller.dart';
 
 import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/data/menu_item.dart';

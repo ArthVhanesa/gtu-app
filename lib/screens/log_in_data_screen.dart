@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +5,6 @@ import 'package:gtu_app/app_data.dart';
 
 import 'package:gtu_app/components/text_input.dart';
 import 'package:gtu_app/controllers/sign_in_controller.dart';
-import 'package:gtu_app/screens/drawer_screen.dart';
 import 'package:gtu_app/style/style.dart';
 import 'package:gtu_app/utils/launch_url.dart';
 

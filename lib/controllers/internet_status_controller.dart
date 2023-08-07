@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:gtu_app/components/custom_snackbar.dart';
-import 'package:gtu_app/provider/globals.dart';
 
 class InternetController extends GetxController {
   late final subscription;

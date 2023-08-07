@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gtu_app/app_data.dart';
-import 'package:gtu_app/components/custom_loading_indicator.dart';
 
 import 'package:gtu_app/controllers/sign_in_controller.dart';
 import 'package:gtu_app/style/image.dart';

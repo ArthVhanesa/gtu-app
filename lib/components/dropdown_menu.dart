@@ -26,7 +26,6 @@ class _DropDownMenuState extends State<DropDownMenu> {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle style = FontStyle.montserrat(16, FontWeight.w600);
 
     return Container(
       height: 48,

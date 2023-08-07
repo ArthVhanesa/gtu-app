@@ -6,6 +6,7 @@ import 'package:gtu_app/models/syllabus_model.dart';
 import 'package:gtu_app/style/style.dart';
 import 'package:gtu_app/utils/launch_tab.dart';
 
+// ignore: must_be_immutable
 class SyllabusTile extends StatelessWidget {
   SyllabusModel syllabus;
 
@@ -77,6 +78,7 @@ class SyllabusTile extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class ModalBottomSheet extends StatelessWidget {
   SyllabusModel syllabus;
 

@@ -5,6 +5,7 @@ import 'package:gtu_app/models/papers_model.dart';
 import 'package:gtu_app/style/style.dart';
 import 'package:gtu_app/utils/pdf_viewer.dart';
 
+// ignore: must_be_immutable
 class QuestionPaperTile extends StatelessWidget {
   QuestionPaperModel questionPaper;
 

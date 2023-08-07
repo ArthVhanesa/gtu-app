@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gtu_app/models/timetable_model.dart';
 import 'package:gtu_app/style/style.dart';
 
+// ignore: must_be_immutable
 class ExamTimetableTile extends StatelessWidget {
   TimeTableModel data;
 
