@@ -9,8 +9,8 @@ import 'package:gtu_app/components/no_data_found.dart';
 import 'package:gtu_app/components/powered_by_astron_apps.dart';
 import 'package:gtu_app/components/question_paper_tile.dart';
 import 'package:gtu_app/components/search_now.dart';
-import 'package:gtu_app/components/searchbar.dart';
 import 'package:gtu_app/controllers/papers_controller.dart';
+import 'package:gtu_app/components/CustomSearchBar.dart';
 import 'package:gtu_app/data/card_data.dart';
 import 'package:gtu_app/models/papers_model.dart';
 import 'package:gtu_app/provider/globals.dart';
@@ -46,7 +46,7 @@ class _QuestionPaperScreenState extends State<QuestionPaperScreen> {
               ),
               Padding(
                 padding: padding,
-                child: SearchBar(
+                child: CustomSearchBar(
                   searchInputController: questionPaperInputController,
                   onTap: () {
                     questionPaperController

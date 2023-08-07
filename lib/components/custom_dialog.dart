@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:gtu_app/style/image.dart';
 import 'package:gtu_app/style/style.dart';
 
+// ignore: must_be_immutable
 class CustomDialog extends StatelessWidget {
   String title;
   String message;

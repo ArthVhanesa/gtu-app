@@ -24,6 +24,7 @@ class SnackBarType {
 }
 
 // Custome snackbar without get
+// ignore: must_be_immutable
 class CustomSnackBarWithoutGet extends StatelessWidget {
   String title;
   String message;

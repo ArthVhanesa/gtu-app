@@ -3,12 +3,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:gtu_app/components/CustomSearchBar.dart';
 import 'package:gtu_app/components/custom_loading_indicator.dart';
 import 'package:gtu_app/components/header.dart';
 import 'package:gtu_app/components/heading.dart';
 import 'package:gtu_app/components/no_data_found.dart';
 import 'package:gtu_app/components/powered_by_astron_apps.dart';
-import 'package:gtu_app/components/searchbar.dart';
 import 'package:gtu_app/components/syllabus_tile.dart';
 import 'package:gtu_app/controllers/syllabus_controller.dart';
 import 'package:gtu_app/data/card_data.dart';
@@ -50,7 +50,7 @@ class _SyllabusScreenState extends State<SyllabusScreen> {
             ),
             Padding(
               padding: padding,
-              child: SearchBar(
+              child: CustomSearchBar(
                 searchInputController: _syllabusInputController,
                 onTap: () {
                   _syllabusController

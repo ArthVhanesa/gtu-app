@@ -3,13 +3,14 @@ import 'package:flutter/services.dart';
 
 import 'package:gtu_app/style/style.dart';
 
-class SearchBar extends StatelessWidget {
+// ignore: must_be_immutable
+class CustomSearchBar extends StatelessWidget {
   final TextEditingController searchInputController;
 
   void Function() onTap;
   void Function(String) onSubmitted;
 
-  SearchBar({
+  CustomSearchBar({
     Key? key,
     required this.searchInputController,
     required this.onTap,

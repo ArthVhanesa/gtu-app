@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:gtu_app/style/style.dart';
 
+// ignore: must_be_immutable
 class DropDownMenu extends StatefulWidget {
   List<dynamic> item;
   String hintText;
